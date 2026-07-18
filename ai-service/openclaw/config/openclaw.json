@@ -1,0 +1,26 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "./workspace",
+      "sandbox": false,
+      "model": "gemini-flash"
+    },
+    "list": [
+      {
+        "id": "kitchensync-manager",
+        "name": "KitchenSync Manager",
+        "emoji": "👨‍🍳",
+        "description": "Orchestrates BOH restaurant optimization workflows, printing queues, and supplier communications.",
+        "workspace": "./workspace/kitchensync-manager"
+      }
+    ]
+  },
+  "models": {
+    "providers": {
+      "gemini": {
+        "apiKey": "ENV_GEMINI_API_KEY",
+        "defaultModel": "gemini-2.5-flash"
+      }
+    }
+  }
+}

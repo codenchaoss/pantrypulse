@@ -1,0 +1,449 @@
+{
+  "overall_status": "FAIL",
+  "project_health_score": "75%",
+  "performance_metrics": {
+    "total_knowledge_records": 4040,
+    "total_chunks_generated": 3905,
+    "embedding_dimension": 384,
+    "faiss_total_vectors": 3905,
+    "average_retrieval_time_seconds": 0.07768213748931885,
+    "memory_usage_estimate": "Minimal (<50MB index footprint)"
+  },
+  "step_verifications": {
+    "step_1": {
+      "status": "PASS",
+      "details": {
+        "python_version": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+        "virtual_env": "E:\\TCWING_PRJ\\.venv",
+        "declared_dependencies": [
+          "fastapi>=0.110.0",
+          "uvicorn[standard]>=0.28.0",
+          "pydantic>=2.6.0",
+          "pydantic-settings>=2.2.0",
+          "langchain>=0.1.13",
+          "langchain-community>=0.0.29",
+          "langchain-core>=0.1.33",
+          "langgraph>=0.0.30",
+          "faiss-cpu>=1.8.0",
+          "sentence-transformers>=2.6.0",
+          "boto3>=1.34.0",
+          "pytest>=8.1.0",
+          "httpx>=0.27.0"
+        ],
+        "installed_libraries": {
+          "fastapi": {
+            "installed": true,
+            "version": "0.139.0"
+          },
+          "uvicorn": {
+            "installed": true,
+            "version": "0.51.0"
+          },
+          "pydantic": {
+            "installed": true,
+            "version": "2.13.4"
+          },
+          "sentence_transformers": {
+            "installed": true,
+            "version": "5.6.0"
+          },
+          "faiss": {
+            "installed": true,
+            "version": "1.14.3"
+          },
+          "httpx": {
+            "installed": true,
+            "version": "0.28.1"
+          }
+        }
+      }
+    },
+    "step_2": {
+      "status": "PASS",
+      "details": {
+        "recipes.json": {
+          "exists": true,
+          "valid_json": true,
+          "encoding": "utf-8",
+          "size_bytes": 1033507,
+          "records_count": 500
+        },
+        "ingredients.json": {
+          "exists": true,
+          "valid_json": true,
+          "encoding": "utf-8",
+          "size_bytes": 509252,
+          "records_count": 1614
+        },
+        "pairing.json": {
+          "exists": true,
+          "valid_json": true,
+          "encoding": "utf-8",
+          "size_bytes": 26182,
+          "records_count": 135
+        },
+        "chef_notes.json": {
+          "exists": true,
+          "valid_json": true,
+          "encoding": "utf-8",
+          "size_bytes": 14331,
+          "records_count": 90
+        },
+        "suppliers.json": {
+          "exists": true,
+          "valid_json": true,
+          "encoding": "utf-8",
+          "size_bytes": 15320,
+          "records_count": 35
+        },
+        "seasonal.json": {
+          "exists": true,
+          "valid_json": true,
+          "encoding": "utf-8",
+          "size_bytes": 25464,
+          "records_count": 52
+        },
+        "safety.json": {
+          "exists": true,
+          "valid_json": true,
+          "encoding": "utf-8",
+          "size_bytes": 275193,
+          "records_count": 1614
+        }
+      }
+    },
+    "step_3": {
+      "status": "PASS",
+      "details": {
+        "total_chunks_count": 3905,
+        "recipes_chunks.json": {
+          "exists": true,
+          "valid_schema": true,
+          "count": 500
+        },
+        "ingredient_chunks.json": {
+          "exists": true,
+          "valid_schema": true,
+          "count": 1614
+        },
+        "supplier_chunks.json": {
+          "exists": true,
+          "valid_schema": true,
+          "count": 35
+        },
+        "chef_chunks.json": {
+          "exists": true,
+          "valid_schema": true,
+          "count": 90
+        },
+        "safety_chunks.json": {
+          "exists": true,
+          "valid_schema": true,
+          "count": 1614
+        },
+        "seasonal_chunks.json": {
+          "exists": true,
+          "valid_schema": true,
+          "count": 52
+        }
+      }
+    },
+    "step_4": {
+      "status": "PASS",
+      "details": {
+        "load_time_seconds": 17.529380321502686,
+        "model_loaded": true,
+        "dimension": 384,
+        "sample_embedding_len": 384,
+        "singleton_load_time_seconds": 0.0011718273162841797,
+        "singleton_verified": true
+      }
+    },
+    "step_5": {
+      "status": "PASS",
+      "details": {
+        "build_time_seconds": 0.6199479103088379,
+        "build_success": true,
+        "faiss_index_exists": true,
+        "metadata_pkl_exists": true,
+        "metadata_json_exists": true,
+        "embeddings_cache_exists": true,
+        "vector_count": 3905,
+        "metadata_records_count": 3905,
+        "json_records_count": 3905,
+        "json_vector_positions_verified": true
+      }
+    },
+    "step_6": {
+      "status": "PASS",
+      "details": {
+        "queries": {
+          "Need spicy chicken recipes": {
+            "retrieved_count": 5,
+            "time_seconds": 0.14059066772460938,
+            "chunks": [
+              {
+                "chunk_id": "CHK000104",
+                "document_id": "R1103",
+                "title": "Chicken Curry",
+                "score": 0.7821,
+                "source": "recipes",
+                "metadata": {
+                  "preparation_time": 107,
+                  "calories": 360,
+                  "knowledge_type": "recipe"
+                }
+              },
+              {
+                "chunk_id": "CHK000007",
+                "document_id": "R1006",
+                "title": "Warm Chicken A La King",
+                "score": 0.7762,
+                "source": "recipes",
+                "metadata": {
+                  "preparation_time": 38,
+                  "calories": 895,
+                  "knowledge_type": "recipe"
+                }
+              },
+              {
+                "chunk_id": "CHK000370",
+                "document_id": "R1369",
+                "title": "Spicy Lemon Chicken Kebab Recipe",
+                "score": 0.7673,
+                "source": "recipes",
+                "metadata": {
+                  "preparation_time": 90,
+                  "calories": 610,
+                  "knowledge_type": "recipe"
+                }
+              },
+              {
+                "chunk_id": "CHK000057",
+                "document_id": "R1056",
+                "title": "Braised Chicken With Onions And Tomatoes",
+                "score": 0.7658,
+                "source": "recipes",
+                "metadata": {
+                  "preparation_time": 62,
+                  "calories": 184,
+                  "knowledge_type": "recipe"
+                }
+              },
+              {
+                "chunk_id": "CHK000136",
+                "document_id": "R1135",
+                "title": "Chinese Chicken",
+                "score": 0.7552,
+                "source": "recipes",
+                "metadata": {
+                  "preparation_time": 115,
+                  "calories": 373,
+                  "knowledge_type": "recipe"
+                }
+              }
+            ]
+          },
+          "Need seafood recipes": {
+            "retrieved_count": 5,
+            "time_seconds": 0.05461692810058594,
+            "chunks": [
+              {
+                "chunk_id": "SEAS033",
+                "document_id": "SEAS033",
+                "title": "Summer Week 33",
+                "score": 0.7394,
+                "source": "seasonal",
+                "metadata": {
+                  "knowledge_type": "seasonal"
+                }
+              },
+              {
+                "chunk_id": "SEAS035",
+                "document_id": "SEAS035",
+                "title": "Summer Week 35",
+                "score": 0.7376,
+                "source": "seasonal",
+                "metadata": {
+                  "knowledge_type": "seasonal"
+                }
+              },
+              {
+                "chunk_id": "SEAS030",
+                "document_id": "SEAS030",
+                "title": "Summer Week 30",
+                "score": 0.7373,
+                "source": "seasonal",
+                "metadata": {
+                  "knowledge_type": "seasonal"
+                }
+              },
+              {
+                "chunk_id": "CHK000139",
+                "document_id": "R1138",
+                "title": "Clam - Lobster Bake",
+                "score": 0.737,
+                "source": "recipes",
+                "metadata": {
+                  "preparation_time": 475,
+                  "calories": 990,
+                  "knowledge_type": "recipe"
+                }
+              },
+              {
+                "chunk_id": "CHK000341",
+                "document_id": "R1340",
+                "title": "Spicy Seafood Stew Casserole With Tomatoes And Lime Recipe",
+                "score": 0.7336,
+                "source": "recipes",
+                "metadata": {
+                  "preparation_time": 65,
+                  "calories": 740,
+                  "knowledge_type": "recipe"
+                }
+              }
+            ]
+          },
+          "How should salmon be stored?": {
+            "retrieved_count": 5,
+            "time_seconds": 0.05613374710083008,
+            "chunks": [
+              {
+                "chunk_id": "ING1324",
+                "document_id": "ING1324",
+                "title": "smoked salmon",
+                "score": 0.7782,
+                "source": "ingredients",
+                "metadata": {
+                  "knowledge_type": "ingredient"
+                }
+              },
+              {
+                "chunk_id": "ING1353",
+                "document_id": "ING1353",
+                "title": "salmon salad",
+                "score": 0.7587,
+                "source": "ingredients",
+                "metadata": {
+                  "knowledge_type": "ingredient"
+                }
+              },
+              {
+                "chunk_id": "ING1557",
+                "document_id": "ING1557",
+                "title": "cod fish fillet",
+                "score": 0.7056,
+                "source": "ingredients",
+                "metadata": {
+                  "knowledge_type": "ingredient"
+                }
+              },
+              {
+                "chunk_id": "SAFE006",
+                "document_id": "SAFE006",
+                "title": "Onion",
+                "score": 0.6872,
+                "source": "safety",
+                "metadata": {
+                  "knowledge_type": "safety"
+                }
+              },
+              {
+                "chunk_id": "ING1724",
+                "document_id": "ING1724",
+                "title": "Water - as needed",
+                "score": 0.6731,
+                "source": "ingredients",
+                "metadata": {
+                  "knowledge_type": "ingredient"
+                }
+              }
+            ]
+          },
+          "Need butter supplier": {
+            "retrieved_count": 5,
+            "time_seconds": 0.05938720703125,
+            "chunks": [
+              {
+                "chunk_id": "SUP009",
+                "document_id": "SUP009",
+                "title": "Mother Dairy Wholesalers (Bangalore)",
+                "score": 0.7499,
+                "source": "suppliers",
+                "metadata": {
+                  "knowledge_type": "supplier"
+                }
+              },
+              {
+                "chunk_id": "SUP035",
+                "document_id": "SUP035",
+                "title": "Mother Dairy Wholesalers (Kolkata)",
+                "score": 0.7332,
+                "source": "suppliers",
+                "metadata": {
+                  "knowledge_type": "supplier"
+                }
+              },
+              {
+                "chunk_id": "SUP008",
+                "document_id": "SUP008",
+                "title": "Gourmet Dairy Corp (Hyderabad)",
+                "score": 0.7125,
+                "source": "suppliers",
+                "metadata": {
+                  "knowledge_type": "supplier"
+                }
+              },
+              {
+                "chunk_id": "ING2039",
+                "document_id": "ING2039",
+                "title": "Butter - as required",
+                "score": 0.6983,
+                "source": "ingredients",
+                "metadata": {
+                  "knowledge_type": "ingredient"
+                }
+              },
+              {
+                "chunk_id": "ING1744",
+                "document_id": "ING1744",
+                "title": "/2 tablespoon Butter",
+                "score": 0.698,
+                "source": "ingredients",
+                "metadata": {
+                  "knowledge_type": "ingredient"
+                }
+              }
+            ]
+          }
+        },
+        "average_retrieval_time_seconds": 0.07768213748931885
+      }
+    },
+    "step_8": {
+      "status": "FAIL",
+      "details": {
+        "ollama_active": false,
+        "llama3_available": false,
+        "error": "[WinError 10061] No connection could be made because the target machine actively refused it",
+        "client_health_check": {
+          "status": "offline",
+          "message": "Ollama service is not running.",
+          "suggestion": [
+            "Run: ollama serve",
+            "Run: ollama pull llama3"
+          ]
+        }
+      }
+    },
+    "step_7_and_9": {
+      "status": "FAIL",
+      "details": {
+        "execution_time_seconds": 5.012174129486084,
+        "response_received": false,
+        "response_text": null,
+        "retrieved_documents_count": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,4632 @@
+[
+  {
+    "ingredient": "Salt - To Taste",
+    "pairs": [
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Red Chilli",
+      "Onion -",
+      "/2 Teaspoon Cumin Seeds (Jeera)",
+      "Sprig Curry"
+    ]
+  },
+  {
+    "ingredient": "Salt",
+    "pairs": [
+      "Egg",
+      "Sugar",
+      "Butter",
+      "Flour",
+      "Milk"
+    ]
+  },
+  {
+    "ingredient": "Sugar",
+    "pairs": [
+      "Salt",
+      "Egg",
+      "Butter",
+      "Flour",
+      "Baking"
+    ]
+  },
+  {
+    "ingredient": "Butter",
+    "pairs": [
+      "Salt",
+      "Sugar",
+      "Flour",
+      "Egg",
+      "Milk"
+    ]
+  },
+  {
+    "ingredient": "Egg",
+    "pairs": [
+      "Salt",
+      "Sugar",
+      "Butter",
+      "Flour",
+      "Baking"
+    ]
+  },
+  {
+    "ingredient": "Onion",
+    "pairs": [
+      "Salt",
+      "Garlic",
+      "Butter",
+      "Pepper",
+      "Olive Oil"
+    ]
+  },
+  {
+    "ingredient": "Garlic",
+    "pairs": [
+      "Onion",
+      "Salt",
+      "Olive Oil",
+      "Pepper",
+      "Butter"
+    ]
+  },
+  {
+    "ingredient": "Flour",
+    "pairs": [
+      "Butter",
+      "Salt",
+      "Egg",
+      "Sugar",
+      "Baking"
+    ]
+  },
+  {
+    "ingredient": "Milk",
+    "pairs": [
+      "Salt",
+      "Butter",
+      "Egg",
+      "Sugar",
+      "Flour"
+    ]
+  },
+  {
+    "ingredient": "Water",
+    "pairs": [
+      "Sugar",
+      "Salt",
+      "Butter",
+      "Egg",
+      "Flour"
+    ]
+  },
+  {
+    "ingredient": "Baking",
+    "pairs": [
+      "Salt",
+      "Egg",
+      "Sugar",
+      "Flour",
+      "Butter"
+    ]
+  },
+  {
+    "ingredient": "Pepper",
+    "pairs": [
+      "Salt",
+      "Garlic",
+      "Onion",
+      "Olive Oil",
+      "Milk"
+    ]
+  },
+  {
+    "ingredient": "/2 Teaspoon Turmeric Powder (Haldi)",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Red Chilli",
+      "/2 Teaspoon Cumin Seeds (Jeera)",
+      "Teaspoon Coriander Powder (Dhania)",
+      "Sprig Curry"
+    ]
+  },
+  {
+    "ingredient": "Lemon Juice",
+    "pairs": [
+      "Salt",
+      "Sugar",
+      "Garlic",
+      "Butter",
+      "Onion"
+    ]
+  },
+  {
+    "ingredient": "Olive Oil",
+    "pairs": [
+      "Garlic",
+      "Pepper",
+      "Onion",
+      "Salt",
+      "Parsley"
+    ]
+  },
+  {
+    "ingredient": "All-Purpose Flour",
+    "pairs": [
+      "Salt",
+      "Egg",
+      "Sugar",
+      "Baking",
+      "Baking Soda"
+    ]
+  },
+  {
+    "ingredient": "Vanilla",
+    "pairs": [
+      "Sugar",
+      "Egg",
+      "Salt",
+      "Butter",
+      "Flour"
+    ]
+  },
+  {
+    "ingredient": "Margarine",
+    "pairs": [
+      "Butter",
+      "Salt",
+      "Egg",
+      "Sugar",
+      "Flour"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Red Chilli",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "/2 Teaspoon Cumin Seeds (Jeera)",
+      "Teaspoon Coriander Powder (Dhania)",
+      "Teaspoon Turmeric Powder (Haldi)"
+    ]
+  },
+  {
+    "ingredient": "Onion -",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Tomato -",
+      "Cloves Garlic -",
+      "/2 Teaspoon Cumin Seeds (Jeera)"
+    ]
+  },
+  {
+    "ingredient": "Vanilla Extract",
+    "pairs": [
+      "Egg",
+      "Salt",
+      "Sugar",
+      "Cinnamon",
+      "All-Purpose Flour"
+    ]
+  },
+  {
+    "ingredient": "Brown Sugar",
+    "pairs": [
+      "Butter",
+      "Salt",
+      "All-Purpose Flour",
+      "Egg",
+      "Flour"
+    ]
+  },
+  {
+    "ingredient": "Cinnamon",
+    "pairs": [
+      "Sugar",
+      "Salt",
+      "Egg",
+      "Vanilla Extract",
+      "Baking"
+    ]
+  },
+  {
+    "ingredient": "/2 Teaspoon Cumin Seeds (Jeera)",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Red Chilli",
+      "/2 Teaspoon Mustard Seed",
+      "Teaspoon Coriander Powder (Dhania)"
+    ]
+  },
+  {
+    "ingredient": "Parsley",
+    "pairs": [
+      "Salt",
+      "Garlic",
+      "Olive Oil",
+      "Onion",
+      "Butter"
+    ]
+  },
+  {
+    "ingredient": "Sprig Curry",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Mustard Seed",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "/4 Teaspoon Asafoetida (Hing)",
+      "Dry Red Chillie"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Coriander Powder (Dhania)",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Red Chilli",
+      "/2 Teaspoon Cumin Seeds (Jeera)",
+      "Teaspoon Cumin Powder (Jeera)"
+    ]
+  },
+  {
+    "ingredient": "Baking Soda",
+    "pairs": [
+      "Egg",
+      "Sugar",
+      "Salt",
+      "Baking",
+      "All-Purpose Flour"
+    ]
+  },
+  {
+    "ingredient": "Unsalted Butter",
+    "pairs": [
+      "Salt",
+      "Egg",
+      "Sugar",
+      "All-Purpose Flour",
+      "Heavy Cream"
+    ]
+  },
+  {
+    "ingredient": "Carrot",
+    "pairs": [
+      "Salt",
+      "Onion",
+      "Celery",
+      "Baking",
+      "Egg"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Mustard Seed",
+    "pairs": [
+      "Salt - To Taste",
+      "Sprig Curry",
+      "/4 Teaspoon Asafoetida (Hing)",
+      "Dry Red Chillie",
+      "/2 Teaspoon Cumin Seeds (Jeera)"
+    ]
+  },
+  {
+    "ingredient": "Dry Red Chillie",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Sprig Curry",
+      "Teaspoon Cumin Seeds (Jeera)",
+      "Tomato -"
+    ]
+  },
+  {
+    "ingredient": "Onion - Finely",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Cumin Seeds (Jeera)",
+      "Green Chillies - Finely",
+      "Inch Ginger - Grated",
+      "/2 Teaspoon Turmeric Powder (Haldi)"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Cumin Seeds (Jeera)",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Red Chilli",
+      "Onion - Finely",
+      "Dry Red Chillie"
+    ]
+  },
+  {
+    "ingredient": "Celery",
+    "pairs": [
+      "Salt",
+      "Onion",
+      "Carrot",
+      "Butter",
+      "Mayonnaise"
+    ]
+  },
+  {
+    "ingredient": "Cornstarch",
+    "pairs": [
+      "Salt",
+      "Sugar",
+      "Butter",
+      "Milk",
+      "Water"
+    ]
+  },
+  {
+    "ingredient": "Nutmeg",
+    "pairs": [
+      "Egg",
+      "Salt",
+      "Butter",
+      "Sugar",
+      "Milk"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Cumin Powder (Jeera)",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Coriander Powder (Dhania)",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Red Chilli",
+      "/2 Teaspoon Cumin Seeds (Jeera)"
+    ]
+  },
+  {
+    "ingredient": "/4 Teaspoon Turmeric Powder (Haldi)",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Cumin Seeds (Jeera)",
+      "Teaspoons Sunflower Oil",
+      "/2 Teaspoon Mustard Seed",
+      "Onion - Finely"
+    ]
+  },
+  {
+    "ingredient": "Chicken",
+    "pairs": [
+      "Salt",
+      "Onion",
+      "Flour",
+      "Butter",
+      "Garlic"
+    ]
+  },
+  {
+    "ingredient": "/4 Teaspoon Asafoetida (Hing)",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Mustard Seed",
+      "Sprig Curry",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Cumin Seeds (Jeera)"
+    ]
+  },
+  {
+    "ingredient": "Tomatoe",
+    "pairs": [
+      "Salt",
+      "Garlic",
+      "Onion",
+      "Olive Oil",
+      "Cilantro"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Turmeric Powder (Haldi)",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Red Chilli",
+      "Cloves (Laung)",
+      "/2 Teaspoon Cumin Seeds (Jeera)",
+      "Inch Cinnamon Stick (Dalchini)"
+    ]
+  },
+  {
+    "ingredient": "Cloves (Laung)",
+    "pairs": [
+      "Salt - To Taste",
+      "Cardamom (Elaichi) Pods/Seed",
+      "Inch Cinnamon Stick (Dalchini)",
+      "Bay Leaf (Tej Patta)",
+      "Cloves Garlic"
+    ]
+  },
+  {
+    "ingredient": "Ginger",
+    "pairs": [
+      "Salt",
+      "Butter",
+      "Onion",
+      "Garlic",
+      "Nutmeg"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Garam Masala",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Red Chilli",
+      "Teaspoon Cumin Seeds (Jeera)",
+      "Teaspoon Coriander Powder (Dhania)"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Sunflower Oil",
+    "pairs": [
+      "Salt - To Taste",
+      "Dry Red Chillie",
+      "/2 Teaspoon Mustard Seed",
+      "/4 Teaspoon Asafoetida (Hing)",
+      "Teaspoon Mustard Seed"
+    ]
+  },
+  {
+    "ingredient": "Cardamom (Elaichi) Pods/Seed",
+    "pairs": [
+      "Salt - To Taste",
+      "Cloves (Laung)",
+      "Inch Cinnamon Stick (Dalchini)",
+      "Bay Leaf (Tej Patta)",
+      "/2 Teaspoon Turmeric Powder (Haldi)"
+    ]
+  },
+  {
+    "ingredient": "Pecan",
+    "pairs": [
+      "Vanilla Extract",
+      "Egg",
+      "Sugar",
+      "Butter",
+      "Salt"
+    ]
+  },
+  {
+    "ingredient": "Parmesan Cheese",
+    "pairs": [
+      "Salt",
+      "Mozzarella Cheese",
+      "Garlic",
+      "Pepper",
+      "Olive Oil"
+    ]
+  },
+  {
+    "ingredient": "Sour Cream",
+    "pairs": [
+      "Butter",
+      "Salt",
+      "Egg",
+      "Sugar",
+      "Pepper"
+    ]
+  },
+  {
+    "ingredient": "Curry",
+    "pairs": [
+      "Onion",
+      "Butter",
+      "Salt",
+      "Garlic",
+      "Ginger"
+    ]
+  },
+  {
+    "ingredient": "/2 Teaspoon Mustard Seed",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Cumin Seeds (Jeera)",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Red Chilli",
+      "/4 Teaspoon Methi Seeds (Fenugreek Seeds)"
+    ]
+  },
+  {
+    "ingredient": "Cloves Garlic -",
+    "pairs": [
+      "Salt - To Taste",
+      "Onion -",
+      "Inch Ginger -",
+      "Tomato -",
+      "Teaspoon Red Chilli Flake"
+    ]
+  },
+  {
+    "ingredient": "Soy Sauce",
+    "pairs": [
+      "Garlic",
+      "Salt",
+      "Onion",
+      "Cornstarch",
+      "Mushroom"
+    ]
+  },
+  {
+    "ingredient": "Cream Cheese",
+    "pairs": [
+      "Salt",
+      "Egg",
+      "Sugar",
+      "Cinnamon",
+      "Vanilla Extract"
+    ]
+  },
+  {
+    "ingredient": "Mayonnaise",
+    "pairs": [
+      "Celery",
+      "Lemon Juice",
+      "Salt",
+      "Carrot",
+      "Garlic"
+    ]
+  },
+  {
+    "ingredient": "Cloves Garlic - Finely",
+    "pairs": [
+      "Salt - To Taste",
+      "Inch Ginger - Finely",
+      "Teaspoon Garam Masala",
+      "Onion - Finely",
+      "Green Chillies - Slit"
+    ]
+  },
+  {
+    "ingredient": "Cloves Garlic",
+    "pairs": [
+      "Salt - To Taste",
+      "Dry Red Chillie",
+      "Cloves (Laung)",
+      "Tomato -",
+      "Onion -"
+    ]
+  },
+  {
+    "ingredient": "Teaspoons Sunflower Oil",
+    "pairs": [
+      "Salt - To Taste",
+      "/4 Teaspoon Turmeric Powder (Haldi)",
+      "Onion -",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "/2 Teaspoon Cumin Seeds (Jeera)"
+    ]
+  },
+  {
+    "ingredient": "Inch Cinnamon Stick (Dalchini)",
+    "pairs": [
+      "Salt - To Taste",
+      "Cloves (Laung)",
+      "Cardamom (Elaichi) Pods/Seed",
+      "/2 Teaspoon Cumin Seeds (Jeera)",
+      "Teaspoon Turmeric Powder (Haldi)"
+    ]
+  },
+  {
+    "ingredient": "Granulated Sugar",
+    "pairs": [
+      "Salt",
+      "Baking",
+      "Vanilla Extract",
+      "All-Purpose Flour",
+      "Water"
+    ]
+  },
+  {
+    "ingredient": "Cilantro",
+    "pairs": [
+      "Garlic",
+      "Salt",
+      "Onion",
+      "Tomatoe",
+      "Clove"
+    ]
+  },
+  {
+    "ingredient": "Lime Juice",
+    "pairs": [
+      "Garlic",
+      "Salt",
+      "Soy Sauce",
+      "Sugar",
+      "Onion"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies - Slit",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Sprig Curry",
+      "Teaspoon Garam Masala",
+      "Onion -"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies - Finely",
+    "pairs": [
+      "Salt - To Taste",
+      "Onion - Finely",
+      "/2 Teaspoon Cumin Seeds (Jeera)",
+      "Teaspoon Red Chilli",
+      "Cloves Garlic - Finely"
+    ]
+  },
+  {
+    "ingredient": "Cup Whole Wheat Flour",
+    "pairs": [
+      "Salt - To Taste",
+      "Onion - Finely",
+      "Teaspoon Red Chilli",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Amchur (Dry Mango Powder)"
+    ]
+  },
+  {
+    "ingredient": "/2 Teaspoon Red Chilli",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Dry Red Chillie",
+      "Onion -",
+      "/2 Teaspoon Cumin Seeds (Jeera)"
+    ]
+  },
+  {
+    "ingredient": "Raisin",
+    "pairs": [
+      "Salt",
+      "Egg",
+      "Sugar",
+      "Carrot",
+      "Clove"
+    ]
+  },
+  {
+    "ingredient": "Black Pepper",
+    "pairs": [
+      "Salt",
+      "Garlic",
+      "Onion",
+      "Parsley",
+      "Butter"
+    ]
+  },
+  {
+    "ingredient": "Basil",
+    "pairs": [
+      "Garlic",
+      "Olive Oil",
+      "Parmesan Cheese",
+      "Mozzarella Cheese",
+      "Onion"
+    ]
+  },
+  {
+    "ingredient": "Cumin",
+    "pairs": [
+      "Onion",
+      "Garlic",
+      "Salt",
+      "Bay",
+      "Olive Oil"
+    ]
+  },
+  {
+    "ingredient": "Heavy Cream",
+    "pairs": [
+      "Salt",
+      "Sugar",
+      "Unsalted Butter",
+      "Egg",
+      "Onion"
+    ]
+  },
+  {
+    "ingredient": "Paprika",
+    "pairs": [
+      "Butter",
+      "Salt",
+      "Onion",
+      "Pepper",
+      "Garlic"
+    ]
+  },
+  {
+    "ingredient": "Bay Leaf (Tej Patta)",
+    "pairs": [
+      "Salt - To Taste",
+      "Cloves (Laung)",
+      "Cardamom (Elaichi) Pods/Seed",
+      "Inch Cinnamon Stick (Dalchini)",
+      "Teaspoon Coriander Powder (Dhania)"
+    ]
+  },
+  {
+    "ingredient": "Tablespoon Sunflower Oil",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Amchur (Dry Mango Powder)",
+      "/4 Teaspoon Asafoetida (Hing)",
+      "Teaspoon Garam Masala",
+      "Tablespoon Red Chilli Sauce"
+    ]
+  },
+  {
+    "ingredient": "/2 Teaspoon Black Pepper",
+    "pairs": [
+      "Salt - To Taste",
+      "Sunflower Oil - As Required",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Green Chillies - Slit",
+      "Water - As Required"
+    ]
+  },
+  {
+    "ingredient": "Mushroom",
+    "pairs": [
+      "Salt",
+      "Onion",
+      "Butter",
+      "Soy Sauce",
+      "Mozzarella Cheese"
+    ]
+  },
+  {
+    "ingredient": "Green Onion",
+    "pairs": [
+      "Salt",
+      "Garlic",
+      "Chicken Broth",
+      "Butter",
+      "Celery"
+    ]
+  },
+  {
+    "ingredient": "Walnut",
+    "pairs": [
+      "Sugar",
+      "Baking Soda",
+      "Baking",
+      "Egg",
+      "Salt"
+    ]
+  },
+  {
+    "ingredient": "Oregano",
+    "pairs": [
+      "Salt",
+      "Garlic",
+      "Pepper",
+      "Water",
+      "Olive Oil"
+    ]
+  },
+  {
+    "ingredient": "Cheddar Cheese",
+    "pairs": [
+      "Salt",
+      "Pepper",
+      "Butter",
+      "Flour",
+      "Onion"
+    ]
+  },
+  {
+    "ingredient": "Sunflower Oil - For Cooking",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Cumin Seeds (Jeera)",
+      "/2 Teaspoon Mustard Seed",
+      "Dry Red Chillie"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies -",
+    "pairs": [
+      "Salt - To Taste",
+      "Cloves (Laung)",
+      "Inch Ginger -",
+      "Bay Leaf (Tej Patta)",
+      "/4 Teaspoon Asafoetida (Hing)"
+    ]
+  },
+  {
+    "ingredient": "Tablespoon Ghee",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Sprig Curry",
+      "Green Chillies - Slit",
+      "Teaspoon Cumin Seeds (Jeera)"
+    ]
+  },
+  {
+    "ingredient": "Inch Ginger",
+    "pairs": [
+      "Salt - To Taste",
+      "Cloves (Laung)",
+      "Bay Leaf (Tej Patta)",
+      "Green Chillie",
+      "/2 Teaspoon Red Chilli"
+    ]
+  },
+  {
+    "ingredient": "Clove",
+    "pairs": [
+      "Garlic",
+      "Onion",
+      "Salt",
+      "Bay",
+      "Raisin"
+    ]
+  },
+  {
+    "ingredient": "Chicken Broth",
+    "pairs": [
+      "Salt",
+      "Onion",
+      "Egg",
+      "Green Onion",
+      "Flour"
+    ]
+  },
+  {
+    "ingredient": "Lemon",
+    "pairs": [
+      "Salt",
+      "Pepper",
+      "Olive Oil",
+      "Onion",
+      "Butter"
+    ]
+  },
+  {
+    "ingredient": "Potatoe",
+    "pairs": [
+      "Onion",
+      "Salt",
+      "Pepper",
+      "Flour",
+      "Carrot"
+    ]
+  },
+  {
+    "ingredient": "Sunflower Oil - As Required",
+    "pairs": [
+      "Salt - To Taste",
+      "Water - As Required",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "/2 Teaspoon Black Pepper",
+      "Teaspoon Red Chilli"
+    ]
+  },
+  {
+    "ingredient": "Tomato -",
+    "pairs": [
+      "Salt - To Taste",
+      "Onion -",
+      "Dry Red Chillie",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Cloves Garlic"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Amchur (Dry Mango Powder)",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Red Chilli",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Cumin Seeds (Jeera)",
+      "Teaspoon Coriander Powder (Dhania)"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Black Pepper",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Cumin Powder (Jeera)",
+      "Tablespoon Extra Virgin Olive Oil",
+      "Tablespoon Lemon Juice",
+      "Cloves Garlic"
+    ]
+  },
+  {
+    "ingredient": "Inch Ginger - Grated",
+    "pairs": [
+      "Salt - To Taste",
+      "Onion - Finely",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Sunflower Oil - For Cooking",
+      "Green Chillies - Finely"
+    ]
+  },
+  {
+    "ingredient": "Green Pepper",
+    "pairs": [
+      "Salt",
+      "Pepper",
+      "Onion",
+      "Celery",
+      "Flour"
+    ]
+  },
+  {
+    "ingredient": "Buttermilk",
+    "pairs": [
+      "Salt",
+      "Egg",
+      "Sugar",
+      "Flour",
+      "Margarine"
+    ]
+  },
+  {
+    "ingredient": "Coconut",
+    "pairs": [
+      "Sugar",
+      "Egg",
+      "Salt",
+      "All-Purpose Flour",
+      "Flour"
+    ]
+  },
+  {
+    "ingredient": "Thyme",
+    "pairs": [
+      "Salt",
+      "Garlic",
+      "Parsley",
+      "Pepper",
+      "Olive Oil"
+    ]
+  },
+  {
+    "ingredient": "Green Chillie",
+    "pairs": [
+      "Salt - To Taste",
+      "Inch Ginger",
+      "Bay Leaf (Tej Patta)",
+      "Cloves (Laung)",
+      "Teaspoon Cumin Seeds (Jeera)"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Fennel Seeds (Saunf)",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Dry Red Chillie",
+      "Cloves (Laung)",
+      "Teaspoon Cumin Seeds (Jeera)"
+    ]
+  },
+  {
+    "ingredient": "Tablespoons Ghee",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Cumin Seeds (Jeera)",
+      "Teaspoon Garam Masala",
+      "Cardamom (Elaichi) Pods/Seed"
+    ]
+  },
+  {
+    "ingredient": "Water - As Required",
+    "pairs": [
+      "Salt - To Taste",
+      "Sunflower Oil - As Required",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Onion -",
+      "Tablespoon Red Chilli Sauce"
+    ]
+  },
+  {
+    "ingredient": "Worcestershire Sauce",
+    "pairs": [
+      "Salt",
+      "Celery",
+      "Onion",
+      "Garlic",
+      "Parsley"
+    ]
+  },
+  {
+    "ingredient": "Bay",
+    "pairs": [
+      "Onion",
+      "Garlic",
+      "Salt",
+      "Cumin",
+      "Clove"
+    ]
+  },
+  {
+    "ingredient": "Cucumber",
+    "pairs": [
+      "Onion",
+      "Parsley",
+      "Salt",
+      "Pepper",
+      "Celery"
+    ]
+  },
+  {
+    "ingredient": "Tablespoon Coriander Powder (Dhania)",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Red Chilli",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Onion - Finely",
+      "Teaspoon Cumin Seeds (Jeera)"
+    ]
+  },
+  {
+    "ingredient": "/4 Teaspoon Methi Seeds (Fenugreek Seeds)",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Mustard Seed",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Dry Red Chillie",
+      "Sprig Curry"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Red Chilli Flake",
+    "pairs": [
+      "Salt - To Taste",
+      "Cloves Garlic -",
+      "Onion -",
+      "Tablespoon Extra Virgin Olive Oil",
+      "Teaspoon Black Pepper"
+    ]
+  },
+  {
+    "ingredient": "Pinch Asafoetida (Hing)",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Mustard Seed",
+      "Sprig Curry",
+      "Dry Red Chilli",
+      "Green Chillies -"
+    ]
+  },
+  {
+    "ingredient": "/2 Teaspoon Garam Masala",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoon Coriander Powder (Dhania)",
+      "/2 Teaspoon Sugar",
+      "Cup All Purpose Flour (Maida)"
+    ]
+  },
+  {
+    "ingredient": "Cups Water",
+    "pairs": [
+      "Dry Red Chillie",
+      "/4 Teaspoon Asafoetida (Hing)",
+      "Teaspoon Turmeric Powder (Haldi)",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Salt - To Taste"
+    ]
+  },
+  {
+    "ingredient": "Teaspoon Sugar",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Sprig Curry",
+      "/4 Teaspoon Asafoetida (Hing)",
+      "Teaspoon Black Pepper"
+    ]
+  },
+  {
+    "ingredient": "Dry Red Chilli",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Red Chilli",
+      "Sprig Curry",
+      "Sunflower Oil - As Required",
+      "Teaspoon Turmeric Powder (Haldi)"
+    ]
+  },
+  {
+    "ingredient": "Tablespoon Ginger Garlic Paste",
+    "pairs": [
+      "Onion -",
+      "Salt - To Taste",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "/2 Teaspoon Red Chilli",
+      "Cloves (Laung)"
+    ]
+  },
+  {
+    "ingredient": "Blueberrie",
+    "pairs": [
+      "Egg",
+      "Sugar",
+      "Lemon Juice",
+      "All-Purpose Flour",
+      "Vanilla"
+    ]
+  },
+  {
+    "ingredient": "Honey",
+    "pairs": [
+      "Salt",
+      "Lemon Juice",
+      "Garlic",
+      "Olive Oil",
+      "Water"
+    ]
+  },
+  {
+    "ingredient": "Mozzarella Cheese",
+    "pairs": [
+      "Parmesan Cheese",
+      "Salt",
+      "Basil",
+      "Mushroom",
+      "Flour"
+    ]
+  },
+  {
+    "ingredient": "Scallion",
+    "pairs": [
+      "Cornstarch",
+      "Soy Sauce",
+      "Parsley",
+      "Garlic",
+      "Salt"
+    ]
+  },
+  {
+    "ingredient": "Skim Milk",
+    "pairs": [
+      "All-Purpose Flour",
+      "Sugar",
+      "Onion",
+      "Vanilla Extract",
+      "Mushroom"
+    ]
+  },
+  {
+    "ingredient": "Cider Vinegar",
+    "pairs": [
+      "Salt",
+      "Sugar",
+      "Onion",
+      "Garlic",
+      "Green Pepper"
+    ]
+  },
+  {
+    "ingredient": "Inch Ginger - Finely",
+    "pairs": [
+      "Salt - To Taste",
+      "Cloves Garlic - Finely",
+      "Teaspoon Garam Masala",
+      "Green Chillies - Slit",
+      "/2 Teaspoon Turmeric Powder (Haldi)"
+    ]
+  },
+  {
+    "ingredient": "/2 Cup Fresh Coconut - Grated",
+    "pairs": [
+      "Salt - To Taste",
+      "/2 Teaspoon Mustard Seed",
+      "/2 Teaspoon Cumin Seeds (Jeera)",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Dry Red Chillie"
+    ]
+  },
+  {
+    "ingredient": "/4 Teaspoon Red Chilli",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Amchur (Dry Mango Powder)",
+      "Teaspoon Cumin Seeds (Jeera)",
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "Teaspoons Sunflower Oil"
+    ]
+  },
+  {
+    "ingredient": "Whole Egg",
+    "pairs": [
+      "Salt - To Taste",
+      "Cloves Garlic -",
+      "Onion -",
+      "Inch Ginger -",
+      "Cup Whole Wheat Flour"
+    ]
+  },
+  {
+    "ingredient": "Inch Ginger -",
+    "pairs": [
+      "Salt - To Taste",
+      "Cloves Garlic -",
+      "Green Chillies -",
+      "Cloves Garlic",
+      "Onion -"
+    ]
+  },
+  {
+    "ingredient": "/2 Teaspoon Sugar",
+    "pairs": [
+      "/2 Teaspoon Turmeric Powder (Haldi)",
+      "/2 Teaspoon Garam Masala",
+      "Salt - To Taste",
+      "Teaspoon Red Chilli",
+      "/2 Teaspoon Cumin Seeds (Jeera)"
+    ]
+  },
+  {
+    "ingredient": "Cup All Purpose Flour (Maida)",
+    "pairs": [
+      "Salt - To Taste",
+      "Onion - Finely",
+      "Teaspoon Amchur (Dry Mango Powder)",
+      "/2 Teaspoon Garam Masala",
+      "/2 Teaspoon Sugar"
+    ]
+  },
+  {
+    "ingredient": "Tablespoon Extra Virgin Olive Oil",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Black Pepper",
+      "Teaspoon Cumin Powder (Jeera)",
+      "Teaspoon Red Chilli Flake",
+      "Onion -"
+    ]
+  },
+  {
+    "ingredient": "Tablespoon Lemon Juice",
+    "pairs": [
+      "Salt - To Taste",
+      "Teaspoon Cumin Powder (Jeera)",
+      "Cloves Garlic",
+      "Teaspoon Black Pepper",
+      "Cloves Garlic -"
+    ]
+  },
+  {
+    "ingredient": "Tablespoon Red Chilli Sauce",
+    "pairs": [
+      "Salt - To Taste",
+      "Sunflower Oil - As Required",
+      "Water - As Required",
+      "Tablespoon Sunflower Oil",
+      "/2 Teaspoon Black Pepper"
+    ]
+  },
+  {
+    "ingredient": "Zucchini",
+    "pairs": [
+      "Salt",
+      "Garlic",
+      "Baking Soda",
+      "Sugar",
+      "Egg"
+    ]
+  },
+  {
+    "ingredient": "Boneless Skinless Chicken Breast",
+    "pairs": [
+      "Salt",
+      "Green Onion",
+      "Butter",
+      "Parmesan Cheese",
+      "Garlic"
+    ]
+  },
+  {
+    "ingredient": "Star Anise",
+    "pairs": [
+      "Salt - To Taste",
+      "Cloves (Laung)",
+      "Cardamom (Elaichi) Pods/Seed",
+      "Inch Ginger",
+      "Inch Cinnamon Stick (Dalchini)"
+    ]
+  },
+  {
+    "ingredient": "Confectioners' Sugar",
+    "pairs": [
+      "Salt",
+      "Baking Soda",
+      "Egg",
+      "Sugar",
+      "Vanilla Extract"
+    ]
+  },
+  {
+    "ingredient": "Finger Millet (Ragi) V1",
+    "pairs": [
+      "Coconut Oil Option A",
+      "Byadagi Chillies Option B",
+      "Lemon Grass Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V2",
+    "pairs": [
+      "Tamarind Option A",
+      "Cinnamon Bark Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Pearl Millet (Sajja) V3",
+    "pairs": [
+      "Urad Dal Option A",
+      "Finger Millet (Ragi) Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Jaggery V4",
+    "pairs": [
+      "Chana Dal Option A",
+      "Lemon Grass Option B",
+      "Sorghum (Jonna) Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V5",
+    "pairs": [
+      "Cloves Option A",
+      "Garlic Cloves Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V6",
+    "pairs": [
+      "Rice Flour Option A",
+      "Byadagi Chillies Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Ginger Paste V7",
+    "pairs": [
+      "Tamarind Option A",
+      "Toor Dal Option B",
+      "Curry Powder Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V8",
+    "pairs": [
+      "Coconut Oil Option A",
+      "Shallots (Sambar Onions) Option B",
+      "Fenugreek Seeds (Methi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Garlic Cloves V9",
+    "pairs": [
+      "Kashmiri Chili Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Byadagi Chillies V10",
+    "pairs": [
+      "Curry Powder Option A",
+      "Jaggery Option B",
+      "Coriander Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Chana Dal V11",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Rice Flour Option B",
+      "Jaggery Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V12",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Cardamom Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Buttermilk V13",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Kashmiri Chili Option B",
+      "Lemon Grass Option C"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies V14",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Shallots (Sambar Onions) Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Byadagi Chillies V15",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Coconut Oil Option B",
+      "Byadagi Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Rice Flour V16",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Mustard Seeds Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Mustard Seeds V17",
+    "pairs": [
+      "Fenugreek Seeds (Methi) Option A",
+      "Shallots (Sambar Onions) Option B",
+      "Grated Coconut Option C"
+    ]
+  },
+  {
+    "ingredient": "Byadagi Chillies V18",
+    "pairs": [
+      "Buttermilk Option A",
+      "Tamarind Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Chana Dal V19",
+    "pairs": [
+      "Chana Dal Option A",
+      "Mustard Seeds Option B",
+      "Finger Millet (Ragi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Drumstick (Mulakkada) V20",
+    "pairs": [
+      "Chana Dal Option A",
+      "Curry Leaves Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Cloves V21",
+    "pairs": [
+      "Cardamom Option A",
+      "Sorghum (Jonna) Option B",
+      "Rice Flour Option C"
+    ]
+  },
+  {
+    "ingredient": "Pearl Millet (Sajja) V22",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Urad Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V23",
+    "pairs": [
+      "Green Chillies Option A",
+      "Sorghum (Jonna) Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V24",
+    "pairs": [
+      "Fenugreek Seeds (Methi) Option A",
+      "Green Chillies Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V25",
+    "pairs": [
+      "Cardamom Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Leaves V26",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Kashmiri Chili Option B",
+      "Chana Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V27",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Grated Coconut Option B",
+      "Sorghum (Jonna) Option C"
+    ]
+  },
+  {
+    "ingredient": "Finger Millet (Ragi) V28",
+    "pairs": [
+      "Grated Coconut Option A",
+      "Coriander Seeds Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V29",
+    "pairs": [
+      "Chana Dal Option A",
+      "Shallots (Sambar Onions) Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Urad Dal V30",
+    "pairs": [
+      "Cloves Option A",
+      "Grated Coconut Option B",
+      "Drumstick (Mulakkada) Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V31",
+    "pairs": [
+      "Tamarind Option A",
+      "Curry Powder Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Sesame Oil V32",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Tamarind Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V33",
+    "pairs": [
+      "Urad Dal Option A",
+      "Raw Mango Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Lemon Grass V34",
+    "pairs": [
+      "Tamarind Option A",
+      "Chana Dal Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies V35",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Coriander Leaves Option B",
+      "Lemon Grass Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V36",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Shallots (Sambar Onions) Option B",
+      "Cardamom Option C"
+    ]
+  },
+  {
+    "ingredient": "Cloves V37",
+    "pairs": [
+      "Guntur Red Chillies Option A",
+      "Green Chillies Option B",
+      "Byadagi Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Gongura Leaves (Sorrel) V38",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Curry Powder Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V39",
+    "pairs": [
+      "Guntur Red Chillies Option A",
+      "Grated Coconut Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V40",
+    "pairs": [
+      "Curry Powder Option A",
+      "Chana Dal Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V41",
+    "pairs": [
+      "Byadagi Chillies Option A",
+      "Kashmiri Chili Option B",
+      "Chana Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Garlic Cloves V42",
+    "pairs": [
+      "Buttermilk Option A",
+      "Mustard Seeds Option B",
+      "Sorghum (Jonna) Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V43",
+    "pairs": [
+      "Urad Dal Option A",
+      "Jaggery Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies V44",
+    "pairs": [
+      "Curry Leaves Option A",
+      "Coriander Leaves Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Rice Flour V45",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Sorghum (Jonna) Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V46",
+    "pairs": [
+      "Curry Powder Option A",
+      "Cardamom Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V47",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Urad Dal Option B",
+      "Green Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Finger Millet (Ragi) V48",
+    "pairs": [
+      "Buttermilk Option A",
+      "Jaggery Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V49",
+    "pairs": [
+      "Tamarind Option A",
+      "Sorghum (Jonna) Option B",
+      "Sorghum (Jonna) Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V50",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Garlic Cloves Option B",
+      "Cumin Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V51",
+    "pairs": [
+      "Curry Leaves Option A",
+      "Chana Dal Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Shallots (Sambar Onions) V52",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Curry Leaves Option B",
+      "Fenugreek Seeds (Methi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V53",
+    "pairs": [
+      "Coconut Oil Option A",
+      "Mint Leaves Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Shallots (Sambar Onions) V54",
+    "pairs": [
+      "Buttermilk Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Seeds V55",
+    "pairs": [
+      "Coriander Leaves Option A",
+      "Buttermilk Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Pepper Corns V56",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Cloves Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Cloves V57",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Cloves Option B",
+      "Rice Flour Option C"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies V58",
+    "pairs": [
+      "Fenugreek Seeds (Methi) Option A",
+      "Rice Flour Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V59",
+    "pairs": [
+      "Shallots (Sambar Onions) Option A",
+      "Cumin Seeds Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V60",
+    "pairs": [
+      "Fenugreek Seeds (Methi) Option A",
+      "Finger Millet (Ragi) Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Mustard Seeds V61",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Finger Millet (Ragi) Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V62",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Cloves Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V63",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Rice Flour Option C"
+    ]
+  },
+  {
+    "ingredient": "Mustard Seeds V64",
+    "pairs": [
+      "Coriander Leaves Option A",
+      "Mint Leaves Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Pearl Millet (Sajja) V65",
+    "pairs": [
+      "Curry Powder Option A",
+      "Tamarind Option B",
+      "Rice Flour Option C"
+    ]
+  },
+  {
+    "ingredient": "Buttermilk V66",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Shallots (Sambar Onions) Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Lemon Grass V67",
+    "pairs": [
+      "Cloves Option A",
+      "Cloves Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V68",
+    "pairs": [
+      "Guntur Red Chillies Option A",
+      "Cinnamon Bark Option B",
+      "Sorghum (Jonna) Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V69",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Sorghum (Jonna) Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Cinnamon Bark V70",
+    "pairs": [
+      "Grated Coconut Option A",
+      "Chana Dal Option B",
+      "Chana Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Finger Millet (Ragi) V71",
+    "pairs": [
+      "Sesame Oil Option A",
+      "Cinnamon Bark Option B",
+      "Mustard Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Buttermilk V72",
+    "pairs": [
+      "Cloves Option A",
+      "Chana Dal Option B",
+      "Tamarind Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V73",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Raw Mango Option B",
+      "Drumstick (Mulakkada) Option C"
+    ]
+  },
+  {
+    "ingredient": "Buttermilk V74",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Cinnamon Bark Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Finger Millet (Ragi) V75",
+    "pairs": [
+      "Cloves Option A",
+      "Coriander Leaves Option B",
+      "Green Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V76",
+    "pairs": [
+      "Shallots (Sambar Onions) Option A",
+      "Cumin Seeds Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Kashmiri Chili V77",
+    "pairs": [
+      "Toor Dal Option A",
+      "Toor Dal Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V78",
+    "pairs": [
+      "Curry Powder Option A",
+      "Finger Millet (Ragi) Option B",
+      "Rice Flour Option C"
+    ]
+  },
+  {
+    "ingredient": "Urad Dal V79",
+    "pairs": [
+      "Tamarind Option A",
+      "Finger Millet (Ragi) Option B",
+      "Rice Flour Option C"
+    ]
+  },
+  {
+    "ingredient": "Mustard Seeds V80",
+    "pairs": [
+      "Finger Millet (Ragi) Option A",
+      "Grated Coconut Option B",
+      "Jaggery Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V81",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Cumin Seeds Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Pearl Millet (Sajja) V82",
+    "pairs": [
+      "Coconut Oil Option A",
+      "Cinnamon Bark Option B",
+      "Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V83",
+    "pairs": [
+      "Jaggery Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Sorghum (Jonna) Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Seeds V84",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Green Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Grated Coconut V85",
+    "pairs": [
+      "Finger Millet (Ragi) Option A",
+      "Mint Leaves Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Kashmiri Chili V86",
+    "pairs": [
+      "Garlic Cloves Option A",
+      "Toor Dal Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Chana Dal V87",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Sesame Oil Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Sesame Oil V88",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Tamarind Option B",
+      "Green Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V89",
+    "pairs": [
+      "Raw Mango Option A",
+      "Coriander Leaves Option B",
+      "Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V90",
+    "pairs": [
+      "Cardamom Option A",
+      "Mustard Seeds Option B",
+      "Tamarind Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V91",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Mustard Seeds Option B",
+      "Jaggery Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Powder V92",
+    "pairs": [
+      "Ginger Paste Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Coriander Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Gongura Leaves (Sorrel) V93",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Garlic Cloves Option B",
+      "Green Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Chana Dal V94",
+    "pairs": [
+      "Garlic Cloves Option A",
+      "Byadagi Chillies Option B",
+      "Guntur Red Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V95",
+    "pairs": [
+      "Green Chillies Option A",
+      "Mint Leaves Option B",
+      "Chana Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Chana Dal V96",
+    "pairs": [
+      "Guntur Red Chillies Option A",
+      "Garlic Cloves Option B",
+      "Rice Flour Option C"
+    ]
+  },
+  {
+    "ingredient": "Buttermilk V97",
+    "pairs": [
+      "Shallots (Sambar Onions) Option A",
+      "Finger Millet (Ragi) Option B",
+      "Curry Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Chana Dal V98",
+    "pairs": [
+      "Chana Dal Option A",
+      "Mustard Seeds Option B",
+      "Raw Mango Option C"
+    ]
+  },
+  {
+    "ingredient": "Pearl Millet (Sajja) V99",
+    "pairs": [
+      "Cardamom Option A",
+      "Raw Mango Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Jaggery V100",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Raw Mango Option C"
+    ]
+  },
+  {
+    "ingredient": "Rice Flour V101",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Cloves Option B",
+      "Mustard Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Pepper Corns V102",
+    "pairs": [
+      "Toor Dal Option A",
+      "Buttermilk Option B",
+      "Guntur Red Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Gongura Leaves (Sorrel) V103",
+    "pairs": [
+      "Byadagi Chillies Option A",
+      "Coconut Oil Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Powder V104",
+    "pairs": [
+      "Jaggery Option A",
+      "Pepper Corns Option B",
+      "Grated Coconut Option C"
+    ]
+  },
+  {
+    "ingredient": "Buttermilk V105",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Curry Powder Option B",
+      "Curry Powder Option C"
+    ]
+  },
+  {
+    "ingredient": "Cumin Seeds V106",
+    "pairs": [
+      "Jaggery Option A",
+      "Chana Dal Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Pearl Millet (Sajja) V107",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Byadagi Chillies Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Grated Coconut V108",
+    "pairs": [
+      "Mint Leaves Option A",
+      "Rice Flour Option B",
+      "Urad Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Urad Dal V109",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Cloves Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V110",
+    "pairs": [
+      "Tamarind Option A",
+      "Sesame Oil Option B",
+      "Coriander Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Urad Dal V111",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Coriander Leaves Option B",
+      "Curry Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V112",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Toor Dal Option B",
+      "Lemon Grass Option C"
+    ]
+  },
+  {
+    "ingredient": "Cinnamon Bark V113",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Coriander Seeds Option B",
+      "Curry Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V114",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Ginger Paste Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Kashmiri Chili V115",
+    "pairs": [
+      "Buttermilk Option A",
+      "Mustard Seeds Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Lemon Grass V116",
+    "pairs": [
+      "Cumin Seeds Option A",
+      "Tamarind Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Pepper Corns V117",
+    "pairs": [
+      "Rice Flour Option A",
+      "Sesame Oil Option B",
+      "Drumstick (Mulakkada) Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V118",
+    "pairs": [
+      "Coconut Oil Option A",
+      "Garlic Cloves Option B",
+      "Coconut Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V119",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Sorghum (Jonna) Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V120",
+    "pairs": [
+      "Guntur Red Chillies Option A",
+      "Rice Flour Option B",
+      "Fenugreek Seeds (Methi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V121",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Curry Leaves Option B",
+      "Cardamom Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V122",
+    "pairs": [
+      "Chana Dal Option A",
+      "Curry Powder Option B",
+      "Grated Coconut Option C"
+    ]
+  },
+  {
+    "ingredient": "Byadagi Chillies V123",
+    "pairs": [
+      "Shallots (Sambar Onions) Option A",
+      "Mustard Seeds Option B",
+      "Fenugreek Seeds (Methi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V124",
+    "pairs": [
+      "Cumin Seeds Option A",
+      "Curry Leaves Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Ginger Paste V125",
+    "pairs": [
+      "Buttermilk Option A",
+      "Green Chillies Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Drumstick (Mulakkada) V126",
+    "pairs": [
+      "Fenugreek Seeds (Methi) Option A",
+      "Cinnamon Bark Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Rice Flour V127",
+    "pairs": [
+      "Grated Coconut Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Toor Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V128",
+    "pairs": [
+      "Cumin Seeds Option A",
+      "Asafoetida (Hing) Option B",
+      "Byadagi Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Rice Flour V129",
+    "pairs": [
+      "Sesame Oil Option A",
+      "Guntur Red Chillies Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Powder V130",
+    "pairs": [
+      "Garlic Cloves Option A",
+      "Grated Coconut Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Gongura Leaves (Sorrel) V131",
+    "pairs": [
+      "Fenugreek Seeds (Methi) Option A",
+      "Mustard Seeds Option B",
+      "Byadagi Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V132",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V133",
+    "pairs": [
+      "Cumin Seeds Option A",
+      "Cardamom Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Shallots (Sambar Onions) V134",
+    "pairs": [
+      "Ginger Paste Option A",
+      "Asafoetida (Hing) Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V135",
+    "pairs": [
+      "Finger Millet (Ragi) Option A",
+      "Lemon Grass Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Jaggery V136",
+    "pairs": [
+      "Grated Coconut Option A",
+      "Cumin Seeds Option B",
+      "Cumin Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Mustard Seeds V137",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Garlic Cloves V138",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Cloves Option B",
+      "Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Garlic Cloves V139",
+    "pairs": [
+      "Guntur Red Chillies Option A",
+      "Asafoetida (Hing) Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Shallots (Sambar Onions) V140",
+    "pairs": [
+      "Guntur Red Chillies Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V141",
+    "pairs": [
+      "Raw Mango Option A",
+      "Green Chillies Option B",
+      "Green Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V142",
+    "pairs": [
+      "Tamarind Option A",
+      "Kashmiri Chili Option B",
+      "Cardamom Option C"
+    ]
+  },
+  {
+    "ingredient": "Cumin Seeds V143",
+    "pairs": [
+      "Mint Leaves Option A",
+      "Green Chillies Option B",
+      "Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Ginger Paste V144",
+    "pairs": [
+      "Toor Dal Option A",
+      "Finger Millet (Ragi) Option B",
+      "Coriander Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Pearl Millet (Sajja) V145",
+    "pairs": [
+      "Cloves Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Leaves V146",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Curry Leaves Option B",
+      "Jaggery Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V147",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Jaggery Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V148",
+    "pairs": [
+      "Coriander Leaves Option A",
+      "Shallots (Sambar Onions) Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V149",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Tamarind Option B",
+      "Coconut Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies V150",
+    "pairs": [
+      "Jaggery Option A",
+      "Cloves Option B",
+      "Tamarind Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V151",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Cumin Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Powder V152",
+    "pairs": [
+      "Shallots (Sambar Onions) Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Finger Millet (Ragi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V153",
+    "pairs": [
+      "Toor Dal Option A",
+      "Tamarind Option B",
+      "Finger Millet (Ragi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Lemon Grass V154",
+    "pairs": [
+      "Jaggery Option A",
+      "Coconut Oil Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V155",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Toor Dal Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies V156",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V157",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Buttermilk Option B",
+      "Guntur Red Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V158",
+    "pairs": [
+      "Mint Leaves Option A",
+      "Green Chillies Option B",
+      "Guntur Red Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Jaggery V159",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Chana Dal Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Sesame Oil V160",
+    "pairs": [
+      "Rice Flour Option A",
+      "Pepper Corns Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Cinnamon Bark V161",
+    "pairs": [
+      "Curry Powder Option A",
+      "Green Chillies Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Powder V162",
+    "pairs": [
+      "Coriander Leaves Option A",
+      "Cardamom Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Shallots (Sambar Onions) V163",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Byadagi Chillies Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V164",
+    "pairs": [
+      "Sesame Oil Option A",
+      "Coriander Seeds Option B",
+      "Green Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Byadagi Chillies V165",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Shallots (Sambar Onions) Option B",
+      "Coconut Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V166",
+    "pairs": [
+      "Buttermilk Option A",
+      "Curry Leaves Option B",
+      "Mustard Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Buttermilk V167",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Rice Flour Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Jaggery V168",
+    "pairs": [
+      "Buttermilk Option A",
+      "Sesame Oil Option B",
+      "Fenugreek Seeds (Methi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Pearl Millet (Sajja) V169",
+    "pairs": [
+      "Kashmiri Chili Option A",
+      "Ginger Paste Option B",
+      "Jaggery Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Leaves V170",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies V171",
+    "pairs": [
+      "Coriander Seeds Option A",
+      "Raw Mango Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V172",
+    "pairs": [
+      "Raw Mango Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V173",
+    "pairs": [
+      "Grated Coconut Option A",
+      "Jaggery Option B",
+      "Chana Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V174",
+    "pairs": [
+      "Toor Dal Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Toor Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Leaves V175",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Chana Dal Option B",
+      "Drumstick (Mulakkada) Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Seeds V176",
+    "pairs": [
+      "Buttermilk Option A",
+      "Pepper Corns Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Leaves V177",
+    "pairs": [
+      "Sesame Oil Option A",
+      "Curry Powder Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Byadagi Chillies V178",
+    "pairs": [
+      "Coriander Seeds Option A",
+      "Cardamom Option B",
+      "Guntur Red Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Jaggery V179",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Grated Coconut Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V180",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Tamarind Option B",
+      "Guntur Red Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Jaggery V181",
+    "pairs": [
+      "Coriander Seeds Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V182",
+    "pairs": [
+      "Grated Coconut Option A",
+      "Green Chillies Option B",
+      "Curry Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Cinnamon Bark V183",
+    "pairs": [
+      "Garlic Cloves Option A",
+      "Tamarind Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V184",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Mustard Seeds Option B",
+      "Fenugreek Seeds (Methi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V185",
+    "pairs": [
+      "Curry Leaves Option A",
+      "Garlic Cloves Option B",
+      "Sorghum (Jonna) Option C"
+    ]
+  },
+  {
+    "ingredient": "Jaggery V186",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Curry Leaves Option B",
+      "Raw Mango Option C"
+    ]
+  },
+  {
+    "ingredient": "Lemon Grass V187",
+    "pairs": [
+      "Garlic Cloves Option A",
+      "Cumin Seeds Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Seeds V188",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Ginger Paste Option B",
+      "Urad Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Grated Coconut V189",
+    "pairs": [
+      "Raw Mango Option A",
+      "Sorghum (Jonna) Option B",
+      "Mustard Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V190",
+    "pairs": [
+      "Coriander Seeds Option A",
+      "Pepper Corns Option B",
+      "Raw Mango Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V191",
+    "pairs": [
+      "Curry Powder Option A",
+      "Grated Coconut Option B",
+      "Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Finger Millet (Ragi) V192",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Byadagi Chillies Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V193",
+    "pairs": [
+      "Chana Dal Option A",
+      "Buttermilk Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Cloves V194",
+    "pairs": [
+      "Tamarind Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Lemon Grass V195",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Coriander Seeds Option B",
+      "Toor Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Sesame Oil V196",
+    "pairs": [
+      "Finger Millet (Ragi) Option A",
+      "Curry Leaves Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Cloves V197",
+    "pairs": [
+      "Cumin Seeds Option A",
+      "Curry Powder Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Kashmiri Chili V198",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Pepper Corns Option B",
+      "Jaggery Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V199",
+    "pairs": [
+      "Tamarind Option A",
+      "Toor Dal Option B",
+      "Curry Powder Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V200",
+    "pairs": [
+      "Tamarind Option A",
+      "Green Chillies Option B",
+      "Lemon Grass Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V201",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Lemon Grass Option B",
+      "Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V202",
+    "pairs": [
+      "Kashmiri Chili Option A",
+      "Tamarind Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Lemon Grass V203",
+    "pairs": [
+      "Ginger Paste Option A",
+      "Raw Mango Option B",
+      "Curry Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V204",
+    "pairs": [
+      "Toor Dal Option A",
+      "Tamarind Option B",
+      "Fenugreek Seeds (Methi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Buttermilk V205",
+    "pairs": [
+      "Sesame Oil Option A",
+      "Sorghum (Jonna) Option B",
+      "Guntur Red Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Chana Dal V206",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Buttermilk Option B",
+      "Drumstick (Mulakkada) Option C"
+    ]
+  },
+  {
+    "ingredient": "Kashmiri Chili V207",
+    "pairs": [
+      "Ginger Paste Option A",
+      "Mustard Seeds Option B",
+      "Drumstick (Mulakkada) Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V208",
+    "pairs": [
+      "Sesame Oil Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Cumin Seeds V209",
+    "pairs": [
+      "Coriander Leaves Option A",
+      "Kashmiri Chili Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Kashmiri Chili V210",
+    "pairs": [
+      "Mint Leaves Option A",
+      "Cumin Seeds Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Sesame Oil V211",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Cloves Option B",
+      "Chana Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V212",
+    "pairs": [
+      "Byadagi Chillies Option A",
+      "Curry Powder Option B",
+      "Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Lemon Grass V213",
+    "pairs": [
+      "Curry Powder Option A",
+      "Jaggery Option B",
+      "Sorghum (Jonna) Option C"
+    ]
+  },
+  {
+    "ingredient": "Cumin Seeds V214",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Mint Leaves Option B",
+      "Toor Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V215",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Guntur Red Chillies Option B",
+      "Grated Coconut Option C"
+    ]
+  },
+  {
+    "ingredient": "Ginger Paste V216",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Chana Dal Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V217",
+    "pairs": [
+      "Raw Mango Option A",
+      "Mint Leaves Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V218",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Coriander Seeds Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Chana Dal V219",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Cinnamon Bark Option B",
+      "Urad Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V220",
+    "pairs": [
+      "Sesame Oil Option A",
+      "Coriander Seeds Option B",
+      "Jaggery Option C"
+    ]
+  },
+  {
+    "ingredient": "Rice Flour V221",
+    "pairs": [
+      "Fenugreek Seeds (Methi) Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V222",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Cumin Seeds Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Rice Flour V223",
+    "pairs": [
+      "Cloves Option A",
+      "Coriander Seeds Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V224",
+    "pairs": [
+      "Buttermilk Option A",
+      "Sesame Oil Option B",
+      "Coconut Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Garlic Cloves V225",
+    "pairs": [
+      "Kashmiri Chili Option A",
+      "Cloves Option B",
+      "Coconut Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Cumin Seeds V226",
+    "pairs": [
+      "Raw Mango Option A",
+      "Kashmiri Chili Option B",
+      "Chana Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V227",
+    "pairs": [
+      "Guntur Red Chillies Option A",
+      "Sorghum (Jonna) Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V228",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Sorghum (Jonna) Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V229",
+    "pairs": [
+      "Sesame Oil Option A",
+      "Cinnamon Bark Option B",
+      "Grated Coconut Option C"
+    ]
+  },
+  {
+    "ingredient": "Garlic Cloves V230",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Coriander Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Garlic Cloves V231",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Sorghum (Jonna) Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V232",
+    "pairs": [
+      "Ginger Paste Option A",
+      "Toor Dal Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Pepper Corns V233",
+    "pairs": [
+      "Urad Dal Option A",
+      "Green Chillies Option B",
+      "Mustard Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V234",
+    "pairs": [
+      "Tamarind Option A",
+      "Chana Dal Option B",
+      "Urad Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Cloves V235",
+    "pairs": [
+      "Coconut Oil Option A",
+      "Fenugreek Seeds (Methi) Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Grated Coconut V236",
+    "pairs": [
+      "Raw Mango Option A",
+      "Mustard Seeds Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V237",
+    "pairs": [
+      "Coconut Oil Option A",
+      "Grated Coconut Option B",
+      "Lemon Grass Option C"
+    ]
+  },
+  {
+    "ingredient": "Byadagi Chillies V238",
+    "pairs": [
+      "Cardamom Option A",
+      "Garlic Cloves Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V239",
+    "pairs": [
+      "Byadagi Chillies Option A",
+      "Mustard Seeds Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Pearl Millet (Sajja) V240",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Raw Mango Option B",
+      "Mustard Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Pearl Millet (Sajja) V241",
+    "pairs": [
+      "Mint Leaves Option A",
+      "Fenugreek Seeds (Methi) Option B",
+      "Green Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Garlic Cloves V242",
+    "pairs": [
+      "Kashmiri Chili Option A",
+      "Finger Millet (Ragi) Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V243",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Curry Powder Option B",
+      "Drumstick (Mulakkada) Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V244",
+    "pairs": [
+      "Green Chillies Option A",
+      "Mint Leaves Option B",
+      "Coriander Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Kashmiri Chili V245",
+    "pairs": [
+      "Fenugreek Seeds (Methi) Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Fenugreek Seeds (Methi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V246",
+    "pairs": [
+      "Cloves Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Urad Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V247",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Finger Millet (Ragi) Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Mustard Seeds V248",
+    "pairs": [
+      "Shallots (Sambar Onions) Option A",
+      "Tamarind Option B",
+      "Tamarind Option C"
+    ]
+  },
+  {
+    "ingredient": "Finger Millet (Ragi) V249",
+    "pairs": [
+      "Chana Dal Option A",
+      "Raw Mango Option B",
+      "Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V250",
+    "pairs": [
+      "Garlic Cloves Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V251",
+    "pairs": [
+      "Ginger Paste Option A",
+      "Coriander Seeds Option B",
+      "Tamarind Option C"
+    ]
+  },
+  {
+    "ingredient": "Finger Millet (Ragi) V252",
+    "pairs": [
+      "Garlic Cloves Option A",
+      "Pepper Corns Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Sesame Oil V253",
+    "pairs": [
+      "Sesame Oil Option A",
+      "Urad Dal Option B",
+      "Cardamom Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V254",
+    "pairs": [
+      "Guntur Red Chillies Option A",
+      "Sesame Oil Option B",
+      "Coriander Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V255",
+    "pairs": [
+      "Sesame Oil Option A",
+      "Curry Powder Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Powder V256",
+    "pairs": [
+      "Curry Powder Option A",
+      "Green Chillies Option B",
+      "Coriander Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V257",
+    "pairs": [
+      "Ginger Paste Option A",
+      "Fenugreek Seeds (Methi) Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Jaggery V258",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Garlic Cloves Option B",
+      "Toor Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V259",
+    "pairs": [
+      "Byadagi Chillies Option A",
+      "Coconut Oil Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V260",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Finger Millet (Ragi) Option B",
+      "Jaggery Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V261",
+    "pairs": [
+      "Rice Flour Option A",
+      "Tamarind Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V262",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Urad Dal Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V263",
+    "pairs": [
+      "Mint Leaves Option A",
+      "Kashmiri Chili Option B",
+      "Jaggery Option C"
+    ]
+  },
+  {
+    "ingredient": "Drumstick (Mulakkada) V264",
+    "pairs": [
+      "Rice Flour Option A",
+      "Green Chillies Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Urad Dal V265",
+    "pairs": [
+      "Rice Flour Option A",
+      "Coriander Leaves Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V266",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Guntur Red Chillies Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V267",
+    "pairs": [
+      "Toor Dal Option A",
+      "Shallots (Sambar Onions) Option B",
+      "Coconut Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V268",
+    "pairs": [
+      "Finger Millet (Ragi) Option A",
+      "Asafoetida (Hing) Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V269",
+    "pairs": [
+      "Coriander Leaves Option A",
+      "Toor Dal Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V270",
+    "pairs": [
+      "Toor Dal Option A",
+      "Coconut Oil Option B",
+      "Urad Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Lemon Grass V271",
+    "pairs": [
+      "Cardamom Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Sesame Oil V272",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Tamarind Option C"
+    ]
+  },
+  {
+    "ingredient": "Finger Millet (Ragi) V273",
+    "pairs": [
+      "Cloves Option A",
+      "Raw Mango Option B",
+      "Rice Flour Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V274",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Curry Powder Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V275",
+    "pairs": [
+      "Coriander Leaves Option A",
+      "Lemon Grass Option B",
+      "Chana Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V276",
+    "pairs": [
+      "Coriander Seeds Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Cardamom Option C"
+    ]
+  },
+  {
+    "ingredient": "Byadagi Chillies V277",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Cardamom Option B",
+      "Cardamom Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V278",
+    "pairs": [
+      "Shallots (Sambar Onions) Option A",
+      "Curry Leaves Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Pepper Corns V279",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Buttermilk Option B",
+      "Curry Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V280",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Urad Dal Option B",
+      "Toor Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Byadagi Chillies V281",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Green Chillies Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V282",
+    "pairs": [
+      "Raw Mango Option A",
+      "Curry Leaves Option B",
+      "Guntur Red Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V283",
+    "pairs": [
+      "Toor Dal Option A",
+      "Fenugreek Seeds (Methi) Option B",
+      "Raw Mango Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Powder V284",
+    "pairs": [
+      "Coriander Seeds Option A",
+      "Green Chillies Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V285",
+    "pairs": [
+      "Toor Dal Option A",
+      "Coconut Oil Option B",
+      "Fenugreek Seeds (Methi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Grated Coconut V286",
+    "pairs": [
+      "Raw Mango Option A",
+      "Ginger Paste Option B",
+      "Toor Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V287",
+    "pairs": [
+      "Chana Dal Option A",
+      "Rice Flour Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V288",
+    "pairs": [
+      "Guntur Red Chillies Option A",
+      "Garlic Cloves Option B",
+      "Sorghum (Jonna) Option C"
+    ]
+  },
+  {
+    "ingredient": "Cumin Seeds V289",
+    "pairs": [
+      "Grated Coconut Option A",
+      "Rice Flour Option B",
+      "Coriander Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Ginger Paste V290",
+    "pairs": [
+      "Green Chillies Option A",
+      "Lemon Grass Option B",
+      "Cumin Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V291",
+    "pairs": [
+      "Toor Dal Option A",
+      "Curry Powder Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Rice Flour V292",
+    "pairs": [
+      "Cumin Seeds Option A",
+      "Toor Dal Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Leaves V293",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Ginger Paste Option B",
+      "Curry Powder Option C"
+    ]
+  },
+  {
+    "ingredient": "Drumstick (Mulakkada) V294",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Ginger Paste Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Buttermilk V295",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Cloves Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V296",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Cardamom Option B",
+      "Finger Millet (Ragi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Kashmiri Chili V297",
+    "pairs": [
+      "Coriander Seeds Option A",
+      "Green Chillies Option B",
+      "Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Grated Coconut V298",
+    "pairs": [
+      "Toor Dal Option A",
+      "Jaggery Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V299",
+    "pairs": [
+      "Tamarind Option A",
+      "Fenugreek Seeds (Methi) Option B",
+      "Sorghum (Jonna) Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V300",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Raw Mango Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V301",
+    "pairs": [
+      "Buttermilk Option A",
+      "Buttermilk Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V302",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Sorghum (Jonna) Option B",
+      "Grated Coconut Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V303",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Asafoetida (Hing) Option B",
+      "Chana Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Pearl Millet (Sajja) V304",
+    "pairs": [
+      "Toor Dal Option A",
+      "Rice Flour Option B",
+      "Chana Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Mustard Seeds V305",
+    "pairs": [
+      "Curry Leaves Option A",
+      "Rice Flour Option B",
+      "Urad Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V306",
+    "pairs": [
+      "Raw Mango Option A",
+      "Raw Mango Option B",
+      "Curry Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V307",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Urad Dal Option B",
+      "Mustard Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Drumstick (Mulakkada) V308",
+    "pairs": [
+      "Jaggery Option A",
+      "Cardamom Option B",
+      "Guntur Red Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V309",
+    "pairs": [
+      "Tamarind Option A",
+      "Lemon Grass Option B",
+      "Coconut Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Kashmiri Chili V310",
+    "pairs": [
+      "Coriander Leaves Option A",
+      "Lemon Grass Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Gongura Leaves (Sorrel) V311",
+    "pairs": [
+      "Guntur Red Chillies Option A",
+      "Cardamom Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V312",
+    "pairs": [
+      "Cloves Option A",
+      "Sesame Oil Option B",
+      "Drumstick (Mulakkada) Option C"
+    ]
+  },
+  {
+    "ingredient": "Urad Dal V313",
+    "pairs": [
+      "Byadagi Chillies Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Grated Coconut Option C"
+    ]
+  },
+  {
+    "ingredient": "Chana Dal V314",
+    "pairs": [
+      "Green Chillies Option A",
+      "Toor Dal Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V315",
+    "pairs": [
+      "Guntur Red Chillies Option A",
+      "Curry Powder Option B",
+      "Cardamom Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V316",
+    "pairs": [
+      "Toor Dal Option A",
+      "Kashmiri Chili Option B",
+      "Coriander Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Drumstick (Mulakkada) V317",
+    "pairs": [
+      "Pepper Corns Option A",
+      "Cardamom Option B",
+      "Raw Mango Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V318",
+    "pairs": [
+      "Cardamom Option A",
+      "Green Chillies Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V319",
+    "pairs": [
+      "Jaggery Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Asafoetida (Hing) V320",
+    "pairs": [
+      "Garlic Cloves Option A",
+      "Pepper Corns Option B",
+      "Rice Flour Option C"
+    ]
+  },
+  {
+    "ingredient": "Pepper Corns V321",
+    "pairs": [
+      "Grated Coconut Option A",
+      "Mint Leaves Option B",
+      "Toor Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V322",
+    "pairs": [
+      "Garlic Cloves Option A",
+      "Curry Powder Option B",
+      "Raw Mango Option C"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies V323",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Cinnamon Bark Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Finger Millet (Ragi) V324",
+    "pairs": [
+      "Cardamom Option A",
+      "Pepper Corns Option B",
+      "Finger Millet (Ragi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Shallots (Sambar Onions) V325",
+    "pairs": [
+      "Shallots (Sambar Onions) Option A",
+      "Chana Dal Option B",
+      "Cardamom Option C"
+    ]
+  },
+  {
+    "ingredient": "Grated Coconut V326",
+    "pairs": [
+      "Jaggery Option A",
+      "Toor Dal Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Urad Dal V327",
+    "pairs": [
+      "Kashmiri Chili Option A",
+      "Urad Dal Option B",
+      "Coconut Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Pepper Corns V328",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Coriander Leaves Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V329",
+    "pairs": [
+      "Cloves Option A",
+      "Sorghum (Jonna) Option B",
+      "Urad Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Cumin Seeds V330",
+    "pairs": [
+      "Raw Mango Option A",
+      "Cumin Seeds Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Tamarind V331",
+    "pairs": [
+      "Toor Dal Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V332",
+    "pairs": [
+      "Curry Powder Option A",
+      "Raw Mango Option B",
+      "Drumstick (Mulakkada) Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V333",
+    "pairs": [
+      "Byadagi Chillies Option A",
+      "Fenugreek Seeds (Methi) Option B",
+      "Green Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Urad Dal V334",
+    "pairs": [
+      "Kashmiri Chili Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Seeds V335",
+    "pairs": [
+      "Tamarind Option A",
+      "Asafoetida (Hing) Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V336",
+    "pairs": [
+      "Byadagi Chillies Option A",
+      "Pepper Corns Option B",
+      "Lemon Grass Option C"
+    ]
+  },
+  {
+    "ingredient": "Chana Dal V337",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Curry Leaves Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Leaves V338",
+    "pairs": [
+      "Cumin Seeds Option A",
+      "Coriander Leaves Option B",
+      "Curry Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Seeds V339",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Kashmiri Chili Option B",
+      "Drumstick (Mulakkada) Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Seeds V340",
+    "pairs": [
+      "Sorghum (Jonna) Option A",
+      "Guntur Red Chillies Option B",
+      "Lemon Grass Option C"
+    ]
+  },
+  {
+    "ingredient": "Cinnamon Bark V341",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Green Chillies Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Jaggery V342",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Sesame Oil Option B",
+      "Pearl Millet (Sajja) Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V343",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Green Chillies Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Shallots (Sambar Onions) V344",
+    "pairs": [
+      "Urad Dal Option A",
+      "Cloves Option B",
+      "Fenugreek Seeds (Methi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V345",
+    "pairs": [
+      "Raw Mango Option A",
+      "Mint Leaves Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Sesame Oil V346",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Sesame Oil Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Buttermilk V347",
+    "pairs": [
+      "Toor Dal Option A",
+      "Sesame Oil Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Fenugreek Seeds (Methi) V348",
+    "pairs": [
+      "Raw Mango Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Urad Dal V349",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Mustard Seeds Option B",
+      "Tamarind Option C"
+    ]
+  },
+  {
+    "ingredient": "Byadagi Chillies V350",
+    "pairs": [
+      "Rice Flour Option A",
+      "Cardamom Option B",
+      "Cumin Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V351",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Cloves Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V352",
+    "pairs": [
+      "Jaggery Option A",
+      "Cumin Seeds Option B",
+      "Rice Flour Option C"
+    ]
+  },
+  {
+    "ingredient": "Cumin Seeds V353",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Ginger Paste Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Leaves V354",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Ginger Paste Option B",
+      "Chana Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Pepper Corns V355",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Buttermilk Option B",
+      "Curry Powder Option C"
+    ]
+  },
+  {
+    "ingredient": "Kashmiri Chili V356",
+    "pairs": [
+      "Tamarind Option A",
+      "Guntur Red Chillies Option B",
+      "Rice Flour Option C"
+    ]
+  },
+  {
+    "ingredient": "Chana Dal V357",
+    "pairs": [
+      "Finger Millet (Ragi) Option A",
+      "Urad Dal Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V358",
+    "pairs": [
+      "Curry Leaves Option A",
+      "Ginger Paste Option B",
+      "Tamarind Option C"
+    ]
+  },
+  {
+    "ingredient": "Rice Flour V359",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Pepper Corns Option B",
+      "Chana Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Garlic Cloves V360",
+    "pairs": [
+      "Coriander Seeds Option A",
+      "Cumin Seeds Option B",
+      "Drumstick (Mulakkada) Option C"
+    ]
+  },
+  {
+    "ingredient": "Toor Dal V361",
+    "pairs": [
+      "Chana Dal Option A",
+      "Curry Leaves Option B",
+      "Green Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Pepper Corns V362",
+    "pairs": [
+      "Rice Flour Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V363",
+    "pairs": [
+      "Green Chillies Option A",
+      "Green Chillies Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Leaves V364",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Sorghum (Jonna) Option C"
+    ]
+  },
+  {
+    "ingredient": "Shallots (Sambar Onions) V365",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Garlic Cloves Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Kashmiri Chili V366",
+    "pairs": [
+      "Grated Coconut Option A",
+      "Rice Flour Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Coriander Seeds V367",
+    "pairs": [
+      "Fenugreek Seeds (Methi) Option A",
+      "Curry Leaves Option B",
+      "Urad Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Rice Flour V368",
+    "pairs": [
+      "Mint Leaves Option A",
+      "Ginger Paste Option B",
+      "Urad Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Powder V369",
+    "pairs": [
+      "Coconut Oil Option A",
+      "Raw Mango Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Garlic Cloves V370",
+    "pairs": [
+      "Cloves Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies V371",
+    "pairs": [
+      "Cumin Seeds Option A",
+      "Jaggery Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Drumstick (Mulakkada) V372",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Asafoetida (Hing) Option B",
+      "Finger Millet (Ragi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V373",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Gongura Leaves (Sorrel) Option B",
+      "Sorghum (Jonna) Option C"
+    ]
+  },
+  {
+    "ingredient": "Grated Coconut V374",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Coconut Oil Option B",
+      "Mustard Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Leaves V375",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Fenugreek Seeds (Methi) Option B",
+      "Lemon Grass Option C"
+    ]
+  },
+  {
+    "ingredient": "Finger Millet (Ragi) V376",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Curry Powder Option B",
+      "Coriander Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V377",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Coconut Oil Option B",
+      "Byadagi Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V378",
+    "pairs": [
+      "Kashmiri Chili Option A",
+      "Chana Dal Option B",
+      "Asafoetida (Hing) Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Powder V379",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Byadagi Chillies Option B",
+      "Toor Dal Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V380",
+    "pairs": [
+      "Green Chillies Option A",
+      "Guntur Red Chillies Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Grated Coconut V381",
+    "pairs": [
+      "Tamarind Option A",
+      "Asafoetida (Hing) Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Pepper Corns V382",
+    "pairs": [
+      "Mustard Seeds Option A",
+      "Kashmiri Chili Option B",
+      "Coriander Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V383",
+    "pairs": [
+      "Fenugreek Seeds (Methi) Option A",
+      "Curry Powder Option B",
+      "Buttermilk Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V384",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Guntur Red Chillies Option B",
+      "Garlic Cloves Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Leaves V385",
+    "pairs": [
+      "Green Chillies Option A",
+      "Finger Millet (Ragi) Option B",
+      "Kashmiri Chili Option C"
+    ]
+  },
+  {
+    "ingredient": "Kashmiri Chili V386",
+    "pairs": [
+      "Green Chillies Option A",
+      "Cinnamon Bark Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Urad Dal V387",
+    "pairs": [
+      "Chana Dal Option A",
+      "Garlic Cloves Option B",
+      "Cinnamon Bark Option C"
+    ]
+  },
+  {
+    "ingredient": "Sesame Oil V388",
+    "pairs": [
+      "Fenugreek Seeds (Methi) Option A",
+      "Sorghum (Jonna) Option B",
+      "Raw Mango Option C"
+    ]
+  },
+  {
+    "ingredient": "Cloves V389",
+    "pairs": [
+      "Byadagi Chillies Option A",
+      "Tamarind Option B",
+      "Gongura Leaves (Sorrel) Option C"
+    ]
+  },
+  {
+    "ingredient": "Raw Mango V390",
+    "pairs": [
+      "Gongura Leaves (Sorrel) Option A",
+      "Cardamom Option B",
+      "Coconut Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Sesame Oil V391",
+    "pairs": [
+      "Kashmiri Chili Option A",
+      "Shallots (Sambar Onions) Option B",
+      "Tamarind Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V392",
+    "pairs": [
+      "Ginger Paste Option A",
+      "Cumin Seeds Option B",
+      "Coriander Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Cardamom V393",
+    "pairs": [
+      "Kashmiri Chili Option A",
+      "Byadagi Chillies Option B",
+      "Fenugreek Seeds (Methi) Option C"
+    ]
+  },
+  {
+    "ingredient": "Jaggery V394",
+    "pairs": [
+      "Jaggery Option A",
+      "Lemon Grass Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Mustard Seeds V395",
+    "pairs": [
+      "Coconut Oil Option A",
+      "Pearl Millet (Sajja) Option B",
+      "Cumin Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V396",
+    "pairs": [
+      "Toor Dal Option A",
+      "Cardamom Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Mustard Seeds V397",
+    "pairs": [
+      "Lemon Grass Option A",
+      "Byadagi Chillies Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Powder V398",
+    "pairs": [
+      "Cinnamon Bark Option A",
+      "Green Chillies Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Chana Dal V399",
+    "pairs": [
+      "Cardamom Option A",
+      "Chana Dal Option B",
+      "Sesame Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V400",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Cinnamon Bark Option B",
+      "Cardamom Option C"
+    ]
+  },
+  {
+    "ingredient": "Mint Leaves V401",
+    "pairs": [
+      "Byadagi Chillies Option A",
+      "Urad Dal Option B",
+      "Pepper Corns Option C"
+    ]
+  },
+  {
+    "ingredient": "Drumstick (Mulakkada) V402",
+    "pairs": [
+      "Urad Dal Option A",
+      "Lemon Grass Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Coconut Oil V403",
+    "pairs": [
+      "Cumin Seeds Option A",
+      "Asafoetida (Hing) Option B",
+      "Lemon Grass Option C"
+    ]
+  },
+  {
+    "ingredient": "Guntur Red Chillies V404",
+    "pairs": [
+      "Coconut Oil Option A",
+      "Cardamom Option B",
+      "Mustard Seeds Option C"
+    ]
+  },
+  {
+    "ingredient": "Grated Coconut V405",
+    "pairs": [
+      "Pearl Millet (Sajja) Option A",
+      "Coriander Seeds Option B",
+      "Ginger Paste Option C"
+    ]
+  },
+  {
+    "ingredient": "Curry Powder V406",
+    "pairs": [
+      "Rice Flour Option A",
+      "Grated Coconut Option B",
+      "Coconut Oil Option C"
+    ]
+  },
+  {
+    "ingredient": "Cinnamon Bark V407",
+    "pairs": [
+      "Drumstick (Mulakkada) Option A",
+      "Coconut Oil Option B",
+      "Shallots (Sambar Onions) Option C"
+    ]
+  },
+  {
+    "ingredient": "Drumstick (Mulakkada) V408",
+    "pairs": [
+      "Asafoetida (Hing) Option A",
+      "Drumstick (Mulakkada) Option B",
+      "Mint Leaves Option C"
+    ]
+  },
+  {
+    "ingredient": "Sorghum (Jonna) V409",
+    "pairs": [
+      "Cloves Option A",
+      "Mustard Seeds Option B",
+      "Green Chillies Option C"
+    ]
+  },
+  {
+    "ingredient": "Green Chillies V410",
+    "pairs": [
+      "Coriander Leaves Option A",
+      "Ginger Paste Option B",
+      "Sesame Oil Option C"
+    ]
+  }
+]

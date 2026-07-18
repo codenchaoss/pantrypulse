@@ -1,0 +1,36 @@
+{
+  "workflow": "Restaurant Stock Optimization & Menu Launch",
+  "trigger": "InventoryUpdateEvent",
+  "steps": [
+    {
+      "step": 1,
+      "skill": "inventory-optimization",
+      "action": "Evaluate stock weights and detect expiring items"
+    },
+    {
+      "step": 2,
+      "skill": "recipe-recommendation",
+      "action": "Suggest candidate dishes utilizing expiring ingredients"
+    },
+    {
+      "step": 3,
+      "skill": "menu-generation",
+      "action": "Draft daily specials for the restaurant menu board"
+    },
+    {
+      "step": 4,
+      "skill": "pricing-suggestion",
+      "action": "Estimate margins, margins percentage, and profit category tiers"
+    },
+    {
+      "step": 5,
+      "skill": "description-generation",
+      "action": "Formulate premium dish marketing copies"
+    },
+    {
+      "step": 6,
+      "skill": "supplier-messaging",
+      "action": "Draft purchase orders for depleted stock replenishment"
+    }
+  ]
+}

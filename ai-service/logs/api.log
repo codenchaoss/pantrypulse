@@ -1,0 +1,956 @@
+2026-07-16 12:06:58,168 [INFO] app.api: Request ID: a70e37c3-e872-4580-8edd-e44e4ae0b8ef | Start: GET /openapi.json
+2026-07-16 12:06:58,288 [INFO] app.api: Request ID: a70e37c3-e872-4580-8edd-e44e4ae0b8ef | Completed: GET /openapi.json | Status: 200 | Processed in: 120ms
+2026-07-16 12:06:58,306 [INFO] app.api: Request ID: cd7af05e-1b33-4bfc-a3d6-af9c85e053c5 | Start: GET /health
+2026-07-16 12:06:58,310 [INFO] app.api: HealthController: Checking systems health...
+2026-07-16 12:07:02,830 [INFO] app.api: Request ID: cd7af05e-1b33-4bfc-a3d6-af9c85e053c5 | Completed: GET /health | Status: 200 | Processed in: 4524ms
+2026-07-16 12:07:02,839 [INFO] app.api: Request ID: b5941a3c-11ec-4f8e-b39c-1806eb0445cb | Start: GET /health
+2026-07-16 12:07:02,841 [INFO] app.api: HealthController: Checking systems health...
+2026-07-16 12:07:06,941 [INFO] app.api: Request ID: b5941a3c-11ec-4f8e-b39c-1806eb0445cb | Completed: GET /health | Status: 200 | Processed in: 4101ms
+2026-07-16 12:07:06,950 [INFO] app.api: Request ID: 41f31325-462f-44a1-9d07-dd338566fd3a | Start: POST /chat
+2026-07-16 12:07:17,835 [WARNING] app.api: Request ID: 41f31325-462f-44a1-9d07-dd338566fd3a | Validation failed: [{'type': 'string_too_short', 'loc': ('body', 'question'), 'msg': 'String should have at least 1 character', 'input': '', 'ctx': {'min_length': 1}}]
+2026-07-16 12:07:17,877 [INFO] app.api: Request ID: 41f31325-462f-44a1-9d07-dd338566fd3a | Completed: POST /chat | Status: 422 | Processed in: 10927ms
+2026-07-16 12:07:17,893 [INFO] app.api: Request ID: dd2b187b-92b9-4c7f-b1c8-366eff3adae4 | Start: POST /chat
+2026-07-16 12:07:17,950 [INFO] app.api: ChatController: Received chat request for question: 'How to store salmon?'
+2026-07-16 12:07:17,956 [INFO] app.api: Request ID: dd2b187b-92b9-4c7f-b1c8-366eff3adae4 | Completed: POST /chat | Status: 200 | Processed in: 63ms
+2026-07-16 12:07:17,967 [INFO] app.api: Request ID: 9eed248f-83ba-4eaf-bea3-011fd37a6c23 | Start: POST /recipe
+2026-07-16 12:07:17,971 [INFO] app.api: RecipeController: Received request for ingredients: ['Chicken', 'Butter']
+2026-07-16 12:07:17,971 [INFO] app.api: RecipeService: Request for ingredients ['Chicken', 'Butter']
+2026-07-16 12:07:17,973 [INFO] app.api: Request ID: 9eed248f-83ba-4eaf-bea3-011fd37a6c23 | Completed: POST /recipe | Status: 200 | Processed in: 6ms
+2026-07-16 12:07:17,982 [INFO] app.api: Request ID: 70cc7858-704e-41c4-891c-8e249c538ab7 | Start: POST /menu
+2026-07-16 12:07:17,987 [INFO] app.api: MenuController: Received menu special request for stock items count: 1
+2026-07-16 12:07:17,988 [INFO] app.api: MenuService: Request to optimize daily menu using expiring inventory count: 1
+2026-07-16 12:07:17,990 [INFO] app.api: Request ID: 70cc7858-704e-41c4-891c-8e249c538ab7 | Completed: POST /menu | Status: 200 | Processed in: 7ms
+2026-07-16 12:07:18,001 [INFO] app.api: Request ID: 7caea39b-98a6-4284-9de6-2eea20c7a9a5 | Start: POST /supplier
+2026-07-16 12:07:18,007 [INFO] app.api: SupplierController: Received supplier replenishment request for 10kg of Salmon
+2026-07-16 12:07:18,007 [INFO] app.api: SupplierService: Requesting message draft for 10kg of Salmon
+2026-07-16 12:07:18,010 [INFO] app.api: Request ID: 7caea39b-98a6-4284-9de6-2eea20c7a9a5 | Completed: POST /supplier | Status: 200 | Processed in: 8ms
+2026-07-16 19:00:00,814 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: []
+2026-07-16 19:00:00,815 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['', '   ']
+2026-07-16 19:00:00,846 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Salmon']
+2026-07-16 19:00:00,847 [INFO] app.api: RecipeService: Retrieved 3 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 19:00:00,847 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 19:00:00,875 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Lettuce']
+2026-07-16 19:00:00,875 [INFO] app.api: RecipeService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 19:00:00,876 [WARNING] app.api: RecipeService: Processing yielded empty recommendations. Constructing heuristic fallback.
+2026-07-16 19:00:00,876 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 1ms | Provider: Gemini | Fallback used: False
+2026-07-16 19:00:00,908 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Chicken']
+2026-07-16 19:00:00,908 [INFO] app.api: RecipeService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 19:00:00,909 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 19:00:00,940 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['test']
+2026-07-16 19:00:00,941 [INFO] app.api: RecipeService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 19:00:00,941 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 19:00:00,969 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['test']
+2026-07-16 19:00:00,969 [INFO] app.api: RecipeService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 19:00:00,970 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 19:00:00,997 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['tomato']
+2026-07-16 19:00:00,997 [INFO] app.api: RecipeService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 19:00:01,006 [WARNING] app.api: RecipeService: Parsed output does not match expected JSON root schema.
+2026-07-16 19:00:01,006 [WARNING] app.api: RecipeService: Processing yielded empty recommendations. Constructing heuristic fallback.
+2026-07-16 19:00:01,006 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 9ms | Provider: Gemini | Fallback used: False
+2026-07-16 19:00:48,916 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: []
+2026-07-16 19:00:48,917 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['', '   ']
+2026-07-16 19:00:48,964 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Salmon']
+2026-07-16 19:00:48,964 [INFO] app.api: RecipeService: Retrieved 3 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 19:00:48,965 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 19:00:49,003 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Lettuce']
+2026-07-16 19:00:49,004 [INFO] app.api: RecipeService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 19:00:49,005 [WARNING] app.api: RecipeService: Processing yielded empty recommendations. Constructing heuristic fallback.
+2026-07-16 19:00:49,005 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 1ms | Provider: Gemini | Fallback used: False
+2026-07-16 19:00:49,044 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Chicken']
+2026-07-16 19:00:49,044 [INFO] app.api: RecipeService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 19:00:49,045 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 19:00:49,087 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['test']
+2026-07-16 19:00:49,087 [INFO] app.api: RecipeService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 19:00:49,087 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 19:00:49,129 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['test']
+2026-07-16 19:00:49,129 [INFO] app.api: RecipeService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 19:00:49,129 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 19:00:49,157 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['tomato']
+2026-07-16 19:00:49,157 [INFO] app.api: RecipeService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 19:00:49,158 [WARNING] app.api: RecipeService: Parsed output does not match expected JSON root schema.
+2026-07-16 19:00:49,158 [WARNING] app.api: RecipeService: Processing yielded empty recommendations. Constructing heuristic fallback.
+2026-07-16 19:00:49,158 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 0ms | Provider: Gemini | Fallback used: False
+2026-07-16 21:16:36,094 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 0
+2026-07-16 21:16:36,095 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-16 21:16:36,095 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-16 21:16:36,124 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-16 21:16:36,125 [INFO] app.api: MenuService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 21:16:36,125 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 21:16:36,158 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 2
+2026-07-16 21:16:36,158 [INFO] app.api: MenuService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 21:16:36,158 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 21:16:36,184 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-16 21:16:36,184 [INFO] app.api: MenuService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 21:16:36,185 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 0ms | Provider: Gemini | Fallback used: False
+2026-07-16 21:16:36,213 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-16 21:16:36,213 [INFO] app.api: MenuService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 21:16:36,213 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 0ms | Provider: Gemini | Fallback used: False
+2026-07-16 21:16:36,246 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-16 21:16:36,246 [INFO] app.api: MenuService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 21:16:36,247 [WARNING] app.api: MenuService: Parsed JSON does not match expected Daily Menu root key.
+2026-07-16 21:16:36,247 [WARNING] app.api: MenuService: Specials processing yielded empty list. Implementing heuristic fallback.
+2026-07-16 21:16:36,247 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 1ms | Provider: Gemini | Fallback used: False
+2026-07-16 21:17:11,355 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 0
+2026-07-16 21:17:11,356 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-16 21:17:11,356 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-16 21:17:11,398 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-16 21:17:11,398 [INFO] app.api: MenuService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 21:17:11,399 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 21:17:11,429 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 2
+2026-07-16 21:17:11,430 [INFO] app.api: MenuService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 21:17:11,430 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 21:17:11,466 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-16 21:17:11,466 [INFO] app.api: MenuService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 21:17:11,467 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 0ms | Provider: Gemini | Fallback used: False
+2026-07-16 21:17:11,506 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-16 21:17:11,507 [INFO] app.api: MenuService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 21:17:11,507 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 1ms | Provider: Gemini | Fallback used: False
+2026-07-16 21:17:11,541 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-16 21:17:11,541 [INFO] app.api: MenuService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 21:17:11,542 [WARNING] app.api: MenuService: Parsed JSON does not match expected Daily Menu root key.
+2026-07-16 21:17:11,542 [WARNING] app.api: MenuService: Specials processing yielded empty list. Implementing heuristic fallback.
+2026-07-16 21:17:11,542 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 1ms | Provider: Gemini | Fallback used: False
+2026-07-16 22:51:31,747 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 0
+2026-07-16 22:51:31,748 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 1
+2026-07-16 22:51:38,146 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 4
+2026-07-16 22:51:38,146 [INFO] app.api: DescriptionService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 22:51:38,147 [INFO] app.api: DescriptionService: Completed. Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 22:51:41,283 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 1
+2026-07-16 22:51:41,283 [INFO] app.api: DescriptionService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 22:51:41,283 [INFO] app.api: DescriptionService: Completed. Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 22:51:44,156 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 1
+2026-07-16 22:51:44,156 [INFO] app.api: DescriptionService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 22:51:44,165 [WARNING] app.api: DescriptionService: Parsed JSON missing expected 'descriptions' key.
+2026-07-16 22:51:44,165 [INFO] app.api: DescriptionService: Completed. Latency: 9ms | Provider: Gemini | Fallback used: False
+2026-07-16 22:59:12,972 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 0
+2026-07-16 22:59:12,972 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 1
+2026-07-16 22:59:21,122 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 4
+2026-07-16 22:59:21,123 [INFO] app.api: DescriptionService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 22:59:21,123 [INFO] app.api: DescriptionService: Completed. Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 22:59:24,984 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 1
+2026-07-16 22:59:24,985 [INFO] app.api: DescriptionService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 22:59:24,985 [INFO] app.api: DescriptionService: Completed. Latency: 0ms | Provider: gemini | Fallback used: False
+2026-07-16 22:59:28,168 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 1
+2026-07-16 22:59:28,169 [INFO] app.api: DescriptionService: Retrieved 1 chunks, filtered to 1 recipe chunks in 0ms
+2026-07-16 22:59:28,169 [WARNING] app.api: DescriptionService: Parsed JSON missing expected 'descriptions' key.
+2026-07-16 22:59:28,169 [INFO] app.api: DescriptionService: Completed. Latency: 0ms | Provider: Gemini | Fallback used: False
+2026-07-16 23:08:27,680 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Fresh Foods | Ingredient:  | Qty: 20 kg | Date: Tomorrow
+2026-07-16 23:08:27,681 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Fresh Foods | Ingredient: Chicken | Qty:     | Date: Tomorrow
+2026-07-16 23:08:27,681 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Fresh Foods | Ingredient: Chicken | Qty: 20 kg | Date: 
+2026-07-16 23:08:33,897 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Potato Farms Inc | Ingredient: Potato | Qty: 50 kg | Date: Friday
+2026-07-16 23:08:33,897 [INFO] app.api: SupplierService: Retrieved 0 chunks, filtered to 0 supplier chunks in 0ms
+2026-07-16 23:08:33,898 [WARNING] app.api: SupplierService: Generation failed or empty. Applying fallback templates.
+2026-07-16 23:08:33,898 [INFO] app.api: SupplierService: Message generation complete. Latency: 1ms | Provider: Gemini
+2026-07-16 23:08:36,936 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Agro Foods Pvt Ltd | Ingredient: Onion | Qty: 10 bags | Date: Friday
+2026-07-16 23:08:36,936 [INFO] app.api: SupplierService: Retrieved 1 chunks, filtered to 1 supplier chunks in 0ms
+2026-07-16 23:08:36,936 [INFO] app.api: SupplierService: Message generation complete. Latency: 0ms | Provider: Gemini
+2026-07-16 23:08:39,609 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: None | Ingredient: Salt | Qty: 5 kg | Date: Tomorrow
+2026-07-16 23:08:39,610 [INFO] app.api: SupplierService: Retrieved 0 chunks, filtered to 0 supplier chunks in 0ms
+2026-07-16 23:08:39,610 [INFO] app.api: SupplierService: Message generation complete. Latency: 0ms | Provider: Gemini
+2026-07-16 23:08:42,428 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Fresh Foods | Ingredient: Chicken | Qty: 20 kg | Date: Tomorrow
+2026-07-16 23:08:42,428 [INFO] app.api: SupplierService: Retrieved 0 chunks, filtered to 0 supplier chunks in 0ms
+2026-07-16 23:08:42,437 [WARNING] app.api: SupplierService: Generation failed or empty. Applying fallback templates.
+2026-07-16 23:08:42,437 [INFO] app.api: SupplierService: Message generation complete. Latency: 9ms | Provider: Gemini
+2026-07-16 23:09:16,955 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Fresh Foods | Ingredient:  | Qty: 20 kg | Date: Tomorrow
+2026-07-16 23:09:16,955 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Fresh Foods | Ingredient: Chicken | Qty:     | Date: Tomorrow
+2026-07-16 23:09:16,955 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Fresh Foods | Ingredient: Chicken | Qty: 20 kg | Date: 
+2026-07-16 23:09:22,964 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Potato Farms Inc | Ingredient: Potato | Qty: 50 kg | Date: Friday
+2026-07-16 23:09:22,965 [INFO] app.api: SupplierService: Retrieved 0 chunks, filtered to 0 supplier chunks in 0ms
+2026-07-16 23:09:22,966 [WARNING] app.api: SupplierService: Generation failed or empty. Applying fallback templates.
+2026-07-16 23:09:22,966 [INFO] app.api: SupplierService: Message generation complete. Latency: 1ms | Provider: Gemini
+2026-07-16 23:09:26,206 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Agro Foods Pvt Ltd | Ingredient: Onion | Qty: 10 bags | Date: Friday
+2026-07-16 23:09:26,206 [INFO] app.api: SupplierService: Retrieved 1 chunks, filtered to 1 supplier chunks in 0ms
+2026-07-16 23:09:26,207 [INFO] app.api: SupplierService: Message generation complete. Latency: 0ms | Provider: Gemini
+2026-07-16 23:09:29,408 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: None | Ingredient: Salt | Qty: 5 kg | Date: Tomorrow
+2026-07-16 23:09:29,408 [INFO] app.api: SupplierService: Retrieved 0 chunks, filtered to 0 supplier chunks in 0ms
+2026-07-16 23:09:29,409 [INFO] app.api: SupplierService: Message generation complete. Latency: 0ms | Provider: Gemini
+2026-07-16 23:09:32,406 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Fresh Foods | Ingredient: Chicken | Qty: 20 kg | Date: Tomorrow
+2026-07-16 23:09:32,406 [INFO] app.api: SupplierService: Retrieved 0 chunks, filtered to 0 supplier chunks in 0ms
+2026-07-16 23:09:32,407 [WARNING] app.api: SupplierService: Generation failed or empty. Applying fallback templates.
+2026-07-16 23:09:32,407 [INFO] app.api: SupplierService: Message generation complete. Latency: 1ms | Provider: Gemini
+2026-07-16 23:27:05,322 [INFO] app.api: PricingService: Suggestions requested for dish: '' | Cost: 150.0
+2026-07-16 23:27:05,323 [INFO] app.api: PricingService: Suggestions requested for dish: 'Butter Chicken' | Cost: -50.0
+2026-07-16 23:27:11,178 [INFO] app.api: PricingService: Suggestions requested for dish: 'Premium Steak' | Cost: 200.0
+2026-07-16 23:27:11,178 [INFO] app.api: PricingService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-16 23:27:11,179 [INFO] app.api: PricingService: Suggestion generated. Price: 500 | Margin: 60% | Category: HIGH | Latency: 0ms
+2026-07-16 23:27:11,179 [INFO] app.api: PricingService: Suggestions requested for dish: 'Burger' | Cost: 250.0
+2026-07-16 23:27:11,179 [INFO] app.api: PricingService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-16 23:27:11,179 [INFO] app.api: PricingService: Suggestion generated. Price: 500 | Margin: 50% | Category: MEDIUM | Latency: 0ms
+2026-07-16 23:27:11,179 [INFO] app.api: PricingService: Suggestions requested for dish: 'Salad' | Cost: 350.0
+2026-07-16 23:27:11,179 [INFO] app.api: PricingService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-16 23:27:11,180 [INFO] app.api: PricingService: Suggestion generated. Price: 500 | Margin: 30% | Category: LOW | Latency: 0ms
+2026-07-16 23:27:13,917 [INFO] app.api: PricingService: Suggestions requested for dish: 'Samosa' | Cost: 10.0
+2026-07-16 23:27:13,917 [INFO] app.api: PricingService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-16 23:27:13,917 [WARNING] app.api: PricingService: Price suggestion missing or invalid. Constructing BOH markup fallback.
+2026-07-16 23:27:13,918 [INFO] app.api: PricingService: Suggestion generated. Price: 30 | Margin: 66% | Category: HIGH | Latency: 1ms
+2026-07-16 23:27:16,969 [INFO] app.api: PricingService: Suggestions requested for dish: 'Paneer Tikka' | Cost: 100.0
+2026-07-16 23:27:16,969 [INFO] app.api: PricingService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-16 23:27:16,971 [WARNING] app.api: PricingService: Price suggestion missing or invalid. Constructing BOH markup fallback.
+2026-07-16 23:27:16,971 [INFO] app.api: PricingService: Suggestion generated. Price: 300 | Margin: 66% | Category: HIGH | Latency: 1ms
+2026-07-17 00:00:21,732 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 0 items
+2026-07-17 00:00:21,733 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 00:00:21,733 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 00:00:42,065 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 3 items
+2026-07-17 00:00:42,065 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 3 items to 2
+2026-07-17 00:00:42,066 [INFO] app.api: InventoryOptimizerService: Retrieved 0 chunks, filtered to 0 context chunks in 0ms
+2026-07-17 00:00:42,066 [WARNING] app.api: InventoryOptimizerService: Parsing failed or empty list. Constructing fallback optimizer plan.
+2026-07-17 00:00:42,066 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 0ms | Revenue: ₹0 | Waste Saved: 0.0
+2026-07-17 00:00:51,552 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 00:00:51,552 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 1 items to 1
+2026-07-17 00:00:51,552 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Chicken']
+2026-07-17 00:00:51,552 [INFO] app.api: RecipeService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-17 00:00:51,552 [WARNING] app.api: RecipeService: No recipe chunks retrieved. Returning empty recommendations list.
+2026-07-17 00:00:51,553 [INFO] app.api: InventoryOptimizerService: Retrieved 0 chunks, filtered to 0 context chunks in 0ms
+2026-07-17 00:00:51,553 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 1ms | Revenue: ₹18500 | Waste Saved: 15.0
+2026-07-17 00:01:02,071 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 00:01:02,072 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 1 items to 1
+2026-07-17 00:01:02,072 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Chicken']
+2026-07-17 00:01:02,072 [INFO] app.api: RecipeService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-17 00:01:02,072 [WARNING] app.api: RecipeService: No recipe chunks retrieved. Returning empty recommendations list.
+2026-07-17 00:01:02,072 [INFO] app.api: InventoryOptimizerService: Retrieved 0 chunks, filtered to 0 context chunks in 0ms
+2026-07-17 00:01:02,075 [WARNING] app.api: InventoryOptimizerService: Parsing failed or empty list. Constructing fallback optimizer plan.
+2026-07-17 00:01:02,075 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 3ms | Revenue: ₹8000 | Waste Saved: 7.0
+2026-07-17 00:17:30,774 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 0 items
+2026-07-17 00:17:30,776 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 00:17:30,776 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 00:17:38,170 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 3 items
+2026-07-17 00:17:38,171 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 3 items to 2
+2026-07-17 00:17:38,171 [INFO] app.api: InventoryOptimizerService: Retrieved 0 chunks, filtered to 0 context chunks in 0ms
+2026-07-17 00:17:38,171 [WARNING] app.api: InventoryOptimizerService: Parsing failed or empty list. Constructing fallback optimizer plan.
+2026-07-17 00:17:38,172 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 1ms | Revenue: ₹0 | Waste Saved: 0.0
+2026-07-17 00:17:38,276 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 00:17:38,276 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 1 items to 1
+2026-07-17 00:17:38,276 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Chicken']
+2026-07-17 00:17:38,277 [INFO] app.api: RecipeService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-17 00:17:38,277 [WARNING] app.api: RecipeService: No recipe chunks retrieved. Returning empty recommendations list.
+2026-07-17 00:17:38,277 [INFO] app.api: InventoryOptimizerService: Retrieved 0 chunks, filtered to 0 context chunks in 0ms
+2026-07-17 00:17:38,277 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 1ms | Revenue: ₹18500 | Waste Saved: 15.0
+2026-07-17 00:17:38,374 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 00:17:38,374 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 1 items to 1
+2026-07-17 00:17:38,374 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Chicken']
+2026-07-17 00:17:38,374 [INFO] app.api: RecipeService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-17 00:17:38,374 [WARNING] app.api: RecipeService: No recipe chunks retrieved. Returning empty recommendations list.
+2026-07-17 00:17:38,375 [INFO] app.api: InventoryOptimizerService: Retrieved 0 chunks, filtered to 0 context chunks in 0ms
+2026-07-17 00:17:38,376 [WARNING] app.api: InventoryOptimizerService: Parsing failed or empty list. Constructing fallback optimizer plan.
+2026-07-17 00:17:38,376 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 2ms | Revenue: ₹8000 | Waste Saved: 7.0
+2026-07-17 00:23:31,601 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 0 items
+2026-07-17 00:23:31,602 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 00:23:31,602 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 00:23:31,892 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 3 items
+2026-07-17 00:23:31,893 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 3 items to 2
+2026-07-17 00:23:31,893 [INFO] app.api: InventoryOptimizerService: Retrieved 0 chunks, filtered to 0 context chunks in 0ms
+2026-07-17 00:23:31,893 [WARNING] app.api: InventoryOptimizerService: Parsing failed or empty list. Constructing fallback optimizer plan.
+2026-07-17 00:23:31,893 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 0ms | Revenue: ₹0 | Waste Saved: 0.0
+2026-07-17 00:23:32,029 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 00:23:32,030 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 1 items to 1
+2026-07-17 00:23:32,030 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Chicken']
+2026-07-17 00:23:32,030 [INFO] app.api: RecipeService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-17 00:23:32,030 [WARNING] app.api: RecipeService: No recipe chunks retrieved. Returning empty recommendations list.
+2026-07-17 00:23:32,031 [INFO] app.api: InventoryOptimizerService: Retrieved 0 chunks, filtered to 0 context chunks in 0ms
+2026-07-17 00:23:32,031 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 1ms | Revenue: ₹18500 | Waste Saved: 15.0
+2026-07-17 00:23:32,160 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 00:23:32,160 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 1 items to 1
+2026-07-17 00:23:32,161 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Chicken']
+2026-07-17 00:23:32,161 [INFO] app.api: RecipeService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-17 00:23:32,161 [WARNING] app.api: RecipeService: No recipe chunks retrieved. Returning empty recommendations list.
+2026-07-17 00:23:32,161 [INFO] app.api: InventoryOptimizerService: Retrieved 0 chunks, filtered to 0 context chunks in 0ms
+2026-07-17 00:23:32,170 [WARNING] app.api: InventoryOptimizerService: Parsing failed or empty list. Constructing fallback optimizer plan.
+2026-07-17 00:23:32,170 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 10ms | Revenue: ₹8000 | Waste Saved: 7.0
+2026-07-17 11:23:25,342 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 0 items
+2026-07-17 11:23:25,343 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 11:23:25,343 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 11:23:25,626 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 3 items
+2026-07-17 11:23:25,627 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 3 items to 2
+2026-07-17 11:23:25,627 [INFO] app.api: InventoryOptimizerService: Retrieved 0 chunks, filtered to 0 context chunks in 0ms
+2026-07-17 11:23:25,628 [WARNING] app.api: InventoryOptimizerService: Parsing failed or empty list. Constructing fallback optimizer plan.
+2026-07-17 11:23:25,628 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 1ms | Revenue: ₹0 | Waste Saved: 0.0
+2026-07-17 11:23:25,749 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 11:23:25,749 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 1 items to 1
+2026-07-17 11:23:25,749 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Chicken']
+2026-07-17 11:23:25,750 [INFO] app.api: RecipeService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-17 11:23:25,750 [WARNING] app.api: RecipeService: No recipe chunks retrieved. Returning empty recommendations list.
+2026-07-17 11:23:25,750 [INFO] app.api: InventoryOptimizerService: Retrieved 0 chunks, filtered to 0 context chunks in 0ms
+2026-07-17 11:23:25,751 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 2ms | Revenue: ₹18500 | Waste Saved: 15.0
+2026-07-17 11:23:25,905 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-17 11:23:25,905 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 1 items to 1
+2026-07-17 11:23:25,906 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Chicken']
+2026-07-17 11:23:25,906 [INFO] app.api: RecipeService: Retrieved 0 chunks, filtered to 0 recipe chunks in 0ms
+2026-07-17 11:23:25,906 [WARNING] app.api: RecipeService: No recipe chunks retrieved. Returning empty recommendations list.
+2026-07-17 11:23:25,907 [INFO] app.api: InventoryOptimizerService: Retrieved 0 chunks, filtered to 0 context chunks in 0ms
+2026-07-17 11:23:25,910 [WARNING] app.api: InventoryOptimizerService: Parsing failed or empty list. Constructing fallback optimizer plan.
+2026-07-17 11:23:25,910 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 4ms | Revenue: ₹8000 | Waste Saved: 7.0
+2026-07-17 22:43:26,810 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-17 22:43:26,811 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-17 22:43:41,099 [INFO] app.api: Request ID: 2c5afc39-887d-43d6-9fe2-cc1edd15f907 | Start: GET /
+2026-07-17 22:43:41,139 [INFO] app.api: Request ID: 2c5afc39-887d-43d6-9fe2-cc1edd15f907 | Completed: GET / | Status: 404 | Processed in: 40ms
+2026-07-17 22:43:41,211 [INFO] app.api: Request ID: 62def203-fa9b-49ce-bd11-ea7809715c25 | Start: GET /favicon.ico
+2026-07-17 22:43:41,213 [INFO] app.api: Request ID: 62def203-fa9b-49ce-bd11-ea7809715c25 | Completed: GET /favicon.ico | Status: 404 | Processed in: 2ms
+2026-07-17 22:44:48,119 [INFO] app.api: Request ID: 6dd6ba3b-79bf-46ca-a20a-1dd3d0eeff31 | Start: GET /
+2026-07-17 22:44:48,121 [INFO] app.api: Request ID: 6dd6ba3b-79bf-46ca-a20a-1dd3d0eeff31 | Completed: GET / | Status: 404 | Processed in: 2ms
+2026-07-17 22:45:28,498 [INFO] app.api: Request ID: c3f66b60-faab-4e76-b645-43dbea6dfb5e | Start: GET /
+2026-07-17 22:45:28,500 [INFO] app.api: Request ID: c3f66b60-faab-4e76-b645-43dbea6dfb5e | Completed: GET / | Status: 404 | Processed in: 2ms
+2026-07-17 22:48:35,641 [INFO] app.api: Request ID: 3c9d895b-e579-48e6-9d64-a578a8cadd01 | Start: GET /docs
+2026-07-17 22:48:35,642 [INFO] app.api: Request ID: 3c9d895b-e579-48e6-9d64-a578a8cadd01 | Completed: GET /docs | Status: 200 | Processed in: 1ms
+2026-07-17 22:48:37,192 [INFO] app.api: Request ID: 3e0a7f7b-5635-4f7a-ab6d-2d9ab0b41f37 | Start: GET /openapi.json
+2026-07-17 22:48:37,637 [INFO] app.api: Request ID: 3e0a7f7b-5635-4f7a-ab6d-2d9ab0b41f37 | Completed: GET /openapi.json | Status: 200 | Processed in: 445ms
+2026-07-17 22:55:50,031 [INFO] app.api: Request ID: c0cc5662-7e2c-4ace-90ce-7a14bfb259fc | Start: GET /health
+2026-07-17 22:55:50,046 [INFO] app.api: HealthController: Checking systems health...
+2026-07-17 22:55:53,897 [INFO] app.api: Request ID: c0cc5662-7e2c-4ace-90ce-7a14bfb259fc | Completed: GET /health | Status: 200 | Processed in: 3865ms
+2026-07-17 22:56:32,795 [INFO] app.api: Request ID: e977044f-afc3-4b99-aa37-24b74190723e | Start: GET /health
+2026-07-17 22:56:32,796 [INFO] app.api: HealthController: Checking systems health...
+2026-07-17 22:56:35,653 [INFO] app.api: Request ID: e977044f-afc3-4b99-aa37-24b74190723e | Completed: GET /health | Status: 200 | Processed in: 2858ms
+2026-07-17 22:56:41,357 [INFO] app.api: Request ID: bd157f1d-2660-4f0e-a6fb-887c3f2888e1 | Start: GET /health
+2026-07-17 22:56:41,358 [INFO] app.api: HealthController: Checking systems health...
+2026-07-17 22:56:44,156 [INFO] app.api: Request ID: bd157f1d-2660-4f0e-a6fb-887c3f2888e1 | Completed: GET /health | Status: 200 | Processed in: 2799ms
+2026-07-17 22:59:11,964 [INFO] app.api: Request ID: f478ef59-714e-4c60-8b35-d1d421b3ffd2 | Start: GET /health
+2026-07-17 22:59:11,966 [INFO] app.api: HealthController: Checking systems health...
+2026-07-17 22:59:19,319 [INFO] app.api: Request ID: f478ef59-714e-4c60-8b35-d1d421b3ffd2 | Completed: GET /health | Status: 200 | Processed in: 7354ms
+2026-07-17 23:03:53,991 [INFO] app.api: Request ID: fec8ccd0-dbe9-41f8-833d-fb7be9bc0240 | Start: POST /chat
+2026-07-17 23:04:02,344 [INFO] app.api: ChatController: Received chat request for question: 'string' | History present: True
+2026-07-17 23:04:08,102 [INFO] app.api: Request ID: fec8ccd0-dbe9-41f8-833d-fb7be9bc0240 | Completed: POST /chat | Status: 200 | Processed in: 14110ms
+2026-07-17 23:06:56,125 [INFO] app.api: Request ID: 01cfebae-c532-46f2-813d-ed9fc2a6a4c7 | Start: POST /chat
+2026-07-17 23:06:56,160 [INFO] app.api: ChatController: Received chat request for question: 'suggest a healthy breakfast and lunch using eggs and chicken curry' | History present: False
+2026-07-17 23:07:01,749 [INFO] app.api: Request ID: 01cfebae-c532-46f2-813d-ed9fc2a6a4c7 | Completed: POST /chat | Status: 200 | Processed in: 5624ms
+2026-07-17 23:19:33,301 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-17 23:21:15,792 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-17 23:21:15,792 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-17 23:21:15,908 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-17 23:21:37,387 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-17 23:21:37,387 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-17 23:23:12,297 [INFO] app.api: Request ID: 75324f6b-38ab-4c46-a488-22a0f1dccf5e | Start: POST /chat
+2026-07-17 23:23:19,832 [INFO] app.api: ChatController: Received chat request for question: 'suggest a healthy breakfast and lunch using eggs and chicken curry' | History present: False
+2026-07-17 23:23:22,122 [INFO] app.api: Request ID: c24268bf-7a2a-4e86-b349-7c95fea1b8f8 | Start: GET /docs
+2026-07-17 23:23:22,123 [INFO] app.api: Request ID: c24268bf-7a2a-4e86-b349-7c95fea1b8f8 | Completed: GET /docs | Status: 200 | Processed in: 1ms
+2026-07-17 23:23:22,665 [INFO] app.api: Request ID: 4063afad-1a3a-4b94-adf0-af6a8f9fed68 | Start: GET /openapi.json
+2026-07-17 23:23:23,076 [INFO] app.api: Request ID: 4063afad-1a3a-4b94-adf0-af6a8f9fed68 | Completed: GET /openapi.json | Status: 200 | Processed in: 410ms
+2026-07-17 23:23:30,059 [INFO] app.api: Request ID: 75324f6b-38ab-4c46-a488-22a0f1dccf5e | Completed: POST /chat | Status: 200 | Processed in: 17762ms
+2026-07-17 23:23:33,295 [INFO] app.api: Request ID: 4b495d56-c142-4cc8-bfb8-c6aaf35fa859 | Start: GET /health
+2026-07-17 23:23:33,299 [INFO] app.api: HealthController: Checking systems health...
+2026-07-17 23:23:35,889 [INFO] app.api: Request ID: 4b495d56-c142-4cc8-bfb8-c6aaf35fa859 | Completed: GET /health | Status: 200 | Processed in: 2593ms
+2026-07-17 23:24:55,659 [INFO] app.api: Request ID: cac64036-459a-49d5-b3ec-c8515389bac4 | Start: POST /chat
+2026-07-17 23:24:55,694 [INFO] app.api: ChatController: Received chat request for question: 'namaste boss ravvaupma dosa available lo vunda andi' | History present: False
+2026-07-17 23:24:59,197 [INFO] app.api: Request ID: cac64036-459a-49d5-b3ec-c8515389bac4 | Completed: POST /chat | Status: 200 | Processed in: 3537ms
+2026-07-17 23:40:00,622 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-17 23:40:29,346 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-17 23:40:29,347 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-17 23:40:29,461 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-17 23:40:50,075 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-17 23:40:50,075 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-17 23:41:54,141 [INFO] app.api: Request ID: ae61b54e-b378-4bec-89c3-281fae409052 | Start: GET /health
+2026-07-17 23:41:54,149 [INFO] app.api: HealthController: Checking systems health...
+2026-07-17 23:41:58,273 [INFO] app.api: Request ID: ae61b54e-b378-4bec-89c3-281fae409052 | Completed: GET /health | Status: 200 | Processed in: 4132ms
+2026-07-17 23:43:17,837 [INFO] app.api: Request ID: 18cd6a86-abde-4eb1-87a1-5265e1b71c96 | Start: POST /chat
+2026-07-17 23:43:27,219 [INFO] app.api: ChatController: Received chat request for question: 'hi boss is sambar idli is available today ' | History present: False
+2026-07-17 23:43:37,085 [INFO] app.api: Request ID: 18cd6a86-abde-4eb1-87a1-5265e1b71c96 | Completed: POST /chat | Status: 200 | Processed in: 19247ms
+2026-07-17 23:45:00,608 [INFO] app.api: Request ID: 01fcdbf1-f6c9-46e1-9241-561436d1771a | Start: POST /chat
+2026-07-17 23:45:00,636 [INFO] app.api: ChatController: Received chat request for question: 'em andi manager garu vullipaya dosa vundha vunte okati parcel kavali ayya ' | History present: False
+2026-07-17 23:45:06,869 [INFO] app.api: Request ID: 01fcdbf1-f6c9-46e1-9241-561436d1771a | Completed: POST /chat | Status: 200 | Processed in: 6260ms
+2026-07-18 00:02:38,549 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 00:03:16,621 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 00:03:16,622 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 00:03:16,728 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 00:03:44,577 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 00:03:44,578 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 00:03:44,845 [INFO] app.api: Request ID: f3049a74-0196-489d-b9d2-61c497d8ae39 | Start: HEAD /rebuild
+2026-07-18 00:03:44,883 [INFO] app.api: Request ID: f3049a74-0196-489d-b9d2-61c497d8ae39 | Completed: HEAD /rebuild | Status: 405 | Processed in: 37ms
+2026-07-18 00:03:44,888 [INFO] app.api: Request ID: 6cfa84f5-67b4-4d52-82e3-c11a70e5ae5c | Start: GET /rebuild
+2026-07-18 00:03:44,896 [INFO] app.api: API Rebuild: Starting knowledge base update and FAISS regeneration.
+2026-07-18 00:03:44,933 [INFO] app.api: API Rebuild: Generating new recipes starting from ID: R1500
+2026-07-18 00:03:45,170 [INFO] app.api: API Rebuild: Appended 1550 dishes to recipes.json.
+2026-07-18 00:03:45,171 [INFO] app.api: API Rebuild: Triggering Chunking pipeline...
+2026-07-18 00:03:45,792 [INFO] app.api: API Rebuild: Triggering VectorStore rebuild...
+2026-07-18 00:04:27,369 [INFO] app.api: Request ID: 1d8ba3ff-dbf7-4a98-bb08-20c34b8c77ea | Start: GET /rebuild
+2026-07-18 00:04:27,394 [INFO] app.api: API Rebuild: Starting knowledge base update and FAISS regeneration.
+2026-07-18 00:04:27,564 [INFO] app.api: API Rebuild: Knowledge base already contains expanded records. Skipping generation.
+2026-07-18 00:04:27,579 [INFO] app.api: API Rebuild: Triggering Chunking pipeline...
+2026-07-18 00:04:28,905 [INFO] app.api: API Rebuild: Triggering VectorStore rebuild...
+2026-07-18 00:08:00,432 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 00:12:56,692 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 00:12:56,692 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 00:13:24,623 [INFO] app.api: Request ID: 2040f7ab-3031-44a8-aaeb-08ebc7489c2a | Start: GET /
+2026-07-18 00:13:24,665 [INFO] app.api: Request ID: 2040f7ab-3031-44a8-aaeb-08ebc7489c2a | Completed: GET / | Status: 404 | Processed in: 42ms
+2026-07-18 00:14:20,047 [INFO] app.api: Request ID: 0b1f3d22-2178-4676-a9f1-04c4eb9fe9c6 | Start: GET /docs
+2026-07-18 00:14:20,072 [INFO] app.api: Request ID: 0b1f3d22-2178-4676-a9f1-04c4eb9fe9c6 | Completed: GET /docs | Status: 200 | Processed in: 24ms
+2026-07-18 00:14:20,373 [INFO] app.api: Request ID: 252ce28e-f001-450d-bad4-33de902c94a2 | Start: GET /openapi.json
+2026-07-18 00:14:21,087 [INFO] app.api: Request ID: 252ce28e-f001-450d-bad4-33de902c94a2 | Completed: GET /openapi.json | Status: 200 | Processed in: 714ms
+2026-07-18 00:14:31,341 [INFO] app.api: Request ID: f0a3480a-1f64-4d00-ad18-a9b3430eae90 | Start: GET /health
+2026-07-18 00:14:31,347 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 00:14:34,722 [INFO] app.api: Request ID: f0a3480a-1f64-4d00-ad18-a9b3430eae90 | Completed: GET /health | Status: 200 | Processed in: 3380ms
+2026-07-18 00:15:51,435 [INFO] app.api: Request ID: 2188342f-d964-45a2-8210-8bfacab9e726 | Start: POST /chat
+2026-07-18 00:16:00,677 [INFO] app.api: ChatController: Received chat request for question: 'namaste sir .can you please todays special lunch dishes' | History present: False
+2026-07-18 00:16:11,120 [INFO] app.api: Request ID: 2188342f-d964-45a2-8210-8bfacab9e726 | Completed: POST /chat | Status: 200 | Processed in: 19685ms
+2026-07-18 00:18:06,428 [INFO] app.api: Request ID: 658f327d-f5e6-41a5-9f6e-ee85cc0c9fbc | Start: POST /chat
+2026-07-18 00:18:06,497 [INFO] app.api: ChatController: Received chat request for question: 'masala dosa and puri  vunnaya mastaru mana hotel ' | History present: False
+2026-07-18 00:18:18,339 [INFO] app.api: Request ID: 658f327d-f5e6-41a5-9f6e-ee85cc0c9fbc | Completed: POST /chat | Status: 200 | Processed in: 11911ms
+2026-07-18 00:28:20,023 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 00:29:06,470 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 00:29:06,471 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 00:29:55,095 [INFO] app.api: Request ID: f49c49ed-9f42-402d-bc6a-9845b2bd897c | Start: GET /docs
+2026-07-18 00:29:55,098 [INFO] app.api: Request ID: f49c49ed-9f42-402d-bc6a-9845b2bd897c | Completed: GET /docs | Status: 200 | Processed in: 3ms
+2026-07-18 00:29:55,440 [INFO] app.api: Request ID: ba4c7f01-c76d-4303-8d7a-50623e5785d5 | Start: GET /openapi.json
+2026-07-18 00:29:56,132 [INFO] app.api: Request ID: ba4c7f01-c76d-4303-8d7a-50623e5785d5 | Completed: GET /openapi.json | Status: 200 | Processed in: 692ms
+2026-07-18 00:30:09,363 [INFO] app.api: Request ID: cc28f632-91ea-4b0d-a991-5bb4e9f1a9cb | Start: GET /health
+2026-07-18 00:30:09,371 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 00:30:13,873 [INFO] app.api: Request ID: cc28f632-91ea-4b0d-a991-5bb4e9f1a9cb | Completed: GET /health | Status: 200 | Processed in: 4509ms
+2026-07-18 00:34:30,572 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 00:34:57,283 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 00:34:57,284 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 00:34:57,390 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 00:35:21,748 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 00:35:21,749 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 00:35:21,861 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 00:35:47,338 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 00:35:47,339 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 00:37:33,719 [INFO] app.api: [TELEMETRY] Query: 'namaste boss ravvaupma dosa available lo vunda andi' | Lang: roman_telugu (conf: 0.95) | Chunks: 2 | Provider: Gemini | Fallback: False | Latency: 2ms
+2026-07-18 00:39:25,628 [INFO] app.api: Request ID: dc6f40ea-84bc-4955-b332-e7d403d31768 | Start: GET /docs
+2026-07-18 00:39:25,630 [INFO] app.api: Request ID: dc6f40ea-84bc-4955-b332-e7d403d31768 | Completed: GET /docs | Status: 200 | Processed in: 2ms
+2026-07-18 00:39:25,885 [INFO] app.api: Request ID: 9c76b055-5485-49fa-baad-5405629272e3 | Start: GET /openapi.json
+2026-07-18 00:39:26,312 [INFO] app.api: Request ID: 9c76b055-5485-49fa-baad-5405629272e3 | Completed: GET /openapi.json | Status: 200 | Processed in: 427ms
+2026-07-18 00:44:32,935 [INFO] app.api: Request ID: 8468c716-5ce7-4334-b03e-a863f8e631af | Start: GET /health
+2026-07-18 00:44:32,960 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 00:44:37,502 [INFO] app.api: Request ID: 8468c716-5ce7-4334-b03e-a863f8e631af | Completed: GET /health | Status: 200 | Processed in: 4568ms
+2026-07-18 00:46:59,862 [INFO] app.api: Request ID: a27c8cf4-889a-445c-826a-f269d4573237 | Start: POST /chat
+2026-07-18 00:47:09,713 [INFO] app.api: ChatController: Received chat request for question: 'Chapati is available with  aloo curry' | History present: True
+2026-07-18 00:47:15,042 [INFO] app.api: [TELEMETRY] Query: 'Chapati is available with  aloo curry' | Lang: english (conf: 0.9) | Chunks: 6 | Provider: Gemini | Fallback: False | Latency: 5323ms
+2026-07-18 00:47:15,070 [INFO] app.api: Request ID: a27c8cf4-889a-445c-826a-f269d4573237 | Completed: POST /chat | Status: 200 | Processed in: 15207ms
+2026-07-18 00:52:13,022 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 00:52:51,596 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 00:52:51,598 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 00:52:51,705 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 00:53:13,766 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 00:53:13,766 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 00:53:21,807 [INFO] app.api: [TELEMETRY] Query: 'namaste boss ravvaupma dosa available lo vunda andi' | Lang: roman_telugu (conf: 0.95) | Chunks: 1 | Provider: Gemini | Fallback: False | Latency: 4ms
+2026-07-18 00:53:21,878 [INFO] app.api: [TELEMETRY] Query: 'Chapati is available with aloo curry' | Lang: english (conf: 0.9) | Chunks: 1 | Provider: Gemini | Fallback: False | Latency: 2ms
+2026-07-18 00:53:24,478 [INFO] app.api: Request ID: 3b1ce48a-4e74-450e-ae26-44ad8ef09889 | Start: GET /docs
+2026-07-18 00:53:24,481 [INFO] app.api: Request ID: 3b1ce48a-4e74-450e-ae26-44ad8ef09889 | Completed: GET /docs | Status: 200 | Processed in: 2ms
+2026-07-18 00:53:25,270 [INFO] app.api: Request ID: 14577388-b6a9-4190-aad3-ef830cc0ce51 | Start: GET /openapi.json
+2026-07-18 00:53:26,363 [INFO] app.api: Request ID: 14577388-b6a9-4190-aad3-ef830cc0ce51 | Completed: GET /openapi.json | Status: 200 | Processed in: 1092ms
+2026-07-18 00:53:41,531 [INFO] app.api: Request ID: f1f10ee7-0d5d-4d60-a4a9-237101c2239f | Start: GET /health
+2026-07-18 00:53:41,537 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 00:53:46,220 [INFO] app.api: Request ID: f1f10ee7-0d5d-4d60-a4a9-237101c2239f | Completed: GET /health | Status: 200 | Processed in: 4688ms
+2026-07-18 00:54:47,045 [INFO] app.api: Request ID: 0beac251-6c10-4e74-b902-1efb26eac678 | Start: POST /chat
+2026-07-18 00:54:56,790 [INFO] app.api: ChatController: Received chat request for question: 'ragisankati mudda and chicken curry is available ' | History present: True
+2026-07-18 00:55:03,739 [INFO] app.api: [TELEMETRY] Query: 'ragisankati mudda and chicken curry is available ' | Lang: english (conf: 0.9) | Chunks: 4 | Provider: Gemini | Fallback: False | Latency: 6946ms
+2026-07-18 00:55:03,752 [INFO] app.api: Request ID: 0beac251-6c10-4e74-b902-1efb26eac678 | Completed: POST /chat | Status: 200 | Processed in: 16707ms
+2026-07-18 00:59:17,962 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 00:59:50,564 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 00:59:50,565 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 00:59:50,852 [INFO] app.api: Request ID: 5f746b95-1a56-4b28-bf13-0a9465f9e09c | Start: GET /rebuild
+2026-07-18 00:59:50,853 [INFO] app.api: Request ID: 8e65abb9-11b4-4c14-a675-754930374eba | Start: HEAD /rebuild
+2026-07-18 00:59:50,901 [INFO] app.api: Request ID: 8e65abb9-11b4-4c14-a675-754930374eba | Completed: HEAD /rebuild | Status: 405 | Processed in: 47ms
+2026-07-18 00:59:50,901 [INFO] app.api: API Rebuild: Starting knowledge base update and FAISS regeneration.
+2026-07-18 00:59:51,027 [INFO] app.api: API Rebuild: Injecting regional South Indian specialty dishes...
+2026-07-18 00:59:51,317 [INFO] app.api: API Rebuild: Total recipes in database is now 2057.
+2026-07-18 00:59:51,317 [INFO] app.api: API Rebuild: Triggering Chunking pipeline...
+2026-07-18 00:59:51,963 [INFO] app.api: API Rebuild: Triggering VectorStore rebuild...
+2026-07-18 01:02:28,665 [INFO] app.api: Request ID: 5f746b95-1a56-4b28-bf13-0a9465f9e09c | Completed: GET /rebuild | Status: 200 | Processed in: 157805ms
+2026-07-18 01:03:57,268 [INFO] app.api: [TELEMETRY] Query: 'namaste boss ravvaupma dosa available lo vunda andi' | Lang: roman_telugu (conf: 0.95) | Chunks: 1 | Provider: Gemini | Fallback: False | Latency: 3ms
+2026-07-18 01:03:57,333 [INFO] app.api: [TELEMETRY] Query: 'Chapati is available with aloo curry' | Lang: english (conf: 0.9) | Chunks: 1 | Provider: Gemini | Fallback: False | Latency: 2ms
+2026-07-18 01:04:10,341 [INFO] app.api: Request ID: 3f57e1f9-311e-4087-a2a1-abdc2698162b | Start: GET /docs
+2026-07-18 01:04:10,373 [INFO] app.api: Request ID: 3f57e1f9-311e-4087-a2a1-abdc2698162b | Completed: GET /docs | Status: 200 | Processed in: 39ms
+2026-07-18 01:04:11,258 [INFO] app.api: Request ID: f488b656-186a-4309-80f8-a187a5a25d3f | Start: GET /openapi.json
+2026-07-18 01:04:12,522 [INFO] app.api: Request ID: f488b656-186a-4309-80f8-a187a5a25d3f | Completed: GET /openapi.json | Status: 200 | Processed in: 1264ms
+2026-07-18 01:05:04,585 [INFO] app.api: Request ID: 36dbf470-2d5f-4849-b377-9d92228debc3 | Start: GET /health
+2026-07-18 01:05:04,657 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 01:05:08,722 [INFO] app.api: Request ID: 36dbf470-2d5f-4849-b377-9d92228debc3 | Completed: GET /health | Status: 200 | Processed in: 4136ms
+2026-07-18 01:05:11,785 [INFO] app.api: Request ID: 8ff124ed-dc8a-410c-86cd-b18973894260 | Start: GET /health
+2026-07-18 01:05:11,789 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 01:05:14,279 [INFO] app.api: Request ID: 8ff124ed-dc8a-410c-86cd-b18973894260 | Completed: GET /health | Status: 200 | Processed in: 2494ms
+2026-07-18 01:07:10,305 [INFO] app.api: Request ID: 059a50de-00e0-4917-b063-03466538a6bc | Start: POST /chat
+2026-07-18 01:07:10,407 [INFO] app.api: ChatController: Received chat request for question: 'Naidu gari kunda biryani vunda andi ee hostel lo' | History present: False
+2026-07-18 01:07:16,441 [INFO] app.api: [TELEMETRY] Query: 'Naidu gari kunda biryani vunda andi ee hostel lo' | Lang: roman_telugu (conf: 0.95) | Chunks: 1 | Provider: Gemini | Fallback: False | Latency: 6032ms
+2026-07-18 01:07:16,463 [INFO] app.api: Request ID: 059a50de-00e0-4917-b063-03466538a6bc | Completed: POST /chat | Status: 200 | Processed in: 6157ms
+2026-07-18 01:08:10,136 [INFO] app.api: Request ID: 842f686b-c11a-46f5-8398-756e6a1b1040 | Start: POST /chat
+2026-07-18 01:08:10,173 [INFO] app.api: ChatController: Received chat request for question: 'Dum biryani vunte oka plate ivvandi naku ' | History present: False
+2026-07-18 01:08:19,623 [INFO] app.api: [TELEMETRY] Query: 'Dum biryani vunte oka plate ivvandi naku ' | Lang: roman_telugu (conf: 0.95) | Chunks: 1 | Provider: Gemini | Fallback: False | Latency: 9449ms
+2026-07-18 01:08:19,637 [INFO] app.api: Request ID: 842f686b-c11a-46f5-8398-756e6a1b1040 | Completed: POST /chat | Status: 200 | Processed in: 9501ms
+2026-07-18 01:12:54,682 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 01:13:36,238 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 01:13:36,239 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 01:13:49,799 [INFO] app.api: Request ID: 581b89a1-1629-4390-bef8-44ecac7ef08b | Start: GET /docs
+2026-07-18 01:13:49,802 [INFO] app.api: Request ID: 581b89a1-1629-4390-bef8-44ecac7ef08b | Completed: GET /docs | Status: 200 | Processed in: 3ms
+2026-07-18 01:13:50,218 [INFO] app.api: Request ID: 7548d2e3-4421-41b8-b788-685cdd8230d1 | Start: GET /openapi.json
+2026-07-18 01:13:50,826 [INFO] app.api: Request ID: 7548d2e3-4421-41b8-b788-685cdd8230d1 | Completed: GET /openapi.json | Status: 200 | Processed in: 608ms
+2026-07-18 01:14:49,566 [INFO] app.api: Request ID: 4f0a7b86-a636-464f-9d42-1bdc34230632 | Start: POST /chat
+2026-07-18 01:14:59,133 [INFO] app.api: ChatController: Received chat request for question: 'machi snacks em vunnai andi ikkada' | History present: False
+2026-07-18 01:15:10,762 [INFO] app.api: [TELEMETRY] Query: 'machi snacks em vunnai andi ikkada' | Lang: roman_telugu (conf: 0.95) | Chunks: 5 | Provider: Openrouter | Fallback: True | Latency: 11626ms
+2026-07-18 01:15:10,773 [INFO] app.api: Request ID: 4f0a7b86-a636-464f-9d42-1bdc34230632 | Completed: POST /chat | Status: 200 | Processed in: 21207ms
+2026-07-18 01:16:35,347 [INFO] app.api: Request ID: 4bc9b4ab-95c2-40cb-b29f-68cf3db1f054 | Start: POST /chat
+2026-07-18 01:16:35,395 [INFO] app.api: ChatController: Received chat request for question: 'tell me what type non vegetarian foods are available here?' | History present: False
+2026-07-18 01:16:49,890 [INFO] app.api: [TELEMETRY] Query: 'tell me what type non vegetarian foods are available here?' | Lang: english (conf: 0.9) | Chunks: 1 | Provider: Openrouter | Fallback: True | Latency: 14493ms
+2026-07-18 01:16:49,905 [INFO] app.api: Request ID: 4bc9b4ab-95c2-40cb-b29f-68cf3db1f054 | Completed: POST /chat | Status: 200 | Processed in: 14557ms
+2026-07-18 01:22:17,534 [INFO] app.api: Request ID: d69bc173-96d5-4cc8-89e8-e16fb2c6a1c0 | Start: POST /recipe
+2026-07-18 01:22:17,582 [INFO] app.api: RecipeController: Received request for ingredients: ['chicken', 'onion', 'tomato', 'garlic']
+2026-07-18 01:22:17,582 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['chicken', 'onion', 'tomato', 'garlic']
+2026-07-18 01:22:17,926 [INFO] app.api: RecipeService: Retrieved 15 chunks, filtered to 13 recipe chunks in 343ms
+2026-07-18 01:22:45,156 [WARNING] app.api: RecipeService: Parsed output does not match expected JSON root schema.
+2026-07-18 01:22:45,156 [WARNING] app.api: RecipeService: Processing yielded empty recommendations. Constructing heuristic fallback.
+2026-07-18 01:22:45,157 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 27575ms | Provider: openrouter | Fallback used: True
+2026-07-18 01:22:45,164 [INFO] app.api: Request ID: d69bc173-96d5-4cc8-89e8-e16fb2c6a1c0 | Completed: POST /recipe | Status: 200 | Processed in: 27630ms
+2026-07-18 01:24:49,193 [INFO] app.api: Request ID: 14e035ee-f410-4dd4-ab2d-e3b9c34c7d29 | Start: POST /recipe
+2026-07-18 01:24:49,240 [INFO] app.api: RecipeController: Received request for ingredients: ['potato', 'onion', 'green chilli', 'coriander']
+2026-07-18 01:24:49,241 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['potato', 'onion', 'green chilli', 'coriander']
+2026-07-18 01:24:49,315 [INFO] app.api: RecipeService: Retrieved 15 chunks, filtered to 2 recipe chunks in 73ms
+2026-07-18 01:25:09,390 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 20149ms | Provider: openrouter | Fallback used: True
+2026-07-18 01:25:09,396 [INFO] app.api: Request ID: 14e035ee-f410-4dd4-ab2d-e3b9c34c7d29 | Completed: POST /recipe | Status: 200 | Processed in: 20202ms
+2026-07-18 01:26:27,819 [INFO] app.api: Request ID: 723c47cf-ebc6-4012-914f-6ac80f756620 | Start: POST /recipe
+2026-07-18 01:26:27,882 [INFO] app.api: RecipeController: Received request for ingredients: ['rice', 'urad dal', 'fenugreek']
+2026-07-18 01:26:27,883 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['rice', 'urad dal', 'fenugreek']
+2026-07-18 01:26:27,982 [INFO] app.api: RecipeService: Retrieved 15 chunks, filtered to 9 recipe chunks in 99ms
+2026-07-18 01:26:46,090 [WARNING] app.api: RecipeService: Parsed output does not match expected JSON root schema.
+2026-07-18 01:26:46,090 [WARNING] app.api: RecipeService: Processing yielded empty recommendations. Constructing heuristic fallback.
+2026-07-18 01:26:46,091 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 18208ms | Provider: openrouter | Fallback used: True
+2026-07-18 01:26:46,098 [INFO] app.api: Request ID: 723c47cf-ebc6-4012-914f-6ac80f756620 | Completed: POST /recipe | Status: 200 | Processed in: 18278ms
+2026-07-18 01:28:20,461 [INFO] app.api: Request ID: fae698e6-f587-480a-aede-0c3b3f83baf1 | Start: POST /recipe
+2026-07-18 01:28:20,506 [INFO] app.api: RecipeController: Received request for ingredients: ['dragon fruit', 'cactus']
+2026-07-18 01:28:20,507 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['dragon fruit', 'cactus']
+2026-07-18 01:28:20,571 [INFO] app.api: RecipeService: Retrieved 15 chunks, filtered to 2 recipe chunks in 63ms
+2026-07-18 01:28:25,703 [WARNING] app.api: RecipeService: Parsed output does not match expected JSON root schema.
+2026-07-18 01:28:25,703 [WARNING] app.api: RecipeService: Processing yielded empty recommendations. Constructing heuristic fallback.
+2026-07-18 01:28:25,704 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 5196ms | Provider: openrouter | Fallback used: True
+2026-07-18 01:28:25,708 [INFO] app.api: Request ID: fae698e6-f587-480a-aede-0c3b3f83baf1 | Completed: POST /recipe | Status: 200 | Processed in: 5247ms
+2026-07-18 01:29:00,852 [INFO] app.api: Request ID: 75771fce-2740-45c1-8d62-8bbb081a20a9 | Start: POST /recipe
+2026-07-18 01:29:00,895 [INFO] app.api: RecipeController: Received request for ingredients: ['rice', 'onion', 'tomato', 'garlic', 'ginger', 'chicken', 'pepper', 'oil', 'salt', 'curry leaves']
+2026-07-18 01:29:00,895 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['rice', 'onion', 'tomato', 'garlic', 'ginger', 'chicken', 'pepper', 'oil', 'salt', 'curry leaves']
+2026-07-18 01:29:00,983 [INFO] app.api: RecipeService: Retrieved 15 chunks, filtered to 12 recipe chunks in 87ms
+2026-07-18 01:29:06,465 [WARNING] app.api: RecipeService: Parsed output does not match expected JSON root schema.
+2026-07-18 01:29:06,466 [WARNING] app.api: RecipeService: Processing yielded empty recommendations. Constructing heuristic fallback.
+2026-07-18 01:29:06,466 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 5570ms | Provider: openrouter | Fallback used: True
+2026-07-18 01:29:06,473 [INFO] app.api: Request ID: 75771fce-2740-45c1-8d62-8bbb081a20a9 | Completed: POST /recipe | Status: 200 | Processed in: 5621ms
+2026-07-18 01:36:00,834 [INFO] app.api: Request ID: 8ac526fd-b592-4639-9eb7-1347c7a4eb1b | Start: GET /docs
+2026-07-18 01:36:00,837 [INFO] app.api: Request ID: 8ac526fd-b592-4639-9eb7-1347c7a4eb1b | Completed: GET /docs | Status: 200 | Processed in: 3ms
+2026-07-18 01:36:01,099 [INFO] app.api: Request ID: 54b496f1-443d-4247-871e-8f92acafbf8b | Start: GET /openapi.json
+2026-07-18 01:36:01,107 [INFO] app.api: Request ID: 54b496f1-443d-4247-871e-8f92acafbf8b | Completed: GET /openapi.json | Status: 200 | Processed in: 7ms
+2026-07-18 01:37:01,907 [INFO] app.api: Request ID: 78f94ad6-2aba-4b23-a8b3-932f5e27220b | Start: GET /docs
+2026-07-18 01:37:01,909 [INFO] app.api: Request ID: 78f94ad6-2aba-4b23-a8b3-932f5e27220b | Completed: GET /docs | Status: 200 | Processed in: 1ms
+2026-07-18 01:37:02,164 [INFO] app.api: Request ID: 7911df2b-629e-4171-815b-69fc60573888 | Start: GET /openapi.json
+2026-07-18 01:37:02,169 [INFO] app.api: Request ID: 7911df2b-629e-4171-815b-69fc60573888 | Completed: GET /openapi.json | Status: 200 | Processed in: 4ms
+2026-07-18 01:37:57,397 [INFO] app.api: Request ID: 676b45d3-3bef-43c7-83ed-2dfeff529fbd | Start: POST /menu
+2026-07-18 01:37:57,457 [INFO] app.api: MenuController: Received menu special request for stock items count: 3
+2026-07-18 01:37:57,458 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 3
+2026-07-18 01:37:57,527 [INFO] app.api: MenuService: Retrieved 15 chunks, filtered to 5 recipe chunks in 68ms
+2026-07-18 01:38:03,292 [WARNING] app.api: MenuService: Parsed JSON does not match expected Daily Menu root key.
+2026-07-18 01:38:03,292 [WARNING] app.api: MenuService: Specials processing yielded empty list. Implementing heuristic fallback.
+2026-07-18 01:38:03,293 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 5834ms | Provider: openrouter | Fallback used: True
+2026-07-18 01:38:03,298 [INFO] app.api: Request ID: 676b45d3-3bef-43c7-83ed-2dfeff529fbd | Completed: POST /menu | Status: 200 | Processed in: 5901ms
+2026-07-18 01:39:04,275 [INFO] app.api: Request ID: 1fba8799-0278-4361-909f-27603ea182e9 | Start: POST /menu
+2026-07-18 01:39:04,320 [INFO] app.api: MenuController: Received menu special request for stock items count: 2
+2026-07-18 01:39:04,321 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 2
+2026-07-18 01:39:04,390 [INFO] app.api: MenuService: Retrieved 15 chunks, filtered to 0 recipe chunks in 68ms
+2026-07-18 01:39:04,391 [WARNING] app.api: MenuService: No recipe chunks retrieved. Returning empty specials.
+2026-07-18 01:39:04,398 [INFO] app.api: Request ID: 1fba8799-0278-4361-909f-27603ea182e9 | Completed: POST /menu | Status: 200 | Processed in: 123ms
+2026-07-18 01:39:14,074 [INFO] app.api: Request ID: e1d40d2a-e8c1-4ab3-80ba-c48f1d4eec95 | Start: POST /menu
+2026-07-18 01:39:14,108 [INFO] app.api: MenuController: Received menu special request for stock items count: 2
+2026-07-18 01:39:14,109 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 2
+2026-07-18 01:39:14,167 [INFO] app.api: MenuService: Retrieved 15 chunks, filtered to 0 recipe chunks in 56ms
+2026-07-18 01:39:14,167 [WARNING] app.api: MenuService: No recipe chunks retrieved. Returning empty specials.
+2026-07-18 01:39:14,174 [INFO] app.api: Request ID: e1d40d2a-e8c1-4ab3-80ba-c48f1d4eec95 | Completed: POST /menu | Status: 200 | Processed in: 100ms
+2026-07-18 01:39:42,121 [INFO] app.api: Request ID: 56e902f2-c919-4da8-a208-3e3929953d26 | Start: POST /menu
+2026-07-18 01:39:42,180 [INFO] app.api: MenuController: Received menu special request for stock items count: 2
+2026-07-18 01:39:42,180 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 2
+2026-07-18 01:39:42,248 [INFO] app.api: MenuService: Retrieved 15 chunks, filtered to 0 recipe chunks in 66ms
+2026-07-18 01:39:42,248 [WARNING] app.api: MenuService: No recipe chunks retrieved. Returning empty specials.
+2026-07-18 01:39:42,255 [INFO] app.api: Request ID: 56e902f2-c919-4da8-a208-3e3929953d26 | Completed: POST /menu | Status: 200 | Processed in: 134ms
+2026-07-18 01:40:24,486 [INFO] app.api: Request ID: 90c0b1c9-4b68-4604-b412-c4f7431c84dc | Start: POST /menu
+2026-07-18 01:40:24,519 [INFO] app.api: MenuController: Received menu special request for stock items count: 2
+2026-07-18 01:40:24,520 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 2
+2026-07-18 01:40:24,728 [INFO] app.api: MenuService: Retrieved 15 chunks, filtered to 5 recipe chunks in 207ms
+2026-07-18 01:40:36,907 [WARNING] app.api: MenuService: Parsed JSON does not match expected Daily Menu root key.
+2026-07-18 01:40:36,908 [WARNING] app.api: MenuService: Specials processing yielded empty list. Implementing heuristic fallback.
+2026-07-18 01:40:36,909 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 12389ms | Provider: openrouter | Fallback used: True
+2026-07-18 01:40:36,914 [INFO] app.api: Request ID: 90c0b1c9-4b68-4604-b412-c4f7431c84dc | Completed: POST /menu | Status: 200 | Processed in: 12428ms
+2026-07-18 01:41:27,361 [INFO] app.api: Request ID: 9ccc186d-42c8-4ece-a438-7a73bf40e64a | Start: POST /menu
+2026-07-18 01:41:27,431 [INFO] app.api: MenuController: Received menu special request for stock items count: 3
+2026-07-18 01:41:27,431 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 3
+2026-07-18 01:41:27,501 [INFO] app.api: MenuService: Retrieved 15 chunks, filtered to 5 recipe chunks in 69ms
+2026-07-18 01:41:32,955 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 5523ms | Provider: openrouter | Fallback used: True
+2026-07-18 01:41:32,961 [INFO] app.api: Request ID: 9ccc186d-42c8-4ece-a438-7a73bf40e64a | Completed: POST /menu | Status: 200 | Processed in: 5600ms
+2026-07-18 01:56:58,182 [INFO] app.api: Request ID: a526afbe-acdd-4f82-b9d9-26ebe0bbe8ff | Start: GET /docs
+2026-07-18 01:56:58,187 [INFO] app.api: Request ID: a526afbe-acdd-4f82-b9d9-26ebe0bbe8ff | Completed: GET /docs | Status: 200 | Processed in: 6ms
+2026-07-18 01:56:58,489 [INFO] app.api: Request ID: bbf6b8d2-1279-480e-ba66-3e2c3a86e184 | Start: GET /openapi.json
+2026-07-18 01:56:58,497 [INFO] app.api: Request ID: bbf6b8d2-1279-480e-ba66-3e2c3a86e184 | Completed: GET /openapi.json | Status: 200 | Processed in: 8ms
+2026-07-18 01:57:51,108 [INFO] app.api: Request ID: 5e95bd28-0f2f-4adf-9bbb-94f735158971 | Start: GET /docs
+2026-07-18 01:57:51,109 [INFO] app.api: Request ID: 5e95bd28-0f2f-4adf-9bbb-94f735158971 | Completed: GET /docs | Status: 200 | Processed in: 1ms
+2026-07-18 01:57:51,321 [INFO] app.api: Request ID: 98b3a0c6-61dc-4f3a-8cae-202c56fe173c | Start: GET /openapi.json
+2026-07-18 01:57:51,324 [INFO] app.api: Request ID: 98b3a0c6-61dc-4f3a-8cae-202c56fe173c | Completed: GET /openapi.json | Status: 200 | Processed in: 2ms
+2026-07-18 01:59:19,686 [INFO] app.api: Request ID: e9d7468d-e7e1-43e2-8fec-c029288b94e4 | Start: POST /supplier
+2026-07-18 01:59:19,771 [INFO] app.api: SupplierController: Received supplier replenishment request for 50 kg of Rice
+2026-07-18 01:59:19,772 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Fresh Farms Suppliers | Ingredient: Rice | Qty: 50 kg | Date: 2026-07-20
+2026-07-18 01:59:19,855 [INFO] app.api: SupplierService: Retrieved 10 chunks, filtered to 4 supplier chunks in 82ms
+2026-07-18 01:59:29,990 [WARNING] app.api: SupplierService: Generation failed or empty. Applying fallback templates.
+2026-07-18 01:59:29,991 [INFO] app.api: SupplierService: Message generation complete. Latency: 10218ms | Provider: OpenRouter
+2026-07-18 01:59:29,999 [INFO] app.api: Request ID: e9d7468d-e7e1-43e2-8fec-c029288b94e4 | Completed: POST /supplier | Status: 200 | Processed in: 10313ms
+2026-07-18 02:01:02,039 [INFO] app.api: Request ID: ce205a9b-6990-4585-81c9-be5a158f7480 | Start: GET /docs
+2026-07-18 02:01:02,043 [INFO] app.api: Request ID: ce205a9b-6990-4585-81c9-be5a158f7480 | Completed: GET /docs | Status: 200 | Processed in: 3ms
+2026-07-18 02:01:02,257 [INFO] app.api: Request ID: ef7df6b5-92fd-42d0-9e3c-d7489310a557 | Start: GET /openapi.json
+2026-07-18 02:01:02,260 [INFO] app.api: Request ID: ef7df6b5-92fd-42d0-9e3c-d7489310a557 | Completed: GET /openapi.json | Status: 200 | Processed in: 3ms
+2026-07-18 02:01:26,323 [INFO] app.api: Request ID: e9becc80-712a-4cd6-94f4-a00fdd73d898 | Start: POST /supplier
+2026-07-18 02:01:26,377 [INFO] app.api: SupplierController: Received supplier replenishment request for 50 kg of Rice
+2026-07-18 02:01:26,378 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Fresh Farms Suppliers | Ingredient: Rice | Qty: 50 kg | Date: 2026-07-20
+2026-07-18 02:01:26,452 [INFO] app.api: SupplierService: Retrieved 10 chunks, filtered to 4 supplier chunks in 73ms
+2026-07-18 02:01:36,277 [INFO] app.api: SupplierService: Message generation complete. Latency: 9898ms | Provider: OpenRouter
+2026-07-18 02:01:36,285 [INFO] app.api: Request ID: e9becc80-712a-4cd6-94f4-a00fdd73d898 | Completed: POST /supplier | Status: 200 | Processed in: 9961ms
+2026-07-18 02:03:16,460 [INFO] app.api: Request ID: 76289397-9a3f-4447-8e44-94cd84637232 | Start: GET /docs
+2026-07-18 02:03:16,461 [INFO] app.api: Request ID: 76289397-9a3f-4447-8e44-94cd84637232 | Completed: GET /docs | Status: 200 | Processed in: 1ms
+2026-07-18 02:03:16,676 [INFO] app.api: Request ID: 42aa3866-728a-4d02-a710-990968a0759e | Start: GET /openapi.json
+2026-07-18 02:03:16,679 [INFO] app.api: Request ID: 42aa3866-728a-4d02-a710-990968a0759e | Completed: GET /openapi.json | Status: 200 | Processed in: 2ms
+2026-07-18 02:07:29,686 [INFO] app.api: Request ID: b3a8a034-3e9b-4b46-a230-82c914b5b168 | Start: POST /description
+2026-07-18 02:07:29,766 [INFO] app.api: DescriptionController: Received request for description menu generation, item count: 1
+2026-07-18 02:07:29,768 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 1
+2026-07-18 02:07:29,843 [INFO] app.api: DescriptionService: Retrieved 15 chunks, filtered to 15 recipe chunks in 74ms
+2026-07-18 02:08:07,727 [WARNING] app.api: DescriptionService: Parsed JSON missing expected 'descriptions' key.
+2026-07-18 02:08:07,730 [INFO] app.api: DescriptionService: Completed. Latency: 37961ms | Provider: openrouter | Fallback used: True
+2026-07-18 02:08:07,741 [INFO] app.api: Request ID: b3a8a034-3e9b-4b46-a230-82c914b5b168 | Completed: POST /description | Status: 200 | Processed in: 38055ms
+2026-07-18 02:09:11,708 [INFO] app.api: Request ID: 84a316d1-d20d-4a7d-943a-4be0e58351b9 | Start: POST /description
+2026-07-18 02:09:11,754 [INFO] app.api: DescriptionController: Received request for description menu generation, item count: 3
+2026-07-18 02:09:11,755 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 3
+2026-07-18 02:09:11,839 [INFO] app.api: DescriptionService: Retrieved 15 chunks, filtered to 15 recipe chunks in 83ms
+2026-07-18 02:09:58,668 [WARNING] app.api: DescriptionService: Parsed JSON missing expected 'descriptions' key.
+2026-07-18 02:09:58,669 [INFO] app.api: DescriptionService: Completed. Latency: 46914ms | Provider: openrouter | Fallback used: True
+2026-07-18 02:09:58,674 [INFO] app.api: Request ID: 84a316d1-d20d-4a7d-943a-4be0e58351b9 | Completed: POST /description | Status: 200 | Processed in: 46966ms
+2026-07-18 02:10:43,938 [INFO] app.api: Request ID: f91e64c8-16a2-40cf-a77a-74adff0fb2db | Start: POST /description
+2026-07-18 02:10:43,990 [INFO] app.api: DescriptionController: Received request for description menu generation, item count: 1
+2026-07-18 02:10:43,991 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 1
+2026-07-18 02:10:44,055 [INFO] app.api: DescriptionService: Retrieved 15 chunks, filtered to 15 recipe chunks in 64ms
+2026-07-18 02:11:08,242 [WARNING] app.api: DescriptionService: Parsed JSON missing expected 'descriptions' key.
+2026-07-18 02:11:08,243 [INFO] app.api: DescriptionService: Completed. Latency: 24252ms | Provider: openrouter | Fallback used: True
+2026-07-18 02:11:08,253 [INFO] app.api: Request ID: f91e64c8-16a2-40cf-a77a-74adff0fb2db | Completed: POST /description | Status: 200 | Processed in: 24314ms
+2026-07-18 06:06:32,442 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 06:06:32,443 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 06:07:22,734 [INFO] app.api: Request ID: 19d5329b-fb52-4e9c-919c-d1956f633bd5 | Start: GET /docs
+2026-07-18 06:07:22,737 [INFO] app.api: Request ID: 19d5329b-fb52-4e9c-919c-d1956f633bd5 | Completed: GET /docs | Status: 200 | Processed in: 2ms
+2026-07-18 06:07:23,384 [INFO] app.api: Request ID: 21e6fef7-9d82-4dad-861a-17444e7cf6b1 | Start: GET /openapi.json
+2026-07-18 06:07:24,058 [INFO] app.api: Request ID: 21e6fef7-9d82-4dad-861a-17444e7cf6b1 | Completed: GET /openapi.json | Status: 200 | Processed in: 674ms
+2026-07-18 06:07:49,285 [INFO] app.api: Request ID: d48a35c5-573d-4267-824e-bca3ba95ff85 | Start: GET /health
+2026-07-18 06:07:49,296 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 06:07:54,723 [INFO] app.api: Request ID: d48a35c5-573d-4267-824e-bca3ba95ff85 | Completed: GET /health | Status: 200 | Processed in: 5438ms
+2026-07-18 06:10:52,240 [INFO] app.api: Request ID: 7ce43be7-0306-449d-80fe-3320bd375c77 | Start: POST /pricing
+2026-07-18 06:11:01,964 [INFO] app.api: PricingController: Received request for pricing suggestions for dish: 'Paneer Tikka' | Cost: 180.0
+2026-07-18 06:11:01,965 [INFO] app.api: PricingService: Suggestions requested for dish: 'Paneer Tikka' | Cost: 180.0
+2026-07-18 06:11:02,651 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 10 recipe chunks in 685ms
+2026-07-18 06:11:10,105 [WARNING] app.api: PricingService: Price suggestion missing or invalid. Constructing BOH markup fallback.
+2026-07-18 06:11:10,106 [INFO] app.api: PricingService: Suggestion generated. Price: 540 | Margin: 66% | Category: HIGH | Latency: 8141ms
+2026-07-18 06:11:10,128 [INFO] app.api: Request ID: 7ce43be7-0306-449d-80fe-3320bd375c77 | Completed: POST /pricing | Status: 200 | Processed in: 17888ms
+2026-07-18 06:20:41,613 [INFO] app.api: Request ID: d631dc40-413c-43ee-81f4-04b27ae8e0c5 | Start: POST /optimization
+2026-07-18 06:20:41,870 [INFO] app.api: OptimizationController: Received replenishment optimization request for 3 items
+2026-07-18 06:20:41,874 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 3 items
+2026-07-18 06:20:41,875 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 3 items to 3
+2026-07-18 06:20:41,876 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Tomato', 'Cheese', 'Onion']
+2026-07-18 06:20:41,979 [INFO] app.api: RecipeService: Retrieved 15 chunks, filtered to 8 recipe chunks in 102ms
+2026-07-18 06:20:50,111 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 8236ms | Provider: openrouter | Fallback used: True
+2026-07-18 06:20:50,112 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 3
+2026-07-18 06:20:50,182 [INFO] app.api: MenuService: Retrieved 15 chunks, filtered to 6 recipe chunks in 69ms
+2026-07-18 06:21:50,235 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 60122ms | Provider: openrouter | Fallback used: True
+2026-07-18 06:21:50,236 [INFO] app.api: PricingService: Suggestions requested for dish: 'Calzone' | Cost: 150.0
+2026-07-18 06:21:50,354 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 6 recipe chunks in 116ms
+2026-07-18 06:22:02,657 [INFO] app.api: PricingService: Suggestion generated. Price: 450 | Margin: 66% | Category: HIGH | Latency: 12420ms
+2026-07-18 06:22:02,658 [INFO] app.api: PricingService: Suggestions requested for dish: 'Sun-Dried Tomato Pesto' | Cost: 150.0
+2026-07-18 06:22:02,844 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 6 recipe chunks in 185ms
+2026-07-18 06:22:13,841 [INFO] app.api: PricingService: Suggestion generated. Price: 300 | Margin: 50% | Category: MEDIUM | Latency: 11183ms
+2026-07-18 06:22:13,842 [INFO] app.api: PricingService: Suggestions requested for dish: 'Chunky Tomato Cheese Pie' | Cost: 150.0
+2026-07-18 06:22:13,963 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 10 recipe chunks in 120ms
+2026-07-18 06:22:27,667 [WARNING] app.api: PricingService: Price suggestion missing or invalid. Constructing BOH markup fallback.
+2026-07-18 06:22:27,668 [INFO] app.api: PricingService: Suggestion generated. Price: 450 | Margin: 66% | Category: HIGH | Latency: 13826ms
+2026-07-18 06:22:27,670 [INFO] app.api: PricingService: Suggestions requested for dish: 'Cherry Tomatoes On Provolone Garlic Bread' | Cost: 150.0
+2026-07-18 06:22:27,793 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 8 recipe chunks in 121ms
+2026-07-18 06:22:34,678 [INFO] app.api: PricingService: Suggestion generated. Price: 300 | Margin: 50% | Category: MEDIUM | Latency: 7008ms
+2026-07-18 06:22:34,679 [INFO] app.api: PricingService: Suggestions requested for dish: 'Tomato Relish Recipe' | Cost: 150.0
+2026-07-18 06:22:34,798 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 6 recipe chunks in 118ms
+2026-07-18 06:22:47,740 [WARNING] app.api: PricingService: Price suggestion missing or invalid. Constructing BOH markup fallback.
+2026-07-18 06:22:47,741 [INFO] app.api: PricingService: Suggestion generated. Price: 450 | Margin: 66% | Category: HIGH | Latency: 13061ms
+2026-07-18 06:22:47,818 [INFO] app.api: InventoryOptimizerService: Retrieved 10 chunks, filtered to 0 context chunks in 75ms
+2026-07-18 06:23:09,779 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 147904ms | Revenue: ₹26550 | Waste Saved: 12.2
+2026-07-18 06:23:09,823 [INFO] app.api: Request ID: d631dc40-413c-43ee-81f4-04b27ae8e0c5 | Completed: POST /optimization | Status: 200 | Processed in: 148210ms
+2026-07-18 06:32:48,073 [INFO] app.api: Request ID: 718050b8-7b41-4764-928e-9c0cd006c834 | Start: POST /orchestrate
+2026-07-18 06:32:48,165 [INFO] app.api: OrchestrateController: Triggering BOH workflows for 3 inventory items.
+2026-07-18 06:32:49,282 [INFO] app.api: Request ID: 93bcf430-3182-45c0-92d6-7d8b2d58bd23 | Start: POST /optimization
+2026-07-18 06:32:49,631 [INFO] app.api: OptimizationController: Received replenishment optimization request for 3 items
+2026-07-18 06:32:49,632 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 3 items
+2026-07-18 06:32:49,633 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 3 items to 3
+2026-07-18 06:32:49,634 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Tomato', 'Cheese', 'Onion']
+2026-07-18 06:32:49,774 [INFO] app.api: RecipeService: Retrieved 15 chunks, filtered to 8 recipe chunks in 139ms
+2026-07-18 06:33:35,016 [INFO] app.api: Request ID: d329cc0a-5f83-4f76-a662-e04ad98ff912 | Start: POST /recipe
+2026-07-18 06:33:35,085 [INFO] app.api: RecipeController: Received request for ingredients: ['Tomato', 'Cheese', 'Onion']
+2026-07-18 06:33:35,086 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Tomato', 'Cheese', 'Onion']
+2026-07-18 06:33:35,169 [INFO] app.api: RecipeService: Retrieved 15 chunks, filtered to 8 recipe chunks in 82ms
+2026-07-18 06:34:12,721 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 37634ms | Provider: openrouter | Fallback used: True
+2026-07-18 06:34:12,741 [INFO] app.api: Request ID: d329cc0a-5f83-4f76-a662-e04ad98ff912 | Completed: POST /recipe | Status: 200 | Processed in: 37724ms
+2026-07-18 06:34:13,434 [INFO] app.api: Request ID: 384519a8-bd69-49f8-ad84-64dffbcd2fd1 | Start: POST /menu
+2026-07-18 06:34:13,489 [INFO] app.api: MenuController: Received menu special request for stock items count: 3
+2026-07-18 06:34:13,490 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 3
+2026-07-18 06:34:13,555 [INFO] app.api: MenuService: Retrieved 15 chunks, filtered to 6 recipe chunks in 64ms
+2026-07-18 06:34:43,691 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 30200ms | Provider: openrouter | Fallback used: True
+2026-07-18 06:34:43,700 [INFO] app.api: Request ID: 384519a8-bd69-49f8-ad84-64dffbcd2fd1 | Completed: POST /menu | Status: 200 | Processed in: 30266ms
+2026-07-18 06:34:44,975 [INFO] app.api: Request ID: 7f21aa4b-9c0a-4cfe-8bb5-461ba480f9e1 | Start: POST /pricing
+2026-07-18 06:34:45,074 [INFO] app.api: PricingController: Received request for pricing suggestions for dish: 'Chunky Tomato Cheese Pie' | Cost: 150.0
+2026-07-18 06:34:45,075 [INFO] app.api: PricingService: Suggestions requested for dish: 'Chunky Tomato Cheese Pie' | Cost: 150.0
+2026-07-18 06:34:45,178 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 10 recipe chunks in 101ms
+2026-07-18 06:34:52,299 [INFO] app.api: PricingService: Suggestion generated. Price: 360 | Margin: 58% | Category: MEDIUM | Latency: 7223ms
+2026-07-18 06:34:52,313 [INFO] app.api: Request ID: 7f21aa4b-9c0a-4cfe-8bb5-461ba480f9e1 | Completed: POST /pricing | Status: 200 | Processed in: 7336ms
+2026-07-18 06:34:53,663 [INFO] app.api: Request ID: 9ade967a-af3f-4d21-945a-788d982b7b03 | Start: POST /pricing
+2026-07-18 06:34:53,754 [INFO] app.api: PricingController: Received request for pricing suggestions for dish: 'Sun-Dried Tomato Pesto Pasta' | Cost: 150.0
+2026-07-18 06:34:53,755 [INFO] app.api: PricingService: Suggestions requested for dish: 'Sun-Dried Tomato Pesto Pasta' | Cost: 150.0
+2026-07-18 06:34:53,893 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 5 recipe chunks in 137ms
+2026-07-18 06:35:01,460 [INFO] app.api: PricingService: Suggestion generated. Price: 600 | Margin: 75% | Category: HIGH | Latency: 7704ms
+2026-07-18 06:35:01,468 [INFO] app.api: Request ID: 9ade967a-af3f-4d21-945a-788d982b7b03 | Completed: POST /pricing | Status: 200 | Processed in: 7804ms
+2026-07-18 06:35:02,804 [INFO] app.api: Request ID: 8df28d3d-74dc-4f7d-8e8b-f8ee1e501584 | Start: POST /pricing
+2026-07-18 06:35:02,887 [INFO] app.api: PricingController: Received request for pricing suggestions for dish: 'Roasted Tomato And Mint Salsa' | Cost: 150.0
+2026-07-18 06:35:02,889 [INFO] app.api: PricingService: Suggestions requested for dish: 'Roasted Tomato And Mint Salsa' | Cost: 150.0
+2026-07-18 06:35:03,029 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 8 recipe chunks in 139ms
+2026-07-18 06:35:09,754 [INFO] app.api: PricingService: Suggestion generated. Price: 375 | Margin: 60% | Category: HIGH | Latency: 6865ms
+2026-07-18 06:35:09,779 [INFO] app.api: Request ID: 8df28d3d-74dc-4f7d-8e8b-f8ee1e501584 | Completed: POST /pricing | Status: 200 | Processed in: 6974ms
+2026-07-18 06:35:10,968 [INFO] app.api: Request ID: 1a7293d2-79c4-4385-a6e6-92f46e826d60 | Start: POST /description
+2026-07-18 06:35:11,038 [INFO] app.api: DescriptionController: Received request for description menu generation, item count: 3
+2026-07-18 06:35:11,039 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 3
+2026-07-18 06:35:11,121 [INFO] app.api: DescriptionService: Retrieved 15 chunks, filtered to 14 recipe chunks in 81ms
+2026-07-18 06:35:18,621 [INFO] app.api: DescriptionService: Completed. Latency: 7582ms | Provider: openrouter | Fallback used: True
+2026-07-18 06:35:18,631 [INFO] app.api: Request ID: 1a7293d2-79c4-4385-a6e6-92f46e826d60 | Completed: POST /description | Status: 200 | Processed in: 7663ms
+2026-07-18 06:35:18,651 [INFO] app.api: Request ID: 718050b8-7b41-4764-928e-9c0cd006c834 | Completed: POST /orchestrate | Status: 200 | Processed in: 150578ms
+2026-07-18 06:38:26,179 [INFO] app.api: Request ID: 5faa8b55-f947-4ee1-afc7-95cd6a9b8dd7 | Start: POST /orchestrate
+2026-07-18 06:38:26,194 [INFO] app.api: OrchestrateController: Triggering BOH workflows for 1 inventory items.
+2026-07-18 06:38:26,985 [INFO] app.api: Request ID: c4b21984-9096-42d8-a2fb-13689d30022f | Start: POST /optimization
+2026-07-18 06:38:27,157 [INFO] app.api: OptimizationController: Received replenishment optimization request for 1 items
+2026-07-18 06:38:27,158 [INFO] app.api: InventoryOptimizerService: Initiating optimization for 1 items
+2026-07-18 06:38:27,158 [INFO] app.api: InventoryOptimizerService: Merged duplicates. Reduced 1 items to 1
+2026-07-18 06:38:27,159 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Paneer']
+2026-07-18 06:38:27,233 [INFO] app.api: RecipeService: Retrieved 15 chunks, filtered to 11 recipe chunks in 73ms
+2026-07-18 06:39:13,318 [INFO] app.api: Request ID: b486e9eb-ae56-4b03-9419-2890f95c7d2c | Start: POST /recipe
+2026-07-18 06:39:13,425 [INFO] app.api: RecipeController: Received request for ingredients: ['Paneer']
+2026-07-18 06:39:13,426 [INFO] app.api: RecipeService: Initiating recommendation for ingredients: ['Paneer']
+2026-07-18 06:39:13,563 [INFO] app.api: RecipeService: Retrieved 15 chunks, filtered to 11 recipe chunks in 134ms
+2026-07-18 06:39:59,300 [INFO] app.api: Request ID: 179d52cd-8a53-47f6-a0b3-10fd1cf8ddce | Start: POST /menu
+2026-07-18 06:39:59,417 [INFO] app.api: MenuController: Received menu special request for stock items count: 1
+2026-07-18 06:39:59,418 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-18 06:39:59,530 [INFO] app.api: MenuService: Retrieved 15 chunks, filtered to 5 recipe chunks in 110ms
+2026-07-18 06:40:08,188 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 8769ms | Provider: openrouter | Fallback used: True
+2026-07-18 06:40:08,199 [INFO] app.api: Request ID: 179d52cd-8a53-47f6-a0b3-10fd1cf8ddce | Completed: POST /menu | Status: 200 | Processed in: 8898ms
+2026-07-18 06:40:09,489 [INFO] app.api: Request ID: c6e22439-c9e0-4d9d-849d-a435b74049dc | Start: POST /pricing
+2026-07-18 06:40:09,579 [INFO] app.api: PricingController: Received request for pricing suggestions for dish: 'Sweet & Spicy Stuffed Paneer In Kofta Curry Recipe' | Cost: 150.0
+2026-07-18 06:40:09,580 [INFO] app.api: PricingService: Suggestions requested for dish: 'Sweet & Spicy Stuffed Paneer In Kofta Curry Recipe' | Cost: 150.0
+2026-07-18 06:40:09,738 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 10 recipe chunks in 157ms
+2026-07-18 06:40:16,599 [INFO] app.api: PricingService: Suggestion generated. Price: 300 | Margin: 50% | Category: MEDIUM | Latency: 7018ms
+2026-07-18 06:40:16,609 [INFO] app.api: Request ID: c6e22439-c9e0-4d9d-849d-a435b74049dc | Completed: POST /pricing | Status: 200 | Processed in: 7120ms
+2026-07-18 06:40:17,504 [INFO] app.api: Request ID: d3e137e9-0323-4e5d-b57c-5361c2fdd697 | Start: POST /pricing
+2026-07-18 06:40:17,549 [INFO] app.api: PricingController: Received request for pricing suggestions for dish: 'Chanar Dalna Recipe -Bengali Style Paneer & Potato Gravy' | Cost: 150.0
+2026-07-18 06:40:17,550 [INFO] app.api: PricingService: Suggestions requested for dish: 'Chanar Dalna Recipe -Bengali Style Paneer & Potato Gravy' | Cost: 150.0
+2026-07-18 06:40:17,651 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 10 recipe chunks in 100ms
+2026-07-18 06:40:24,651 [INFO] app.api: PricingService: Suggestion generated. Price: 300 | Margin: 50% | Category: MEDIUM | Latency: 7101ms
+2026-07-18 06:40:24,666 [INFO] app.api: Request ID: d3e137e9-0323-4e5d-b57c-5361c2fdd697 | Completed: POST /pricing | Status: 200 | Processed in: 7161ms
+2026-07-18 06:40:25,542 [INFO] app.api: Request ID: 983ce960-4cd1-4425-91c3-f510fe5dacd7 | Start: POST /pricing
+2026-07-18 06:40:25,631 [INFO] app.api: PricingController: Received request for pricing suggestions for dish: 'Paneer Tikka Kathi Roll Recipe' | Cost: 150.0
+2026-07-18 06:40:25,632 [INFO] app.api: PricingService: Suggestions requested for dish: 'Paneer Tikka Kathi Roll Recipe' | Cost: 150.0
+2026-07-18 06:40:25,773 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 10 recipe chunks in 139ms
+2026-07-18 06:40:31,656 [INFO] app.api: PricingService: Suggestion generated. Price: 600 | Margin: 75% | Category: HIGH | Latency: 6023ms
+2026-07-18 06:40:31,662 [INFO] app.api: Request ID: 983ce960-4cd1-4425-91c3-f510fe5dacd7 | Completed: POST /pricing | Status: 200 | Processed in: 6119ms
+2026-07-18 06:40:32,451 [INFO] app.api: Request ID: 695c1da9-545a-4b7f-bbb7-921c25167905 | Start: POST /pricing
+2026-07-18 06:40:32,507 [INFO] app.api: PricingController: Received request for pricing suggestions for dish: 'Dahi Wale Paneer Recipe - Paneer In A Curd Gravy' | Cost: 150.0
+2026-07-18 06:40:32,507 [INFO] app.api: PricingService: Suggestions requested for dish: 'Dahi Wale Paneer Recipe - Paneer In A Curd Gravy' | Cost: 150.0
+2026-07-18 06:40:32,622 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 10 recipe chunks in 114ms
+2026-07-18 06:40:38,422 [INFO] app.api: PricingService: Suggestion generated. Price: 450 | Margin: 66% | Category: HIGH | Latency: 5914ms
+2026-07-18 06:40:38,429 [INFO] app.api: Request ID: 695c1da9-545a-4b7f-bbb7-921c25167905 | Completed: POST /pricing | Status: 200 | Processed in: 5977ms
+2026-07-18 06:40:39,484 [INFO] app.api: Request ID: 325c46bb-ee0c-43e6-af9c-4d223faeada3 | Start: POST /pricing
+2026-07-18 06:40:39,531 [INFO] app.api: PricingController: Received request for pricing suggestions for dish: 'Paneer Capsicum Sandwich Recipe' | Cost: 150.0
+2026-07-18 06:40:39,532 [INFO] app.api: PricingService: Suggestions requested for dish: 'Paneer Capsicum Sandwich Recipe' | Cost: 150.0
+2026-07-18 06:40:39,599 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 9 recipe chunks in 66ms
+2026-07-18 06:40:44,742 [INFO] app.api: PricingService: Suggestion generated. Price: 650 | Margin: 76% | Category: HIGH | Latency: 5209ms
+2026-07-18 06:40:44,749 [INFO] app.api: Request ID: 325c46bb-ee0c-43e6-af9c-4d223faeada3 | Completed: POST /pricing | Status: 200 | Processed in: 5265ms
+2026-07-18 06:40:45,842 [INFO] app.api: Request ID: 3d34db2f-69b7-4525-a5ab-89a4dfaf64c2 | Start: POST /description
+2026-07-18 06:40:45,925 [INFO] app.api: DescriptionController: Received request for description menu generation, item count: 5
+2026-07-18 06:40:45,925 [INFO] app.api: DescriptionService: Generating descriptions for dishes count: 5
+2026-07-18 06:40:46,271 [INFO] app.api: DescriptionService: Retrieved 15 chunks, filtered to 15 recipe chunks in 344ms
+2026-07-18 06:40:53,586 [INFO] app.api: DescriptionService: Completed. Latency: 7660ms | Provider: openrouter | Fallback used: True
+2026-07-18 06:40:53,593 [INFO] app.api: Request ID: 3d34db2f-69b7-4525-a5ab-89a4dfaf64c2 | Completed: POST /description | Status: 200 | Processed in: 7750ms
+2026-07-18 06:40:54,394 [INFO] app.api: Request ID: ee052470-fac6-4211-b770-865e1d21c914 | Start: POST /supplier
+2026-07-18 06:40:54,458 [INFO] app.api: SupplierController: Received supplier replenishment request for 20 kg of Paneer
+2026-07-18 06:40:54,460 [INFO] app.api: SupplierService: Drafting replenishment message. Supplier: Fresh Foods Inc | Ingredient: Paneer | Qty: 20 kg | Date: Tomorrow
+2026-07-18 06:40:54,561 [INFO] app.api: SupplierService: Retrieved 10 chunks, filtered to 4 supplier chunks in 100ms
+2026-07-18 06:40:59,457 [WARNING] app.api: SupplierService: Generation failed or empty. Applying fallback templates.
+2026-07-18 06:40:59,466 [INFO] app.api: SupplierService: Message generation complete. Latency: 5007ms | Provider: OpenRouter
+2026-07-18 06:40:59,472 [INFO] app.api: Request ID: ee052470-fac6-4211-b770-865e1d21c914 | Completed: POST /supplier | Status: 200 | Processed in: 5078ms
+2026-07-18 06:40:59,481 [INFO] app.api: Request ID: 5faa8b55-f947-4ee1-afc7-95cd6a9b8dd7 | Completed: POST /orchestrate | Status: 200 | Processed in: 153301ms
+2026-07-18 06:41:18,256 [WARNING] app.api: RecipeService: Parsed output does not match expected JSON root schema.
+2026-07-18 06:41:18,256 [WARNING] app.api: RecipeService: Processing yielded empty recommendations. Constructing heuristic fallback.
+2026-07-18 06:41:18,268 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 124842ms | Provider: openrouter | Fallback used: True
+2026-07-18 06:41:18,284 [INFO] app.api: Request ID: b486e9eb-ae56-4b03-9419-2890f95c7d2c | Completed: POST /recipe | Status: 200 | Processed in: 124965ms
+2026-07-18 06:41:59,750 [WARNING] app.api: RecipeService: Parsed output does not match expected JSON root schema.
+2026-07-18 06:41:59,751 [WARNING] app.api: RecipeService: Processing yielded empty recommendations. Constructing heuristic fallback.
+2026-07-18 06:41:59,752 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 212593ms | Provider: openrouter | Fallback used: True
+2026-07-18 06:41:59,754 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 1
+2026-07-18 06:41:59,889 [INFO] app.api: MenuService: Retrieved 15 chunks, filtered to 5 recipe chunks in 133ms
+2026-07-18 06:42:07,973 [WARNING] app.api: MenuService: Parsed JSON does not match expected Daily Menu root key.
+2026-07-18 06:42:07,974 [WARNING] app.api: MenuService: Specials processing yielded empty list. Implementing heuristic fallback.
+2026-07-18 06:42:07,984 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 8230ms | Provider: openrouter | Fallback used: True
+2026-07-18 06:42:07,986 [INFO] app.api: PricingService: Suggestions requested for dish: 'Chanar Dalna Recipe -Bengali Style Paneer & Potato Gravy' | Cost: 150.0
+2026-07-18 06:42:08,117 [INFO] app.api: Request ID: 434a3b7c-d859-44b8-9987-24abcb4cb117 | Start: POST /orchestrate
+2026-07-18 06:42:08,146 [WARNING] app.api: Request ID: 434a3b7c-d859-44b8-9987-24abcb4cb117 | Validation failed: [{'type': 'too_short', 'loc': ('body', 'inventory'), 'msg': 'List should have at least 1 item after validation, not 0', 'input': [], 'ctx': {'field_type': 'List', 'min_length': 1, 'actual_length': 0}}]
+2026-07-18 06:42:08,180 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 10 recipe chunks in 191ms
+2026-07-18 06:42:08,298 [INFO] app.api: Request ID: 434a3b7c-d859-44b8-9987-24abcb4cb117 | Completed: POST /orchestrate | Status: 422 | Processed in: 181ms
+2026-07-18 06:42:10,665 [INFO] app.api: Request ID: 7ec667eb-ed60-474e-9227-8f0a75958943 | Start: POST /orchestrate
+2026-07-18 06:42:10,671 [WARNING] app.api: Request ID: 7ec667eb-ed60-474e-9227-8f0a75958943 | Validation failed: [{'type': 'too_short', 'loc': ('body', 'inventory'), 'msg': 'List should have at least 1 item after validation, not 0', 'input': [], 'ctx': {'field_type': 'List', 'min_length': 1, 'actual_length': 0}}]
+2026-07-18 06:42:10,672 [INFO] app.api: Request ID: 7ec667eb-ed60-474e-9227-8f0a75958943 | Completed: POST /orchestrate | Status: 422 | Processed in: 7ms
+2026-07-18 06:42:15,431 [WARNING] app.api: PricingService: Price suggestion missing or invalid. Constructing BOH markup fallback.
+2026-07-18 06:42:15,432 [INFO] app.api: PricingService: Suggestion generated. Price: 450 | Margin: 66% | Category: HIGH | Latency: 7445ms
+2026-07-18 06:42:15,433 [INFO] app.api: PricingService: Suggestions requested for dish: 'Paneer Capsicum Sandwich Recipe' | Cost: 150.0
+2026-07-18 06:42:15,557 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 9 recipe chunks in 122ms
+2026-07-18 06:42:22,731 [INFO] app.api: PricingService: Suggestion generated. Price: 400 | Margin: 62% | Category: HIGH | Latency: 7297ms
+2026-07-18 06:42:22,732 [INFO] app.api: PricingService: Suggestions requested for dish: 'Paneer Tikka Kathi Roll Recipe' | Cost: 150.0
+2026-07-18 06:42:22,875 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 10 recipe chunks in 141ms
+2026-07-18 06:42:26,238 [INFO] app.api: Request ID: 435afc51-c512-4a0f-869c-7d8e71735738 | Start: POST /orchestrate
+2026-07-18 06:42:26,245 [WARNING] app.api: Request ID: 435afc51-c512-4a0f-869c-7d8e71735738 | Validation failed: [{'type': 'too_short', 'loc': ('body', 'inventory'), 'msg': 'List should have at least 1 item after validation, not 0', 'input': [], 'ctx': {'field_type': 'List', 'min_length': 1, 'actual_length': 0}}]
+2026-07-18 06:42:26,247 [INFO] app.api: Request ID: 435afc51-c512-4a0f-869c-7d8e71735738 | Completed: POST /orchestrate | Status: 422 | Processed in: 9ms
+2026-07-18 06:42:28,184 [INFO] app.api: Request ID: f35c2796-ea66-468e-8cf7-dcf91d4c9314 | Start: POST /orchestrate
+2026-07-18 06:42:28,194 [WARNING] app.api: Request ID: f35c2796-ea66-468e-8cf7-dcf91d4c9314 | Validation failed: [{'type': 'too_short', 'loc': ('body', 'inventory'), 'msg': 'List should have at least 1 item after validation, not 0', 'input': [], 'ctx': {'field_type': 'List', 'min_length': 1, 'actual_length': 0}}]
+2026-07-18 06:42:28,206 [INFO] app.api: Request ID: f35c2796-ea66-468e-8cf7-dcf91d4c9314 | Completed: POST /orchestrate | Status: 422 | Processed in: 22ms
+2026-07-18 06:42:30,487 [INFO] app.api: PricingService: Suggestion generated. Price: 600 | Margin: 75% | Category: HIGH | Latency: 7754ms
+2026-07-18 06:42:30,488 [INFO] app.api: PricingService: Suggestions requested for dish: 'Sweet & Spicy Stuffed Paneer In Kofta Curry Recipe' | Cost: 150.0
+2026-07-18 06:42:30,625 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 10 recipe chunks in 135ms
+2026-07-18 06:42:37,141 [INFO] app.api: PricingService: Suggestion generated. Price: 400 | Margin: 62% | Category: HIGH | Latency: 6653ms
+2026-07-18 06:42:37,143 [INFO] app.api: PricingService: Suggestions requested for dish: 'Dahi Wale Paneer Recipe - Paneer In A Curd Gravy' | Cost: 150.0
+2026-07-18 06:42:37,289 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 10 recipe chunks in 145ms
+2026-07-18 06:42:43,209 [INFO] app.api: PricingService: Suggestion generated. Price: 250 | Margin: 40% | Category: MEDIUM | Latency: 6066ms
+2026-07-18 06:42:43,312 [INFO] app.api: InventoryOptimizerService: Retrieved 10 chunks, filtered to 0 context chunks in 102ms
+2026-07-18 06:42:45,982 [INFO] app.api: Request ID: 9dc81bb0-4faf-4088-a5e5-7771ecf83d9f | Start: POST /orchestrate
+2026-07-18 06:42:45,985 [WARNING] app.api: Request ID: 9dc81bb0-4faf-4088-a5e5-7771ecf83d9f | Validation failed: [{'type': 'too_short', 'loc': ('body', 'inventory'), 'msg': 'List should have at least 1 item after validation, not 0', 'input': [], 'ctx': {'field_type': 'List', 'min_length': 1, 'actual_length': 0}}]
+2026-07-18 06:42:45,987 [INFO] app.api: Request ID: 9dc81bb0-4faf-4088-a5e5-7771ecf83d9f | Completed: POST /orchestrate | Status: 422 | Processed in: 4ms
+2026-07-18 06:42:47,785 [INFO] app.api: Request ID: d46d189e-ae2b-4148-b509-e7d0c5e030ac | Start: POST /orchestrate
+2026-07-18 06:42:47,794 [WARNING] app.api: Request ID: d46d189e-ae2b-4148-b509-e7d0c5e030ac | Validation failed: [{'type': 'too_short', 'loc': ('body', 'inventory'), 'msg': 'List should have at least 1 item after validation, not 0', 'input': [], 'ctx': {'field_type': 'List', 'min_length': 1, 'actual_length': 0}}]
+2026-07-18 06:42:47,796 [INFO] app.api: Request ID: d46d189e-ae2b-4148-b509-e7d0c5e030ac | Completed: POST /orchestrate | Status: 422 | Processed in: 11ms
+2026-07-18 06:42:49,532 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 262374ms | Revenue: ₹8600 | Waste Saved: 0.0
+2026-07-18 06:42:49,571 [INFO] app.api: Request ID: c4b21984-9096-42d8-a2fb-13689d30022f | Completed: POST /optimization | Status: 200 | Processed in: 262585ms
+2026-07-18 06:49:10,587 [WARNING] app.api: RecipeService: Parsed output does not match expected JSON root schema.
+2026-07-18 06:49:10,591 [WARNING] app.api: RecipeService: Processing yielded empty recommendations. Constructing heuristic fallback.
+2026-07-18 06:49:10,593 [INFO] app.api: RecipeService: Completed recommendation. Total Latency: 980958ms | Provider: openrouter | Fallback used: True
+2026-07-18 06:49:10,595 [INFO] app.api: MenuService: Received menu specials optimization request for inventory count: 3
+2026-07-18 06:49:10,758 [INFO] app.api: MenuService: Retrieved 15 chunks, filtered to 6 recipe chunks in 161ms
+2026-07-18 06:49:37,192 [INFO] app.api: MenuService: Completed menu generation. Total Latency: 26597ms | Provider: openrouter | Fallback used: True
+2026-07-18 06:49:37,193 [INFO] app.api: PricingService: Suggestions requested for dish: 'Tomato Relish Recipe' | Cost: 150.0
+2026-07-18 06:49:37,342 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 6 recipe chunks in 147ms
+2026-07-18 06:49:44,215 [INFO] app.api: PricingService: Suggestion generated. Price: 300 | Margin: 50% | Category: MEDIUM | Latency: 7021ms
+2026-07-18 06:49:44,216 [INFO] app.api: PricingService: Suggestions requested for dish: 'Sun-Dried Tomato Pesto' | Cost: 150.0
+2026-07-18 06:49:44,324 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 6 recipe chunks in 107ms
+2026-07-18 06:49:56,952 [WARNING] app.api: PricingService: Price suggestion missing or invalid. Constructing BOH markup fallback.
+2026-07-18 06:49:56,953 [INFO] app.api: PricingService: Suggestion generated. Price: 450 | Margin: 66% | Category: HIGH | Latency: 12736ms
+2026-07-18 06:49:56,954 [INFO] app.api: PricingService: Suggestions requested for dish: 'Cherry Tomatoes On Provolone Garlic Bread' | Cost: 150.0
+2026-07-18 06:49:57,063 [INFO] app.api: PricingService: Retrieved 10 chunks, filtered to 8 recipe chunks in 108ms
+2026-07-18 06:50:13,197 [WARNING] app.api: PricingService: Price suggestion missing or invalid. Constructing BOH markup fallback.
+2026-07-18 06:50:13,197 [INFO] app.api: PricingService: Suggestion generated. Price: 450 | Margin: 66% | Category: HIGH | Latency: 16243ms
+2026-07-18 06:50:13,305 [INFO] app.api: InventoryOptimizerService: Retrieved 10 chunks, filtered to 0 context chunks in 106ms
+2026-07-18 06:50:20,815 [WARNING] app.api: InventoryOptimizerService: Parsing failed or empty list. Constructing fallback optimizer plan.
+2026-07-18 06:50:20,816 [INFO] app.api: InventoryOptimizerService: Optimization complete. Latency: 1051183ms | Revenue: ₹24000 | Waste Saved: 8.0
+2026-07-18 06:50:20,853 [INFO] app.api: Request ID: 93bcf430-3182-45c0-92d6-7d8b2d58bd23 | Completed: POST /optimization | Status: 200 | Processed in: 1051571ms
+2026-07-18 06:51:56,996 [INFO] app.api: Request ID: 6027f423-c71f-4606-822b-c25643ffc7c1 | Start: POST /workflow/publish
+2026-07-18 06:51:57,045 [WARNING] app.api: Request ID: 6027f423-c71f-4606-822b-c25643ffc7c1 | Validation failed: [{'type': 'missing', 'loc': ('body', 'workflow_status'), 'msg': 'Field required', 'input': {'success': True, 'timestamp': '2026-07-18T01:10:59.478887Z', 'data': {'optimization': None, 'recipe': None, 'menu': {'special_menu': [{'dish': 'Sweet & Spicy Stuffed Paneer In Kofta Curry Recipe', 'reason': 'Using expiring-paneer ingredient (Expires in 5 days)', 'matched_inventory': ['Paneer (1.0 kg)'], 'estimated_profit': 525, 'priority': 'LOW', 'preparation_time': 60, 'difficulty': 'Hard', 'confidence': 85}, {'dish': 'Chanar Dalna Recipe -Bengali Style Paneer & Potato Gravy', 'reason': 'Not a good match for expiring-paneer ingredient (Expires in 5 days)', 'matched_inventory': ['Paneer (1.0 kg)'], 'estimated_profit': 475, 'priority': 'LOW', 'preparation_time': 70, 'difficulty': 'Hard', 'confidence': 90}, {'dish': 'Paneer Tikka Kathi Roll Recipe', 'reason': 'Not a good match for expiring-paneer ingredient (Expires in 5 days)', 'matched_inventory': ['Paneer (1.0 kg)'], 'estimated_profit': 475, 'priority': 'LOW', 'preparation_time': 50, 'difficulty': 'Medium', 'confidence': 80}, {'dish': 'Dahi Wale Paneer Recipe - Paneer In A Curd Gravy', 'reason': 'Using expiring-paneer ingredient (Expires in 5 days)', 'matched_inventory': ['Paneer (1.0 kg)'], 'estimated_profit': 450, 'priority': 'LOW', 'preparation_time': 45, 'difficulty': 'Medium', 'confidence': 90}, {'dish': 'Paneer Capsicum Sandwich Recipe', 'reason': 'Not a good match for expiring-paneer ingredient (Expires in 5 days)', 'matched_inventory': ['Paneer (1.0 kg)'], 'estimated_profit': 350, 'priority': 'LOW', 'preparation_time': 30, 'difficulty': 'Easy', 'confidence': 75}]}, 'pricing': [{'dish': 'Sweet & Spicy Stuffed Paneer In Kofta Curry Recipe', 'ingredient_cost': 150, 'recommended_price': 300, 'estimated_profit': 150, 'profit_margin': 50, 'category': 'MEDIUM', 'reason': 'To ensure a minimum profit margin of 100% considering the ingredient cost of Rs. 150 and average restaurant market pricing, we suggest a menu price of Rs. 300, thereby covering raw material costs, labor, overheads, and achieving a moderate margin for the establishment.'}, {'dish': 'Chanar Dalna Recipe -Bengali Style Paneer & Potato Gravy', 'ingredient_cost': 150, 'recommended_price': 300, 'estimated_profit': 150, 'profit_margin': 50, 'category': 'MEDIUM', 'reason': 'This recipe contains a combination of high-end ingredients such as paneer and homemade cottage cheese, along with other expensive spices and accompaniments. Therefore, we recommend a selling price of 600% of the ingredient cost, which is equivalent to 900 rupees. However, considering the competition and local market prices, we recommend adjusting the price to 300 rupees to ensure a 5-10% profit margin without losing customer interest.'}, {'dish': 'Paneer Tikka Kathi Roll Recipe', 'ingredient_cost': 150, 'recommended_price': 600, 'estimated_profit': 450, 'profit_margin': 75, 'category': 'HIGH', 'reason': 'The recommended price for Paneer Tikka Kathi Roll Recipe is estimated at Rs 600 considering the ingredient cost of Rs 150 and a typical margin of 300% for street food items in urban India.'}, {'dish': 'Dahi Wale Paneer Recipe - Paneer In A Curd Gravy', 'ingredient_cost': 150, 'recommended_price': 450, 'estimated_profit': 300, 'profit_margin': 66, 'category': 'HIGH', 'reason': 'To ensure a 3x profit margin, we recommend pricing the Dahi Wale Paneer Recipe at ₹450, considering the cost of ingredients and typical market pricing for similar North Indian recipes in upscale restaurants.'}, {'dish': 'Paneer Capsicum Sandwich Recipe', 'ingredient_cost': 150, 'recommended_price': 650, 'estimated_profit': 500, 'profit_margin': 76, 'category': 'HIGH', 'reason': 'Based on the ingredient cost of 150.0 rupees, the recommended price for the Paneer Capsicum Sandwich Recipe is 4.33 times the ingredient cost, which is a standard margin estimate in the restaurant industry, and 650 rupees reflects a 433% mark up. This price is set to ensure a significant profit margin while being competitive in the market, considering the quality of the dish and the target audience.'}], 'description': {'descriptions': [{'dish': 'Sweet & Spicy Stuffed Paneer In Kofta Curry Recipe', 'description': 'A flavorful North Indian recipe, this dish features paneer stuffed with a sweet and spicy mixture, served in a rich kofta curry.', 'tone': 'Premium', 'language': 'English'}, {'dish': 'Chanar Dalna Recipe -Bengali Style Paneer & Potato Gravy', 'description': 'An authentic Bengali recipe, this dish features paneer and potatoes in a rich and flavorful gravy, perfect for main course.', 'tone': 'Authentic', 'language': 'English'}, {'dish': 'Paneer Tikka Kathi Roll Recipe', 'description': 'A popular street food recipe from Bengal, this dish features marinated paneer cooked to perfection and wrapped in a crispy roll.', 'tone': 'Snappy', 'language': 'English'}, {'dish': 'Dahi Wale Paneer Recipe - Paneer In A Curd Gravy', 'description': 'A North Indian recipe, this dish features paneer cooked in a creamy curd gravy, perfect for main course.', 'tone': 'Cozy', 'language': 'English'}, {'dish': 'Paneer Capsicum Sandwich Recipe', 'description': 'A Continental recipe, this dish features grilled paneer and capsicum sandwiched between crispy bread, perfect for a light meal.', 'tone': 'Fresh', 'language': 'English'}]}, 'supplier': [{'supplier_name': 'Fresh Foods Inc', 'ingredient': 'Paneer', 'message': 'Dear Fresh Foods Inc,\n\nWe would like to order 20 kg of Paneer required by Tomorrow for our restaurant operations. Kindly confirm the availability and estimated delivery time.\n\nRegards,\nKitchen Manager', 'language': ''}], 'warnings': ['Inventory Optimization service failed: Failed to connect to FastAPI backend at http://127.0.0.1:8000/optimization. Make sure the server is running.', 'Recipe Recommendation service failed: Failed to connect to FastAPI backend at http://127.0.0.1:8000/recipe. Make sure the server is running.'], 'workflow_status': 'partial_success'}, 'message': 'Request processed successfully.'}}]
+2026-07-18 06:51:57,059 [INFO] app.api: Request ID: 6027f423-c71f-4606-822b-c25643ffc7c1 | Completed: POST /workflow/publish | Status: 422 | Processed in: 62ms
+2026-07-18 06:57:48,489 [INFO] app.api: Request ID: 558502e2-de76-490b-8b7f-0256dbfc1ebc | Start: POST /workflow/publish
+2026-07-18 06:57:48,494 [INFO] app.api: ApplicationRouter: Exposing workflow publish trigger.
+2026-07-18 06:57:48,515 [INFO] app.api: Request ID: 558502e2-de76-490b-8b7f-0256dbfc1ebc | Completed: POST /workflow/publish | Status: 200 | Processed in: 25ms
+2026-07-18 06:57:52,924 [INFO] app.api: Request ID: 1c07247b-eceb-48da-a2eb-88cc922da46e | Start: POST /workflow/publish
+2026-07-18 06:57:52,931 [INFO] app.api: ApplicationRouter: Exposing workflow publish trigger.
+2026-07-18 06:57:52,943 [INFO] app.api: Request ID: 1c07247b-eceb-48da-a2eb-88cc922da46e | Completed: POST /workflow/publish | Status: 200 | Processed in: 19ms
+2026-07-18 07:04:02,733 [INFO] app.api: Request ID: 4178f22a-4e68-48a7-84ea-b74b5cf7da46 | Start: POST /application/update
+2026-07-18 07:04:02,817 [INFO] app.api: ApplicationRouter: Exposing application update trigger hook.
+2026-07-18 07:04:02,844 [INFO] app.api: Request ID: 4178f22a-4e68-48a7-84ea-b74b5cf7da46 | Completed: POST /application/update | Status: 200 | Processed in: 110ms
+2026-07-18 07:04:09,589 [INFO] app.api: Request ID: 585ff368-2af6-42dc-9e61-deead59b45cf | Start: POST /application/update
+2026-07-18 07:04:09,602 [INFO] app.api: ApplicationRouter: Exposing application update trigger hook.
+2026-07-18 07:04:09,659 [INFO] app.api: Request ID: 585ff368-2af6-42dc-9e61-deead59b45cf | Completed: POST /application/update | Status: 200 | Processed in: 69ms
+2026-07-18 07:06:39,883 [INFO] app.api: Request ID: e2214970-f30d-47f3-848a-7be42ecea223 | Start: POST /application/update
+2026-07-18 07:06:39,888 [INFO] app.api: ApplicationRouter: Exposing application update trigger hook.
+2026-07-18 07:06:39,904 [INFO] app.api: Request ID: e2214970-f30d-47f3-848a-7be42ecea223 | Completed: POST /application/update | Status: 200 | Processed in: 21ms
+2026-07-18 07:08:55,214 [INFO] app.api: Request ID: bf771a5b-a64e-4f90-ad4d-e8f14d0c9564 | Start: POST /application/update
+2026-07-18 07:08:55,221 [WARNING] app.api: Request ID: bf771a5b-a64e-4f90-ad4d-e8f14d0c9564 | Validation failed: [{'type': 'missing', 'loc': ('body', 'optimization', 'recommended_dishes'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'inventory_usage'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'estimated_revenue'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'waste_saved'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'remaining_inventory'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'purchase_required'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'reason'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'language'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'recipe', 'recipes'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'menu', 'special_menu'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'description', 'descriptions'), 'msg': 'Field required', 'input': {}}]
+2026-07-18 07:08:55,248 [INFO] app.api: Request ID: bf771a5b-a64e-4f90-ad4d-e8f14d0c9564 | Completed: POST /application/update | Status: 422 | Processed in: 34ms
+2026-07-18 07:13:29,497 [INFO] app.api: Request ID: f485b130-9777-4e5a-b7ed-bd1a83a94e75 | Start: POST /workflow/complete
+2026-07-18 07:13:29,583 [INFO] app.api: OperationsRouter: Triggering workflow completion.
+2026-07-18 07:13:29,598 [INFO] app.api: Request ID: f485b130-9777-4e5a-b7ed-bd1a83a94e75 | Completed: POST /workflow/complete | Status: 200 | Processed in: 101ms
+2026-07-18 07:15:13,321 [INFO] app.api: Request ID: 96e7f87f-1012-4302-bbcc-c99b6290bed3 | Start: POST /workflow/complete
+2026-07-18 07:15:13,325 [INFO] app.api: OperationsRouter: Triggering workflow completion.
+2026-07-18 07:15:13,332 [INFO] app.api: Request ID: 96e7f87f-1012-4302-bbcc-c99b6290bed3 | Completed: POST /workflow/complete | Status: 200 | Processed in: 11ms
+2026-07-18 07:17:04,920 [INFO] app.api: Request ID: 6c1b4c9c-607a-4435-97ab-9a17eaba7707 | Start: POST /workflow/complete
+2026-07-18 07:17:04,925 [WARNING] app.api: Request ID: 6c1b4c9c-607a-4435-97ab-9a17eaba7707 | Validation failed: [{'type': 'missing', 'loc': ('body', 'optimization', 'recommended_dishes'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'inventory_usage'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'estimated_revenue'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'waste_saved'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'remaining_inventory'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'purchase_required'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'reason'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'optimization', 'language'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'recipe', 'recipes'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'menu', 'special_menu'), 'msg': 'Field required', 'input': {}}, {'type': 'missing', 'loc': ('body', 'description', 'descriptions'), 'msg': 'Field required', 'input': {}}]
+2026-07-18 07:17:04,928 [INFO] app.api: Request ID: 6c1b4c9c-607a-4435-97ab-9a17eaba7707 | Completed: POST /workflow/complete | Status: 422 | Processed in: 7ms
+2026-07-18 07:38:03,031 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 07:38:41,972 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 07:38:41,973 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 07:38:46,554 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 11:50:19,323 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 11:50:19,324 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 11:51:55,202 [INFO] app.api: Request ID: eb6b8c54-2835-4e6c-9278-94c26cac64b0 | Start: GET /
+2026-07-18 11:51:55,274 [INFO] app.api: Request ID: eb6b8c54-2835-4e6c-9278-94c26cac64b0 | Completed: GET / | Status: 404 | Processed in: 71ms
+2026-07-18 11:51:55,280 [INFO] app.api: Request ID: b0155a0d-35da-407e-8322-c76220168e77 | Start: GET /
+2026-07-18 11:51:55,283 [INFO] app.api: Request ID: b0155a0d-35da-407e-8322-c76220168e77 | Completed: GET / | Status: 404 | Processed in: 3ms
+2026-07-18 11:51:55,288 [INFO] app.api: Request ID: 4e729e51-8843-4f92-9985-1d7b717090f0 | Start: GET /
+2026-07-18 11:51:55,292 [INFO] app.api: Request ID: 4e729e51-8843-4f92-9985-1d7b717090f0 | Completed: GET / | Status: 404 | Processed in: 3ms
+2026-07-18 11:51:55,297 [INFO] app.api: Request ID: 5f26f4a3-5b31-44c5-bfa6-f35d75313727 | Start: GET /
+2026-07-18 11:51:55,305 [INFO] app.api: Request ID: 5f26f4a3-5b31-44c5-bfa6-f35d75313727 | Completed: GET / | Status: 404 | Processed in: 8ms
+2026-07-18 11:51:55,313 [INFO] app.api: Request ID: b4d22992-f5a7-4172-837f-0bf71587d2cf | Start: GET /
+2026-07-18 11:51:55,316 [INFO] app.api: Request ID: b4d22992-f5a7-4172-837f-0bf71587d2cf | Completed: GET / | Status: 404 | Processed in: 2ms
+2026-07-18 11:51:55,488 [INFO] app.api: Request ID: 6a28e59c-422b-4109-8c7e-8700802838d8 | Start: GET /favicon.ico
+2026-07-18 11:51:55,490 [INFO] app.api: Request ID: 6a28e59c-422b-4109-8c7e-8700802838d8 | Completed: GET /favicon.ico | Status: 404 | Processed in: 2ms
+2026-07-18 11:51:55,493 [INFO] app.api: Request ID: 1704e600-c1ab-4a85-926f-a247b67d5152 | Start: GET /favicon.ico
+2026-07-18 11:51:55,497 [INFO] app.api: Request ID: 1704e600-c1ab-4a85-926f-a247b67d5152 | Completed: GET /favicon.ico | Status: 404 | Processed in: 3ms
+2026-07-18 11:51:55,501 [INFO] app.api: Request ID: d821dde5-40d1-4de2-9a31-2db7834d2cfc | Start: GET /favicon.ico
+2026-07-18 11:51:55,504 [INFO] app.api: Request ID: d821dde5-40d1-4de2-9a31-2db7834d2cfc | Completed: GET /favicon.ico | Status: 404 | Processed in: 2ms
+2026-07-18 11:51:55,507 [INFO] app.api: Request ID: 0e0d957e-c2e9-4035-9351-0fb4102b24f4 | Start: GET /favicon.ico
+2026-07-18 11:51:55,510 [INFO] app.api: Request ID: 0e0d957e-c2e9-4035-9351-0fb4102b24f4 | Completed: GET /favicon.ico | Status: 404 | Processed in: 3ms
+2026-07-18 11:51:55,514 [INFO] app.api: Request ID: 44d720c0-9f3a-45b5-8120-138813789109 | Start: GET /favicon.ico
+2026-07-18 11:51:55,520 [INFO] app.api: Request ID: 44d720c0-9f3a-45b5-8120-138813789109 | Completed: GET /favicon.ico | Status: 404 | Processed in: 6ms
+2026-07-18 11:52:20,615 [INFO] app.api: Request ID: 274ef602-84ad-437e-89bb-1091d2d4fa10 | Start: GET /docs
+2026-07-18 11:52:20,619 [INFO] app.api: Request ID: 274ef602-84ad-437e-89bb-1091d2d4fa10 | Completed: GET /docs | Status: 200 | Processed in: 4ms
+2026-07-18 11:52:20,928 [INFO] app.api: Request ID: c0e047dc-5fc2-4a35-8823-d408b0cbbc52 | Start: GET /openapi.json
+2026-07-18 11:52:21,716 [INFO] app.api: Request ID: c0e047dc-5fc2-4a35-8823-d408b0cbbc52 | Completed: GET /openapi.json | Status: 200 | Processed in: 788ms
+2026-07-18 11:52:30,528 [INFO] app.api: Request ID: ee682d90-9559-4f2d-aa53-eec6a890aed1 | Start: GET /health
+2026-07-18 11:52:30,540 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 11:52:39,791 [INFO] app.api: Request ID: ee682d90-9559-4f2d-aa53-eec6a890aed1 | Completed: GET /health | Status: 200 | Processed in: 9262ms
+2026-07-18 14:46:10,704 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 14:46:45,715 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 14:46:45,716 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 14:46:45,827 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 14:47:12,038 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 14:47:12,039 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 14:47:12,186 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 14:47:38,247 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 14:47:38,248 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 14:47:38,356 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 14:48:00,783 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 14:48:00,784 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 14:48:00,891 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 14:48:23,002 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 14:48:23,002 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 14:48:23,114 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 14:48:44,464 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 14:48:44,464 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 14:48:44,582 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 14:49:06,243 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 14:49:06,244 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 14:49:06,353 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 14:49:29,394 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 14:49:29,395 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 14:49:29,512 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 14:49:50,249 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 14:49:50,250 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash
+2026-07-18 15:24:49,144 [INFO] app.api: Request ID: 1d77dccc-35d5-4d81-9897-d67ff5703ba5 | Start: GET /health
+2026-07-18 15:24:49,164 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 15:24:53,360 [INFO] app.api: Request ID: 1d77dccc-35d5-4d81-9897-d67ff5703ba5 | Completed: GET /health | Status: 200 | Processed in: 4216ms
+2026-07-18 15:25:30,352 [INFO] app.api: Request ID: c3030f8d-f94a-46ba-a313-7c247b260928 | Start: GET /docs
+2026-07-18 15:25:30,354 [INFO] app.api: Request ID: c3030f8d-f94a-46ba-a313-7c247b260928 | Completed: GET /docs | Status: 200 | Processed in: 1ms
+2026-07-18 15:25:30,539 [INFO] app.api: Request ID: 7151f08c-b9f9-4611-9d4b-d403ab394730 | Start: GET /openapi.json
+2026-07-18 15:25:31,190 [INFO] app.api: Request ID: 7151f08c-b9f9-4611-9d4b-d403ab394730 | Completed: GET /openapi.json | Status: 200 | Processed in: 650ms
+2026-07-18 15:25:36,522 [INFO] app.api: Request ID: fa858655-a68d-4c7c-b64c-9427c0f5a6b2 | Start: GET /health
+2026-07-18 15:25:36,524 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 15:25:39,715 [INFO] app.api: Request ID: fa858655-a68d-4c7c-b64c-9427c0f5a6b2 | Completed: GET /health | Status: 200 | Processed in: 3192ms
+2026-07-18 15:36:05,267 [INFO] app.api: Request ID: 8f7564bd-4d1f-4263-a3eb-74c2d7c4b50c | Start: GET /health
+2026-07-18 15:36:05,269 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 15:36:08,335 [INFO] app.api: Request ID: 8f7564bd-4d1f-4263-a3eb-74c2d7c4b50c | Completed: GET /health | Status: 200 | Processed in: 3068ms
+2026-07-18 15:40:27,237 [INFO] app.api: Request ID: 89930638-1d89-402e-a175-fb38130f3365 | Start: GET /health
+2026-07-18 15:40:27,239 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 15:40:28,632 [INFO] app.api: Request ID: 169d0cae-eca2-451d-98c5-0f70d3dd329d | Start: GET /docs
+2026-07-18 15:40:28,634 [INFO] app.api: Request ID: 169d0cae-eca2-451d-98c5-0f70d3dd329d | Completed: GET /docs | Status: 200 | Processed in: 1ms
+2026-07-18 15:40:28,898 [INFO] app.api: Request ID: 0afe5ee5-9988-423f-82fe-7be8d79f576e | Start: GET /openapi.json
+2026-07-18 15:40:28,903 [INFO] app.api: Request ID: 0afe5ee5-9988-423f-82fe-7be8d79f576e | Completed: GET /openapi.json | Status: 200 | Processed in: 5ms
+2026-07-18 15:40:30,936 [INFO] app.api: Request ID: 89930638-1d89-402e-a175-fb38130f3365 | Completed: GET /health | Status: 200 | Processed in: 3699ms
+2026-07-18 15:40:40,137 [INFO] app.api: Request ID: 5de6a52e-3525-4fde-8a70-02435df7cfd0 | Start: GET /health
+2026-07-18 15:40:40,139 [INFO] app.api: HealthController: Checking systems health...
+2026-07-18 15:40:43,557 [INFO] app.api: Request ID: 5de6a52e-3525-4fde-8a70-02435df7cfd0 | Completed: GET /health | Status: 200 | Processed in: 3420ms
+2026-07-18 15:44:12,879 [INFO] app.api: FastAPI Application Shutdown: Cleaning connections...
+2026-07-18 15:44:46,100 [INFO] app.api: FastAPI Application Startup: Loading KitchenSync AI REST controllers...
+2026-07-18 15:44:46,100 [INFO] app.api: Loaded config. Primary model configured: gemini-2.5-flash

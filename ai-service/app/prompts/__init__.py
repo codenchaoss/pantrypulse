@@ -1,0 +1,1 @@
+# KitchenSync prompts package

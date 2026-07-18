@@ -1,0 +1,3452 @@
+[
+  {
+    "chunk_id": "SUP001",
+    "source": "suppliers",
+    "document_id": "SUP001",
+    "title": "Oceanic Seafood Distributors (Hyderabad)",
+    "content": "Oceanic Seafood Distributors (Hyderabad) supplies shrimp, smoked salmon, tuna salad. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP002",
+    "source": "suppliers",
+    "document_id": "SUP002",
+    "title": "Bay Area Catch (Bangalore)",
+    "content": "Bay Area Catch (Bangalore) supplies shrimp, smoked salmon, tuna salad. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP003",
+    "source": "suppliers",
+    "document_id": "SUP003",
+    "title": "Valley Poultry Farms (Mumbai)",
+    "content": "Valley Poultry Farms (Mumbai) supplies Chicken, Boneless Skinless Chicken Breast, Chicken Broth. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP004",
+    "source": "suppliers",
+    "document_id": "SUP004",
+    "title": "Royal Broiler Farms (Chennai)",
+    "content": "Royal Broiler Farms (Chennai) supplies Chicken, Boneless Skinless Chicken Breast, Chicken Broth. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP005",
+    "source": "suppliers",
+    "document_id": "SUP005",
+    "title": "GreenGrocer Organics (Delhi)",
+    "content": "GreenGrocer Organics (Delhi) supplies Mayonnaise, Cumin, Baking Soda, Inch Ginger - Grated, /2 Teaspoon Garam Masala, Celery. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP006",
+    "source": "suppliers",
+    "document_id": "SUP006",
+    "title": "Urban Harvest & Greens (Pune)",
+    "content": "Urban Harvest & Greens (Pune) supplies Lime Juice, Green Chillies -, Inch Ginger - Finely, Baking, Teaspoon Red Chilli Flake, Cilantro. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP007",
+    "source": "suppliers",
+    "document_id": "SUP007",
+    "title": "Fresh Farms Co-op (Kolkata)",
+    "content": "Fresh Farms Co-op (Kolkata) supplies Zucchini, /2 Teaspoon Cumin Seeds (Jeera), Cups Water, Green Chillies - Slit, Lemon Juice, Onion. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP008",
+    "source": "suppliers",
+    "document_id": "SUP008",
+    "title": "Gourmet Dairy Corp (Hyderabad)",
+    "content": "Gourmet Dairy Corp (Hyderabad) supplies Sour Cream, Milk, Cream Cheese, Buttermilk, Butter, Egg. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP009",
+    "source": "suppliers",
+    "document_id": "SUP009",
+    "title": "Mother Dairy Wholesalers (Bangalore)",
+    "content": "Mother Dairy Wholesalers (Bangalore) supplies Unsalted Butter, Sour Cream, Cream Cheese, Milk, Skim Milk, Butter. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP010",
+    "source": "suppliers",
+    "document_id": "SUP010",
+    "title": "A-One Grain & Spice Mills (Mumbai)",
+    "content": "A-One Grain & Spice Mills (Mumbai) supplies Sunflower Oil - As Required, Cup All Purpose Flour (Maida), Cup Whole Wheat Flour, Soy Sauce, Brown Sugar, Teaspoon Cumin Powder (Jeera). Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP011",
+    "source": "suppliers",
+    "document_id": "SUP011",
+    "title": "Nile Spice Merchants (Chennai)",
+    "content": "Nile Spice Merchants (Chennai) supplies Honey, Sugar, Sunflower Oil - For Cooking, Teaspoon Amchur (Dry Mango Powder), Confectioners' Sugar, Salt - To Taste. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP012",
+    "source": "suppliers",
+    "document_id": "SUP012",
+    "title": "Deccan Meat Processing (Delhi)",
+    "content": "Deccan Meat Processing (Delhi) supplies boneless skinless chicken breast halves, beef eye round, ready-to-serve beef broth. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP013",
+    "source": "suppliers",
+    "document_id": "SUP013",
+    "title": "Apex Cattle & Broiler Ltd (Pune)",
+    "content": "Apex Cattle & Broiler Ltd (Pune) supplies boneless skinless chicken breast halves, beef eye round, ready-to-serve beef broth. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP014",
+    "source": "suppliers",
+    "document_id": "SUP014",
+    "title": "Oceanic Seafood Distributors (Kolkata)",
+    "content": "Oceanic Seafood Distributors (Kolkata) supplies shrimp, smoked salmon, tuna salad. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP015",
+    "source": "suppliers",
+    "document_id": "SUP015",
+    "title": "Bay Area Catch (Hyderabad)",
+    "content": "Bay Area Catch (Hyderabad) supplies shrimp, smoked salmon, tuna salad. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP016",
+    "source": "suppliers",
+    "document_id": "SUP016",
+    "title": "Valley Poultry Farms (Bangalore)",
+    "content": "Valley Poultry Farms (Bangalore) supplies Chicken, Boneless Skinless Chicken Breast, Chicken Broth. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP017",
+    "source": "suppliers",
+    "document_id": "SUP017",
+    "title": "Royal Broiler Farms (Mumbai)",
+    "content": "Royal Broiler Farms (Mumbai) supplies Chicken Broth, Boneless Skinless Chicken Breast, Chicken. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP018",
+    "source": "suppliers",
+    "document_id": "SUP018",
+    "title": "GreenGrocer Organics (Chennai)",
+    "content": "GreenGrocer Organics (Chennai) supplies Scallion, Green Chillie, Cumin, Inch Ginger, Basil, /4 Teaspoon Asafoetida (Hing). Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP019",
+    "source": "suppliers",
+    "document_id": "SUP019",
+    "title": "Urban Harvest & Greens (Delhi)",
+    "content": "Urban Harvest & Greens (Delhi) supplies Tomatoe, Teaspoon Mustard Seed, Cucumber, Green Onion, Mayonnaise, Teaspoon Garam Masala. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP020",
+    "source": "suppliers",
+    "document_id": "SUP020",
+    "title": "Fresh Farms Co-op (Pune)",
+    "content": "Fresh Farms Co-op (Pune) supplies Vanilla, Scallion, Teaspoon Mustard Seed, Blueberrie, Teaspoon Garam Masala, Inch Ginger - Grated. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP021",
+    "source": "suppliers",
+    "document_id": "SUP021",
+    "title": "Gourmet Dairy Corp (Kolkata)",
+    "content": "Gourmet Dairy Corp (Kolkata) supplies Tablespoons Ghee, Buttermilk, Milk, Parmesan Cheese, Egg, Sour Cream. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP022",
+    "source": "suppliers",
+    "document_id": "SUP022",
+    "title": "Mother Dairy Wholesalers (Hyderabad)",
+    "content": "Mother Dairy Wholesalers (Hyderabad) supplies Milk, Cream Cheese, Tablespoons Ghee, Mozzarella Cheese, Parmesan Cheese, Heavy Cream. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP023",
+    "source": "suppliers",
+    "document_id": "SUP023",
+    "title": "A-One Grain & Spice Mills (Bangalore)",
+    "content": "A-One Grain & Spice Mills (Bangalore) supplies Brown Sugar, Teaspoon Sunflower Oil, Salt, Cup All Purpose Flour (Maida), Clove, Teaspoon Cumin Powder (Jeera). Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP024",
+    "source": "suppliers",
+    "document_id": "SUP024",
+    "title": "Nile Spice Merchants (Mumbai)",
+    "content": "Nile Spice Merchants (Mumbai) supplies Cloves Garlic - Finely, /2 Teaspoon Turmeric Powder (Haldi), Salt, Cider Vinegar, Cloves Garlic, Sunflower Oil - For Cooking. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP025",
+    "source": "suppliers",
+    "document_id": "SUP025",
+    "title": "Deccan Meat Processing (Chennai)",
+    "content": "Deccan Meat Processing (Chennai) supplies boneless skinless chicken breast halves, beef eye round, ready-to-serve beef broth. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP026",
+    "source": "suppliers",
+    "document_id": "SUP026",
+    "title": "Apex Cattle & Broiler Ltd (Delhi)",
+    "content": "Apex Cattle & Broiler Ltd (Delhi) supplies boneless skinless chicken breast halves, beef eye round, ready-to-serve beef broth. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP027",
+    "source": "suppliers",
+    "document_id": "SUP027",
+    "title": "Oceanic Seafood Distributors (Pune)",
+    "content": "Oceanic Seafood Distributors (Pune) supplies shrimp, smoked salmon, tuna salad. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP028",
+    "source": "suppliers",
+    "document_id": "SUP028",
+    "title": "Bay Area Catch (Kolkata)",
+    "content": "Bay Area Catch (Kolkata) supplies shrimp, smoked salmon, tuna salad. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP029",
+    "source": "suppliers",
+    "document_id": "SUP029",
+    "title": "Valley Poultry Farms (Hyderabad)",
+    "content": "Valley Poultry Farms (Hyderabad) supplies Chicken, Boneless Skinless Chicken Breast, Chicken Broth. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP030",
+    "source": "suppliers",
+    "document_id": "SUP030",
+    "title": "Royal Broiler Farms (Bangalore)",
+    "content": "Royal Broiler Farms (Bangalore) supplies Boneless Skinless Chicken Breast, Chicken, Chicken Broth. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP031",
+    "source": "suppliers",
+    "document_id": "SUP031",
+    "title": "GreenGrocer Organics (Mumbai)",
+    "content": "GreenGrocer Organics (Mumbai) supplies /4 Teaspoon Red Chilli, Basil, Baking, Cardamom (Elaichi) Pods/Seed, Lime Juice, Margarine. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP032",
+    "source": "suppliers",
+    "document_id": "SUP032",
+    "title": "Urban Harvest & Greens (Chennai)",
+    "content": "Urban Harvest & Greens (Chennai) supplies Garlic, Pinch Asafoetida (Hing), Carrot, Inch Ginger - Grated, Teaspoon Cumin Seeds (Jeera), Vanilla. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP033",
+    "source": "suppliers",
+    "document_id": "SUP033",
+    "title": "Fresh Farms Co-op (Delhi)",
+    "content": "Fresh Farms Co-op (Delhi) supplies Vanilla Extract, Pecan, Teaspoon Cumin Seeds (Jeera), Cumin, Mayonnaise, Dry Red Chilli. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP034",
+    "source": "suppliers",
+    "document_id": "SUP034",
+    "title": "Gourmet Dairy Corp (Pune)",
+    "content": "Gourmet Dairy Corp (Pune) supplies Tablespoon Ghee, Milk, Buttermilk, Unsalted Butter, Parmesan Cheese, Heavy Cream. Delivery time 48 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP035",
+    "source": "suppliers",
+    "document_id": "SUP035",
+    "title": "Mother Dairy Wholesalers (Kolkata)",
+    "content": "Mother Dairy Wholesalers (Kolkata) supplies Cheddar Cheese, Sour Cream, Tablespoon Ghee, Butter, Unsalted Butter, Buttermilk. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP400",
+    "source": "suppliers",
+    "document_id": "SUP400",
+    "title": "Tirupati Seafood Wholesalers (Kurnool)",
+    "content": "Tirupati Seafood Wholesalers (Kurnool) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP401",
+    "source": "suppliers",
+    "document_id": "SUP401",
+    "title": "Rayalaseema Dairy Wholesalers (Kurnool)",
+    "content": "Rayalaseema Dairy Wholesalers (Kurnool) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP402",
+    "source": "suppliers",
+    "document_id": "SUP402",
+    "title": "Godavari Organic Spices Wholesalers (Karimnagar)",
+    "content": "Godavari Organic Spices Wholesalers (Karimnagar) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP403",
+    "source": "suppliers",
+    "document_id": "SUP403",
+    "title": "Vizag Coastal Dairy Wholesalers (Nizamabad)",
+    "content": "Vizag Coastal Dairy Wholesalers (Nizamabad) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP404",
+    "source": "suppliers",
+    "document_id": "SUP404",
+    "title": "Godavari Organic Produce Wholesalers (Eluru)",
+    "content": "Godavari Organic Produce Wholesalers (Eluru) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP405",
+    "source": "suppliers",
+    "document_id": "SUP405",
+    "title": "Deccan Farms Dairy Wholesalers (Kakinada)",
+    "content": "Deccan Farms Dairy Wholesalers (Kakinada) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP406",
+    "source": "suppliers",
+    "document_id": "SUP406",
+    "title": "Nellore Seafood Wholesalers (Kurnool)",
+    "content": "Nellore Seafood Wholesalers (Kurnool) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP407",
+    "source": "suppliers",
+    "document_id": "SUP407",
+    "title": "Tirupati Pantry Wholesalers (Kurnool)",
+    "content": "Tirupati Pantry Wholesalers (Kurnool) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP408",
+    "source": "suppliers",
+    "document_id": "SUP408",
+    "title": "Nellore Pantry Wholesalers (Nellore)",
+    "content": "Nellore Pantry Wholesalers (Nellore) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP409",
+    "source": "suppliers",
+    "document_id": "SUP409",
+    "title": "Tirupati Dairy Wholesalers (Kakinada)",
+    "content": "Tirupati Dairy Wholesalers (Kakinada) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP410",
+    "source": "suppliers",
+    "document_id": "SUP410",
+    "title": "Godavari Organic Produce Wholesalers (Kakinada)",
+    "content": "Godavari Organic Produce Wholesalers (Kakinada) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP411",
+    "source": "suppliers",
+    "document_id": "SUP411",
+    "title": "Godavari Organic Pantry Wholesalers (Karimnagar)",
+    "content": "Godavari Organic Pantry Wholesalers (Karimnagar) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP412",
+    "source": "suppliers",
+    "document_id": "SUP412",
+    "title": "Kakinada Port Seafood Wholesalers (Tirupati)",
+    "content": "Kakinada Port Seafood Wholesalers (Tirupati) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP413",
+    "source": "suppliers",
+    "document_id": "SUP413",
+    "title": "Deccan Farms Seafood Wholesalers (Nellore)",
+    "content": "Deccan Farms Seafood Wholesalers (Nellore) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP414",
+    "source": "suppliers",
+    "document_id": "SUP414",
+    "title": "Deccan Farms Seafood Wholesalers (Kakinada)",
+    "content": "Deccan Farms Seafood Wholesalers (Kakinada) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP415",
+    "source": "suppliers",
+    "document_id": "SUP415",
+    "title": "Deccan Farms Produce Wholesalers (Kurnool)",
+    "content": "Deccan Farms Produce Wholesalers (Kurnool) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP416",
+    "source": "suppliers",
+    "document_id": "SUP416",
+    "title": "Deccan Farms Dairy Wholesalers (Nizamabad)",
+    "content": "Deccan Farms Dairy Wholesalers (Nizamabad) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP417",
+    "source": "suppliers",
+    "document_id": "SUP417",
+    "title": "Nellore Pantry Wholesalers (Visakhapatnam)",
+    "content": "Nellore Pantry Wholesalers (Visakhapatnam) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP418",
+    "source": "suppliers",
+    "document_id": "SUP418",
+    "title": "Tirupati Dairy Wholesalers (Hyderabad)",
+    "content": "Tirupati Dairy Wholesalers (Hyderabad) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP419",
+    "source": "suppliers",
+    "document_id": "SUP419",
+    "title": "Rayalaseema Dairy Wholesalers (Nellore)",
+    "content": "Rayalaseema Dairy Wholesalers (Nellore) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP420",
+    "source": "suppliers",
+    "document_id": "SUP420",
+    "title": "Vizag Coastal Produce Wholesalers (Chittoor)",
+    "content": "Vizag Coastal Produce Wholesalers (Chittoor) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP421",
+    "source": "suppliers",
+    "document_id": "SUP421",
+    "title": "Vijayawada Meat Wholesalers (Eluru)",
+    "content": "Vijayawada Meat Wholesalers (Eluru) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP422",
+    "source": "suppliers",
+    "document_id": "SUP422",
+    "title": "Kakinada Port Produce Wholesalers (Hyderabad)",
+    "content": "Kakinada Port Produce Wholesalers (Hyderabad) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP423",
+    "source": "suppliers",
+    "document_id": "SUP423",
+    "title": "Vijayawada Meat Wholesalers (Warangal)",
+    "content": "Vijayawada Meat Wholesalers (Warangal) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP424",
+    "source": "suppliers",
+    "document_id": "SUP424",
+    "title": "Godavari Organic Pantry Wholesalers (Warangal)",
+    "content": "Godavari Organic Pantry Wholesalers (Warangal) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP425",
+    "source": "suppliers",
+    "document_id": "SUP425",
+    "title": "Nellore Pantry Wholesalers (Ongole)",
+    "content": "Nellore Pantry Wholesalers (Ongole) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP426",
+    "source": "suppliers",
+    "document_id": "SUP426",
+    "title": "Guntur Chili Meat Wholesalers (Nellore)",
+    "content": "Guntur Chili Meat Wholesalers (Nellore) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP427",
+    "source": "suppliers",
+    "document_id": "SUP427",
+    "title": "Vizag Coastal Pantry Wholesalers (Kadapa)",
+    "content": "Vizag Coastal Pantry Wholesalers (Kadapa) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP428",
+    "source": "suppliers",
+    "document_id": "SUP428",
+    "title": "Tirupati Produce Wholesalers (Hyderabad)",
+    "content": "Tirupati Produce Wholesalers (Hyderabad) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP429",
+    "source": "suppliers",
+    "document_id": "SUP429",
+    "title": "Guntur Chili Dairy Wholesalers (Rajahmundry)",
+    "content": "Guntur Chili Dairy Wholesalers (Rajahmundry) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP430",
+    "source": "suppliers",
+    "document_id": "SUP430",
+    "title": "Nellore Seafood Wholesalers (Hyderabad)",
+    "content": "Nellore Seafood Wholesalers (Hyderabad) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP431",
+    "source": "suppliers",
+    "document_id": "SUP431",
+    "title": "Vizag Coastal Dairy Wholesalers (Vijayawada)",
+    "content": "Vizag Coastal Dairy Wholesalers (Vijayawada) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP432",
+    "source": "suppliers",
+    "document_id": "SUP432",
+    "title": "Vizag Coastal Seafood Wholesalers (Kakinada)",
+    "content": "Vizag Coastal Seafood Wholesalers (Kakinada) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP433",
+    "source": "suppliers",
+    "document_id": "SUP433",
+    "title": "Vizag Coastal Dairy Wholesalers (Chittoor)",
+    "content": "Vizag Coastal Dairy Wholesalers (Chittoor) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP434",
+    "source": "suppliers",
+    "document_id": "SUP434",
+    "title": "Kakinada Port Seafood Wholesalers (Nellore)",
+    "content": "Kakinada Port Seafood Wholesalers (Nellore) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP435",
+    "source": "suppliers",
+    "document_id": "SUP435",
+    "title": "Nellore Pantry Wholesalers (Kurnool)",
+    "content": "Nellore Pantry Wholesalers (Kurnool) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP436",
+    "source": "suppliers",
+    "document_id": "SUP436",
+    "title": "Kakinada Port Produce Wholesalers (Warangal)",
+    "content": "Kakinada Port Produce Wholesalers (Warangal) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP437",
+    "source": "suppliers",
+    "document_id": "SUP437",
+    "title": "Vijayawada Dairy Wholesalers (Khammam)",
+    "content": "Vijayawada Dairy Wholesalers (Khammam) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP438",
+    "source": "suppliers",
+    "document_id": "SUP438",
+    "title": "Guntur Chili Dairy Wholesalers (Warangal)",
+    "content": "Guntur Chili Dairy Wholesalers (Warangal) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP439",
+    "source": "suppliers",
+    "document_id": "SUP439",
+    "title": "Vijayawada Meat Wholesalers (Kurnool)",
+    "content": "Vijayawada Meat Wholesalers (Kurnool) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP440",
+    "source": "suppliers",
+    "document_id": "SUP440",
+    "title": "Kakinada Port Pantry Wholesalers (Eluru)",
+    "content": "Kakinada Port Pantry Wholesalers (Eluru) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP441",
+    "source": "suppliers",
+    "document_id": "SUP441",
+    "title": "Guntur Chili Meat Wholesalers (Karimnagar)",
+    "content": "Guntur Chili Meat Wholesalers (Karimnagar) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP442",
+    "source": "suppliers",
+    "document_id": "SUP442",
+    "title": "Tirupati Seafood Wholesalers (Vijayawada)",
+    "content": "Tirupati Seafood Wholesalers (Vijayawada) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP443",
+    "source": "suppliers",
+    "document_id": "SUP443",
+    "title": "Deccan Farms Produce Wholesalers (Eluru)",
+    "content": "Deccan Farms Produce Wholesalers (Eluru) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP444",
+    "source": "suppliers",
+    "document_id": "SUP444",
+    "title": "Vijayawada Spices Wholesalers (Visakhapatnam)",
+    "content": "Vijayawada Spices Wholesalers (Visakhapatnam) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP445",
+    "source": "suppliers",
+    "document_id": "SUP445",
+    "title": "Guntur Chili Produce Wholesalers (Rajahmundry)",
+    "content": "Guntur Chili Produce Wholesalers (Rajahmundry) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP446",
+    "source": "suppliers",
+    "document_id": "SUP446",
+    "title": "Rayalaseema Meat Wholesalers (Kakinada)",
+    "content": "Rayalaseema Meat Wholesalers (Kakinada) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP447",
+    "source": "suppliers",
+    "document_id": "SUP447",
+    "title": "Tirupati Meat Wholesalers (Guntur)",
+    "content": "Tirupati Meat Wholesalers (Guntur) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP448",
+    "source": "suppliers",
+    "document_id": "SUP448",
+    "title": "Tirupati Produce Wholesalers (Hyderabad)",
+    "content": "Tirupati Produce Wholesalers (Hyderabad) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP449",
+    "source": "suppliers",
+    "document_id": "SUP449",
+    "title": "Tirupati Spices Wholesalers (Vijayawada)",
+    "content": "Tirupati Spices Wholesalers (Vijayawada) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP450",
+    "source": "suppliers",
+    "document_id": "SUP450",
+    "title": "Kakinada Port Seafood Wholesalers (Rajahmundry)",
+    "content": "Kakinada Port Seafood Wholesalers (Rajahmundry) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP451",
+    "source": "suppliers",
+    "document_id": "SUP451",
+    "title": "Deccan Farms Spices Wholesalers (Warangal)",
+    "content": "Deccan Farms Spices Wholesalers (Warangal) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP452",
+    "source": "suppliers",
+    "document_id": "SUP452",
+    "title": "Vizag Coastal Seafood Wholesalers (Guntur)",
+    "content": "Vizag Coastal Seafood Wholesalers (Guntur) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP453",
+    "source": "suppliers",
+    "document_id": "SUP453",
+    "title": "Tirupati Pantry Wholesalers (Ongole)",
+    "content": "Tirupati Pantry Wholesalers (Ongole) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP454",
+    "source": "suppliers",
+    "document_id": "SUP454",
+    "title": "Guntur Chili Seafood Wholesalers (Tirupati)",
+    "content": "Guntur Chili Seafood Wholesalers (Tirupati) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP455",
+    "source": "suppliers",
+    "document_id": "SUP455",
+    "title": "Godavari Organic Spices Wholesalers (Warangal)",
+    "content": "Godavari Organic Spices Wholesalers (Warangal) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP456",
+    "source": "suppliers",
+    "document_id": "SUP456",
+    "title": "Tirupati Produce Wholesalers (Kakinada)",
+    "content": "Tirupati Produce Wholesalers (Kakinada) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP457",
+    "source": "suppliers",
+    "document_id": "SUP457",
+    "title": "Nellore Produce Wholesalers (Kurnool)",
+    "content": "Nellore Produce Wholesalers (Kurnool) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP458",
+    "source": "suppliers",
+    "document_id": "SUP458",
+    "title": "Vizag Coastal Pantry Wholesalers (Tirupati)",
+    "content": "Vizag Coastal Pantry Wholesalers (Tirupati) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP459",
+    "source": "suppliers",
+    "document_id": "SUP459",
+    "title": "Godavari Organic Seafood Wholesalers (Tirupati)",
+    "content": "Godavari Organic Seafood Wholesalers (Tirupati) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP460",
+    "source": "suppliers",
+    "document_id": "SUP460",
+    "title": "Vizag Coastal Produce Wholesalers (Hyderabad)",
+    "content": "Vizag Coastal Produce Wholesalers (Hyderabad) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP461",
+    "source": "suppliers",
+    "document_id": "SUP461",
+    "title": "Vizag Coastal Meat Wholesalers (Rajahmundry)",
+    "content": "Vizag Coastal Meat Wholesalers (Rajahmundry) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP462",
+    "source": "suppliers",
+    "document_id": "SUP462",
+    "title": "Godavari Organic Produce Wholesalers (Tirupati)",
+    "content": "Godavari Organic Produce Wholesalers (Tirupati) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP463",
+    "source": "suppliers",
+    "document_id": "SUP463",
+    "title": "Godavari Organic Produce Wholesalers (Rajahmundry)",
+    "content": "Godavari Organic Produce Wholesalers (Rajahmundry) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP464",
+    "source": "suppliers",
+    "document_id": "SUP464",
+    "title": "Vijayawada Produce Wholesalers (Khammam)",
+    "content": "Vijayawada Produce Wholesalers (Khammam) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP465",
+    "source": "suppliers",
+    "document_id": "SUP465",
+    "title": "Rayalaseema Spices Wholesalers (Rajahmundry)",
+    "content": "Rayalaseema Spices Wholesalers (Rajahmundry) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP466",
+    "source": "suppliers",
+    "document_id": "SUP466",
+    "title": "Guntur Chili Pantry Wholesalers (Karimnagar)",
+    "content": "Guntur Chili Pantry Wholesalers (Karimnagar) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP467",
+    "source": "suppliers",
+    "document_id": "SUP467",
+    "title": "Guntur Chili Spices Wholesalers (Kurnool)",
+    "content": "Guntur Chili Spices Wholesalers (Kurnool) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP468",
+    "source": "suppliers",
+    "document_id": "SUP468",
+    "title": "Deccan Farms Seafood Wholesalers (Ongole)",
+    "content": "Deccan Farms Seafood Wholesalers (Ongole) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP469",
+    "source": "suppliers",
+    "document_id": "SUP469",
+    "title": "Kakinada Port Produce Wholesalers (Khammam)",
+    "content": "Kakinada Port Produce Wholesalers (Khammam) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP470",
+    "source": "suppliers",
+    "document_id": "SUP470",
+    "title": "Guntur Chili Dairy Wholesalers (Rajahmundry)",
+    "content": "Guntur Chili Dairy Wholesalers (Rajahmundry) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP471",
+    "source": "suppliers",
+    "document_id": "SUP471",
+    "title": "Godavari Organic Pantry Wholesalers (Kadapa)",
+    "content": "Godavari Organic Pantry Wholesalers (Kadapa) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP472",
+    "source": "suppliers",
+    "document_id": "SUP472",
+    "title": "Deccan Farms Meat Wholesalers (Kurnool)",
+    "content": "Deccan Farms Meat Wholesalers (Kurnool) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP473",
+    "source": "suppliers",
+    "document_id": "SUP473",
+    "title": "Rayalaseema Seafood Wholesalers (Vijayawada)",
+    "content": "Rayalaseema Seafood Wholesalers (Vijayawada) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP474",
+    "source": "suppliers",
+    "document_id": "SUP474",
+    "title": "Vijayawada Seafood Wholesalers (Chittoor)",
+    "content": "Vijayawada Seafood Wholesalers (Chittoor) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP475",
+    "source": "suppliers",
+    "document_id": "SUP475",
+    "title": "Rayalaseema Spices Wholesalers (Kakinada)",
+    "content": "Rayalaseema Spices Wholesalers (Kakinada) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP476",
+    "source": "suppliers",
+    "document_id": "SUP476",
+    "title": "Nellore Produce Wholesalers (Chittoor)",
+    "content": "Nellore Produce Wholesalers (Chittoor) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP477",
+    "source": "suppliers",
+    "document_id": "SUP477",
+    "title": "Rayalaseema Seafood Wholesalers (Ongole)",
+    "content": "Rayalaseema Seafood Wholesalers (Ongole) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP478",
+    "source": "suppliers",
+    "document_id": "SUP478",
+    "title": "Deccan Farms Meat Wholesalers (Anantapur)",
+    "content": "Deccan Farms Meat Wholesalers (Anantapur) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP479",
+    "source": "suppliers",
+    "document_id": "SUP479",
+    "title": "Rayalaseema Spices Wholesalers (Nellore)",
+    "content": "Rayalaseema Spices Wholesalers (Nellore) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP480",
+    "source": "suppliers",
+    "document_id": "SUP480",
+    "title": "Kakinada Port Meat Wholesalers (Hyderabad)",
+    "content": "Kakinada Port Meat Wholesalers (Hyderabad) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP481",
+    "source": "suppliers",
+    "document_id": "SUP481",
+    "title": "Deccan Farms Spices Wholesalers (Kurnool)",
+    "content": "Deccan Farms Spices Wholesalers (Kurnool) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP482",
+    "source": "suppliers",
+    "document_id": "SUP482",
+    "title": "Tirupati Spices Wholesalers (Visakhapatnam)",
+    "content": "Tirupati Spices Wholesalers (Visakhapatnam) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP483",
+    "source": "suppliers",
+    "document_id": "SUP483",
+    "title": "Vizag Coastal Produce Wholesalers (Karimnagar)",
+    "content": "Vizag Coastal Produce Wholesalers (Karimnagar) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP484",
+    "source": "suppliers",
+    "document_id": "SUP484",
+    "title": "Guntur Chili Meat Wholesalers (Ongole)",
+    "content": "Guntur Chili Meat Wholesalers (Ongole) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP485",
+    "source": "suppliers",
+    "document_id": "SUP485",
+    "title": "Tirupati Dairy Wholesalers (Guntur)",
+    "content": "Tirupati Dairy Wholesalers (Guntur) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP486",
+    "source": "suppliers",
+    "document_id": "SUP486",
+    "title": "Nellore Produce Wholesalers (Warangal)",
+    "content": "Nellore Produce Wholesalers (Warangal) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP487",
+    "source": "suppliers",
+    "document_id": "SUP487",
+    "title": "Nellore Produce Wholesalers (Karimnagar)",
+    "content": "Nellore Produce Wholesalers (Karimnagar) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP488",
+    "source": "suppliers",
+    "document_id": "SUP488",
+    "title": "Kakinada Port Pantry Wholesalers (Kakinada)",
+    "content": "Kakinada Port Pantry Wholesalers (Kakinada) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP489",
+    "source": "suppliers",
+    "document_id": "SUP489",
+    "title": "Vijayawada Pantry Wholesalers (Kurnool)",
+    "content": "Vijayawada Pantry Wholesalers (Kurnool) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP490",
+    "source": "suppliers",
+    "document_id": "SUP490",
+    "title": "Vijayawada Dairy Wholesalers (Visakhapatnam)",
+    "content": "Vijayawada Dairy Wholesalers (Visakhapatnam) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP491",
+    "source": "suppliers",
+    "document_id": "SUP491",
+    "title": "Nellore Dairy Wholesalers (Kurnool)",
+    "content": "Nellore Dairy Wholesalers (Kurnool) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP492",
+    "source": "suppliers",
+    "document_id": "SUP492",
+    "title": "Tirupati Meat Wholesalers (Kadapa)",
+    "content": "Tirupati Meat Wholesalers (Kadapa) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP493",
+    "source": "suppliers",
+    "document_id": "SUP493",
+    "title": "Nellore Spices Wholesalers (Eluru)",
+    "content": "Nellore Spices Wholesalers (Eluru) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP494",
+    "source": "suppliers",
+    "document_id": "SUP494",
+    "title": "Guntur Chili Spices Wholesalers (Kakinada)",
+    "content": "Guntur Chili Spices Wholesalers (Kakinada) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP495",
+    "source": "suppliers",
+    "document_id": "SUP495",
+    "title": "Nellore Dairy Wholesalers (Karimnagar)",
+    "content": "Nellore Dairy Wholesalers (Karimnagar) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP496",
+    "source": "suppliers",
+    "document_id": "SUP496",
+    "title": "Deccan Farms Pantry Wholesalers (Karimnagar)",
+    "content": "Deccan Farms Pantry Wholesalers (Karimnagar) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP497",
+    "source": "suppliers",
+    "document_id": "SUP497",
+    "title": "Guntur Chili Produce Wholesalers (Ongole)",
+    "content": "Guntur Chili Produce Wholesalers (Ongole) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP498",
+    "source": "suppliers",
+    "document_id": "SUP498",
+    "title": "Kakinada Port Produce Wholesalers (Rajahmundry)",
+    "content": "Kakinada Port Produce Wholesalers (Rajahmundry) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP499",
+    "source": "suppliers",
+    "document_id": "SUP499",
+    "title": "Vizag Coastal Seafood Wholesalers (Kadapa)",
+    "content": "Vizag Coastal Seafood Wholesalers (Kadapa) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP500",
+    "source": "suppliers",
+    "document_id": "SUP500",
+    "title": "Deccan Farms Dairy Wholesalers (Nizamabad)",
+    "content": "Deccan Farms Dairy Wholesalers (Nizamabad) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP501",
+    "source": "suppliers",
+    "document_id": "SUP501",
+    "title": "Deccan Farms Pantry Wholesalers (Chittoor)",
+    "content": "Deccan Farms Pantry Wholesalers (Chittoor) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP502",
+    "source": "suppliers",
+    "document_id": "SUP502",
+    "title": "Kakinada Port Seafood Wholesalers (Eluru)",
+    "content": "Kakinada Port Seafood Wholesalers (Eluru) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP503",
+    "source": "suppliers",
+    "document_id": "SUP503",
+    "title": "Guntur Chili Seafood Wholesalers (Kakinada)",
+    "content": "Guntur Chili Seafood Wholesalers (Kakinada) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP504",
+    "source": "suppliers",
+    "document_id": "SUP504",
+    "title": "Deccan Farms Produce Wholesalers (Kadapa)",
+    "content": "Deccan Farms Produce Wholesalers (Kadapa) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP505",
+    "source": "suppliers",
+    "document_id": "SUP505",
+    "title": "Vijayawada Meat Wholesalers (Anantapur)",
+    "content": "Vijayawada Meat Wholesalers (Anantapur) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP506",
+    "source": "suppliers",
+    "document_id": "SUP506",
+    "title": "Kakinada Port Meat Wholesalers (Tirupati)",
+    "content": "Kakinada Port Meat Wholesalers (Tirupati) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP507",
+    "source": "suppliers",
+    "document_id": "SUP507",
+    "title": "Deccan Farms Pantry Wholesalers (Hyderabad)",
+    "content": "Deccan Farms Pantry Wholesalers (Hyderabad) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP508",
+    "source": "suppliers",
+    "document_id": "SUP508",
+    "title": "Vijayawada Spices Wholesalers (Hyderabad)",
+    "content": "Vijayawada Spices Wholesalers (Hyderabad) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP509",
+    "source": "suppliers",
+    "document_id": "SUP509",
+    "title": "Tirupati Meat Wholesalers (Tirupati)",
+    "content": "Tirupati Meat Wholesalers (Tirupati) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP510",
+    "source": "suppliers",
+    "document_id": "SUP510",
+    "title": "Deccan Farms Spices Wholesalers (Karimnagar)",
+    "content": "Deccan Farms Spices Wholesalers (Karimnagar) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP511",
+    "source": "suppliers",
+    "document_id": "SUP511",
+    "title": "Guntur Chili Pantry Wholesalers (Kurnool)",
+    "content": "Guntur Chili Pantry Wholesalers (Kurnool) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP512",
+    "source": "suppliers",
+    "document_id": "SUP512",
+    "title": "Vijayawada Produce Wholesalers (Karimnagar)",
+    "content": "Vijayawada Produce Wholesalers (Karimnagar) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP513",
+    "source": "suppliers",
+    "document_id": "SUP513",
+    "title": "Tirupati Dairy Wholesalers (Kurnool)",
+    "content": "Tirupati Dairy Wholesalers (Kurnool) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP514",
+    "source": "suppliers",
+    "document_id": "SUP514",
+    "title": "Vizag Coastal Spices Wholesalers (Kakinada)",
+    "content": "Vizag Coastal Spices Wholesalers (Kakinada) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP515",
+    "source": "suppliers",
+    "document_id": "SUP515",
+    "title": "Rayalaseema Seafood Wholesalers (Guntur)",
+    "content": "Rayalaseema Seafood Wholesalers (Guntur) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP516",
+    "source": "suppliers",
+    "document_id": "SUP516",
+    "title": "Vijayawada Seafood Wholesalers (Kadapa)",
+    "content": "Vijayawada Seafood Wholesalers (Kadapa) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP517",
+    "source": "suppliers",
+    "document_id": "SUP517",
+    "title": "Vizag Coastal Dairy Wholesalers (Guntur)",
+    "content": "Vizag Coastal Dairy Wholesalers (Guntur) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP518",
+    "source": "suppliers",
+    "document_id": "SUP518",
+    "title": "Vizag Coastal Spices Wholesalers (Anantapur)",
+    "content": "Vizag Coastal Spices Wholesalers (Anantapur) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP519",
+    "source": "suppliers",
+    "document_id": "SUP519",
+    "title": "Rayalaseema Produce Wholesalers (Nizamabad)",
+    "content": "Rayalaseema Produce Wholesalers (Nizamabad) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP520",
+    "source": "suppliers",
+    "document_id": "SUP520",
+    "title": "Vijayawada Produce Wholesalers (Chittoor)",
+    "content": "Vijayawada Produce Wholesalers (Chittoor) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP521",
+    "source": "suppliers",
+    "document_id": "SUP521",
+    "title": "Nellore Spices Wholesalers (Tirupati)",
+    "content": "Nellore Spices Wholesalers (Tirupati) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP522",
+    "source": "suppliers",
+    "document_id": "SUP522",
+    "title": "Guntur Chili Spices Wholesalers (Tirupati)",
+    "content": "Guntur Chili Spices Wholesalers (Tirupati) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP523",
+    "source": "suppliers",
+    "document_id": "SUP523",
+    "title": "Vijayawada Meat Wholesalers (Rajahmundry)",
+    "content": "Vijayawada Meat Wholesalers (Rajahmundry) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP524",
+    "source": "suppliers",
+    "document_id": "SUP524",
+    "title": "Tirupati Meat Wholesalers (Rajahmundry)",
+    "content": "Tirupati Meat Wholesalers (Rajahmundry) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP525",
+    "source": "suppliers",
+    "document_id": "SUP525",
+    "title": "Tirupati Spices Wholesalers (Nellore)",
+    "content": "Tirupati Spices Wholesalers (Nellore) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP526",
+    "source": "suppliers",
+    "document_id": "SUP526",
+    "title": "Tirupati Produce Wholesalers (Anantapur)",
+    "content": "Tirupati Produce Wholesalers (Anantapur) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP527",
+    "source": "suppliers",
+    "document_id": "SUP527",
+    "title": "Deccan Farms Pantry Wholesalers (Nellore)",
+    "content": "Deccan Farms Pantry Wholesalers (Nellore) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP528",
+    "source": "suppliers",
+    "document_id": "SUP528",
+    "title": "Rayalaseema Pantry Wholesalers (Tirupati)",
+    "content": "Rayalaseema Pantry Wholesalers (Tirupati) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP529",
+    "source": "suppliers",
+    "document_id": "SUP529",
+    "title": "Kakinada Port Seafood Wholesalers (Warangal)",
+    "content": "Kakinada Port Seafood Wholesalers (Warangal) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP530",
+    "source": "suppliers",
+    "document_id": "SUP530",
+    "title": "Rayalaseema Spices Wholesalers (Karimnagar)",
+    "content": "Rayalaseema Spices Wholesalers (Karimnagar) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP531",
+    "source": "suppliers",
+    "document_id": "SUP531",
+    "title": "Godavari Organic Seafood Wholesalers (Eluru)",
+    "content": "Godavari Organic Seafood Wholesalers (Eluru) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP532",
+    "source": "suppliers",
+    "document_id": "SUP532",
+    "title": "Vizag Coastal Meat Wholesalers (Hyderabad)",
+    "content": "Vizag Coastal Meat Wholesalers (Hyderabad) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP533",
+    "source": "suppliers",
+    "document_id": "SUP533",
+    "title": "Vijayawada Pantry Wholesalers (Ongole)",
+    "content": "Vijayawada Pantry Wholesalers (Ongole) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP534",
+    "source": "suppliers",
+    "document_id": "SUP534",
+    "title": "Rayalaseema Pantry Wholesalers (Kadapa)",
+    "content": "Rayalaseema Pantry Wholesalers (Kadapa) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP535",
+    "source": "suppliers",
+    "document_id": "SUP535",
+    "title": "Deccan Farms Pantry Wholesalers (Kadapa)",
+    "content": "Deccan Farms Pantry Wholesalers (Kadapa) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP536",
+    "source": "suppliers",
+    "document_id": "SUP536",
+    "title": "Deccan Farms Meat Wholesalers (Kakinada)",
+    "content": "Deccan Farms Meat Wholesalers (Kakinada) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP537",
+    "source": "suppliers",
+    "document_id": "SUP537",
+    "title": "Rayalaseema Produce Wholesalers (Guntur)",
+    "content": "Rayalaseema Produce Wholesalers (Guntur) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP538",
+    "source": "suppliers",
+    "document_id": "SUP538",
+    "title": "Vijayawada Produce Wholesalers (Guntur)",
+    "content": "Vijayawada Produce Wholesalers (Guntur) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP539",
+    "source": "suppliers",
+    "document_id": "SUP539",
+    "title": "Nellore Spices Wholesalers (Hyderabad)",
+    "content": "Nellore Spices Wholesalers (Hyderabad) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP540",
+    "source": "suppliers",
+    "document_id": "SUP540",
+    "title": "Deccan Farms Seafood Wholesalers (Chittoor)",
+    "content": "Deccan Farms Seafood Wholesalers (Chittoor) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP541",
+    "source": "suppliers",
+    "document_id": "SUP541",
+    "title": "Deccan Farms Pantry Wholesalers (Kadapa)",
+    "content": "Deccan Farms Pantry Wholesalers (Kadapa) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP542",
+    "source": "suppliers",
+    "document_id": "SUP542",
+    "title": "Deccan Farms Produce Wholesalers (Karimnagar)",
+    "content": "Deccan Farms Produce Wholesalers (Karimnagar) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP543",
+    "source": "suppliers",
+    "document_id": "SUP543",
+    "title": "Nellore Dairy Wholesalers (Nellore)",
+    "content": "Nellore Dairy Wholesalers (Nellore) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP544",
+    "source": "suppliers",
+    "document_id": "SUP544",
+    "title": "Nellore Seafood Wholesalers (Kakinada)",
+    "content": "Nellore Seafood Wholesalers (Kakinada) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP545",
+    "source": "suppliers",
+    "document_id": "SUP545",
+    "title": "Deccan Farms Seafood Wholesalers (Kurnool)",
+    "content": "Deccan Farms Seafood Wholesalers (Kurnool) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP546",
+    "source": "suppliers",
+    "document_id": "SUP546",
+    "title": "Vizag Coastal Seafood Wholesalers (Kakinada)",
+    "content": "Vizag Coastal Seafood Wholesalers (Kakinada) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP547",
+    "source": "suppliers",
+    "document_id": "SUP547",
+    "title": "Godavari Organic Dairy Wholesalers (Tirupati)",
+    "content": "Godavari Organic Dairy Wholesalers (Tirupati) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP548",
+    "source": "suppliers",
+    "document_id": "SUP548",
+    "title": "Kakinada Port Dairy Wholesalers (Nellore)",
+    "content": "Kakinada Port Dairy Wholesalers (Nellore) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP549",
+    "source": "suppliers",
+    "document_id": "SUP549",
+    "title": "Rayalaseema Dairy Wholesalers (Ongole)",
+    "content": "Rayalaseema Dairy Wholesalers (Ongole) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP550",
+    "source": "suppliers",
+    "document_id": "SUP550",
+    "title": "Tirupati Spices Wholesalers (Hyderabad)",
+    "content": "Tirupati Spices Wholesalers (Hyderabad) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP551",
+    "source": "suppliers",
+    "document_id": "SUP551",
+    "title": "Rayalaseema Meat Wholesalers (Visakhapatnam)",
+    "content": "Rayalaseema Meat Wholesalers (Visakhapatnam) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP552",
+    "source": "suppliers",
+    "document_id": "SUP552",
+    "title": "Rayalaseema Seafood Wholesalers (Guntur)",
+    "content": "Rayalaseema Seafood Wholesalers (Guntur) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP553",
+    "source": "suppliers",
+    "document_id": "SUP553",
+    "title": "Vizag Coastal Dairy Wholesalers (Nellore)",
+    "content": "Vizag Coastal Dairy Wholesalers (Nellore) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP554",
+    "source": "suppliers",
+    "document_id": "SUP554",
+    "title": "Nellore Dairy Wholesalers (Nizamabad)",
+    "content": "Nellore Dairy Wholesalers (Nizamabad) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP555",
+    "source": "suppliers",
+    "document_id": "SUP555",
+    "title": "Nellore Dairy Wholesalers (Nizamabad)",
+    "content": "Nellore Dairy Wholesalers (Nizamabad) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP556",
+    "source": "suppliers",
+    "document_id": "SUP556",
+    "title": "Kakinada Port Seafood Wholesalers (Ongole)",
+    "content": "Kakinada Port Seafood Wholesalers (Ongole) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP557",
+    "source": "suppliers",
+    "document_id": "SUP557",
+    "title": "Kakinada Port Spices Wholesalers (Tirupati)",
+    "content": "Kakinada Port Spices Wholesalers (Tirupati) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP558",
+    "source": "suppliers",
+    "document_id": "SUP558",
+    "title": "Tirupati Dairy Wholesalers (Eluru)",
+    "content": "Tirupati Dairy Wholesalers (Eluru) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP559",
+    "source": "suppliers",
+    "document_id": "SUP559",
+    "title": "Kakinada Port Produce Wholesalers (Nizamabad)",
+    "content": "Kakinada Port Produce Wholesalers (Nizamabad) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP560",
+    "source": "suppliers",
+    "document_id": "SUP560",
+    "title": "Vizag Coastal Pantry Wholesalers (Visakhapatnam)",
+    "content": "Vizag Coastal Pantry Wholesalers (Visakhapatnam) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP561",
+    "source": "suppliers",
+    "document_id": "SUP561",
+    "title": "Vizag Coastal Pantry Wholesalers (Guntur)",
+    "content": "Vizag Coastal Pantry Wholesalers (Guntur) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP562",
+    "source": "suppliers",
+    "document_id": "SUP562",
+    "title": "Rayalaseema Pantry Wholesalers (Chittoor)",
+    "content": "Rayalaseema Pantry Wholesalers (Chittoor) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP563",
+    "source": "suppliers",
+    "document_id": "SUP563",
+    "title": "Vijayawada Spices Wholesalers (Ongole)",
+    "content": "Vijayawada Spices Wholesalers (Ongole) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP564",
+    "source": "suppliers",
+    "document_id": "SUP564",
+    "title": "Vizag Coastal Seafood Wholesalers (Nizamabad)",
+    "content": "Vizag Coastal Seafood Wholesalers (Nizamabad) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP565",
+    "source": "suppliers",
+    "document_id": "SUP565",
+    "title": "Vijayawada Dairy Wholesalers (Kurnool)",
+    "content": "Vijayawada Dairy Wholesalers (Kurnool) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP566",
+    "source": "suppliers",
+    "document_id": "SUP566",
+    "title": "Nellore Spices Wholesalers (Karimnagar)",
+    "content": "Nellore Spices Wholesalers (Karimnagar) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP567",
+    "source": "suppliers",
+    "document_id": "SUP567",
+    "title": "Vijayawada Pantry Wholesalers (Kadapa)",
+    "content": "Vijayawada Pantry Wholesalers (Kadapa) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP568",
+    "source": "suppliers",
+    "document_id": "SUP568",
+    "title": "Rayalaseema Meat Wholesalers (Guntur)",
+    "content": "Rayalaseema Meat Wholesalers (Guntur) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP569",
+    "source": "suppliers",
+    "document_id": "SUP569",
+    "title": "Vijayawada Dairy Wholesalers (Vijayawada)",
+    "content": "Vijayawada Dairy Wholesalers (Vijayawada) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP570",
+    "source": "suppliers",
+    "document_id": "SUP570",
+    "title": "Vijayawada Spices Wholesalers (Anantapur)",
+    "content": "Vijayawada Spices Wholesalers (Anantapur) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP571",
+    "source": "suppliers",
+    "document_id": "SUP571",
+    "title": "Kakinada Port Meat Wholesalers (Chittoor)",
+    "content": "Kakinada Port Meat Wholesalers (Chittoor) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP572",
+    "source": "suppliers",
+    "document_id": "SUP572",
+    "title": "Kakinada Port Spices Wholesalers (Hyderabad)",
+    "content": "Kakinada Port Spices Wholesalers (Hyderabad) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP573",
+    "source": "suppliers",
+    "document_id": "SUP573",
+    "title": "Guntur Chili Pantry Wholesalers (Nellore)",
+    "content": "Guntur Chili Pantry Wholesalers (Nellore) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP574",
+    "source": "suppliers",
+    "document_id": "SUP574",
+    "title": "Rayalaseema Seafood Wholesalers (Kadapa)",
+    "content": "Rayalaseema Seafood Wholesalers (Kadapa) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP575",
+    "source": "suppliers",
+    "document_id": "SUP575",
+    "title": "Rayalaseema Seafood Wholesalers (Vijayawada)",
+    "content": "Rayalaseema Seafood Wholesalers (Vijayawada) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP576",
+    "source": "suppliers",
+    "document_id": "SUP576",
+    "title": "Nellore Meat Wholesalers (Eluru)",
+    "content": "Nellore Meat Wholesalers (Eluru) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP577",
+    "source": "suppliers",
+    "document_id": "SUP577",
+    "title": "Guntur Chili Seafood Wholesalers (Kadapa)",
+    "content": "Guntur Chili Seafood Wholesalers (Kadapa) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP578",
+    "source": "suppliers",
+    "document_id": "SUP578",
+    "title": "Kakinada Port Produce Wholesalers (Nizamabad)",
+    "content": "Kakinada Port Produce Wholesalers (Nizamabad) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP579",
+    "source": "suppliers",
+    "document_id": "SUP579",
+    "title": "Tirupati Seafood Wholesalers (Nellore)",
+    "content": "Tirupati Seafood Wholesalers (Nellore) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP580",
+    "source": "suppliers",
+    "document_id": "SUP580",
+    "title": "Godavari Organic Dairy Wholesalers (Karimnagar)",
+    "content": "Godavari Organic Dairy Wholesalers (Karimnagar) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP581",
+    "source": "suppliers",
+    "document_id": "SUP581",
+    "title": "Guntur Chili Produce Wholesalers (Kadapa)",
+    "content": "Guntur Chili Produce Wholesalers (Kadapa) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP582",
+    "source": "suppliers",
+    "document_id": "SUP582",
+    "title": "Godavari Organic Spices Wholesalers (Vijayawada)",
+    "content": "Godavari Organic Spices Wholesalers (Vijayawada) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP583",
+    "source": "suppliers",
+    "document_id": "SUP583",
+    "title": "Godavari Organic Spices Wholesalers (Kakinada)",
+    "content": "Godavari Organic Spices Wholesalers (Kakinada) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP584",
+    "source": "suppliers",
+    "document_id": "SUP584",
+    "title": "Vijayawada Seafood Wholesalers (Hyderabad)",
+    "content": "Vijayawada Seafood Wholesalers (Hyderabad) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP585",
+    "source": "suppliers",
+    "document_id": "SUP585",
+    "title": "Deccan Farms Pantry Wholesalers (Khammam)",
+    "content": "Deccan Farms Pantry Wholesalers (Khammam) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP586",
+    "source": "suppliers",
+    "document_id": "SUP586",
+    "title": "Vijayawada Dairy Wholesalers (Nellore)",
+    "content": "Vijayawada Dairy Wholesalers (Nellore) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP587",
+    "source": "suppliers",
+    "document_id": "SUP587",
+    "title": "Rayalaseema Meat Wholesalers (Kurnool)",
+    "content": "Rayalaseema Meat Wholesalers (Kurnool) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP588",
+    "source": "suppliers",
+    "document_id": "SUP588",
+    "title": "Tirupati Meat Wholesalers (Ongole)",
+    "content": "Tirupati Meat Wholesalers (Ongole) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP589",
+    "source": "suppliers",
+    "document_id": "SUP589",
+    "title": "Guntur Chili Spices Wholesalers (Tirupati)",
+    "content": "Guntur Chili Spices Wholesalers (Tirupati) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP590",
+    "source": "suppliers",
+    "document_id": "SUP590",
+    "title": "Guntur Chili Produce Wholesalers (Warangal)",
+    "content": "Guntur Chili Produce Wholesalers (Warangal) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP591",
+    "source": "suppliers",
+    "document_id": "SUP591",
+    "title": "Deccan Farms Dairy Wholesalers (Guntur)",
+    "content": "Deccan Farms Dairy Wholesalers (Guntur) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP592",
+    "source": "suppliers",
+    "document_id": "SUP592",
+    "title": "Godavari Organic Meat Wholesalers (Hyderabad)",
+    "content": "Godavari Organic Meat Wholesalers (Hyderabad) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP593",
+    "source": "suppliers",
+    "document_id": "SUP593",
+    "title": "Rayalaseema Pantry Wholesalers (Tirupati)",
+    "content": "Rayalaseema Pantry Wholesalers (Tirupati) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP594",
+    "source": "suppliers",
+    "document_id": "SUP594",
+    "title": "Kakinada Port Produce Wholesalers (Chittoor)",
+    "content": "Kakinada Port Produce Wholesalers (Chittoor) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP595",
+    "source": "suppliers",
+    "document_id": "SUP595",
+    "title": "Kakinada Port Produce Wholesalers (Kurnool)",
+    "content": "Kakinada Port Produce Wholesalers (Kurnool) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP596",
+    "source": "suppliers",
+    "document_id": "SUP596",
+    "title": "Tirupati Dairy Wholesalers (Visakhapatnam)",
+    "content": "Tirupati Dairy Wholesalers (Visakhapatnam) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP597",
+    "source": "suppliers",
+    "document_id": "SUP597",
+    "title": "Nellore Spices Wholesalers (Tirupati)",
+    "content": "Nellore Spices Wholesalers (Tirupati) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP598",
+    "source": "suppliers",
+    "document_id": "SUP598",
+    "title": "Vizag Coastal Pantry Wholesalers (Vijayawada)",
+    "content": "Vizag Coastal Pantry Wholesalers (Vijayawada) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP599",
+    "source": "suppliers",
+    "document_id": "SUP599",
+    "title": "Godavari Organic Produce Wholesalers (Hyderabad)",
+    "content": "Godavari Organic Produce Wholesalers (Hyderabad) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP600",
+    "source": "suppliers",
+    "document_id": "SUP600",
+    "title": "Nellore Dairy Wholesalers (Visakhapatnam)",
+    "content": "Nellore Dairy Wholesalers (Visakhapatnam) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP601",
+    "source": "suppliers",
+    "document_id": "SUP601",
+    "title": "Guntur Chili Spices Wholesalers (Nellore)",
+    "content": "Guntur Chili Spices Wholesalers (Nellore) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP602",
+    "source": "suppliers",
+    "document_id": "SUP602",
+    "title": "Guntur Chili Produce Wholesalers (Nellore)",
+    "content": "Guntur Chili Produce Wholesalers (Nellore) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP603",
+    "source": "suppliers",
+    "document_id": "SUP603",
+    "title": "Nellore Pantry Wholesalers (Nizamabad)",
+    "content": "Nellore Pantry Wholesalers (Nizamabad) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP604",
+    "source": "suppliers",
+    "document_id": "SUP604",
+    "title": "Nellore Dairy Wholesalers (Vijayawada)",
+    "content": "Nellore Dairy Wholesalers (Vijayawada) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP605",
+    "source": "suppliers",
+    "document_id": "SUP605",
+    "title": "Kakinada Port Produce Wholesalers (Kadapa)",
+    "content": "Kakinada Port Produce Wholesalers (Kadapa) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP606",
+    "source": "suppliers",
+    "document_id": "SUP606",
+    "title": "Godavari Organic Produce Wholesalers (Anantapur)",
+    "content": "Godavari Organic Produce Wholesalers (Anantapur) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP607",
+    "source": "suppliers",
+    "document_id": "SUP607",
+    "title": "Nellore Pantry Wholesalers (Nizamabad)",
+    "content": "Nellore Pantry Wholesalers (Nizamabad) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP608",
+    "source": "suppliers",
+    "document_id": "SUP608",
+    "title": "Vizag Coastal Produce Wholesalers (Vijayawada)",
+    "content": "Vizag Coastal Produce Wholesalers (Vijayawada) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP609",
+    "source": "suppliers",
+    "document_id": "SUP609",
+    "title": "Nellore Spices Wholesalers (Chittoor)",
+    "content": "Nellore Spices Wholesalers (Chittoor) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP610",
+    "source": "suppliers",
+    "document_id": "SUP610",
+    "title": "Kakinada Port Pantry Wholesalers (Nizamabad)",
+    "content": "Kakinada Port Pantry Wholesalers (Nizamabad) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP611",
+    "source": "suppliers",
+    "document_id": "SUP611",
+    "title": "Deccan Farms Produce Wholesalers (Visakhapatnam)",
+    "content": "Deccan Farms Produce Wholesalers (Visakhapatnam) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP612",
+    "source": "suppliers",
+    "document_id": "SUP612",
+    "title": "Vijayawada Seafood Wholesalers (Nizamabad)",
+    "content": "Vijayawada Seafood Wholesalers (Nizamabad) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP613",
+    "source": "suppliers",
+    "document_id": "SUP613",
+    "title": "Vizag Coastal Meat Wholesalers (Kadapa)",
+    "content": "Vizag Coastal Meat Wholesalers (Kadapa) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP614",
+    "source": "suppliers",
+    "document_id": "SUP614",
+    "title": "Rayalaseema Pantry Wholesalers (Nizamabad)",
+    "content": "Rayalaseema Pantry Wholesalers (Nizamabad) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP615",
+    "source": "suppliers",
+    "document_id": "SUP615",
+    "title": "Guntur Chili Produce Wholesalers (Khammam)",
+    "content": "Guntur Chili Produce Wholesalers (Khammam) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP616",
+    "source": "suppliers",
+    "document_id": "SUP616",
+    "title": "Vijayawada Pantry Wholesalers (Hyderabad)",
+    "content": "Vijayawada Pantry Wholesalers (Hyderabad) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP617",
+    "source": "suppliers",
+    "document_id": "SUP617",
+    "title": "Kakinada Port Meat Wholesalers (Rajahmundry)",
+    "content": "Kakinada Port Meat Wholesalers (Rajahmundry) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP618",
+    "source": "suppliers",
+    "document_id": "SUP618",
+    "title": "Guntur Chili Meat Wholesalers (Nizamabad)",
+    "content": "Guntur Chili Meat Wholesalers (Nizamabad) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP619",
+    "source": "suppliers",
+    "document_id": "SUP619",
+    "title": "Guntur Chili Pantry Wholesalers (Guntur)",
+    "content": "Guntur Chili Pantry Wholesalers (Guntur) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP620",
+    "source": "suppliers",
+    "document_id": "SUP620",
+    "title": "Rayalaseema Dairy Wholesalers (Anantapur)",
+    "content": "Rayalaseema Dairy Wholesalers (Anantapur) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP621",
+    "source": "suppliers",
+    "document_id": "SUP621",
+    "title": "Rayalaseema Seafood Wholesalers (Tirupati)",
+    "content": "Rayalaseema Seafood Wholesalers (Tirupati) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP622",
+    "source": "suppliers",
+    "document_id": "SUP622",
+    "title": "Rayalaseema Seafood Wholesalers (Tirupati)",
+    "content": "Rayalaseema Seafood Wholesalers (Tirupati) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP623",
+    "source": "suppliers",
+    "document_id": "SUP623",
+    "title": "Nellore Pantry Wholesalers (Eluru)",
+    "content": "Nellore Pantry Wholesalers (Eluru) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP624",
+    "source": "suppliers",
+    "document_id": "SUP624",
+    "title": "Deccan Farms Seafood Wholesalers (Karimnagar)",
+    "content": "Deccan Farms Seafood Wholesalers (Karimnagar) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP625",
+    "source": "suppliers",
+    "document_id": "SUP625",
+    "title": "Godavari Organic Pantry Wholesalers (Visakhapatnam)",
+    "content": "Godavari Organic Pantry Wholesalers (Visakhapatnam) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP626",
+    "source": "suppliers",
+    "document_id": "SUP626",
+    "title": "Vijayawada Dairy Wholesalers (Tirupati)",
+    "content": "Vijayawada Dairy Wholesalers (Tirupati) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP627",
+    "source": "suppliers",
+    "document_id": "SUP627",
+    "title": "Nellore Spices Wholesalers (Anantapur)",
+    "content": "Nellore Spices Wholesalers (Anantapur) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP628",
+    "source": "suppliers",
+    "document_id": "SUP628",
+    "title": "Rayalaseema Meat Wholesalers (Tirupati)",
+    "content": "Rayalaseema Meat Wholesalers (Tirupati) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP629",
+    "source": "suppliers",
+    "document_id": "SUP629",
+    "title": "Guntur Chili Pantry Wholesalers (Khammam)",
+    "content": "Guntur Chili Pantry Wholesalers (Khammam) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP630",
+    "source": "suppliers",
+    "document_id": "SUP630",
+    "title": "Rayalaseema Spices Wholesalers (Nizamabad)",
+    "content": "Rayalaseema Spices Wholesalers (Nizamabad) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP631",
+    "source": "suppliers",
+    "document_id": "SUP631",
+    "title": "Tirupati Meat Wholesalers (Ongole)",
+    "content": "Tirupati Meat Wholesalers (Ongole) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP632",
+    "source": "suppliers",
+    "document_id": "SUP632",
+    "title": "Vizag Coastal Spices Wholesalers (Guntur)",
+    "content": "Vizag Coastal Spices Wholesalers (Guntur) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP633",
+    "source": "suppliers",
+    "document_id": "SUP633",
+    "title": "Vijayawada Pantry Wholesalers (Kurnool)",
+    "content": "Vijayawada Pantry Wholesalers (Kurnool) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP634",
+    "source": "suppliers",
+    "document_id": "SUP634",
+    "title": "Deccan Farms Spices Wholesalers (Nellore)",
+    "content": "Deccan Farms Spices Wholesalers (Nellore) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP635",
+    "source": "suppliers",
+    "document_id": "SUP635",
+    "title": "Godavari Organic Meat Wholesalers (Vijayawada)",
+    "content": "Godavari Organic Meat Wholesalers (Vijayawada) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP636",
+    "source": "suppliers",
+    "document_id": "SUP636",
+    "title": "Nellore Pantry Wholesalers (Warangal)",
+    "content": "Nellore Pantry Wholesalers (Warangal) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP637",
+    "source": "suppliers",
+    "document_id": "SUP637",
+    "title": "Godavari Organic Pantry Wholesalers (Nellore)",
+    "content": "Godavari Organic Pantry Wholesalers (Nellore) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP638",
+    "source": "suppliers",
+    "document_id": "SUP638",
+    "title": "Deccan Farms Pantry Wholesalers (Warangal)",
+    "content": "Deccan Farms Pantry Wholesalers (Warangal) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP639",
+    "source": "suppliers",
+    "document_id": "SUP639",
+    "title": "Kakinada Port Meat Wholesalers (Tirupati)",
+    "content": "Kakinada Port Meat Wholesalers (Tirupati) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP640",
+    "source": "suppliers",
+    "document_id": "SUP640",
+    "title": "Godavari Organic Dairy Wholesalers (Kakinada)",
+    "content": "Godavari Organic Dairy Wholesalers (Kakinada) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP641",
+    "source": "suppliers",
+    "document_id": "SUP641",
+    "title": "Vizag Coastal Seafood Wholesalers (Khammam)",
+    "content": "Vizag Coastal Seafood Wholesalers (Khammam) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP642",
+    "source": "suppliers",
+    "document_id": "SUP642",
+    "title": "Guntur Chili Produce Wholesalers (Kurnool)",
+    "content": "Guntur Chili Produce Wholesalers (Kurnool) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP643",
+    "source": "suppliers",
+    "document_id": "SUP643",
+    "title": "Kakinada Port Pantry Wholesalers (Anantapur)",
+    "content": "Kakinada Port Pantry Wholesalers (Anantapur) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP644",
+    "source": "suppliers",
+    "document_id": "SUP644",
+    "title": "Nellore Seafood Wholesalers (Anantapur)",
+    "content": "Nellore Seafood Wholesalers (Anantapur) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP645",
+    "source": "suppliers",
+    "document_id": "SUP645",
+    "title": "Guntur Chili Seafood Wholesalers (Eluru)",
+    "content": "Guntur Chili Seafood Wholesalers (Eluru) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP646",
+    "source": "suppliers",
+    "document_id": "SUP646",
+    "title": "Kakinada Port Produce Wholesalers (Warangal)",
+    "content": "Kakinada Port Produce Wholesalers (Warangal) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP647",
+    "source": "suppliers",
+    "document_id": "SUP647",
+    "title": "Vijayawada Pantry Wholesalers (Nizamabad)",
+    "content": "Vijayawada Pantry Wholesalers (Nizamabad) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP648",
+    "source": "suppliers",
+    "document_id": "SUP648",
+    "title": "Godavari Organic Dairy Wholesalers (Ongole)",
+    "content": "Godavari Organic Dairy Wholesalers (Ongole) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP649",
+    "source": "suppliers",
+    "document_id": "SUP649",
+    "title": "Deccan Farms Spices Wholesalers (Tirupati)",
+    "content": "Deccan Farms Spices Wholesalers (Tirupati) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP650",
+    "source": "suppliers",
+    "document_id": "SUP650",
+    "title": "Guntur Chili Meat Wholesalers (Warangal)",
+    "content": "Guntur Chili Meat Wholesalers (Warangal) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP651",
+    "source": "suppliers",
+    "document_id": "SUP651",
+    "title": "Nellore Pantry Wholesalers (Kadapa)",
+    "content": "Nellore Pantry Wholesalers (Kadapa) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP652",
+    "source": "suppliers",
+    "document_id": "SUP652",
+    "title": "Kakinada Port Dairy Wholesalers (Guntur)",
+    "content": "Kakinada Port Dairy Wholesalers (Guntur) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP653",
+    "source": "suppliers",
+    "document_id": "SUP653",
+    "title": "Vizag Coastal Pantry Wholesalers (Guntur)",
+    "content": "Vizag Coastal Pantry Wholesalers (Guntur) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP654",
+    "source": "suppliers",
+    "document_id": "SUP654",
+    "title": "Deccan Farms Dairy Wholesalers (Tirupati)",
+    "content": "Deccan Farms Dairy Wholesalers (Tirupati) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP655",
+    "source": "suppliers",
+    "document_id": "SUP655",
+    "title": "Godavari Organic Seafood Wholesalers (Kurnool)",
+    "content": "Godavari Organic Seafood Wholesalers (Kurnool) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP656",
+    "source": "suppliers",
+    "document_id": "SUP656",
+    "title": "Kakinada Port Seafood Wholesalers (Kadapa)",
+    "content": "Kakinada Port Seafood Wholesalers (Kadapa) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP657",
+    "source": "suppliers",
+    "document_id": "SUP657",
+    "title": "Kakinada Port Meat Wholesalers (Eluru)",
+    "content": "Kakinada Port Meat Wholesalers (Eluru) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP658",
+    "source": "suppliers",
+    "document_id": "SUP658",
+    "title": "Vizag Coastal Produce Wholesalers (Hyderabad)",
+    "content": "Vizag Coastal Produce Wholesalers (Hyderabad) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP659",
+    "source": "suppliers",
+    "document_id": "SUP659",
+    "title": "Godavari Organic Dairy Wholesalers (Karimnagar)",
+    "content": "Godavari Organic Dairy Wholesalers (Karimnagar) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP660",
+    "source": "suppliers",
+    "document_id": "SUP660",
+    "title": "Nellore Pantry Wholesalers (Karimnagar)",
+    "content": "Nellore Pantry Wholesalers (Karimnagar) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP661",
+    "source": "suppliers",
+    "document_id": "SUP661",
+    "title": "Rayalaseema Produce Wholesalers (Tirupati)",
+    "content": "Rayalaseema Produce Wholesalers (Tirupati) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP662",
+    "source": "suppliers",
+    "document_id": "SUP662",
+    "title": "Kakinada Port Dairy Wholesalers (Nizamabad)",
+    "content": "Kakinada Port Dairy Wholesalers (Nizamabad) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP663",
+    "source": "suppliers",
+    "document_id": "SUP663",
+    "title": "Deccan Farms Pantry Wholesalers (Vijayawada)",
+    "content": "Deccan Farms Pantry Wholesalers (Vijayawada) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP664",
+    "source": "suppliers",
+    "document_id": "SUP664",
+    "title": "Nellore Dairy Wholesalers (Guntur)",
+    "content": "Nellore Dairy Wholesalers (Guntur) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP665",
+    "source": "suppliers",
+    "document_id": "SUP665",
+    "title": "Rayalaseema Dairy Wholesalers (Nellore)",
+    "content": "Rayalaseema Dairy Wholesalers (Nellore) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP666",
+    "source": "suppliers",
+    "document_id": "SUP666",
+    "title": "Tirupati Spices Wholesalers (Warangal)",
+    "content": "Tirupati Spices Wholesalers (Warangal) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP667",
+    "source": "suppliers",
+    "document_id": "SUP667",
+    "title": "Nellore Meat Wholesalers (Eluru)",
+    "content": "Nellore Meat Wholesalers (Eluru) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP668",
+    "source": "suppliers",
+    "document_id": "SUP668",
+    "title": "Guntur Chili Meat Wholesalers (Hyderabad)",
+    "content": "Guntur Chili Meat Wholesalers (Hyderabad) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP669",
+    "source": "suppliers",
+    "document_id": "SUP669",
+    "title": "Vizag Coastal Meat Wholesalers (Khammam)",
+    "content": "Vizag Coastal Meat Wholesalers (Khammam) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP670",
+    "source": "suppliers",
+    "document_id": "SUP670",
+    "title": "Godavari Organic Meat Wholesalers (Nellore)",
+    "content": "Godavari Organic Meat Wholesalers (Nellore) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP671",
+    "source": "suppliers",
+    "document_id": "SUP671",
+    "title": "Guntur Chili Seafood Wholesalers (Vijayawada)",
+    "content": "Guntur Chili Seafood Wholesalers (Vijayawada) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP672",
+    "source": "suppliers",
+    "document_id": "SUP672",
+    "title": "Guntur Chili Pantry Wholesalers (Khammam)",
+    "content": "Guntur Chili Pantry Wholesalers (Khammam) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP673",
+    "source": "suppliers",
+    "document_id": "SUP673",
+    "title": "Vijayawada Seafood Wholesalers (Tirupati)",
+    "content": "Vijayawada Seafood Wholesalers (Tirupati) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP674",
+    "source": "suppliers",
+    "document_id": "SUP674",
+    "title": "Vijayawada Dairy Wholesalers (Nellore)",
+    "content": "Vijayawada Dairy Wholesalers (Nellore) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP675",
+    "source": "suppliers",
+    "document_id": "SUP675",
+    "title": "Vijayawada Produce Wholesalers (Nizamabad)",
+    "content": "Vijayawada Produce Wholesalers (Nizamabad) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP676",
+    "source": "suppliers",
+    "document_id": "SUP676",
+    "title": "Nellore Produce Wholesalers (Anantapur)",
+    "content": "Nellore Produce Wholesalers (Anantapur) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP677",
+    "source": "suppliers",
+    "document_id": "SUP677",
+    "title": "Rayalaseema Meat Wholesalers (Eluru)",
+    "content": "Rayalaseema Meat Wholesalers (Eluru) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP678",
+    "source": "suppliers",
+    "document_id": "SUP678",
+    "title": "Deccan Farms Dairy Wholesalers (Kakinada)",
+    "content": "Deccan Farms Dairy Wholesalers (Kakinada) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP679",
+    "source": "suppliers",
+    "document_id": "SUP679",
+    "title": "Godavari Organic Meat Wholesalers (Ongole)",
+    "content": "Godavari Organic Meat Wholesalers (Ongole) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP680",
+    "source": "suppliers",
+    "document_id": "SUP680",
+    "title": "Rayalaseema Produce Wholesalers (Guntur)",
+    "content": "Rayalaseema Produce Wholesalers (Guntur) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP681",
+    "source": "suppliers",
+    "document_id": "SUP681",
+    "title": "Guntur Chili Produce Wholesalers (Ongole)",
+    "content": "Guntur Chili Produce Wholesalers (Ongole) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP682",
+    "source": "suppliers",
+    "document_id": "SUP682",
+    "title": "Tirupati Spices Wholesalers (Warangal)",
+    "content": "Tirupati Spices Wholesalers (Warangal) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP683",
+    "source": "suppliers",
+    "document_id": "SUP683",
+    "title": "Tirupati Spices Wholesalers (Nizamabad)",
+    "content": "Tirupati Spices Wholesalers (Nizamabad) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP684",
+    "source": "suppliers",
+    "document_id": "SUP684",
+    "title": "Godavari Organic Seafood Wholesalers (Chittoor)",
+    "content": "Godavari Organic Seafood Wholesalers (Chittoor) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP685",
+    "source": "suppliers",
+    "document_id": "SUP685",
+    "title": "Deccan Farms Meat Wholesalers (Anantapur)",
+    "content": "Deccan Farms Meat Wholesalers (Anantapur) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP686",
+    "source": "suppliers",
+    "document_id": "SUP686",
+    "title": "Vijayawada Dairy Wholesalers (Kurnool)",
+    "content": "Vijayawada Dairy Wholesalers (Kurnool) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP687",
+    "source": "suppliers",
+    "document_id": "SUP687",
+    "title": "Rayalaseema Meat Wholesalers (Khammam)",
+    "content": "Rayalaseema Meat Wholesalers (Khammam) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP688",
+    "source": "suppliers",
+    "document_id": "SUP688",
+    "title": "Nellore Dairy Wholesalers (Eluru)",
+    "content": "Nellore Dairy Wholesalers (Eluru) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP689",
+    "source": "suppliers",
+    "document_id": "SUP689",
+    "title": "Guntur Chili Produce Wholesalers (Kakinada)",
+    "content": "Guntur Chili Produce Wholesalers (Kakinada) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP690",
+    "source": "suppliers",
+    "document_id": "SUP690",
+    "title": "Rayalaseema Meat Wholesalers (Rajahmundry)",
+    "content": "Rayalaseema Meat Wholesalers (Rajahmundry) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP691",
+    "source": "suppliers",
+    "document_id": "SUP691",
+    "title": "Tirupati Pantry Wholesalers (Karimnagar)",
+    "content": "Tirupati Pantry Wholesalers (Karimnagar) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP692",
+    "source": "suppliers",
+    "document_id": "SUP692",
+    "title": "Nellore Pantry Wholesalers (Kadapa)",
+    "content": "Nellore Pantry Wholesalers (Kadapa) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP693",
+    "source": "suppliers",
+    "document_id": "SUP693",
+    "title": "Nellore Dairy Wholesalers (Rajahmundry)",
+    "content": "Nellore Dairy Wholesalers (Rajahmundry) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP694",
+    "source": "suppliers",
+    "document_id": "SUP694",
+    "title": "Tirupati Meat Wholesalers (Visakhapatnam)",
+    "content": "Tirupati Meat Wholesalers (Visakhapatnam) supplies Ingredient A for Meat, Ingredient B for Meat, Ingredient C for Meat. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP695",
+    "source": "suppliers",
+    "document_id": "SUP695",
+    "title": "Deccan Farms Seafood Wholesalers (Warangal)",
+    "content": "Deccan Farms Seafood Wholesalers (Warangal) supplies Ingredient A for Seafood, Ingredient B for Seafood, Ingredient C for Seafood. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP696",
+    "source": "suppliers",
+    "document_id": "SUP696",
+    "title": "Vizag Coastal Dairy Wholesalers (Hyderabad)",
+    "content": "Vizag Coastal Dairy Wholesalers (Hyderabad) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP697",
+    "source": "suppliers",
+    "document_id": "SUP697",
+    "title": "Vizag Coastal Dairy Wholesalers (Hyderabad)",
+    "content": "Vizag Coastal Dairy Wholesalers (Hyderabad) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP698",
+    "source": "suppliers",
+    "document_id": "SUP698",
+    "title": "Vizag Coastal Pantry Wholesalers (Kakinada)",
+    "content": "Vizag Coastal Pantry Wholesalers (Kakinada) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP699",
+    "source": "suppliers",
+    "document_id": "SUP699",
+    "title": "Deccan Farms Spices Wholesalers (Anantapur)",
+    "content": "Deccan Farms Spices Wholesalers (Anantapur) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP700",
+    "source": "suppliers",
+    "document_id": "SUP700",
+    "title": "Tirupati Produce Wholesalers (Nizamabad)",
+    "content": "Tirupati Produce Wholesalers (Nizamabad) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP701",
+    "source": "suppliers",
+    "document_id": "SUP701",
+    "title": "Rayalaseema Produce Wholesalers (Eluru)",
+    "content": "Rayalaseema Produce Wholesalers (Eluru) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP702",
+    "source": "suppliers",
+    "document_id": "SUP702",
+    "title": "Guntur Chili Spices Wholesalers (Visakhapatnam)",
+    "content": "Guntur Chili Spices Wholesalers (Visakhapatnam) supplies Ingredient A for Spices, Ingredient B for Spices, Ingredient C for Spices. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP703",
+    "source": "suppliers",
+    "document_id": "SUP703",
+    "title": "Tirupati Dairy Wholesalers (Hyderabad)",
+    "content": "Tirupati Dairy Wholesalers (Hyderabad) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP704",
+    "source": "suppliers",
+    "document_id": "SUP704",
+    "title": "Tirupati Produce Wholesalers (Tirupati)",
+    "content": "Tirupati Produce Wholesalers (Tirupati) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP705",
+    "source": "suppliers",
+    "document_id": "SUP705",
+    "title": "Deccan Farms Pantry Wholesalers (Hyderabad)",
+    "content": "Deccan Farms Pantry Wholesalers (Hyderabad) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP706",
+    "source": "suppliers",
+    "document_id": "SUP706",
+    "title": "Vizag Coastal Dairy Wholesalers (Guntur)",
+    "content": "Vizag Coastal Dairy Wholesalers (Guntur) supplies Ingredient A for Dairy, Ingredient B for Dairy, Ingredient C for Dairy. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP707",
+    "source": "suppliers",
+    "document_id": "SUP707",
+    "title": "Deccan Farms Pantry Wholesalers (Hyderabad)",
+    "content": "Deccan Farms Pantry Wholesalers (Hyderabad) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP708",
+    "source": "suppliers",
+    "document_id": "SUP708",
+    "title": "Deccan Farms Pantry Wholesalers (Hyderabad)",
+    "content": "Deccan Farms Pantry Wholesalers (Hyderabad) supplies Ingredient A for Pantry, Ingredient B for Pantry, Ingredient C for Pantry. Delivery time 12 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  },
+  {
+    "chunk_id": "SUP709",
+    "source": "suppliers",
+    "document_id": "SUP709",
+    "title": "Vizag Coastal Produce Wholesalers (Nizamabad)",
+    "content": "Vizag Coastal Produce Wholesalers (Nizamabad) supplies Ingredient A for Produce, Ingredient B for Produce, Ingredient C for Produce. Delivery time 24 hours.",
+    "metadata": {
+      "knowledge_type": "supplier"
+    }
+  }
+]

@@ -1,0 +1,1 @@
+# KitchenSync schemas package
