@@ -1,3 +1,13 @@
 .venv/
 __pycache__/
 *.pyc
+archive/
+vector_db/
+chunks/
+faiss_index/
+*.parquet
+*.zip
+*.csv
+logs/
+*.log
+.env

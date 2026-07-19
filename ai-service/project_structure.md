@@ -16,6 +16,7 @@ ai-service/
 │   │   └── providers/        # Individual API provider clients (Gemini, Grok, OpenRouter, Together, Fireworks, DeepSeek, Mistral)
 │   ├── prompts/              # System & Tool Prompt Sheets
 │   ├── rag/                  # FAISS Retriever & Embeddings Builder
+│   ├── retrievers/           # Base, FAISS, and Pinecone query retriever implementations
 │   ├── schemas/              # Pydantic Request & Response Validators
 │   └── services/             # Core AI Business Logic Services
 ├── vector_db/                # Local FAISS Database Store

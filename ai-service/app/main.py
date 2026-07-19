@@ -75,7 +75,17 @@ async def general_exception_handler(request: Request, exc: Exception):
 async def startup_event():
     logger.info("FastAPI Application Startup: Loading KitchenSync AI REST controllers...")
     from app.core import config
-    logger.info(f"Loaded config. Primary model configured: {getattr(config, 'PRIMARY_MODEL', 'unknown')}")
+    logger.info(f"Loaded config. Active Vector Store Type: {getattr(config, 'VECTOR_STORE', 'faiss')}")
+    
+    if getattr(config, "VECTOR_STORE", "faiss").lower() == "pinecone":
+        from app.services.pinecone_service import PineconeService
+        pinecone_svc = PineconeService()
+        health = pinecone_svc.health_check()
+        logger.info(f"FastAPI Startup: Pinecone healthcheck validation result: {health}")
+    else:
+        import os
+        faiss_exists = os.path.exists(config.FAISS_INDEX_PATH)
+        logger.info(f"FastAPI Startup: Local FAISS database file check. Present: {faiss_exists}")
 
 @app.on_event("shutdown")
 async def shutdown_event():

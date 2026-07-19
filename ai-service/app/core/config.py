@@ -55,6 +55,9 @@ API_LOG_PATH = os.path.join(LOGS_DIR, "api.log")
 # RAG & Embedding Settings
 EMBEDDING_MODEL_NAME = "BAAI/bge-small-en-v1.5"
 DEFAULT_TOP_K = 5
+PINECONE_API_KEY = os.environ.get("PINECONE_API_KEY", "")
+PINECONE_INDEX_NAME = os.environ.get("PINECONE_INDEX_NAME", "pantrypulse-rag")
+VECTOR_STORE = os.environ.get("VECTOR_STORE", "faiss")
 
 # LLM Provider Configuration Settings
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")

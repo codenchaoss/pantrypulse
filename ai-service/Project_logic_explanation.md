@@ -55,6 +55,16 @@ The `app/` folder contains the FastAPI backend codebase that exposes individual 
 *   **`health_monitor.py`**: Evaluates statuses and records latencies dynamically.
 *   **`retry_manager.py`**: Retries transient rate-limits and network timeouts using exponential backoffs.
 
+### Vector DB Retrievers (`app/retrievers/`)
+
+*   **`base_retriever.py`**: Declares abstract interface for semantic query retrieval.
+*   **`faiss_retriever.py`**: Implements local FAISS search.
+*   **`pinecone_retriever.py`**: Implements cloud-hosted Pinecone search.
+
+### DB Administration Scripts (`scripts/`)
+
+*   **`upload_embeddings.py`**: Batch uploads FAISS database chunks and embeddings to the Pinecone cloud index.
+
 ---
 
 ## OpenClaw Orchestrator Module (`openclaw/`)
