@@ -40,13 +40,23 @@ class GeminiProvider(BaseProvider):
             latency = int((time.time() - start_time) * 1000)
             return {"status": "unhealthy", "latency_ms": latency, "message": str(e)}
 
-    def generate(self, prompt: str) -> Dict[str, Any]:
+    def generate(self, prompt: str, **kwargs) -> Dict[str, Any]:
         if not self.api_key:
             return {"status": "error", "text": "", "error": "Gemini API key is not configured."}
 
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent?key={self.api_key}"
         headers = {"Content-Type": "application/json"}
-        payload = {"contents": [{"parts": [{"text": prompt}]}]}
+        
+        temperature = kwargs.get("temperature", 0.2)
+        max_tokens = kwargs.get("max_tokens", 600)
+        
+        payload = {
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {
+                "temperature": temperature,
+                "maxOutputTokens": max_tokens
+            }
+        }
 
         try:
             response = httpx.post(url, json=payload, headers=headers, timeout=30.0)

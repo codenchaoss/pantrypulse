@@ -44,7 +44,7 @@ class OpenRouterProvider(BaseProvider):
             latency = int((time.time() - start_time) * 1000)
             return {"status": "unhealthy", "latency_ms": latency, "message": str(e)}
 
-    def generate(self, prompt: str) -> Dict[str, Any]:
+    def generate(self, prompt: str, **kwargs) -> Dict[str, Any]:
         if not self.api_key:
             return {"status": "error", "text": "", "error": "OpenRouter API key is not configured."}
 
@@ -53,9 +53,21 @@ class OpenRouterProvider(BaseProvider):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}"
         }
+        
+        temperature = kwargs.get("temperature", 0.2)
+        max_tokens = kwargs.get("max_tokens", 600)
+        
+        target_model = kwargs.get("model", self.model)
+        if not target_model or target_model in ("gemini-1.5-flash", "gemini-2.5-flash", "gemini"):
+            target_model = "google/gemini-2.5-flash"
+        elif "/" not in target_model:
+            target_model = f"google/{target_model}"
+            
         payload = {
-            "model": self.model,
-            "messages": [{"role": "user", "content": prompt}]
+            "model": target_model,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": temperature,
+            "max_tokens": max_tokens
         }
 
         try:

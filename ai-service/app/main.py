@@ -43,6 +43,20 @@ app.include_router(application.router, tags=["Integration"])
 app.include_router(workflow_completion.router, tags=["Operations"])
 app.include_router(rebuild.router, tags=["Database Rebuild"])
 
+@app.on_event("startup")
+def startup_prewarm():
+    logger.info("FastAPI Startup: Pre-warming AI microservices & singleton handles...")
+    try:
+        from app.api.recipe import get_recipe_service
+        from app.api.menu import get_menu_service
+        from app.api.optimization import get_optimizer_service
+        get_recipe_service()
+        get_menu_service()
+        get_optimizer_service()
+        logger.info("FastAPI Startup: AI microservices successfully pre-warmed.")
+    except Exception as e:
+        logger.error(f"FastAPI Startup: Pre-warming encountered notice: {str(e)}")
+
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
     request_id = getattr(request.state, "request_id", "unknown")

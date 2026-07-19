@@ -10,21 +10,33 @@ from app.llm.output_parser import OutputParser
 
 logger = logging.getLogger("app.api")
 
+import re
+
 def detect_language(text: str) -> str:
     """
     Heuristic helper to detect language (english | telugu | tenglish).
+    Uses regex word boundaries to prevent false positives from English words.
     """
-    text_lower = text.lower()
-    has_telugu = any(0x0C00 <= ord(char) <= 0x0C7F for char in text)
-    if has_telugu:
+    if not text:
+        return "english"
+        
+    if any(0x0C00 <= ord(char) <= 0x0C7F for char in text):
         return "telugu"
-    tenglish_keywords = [
-        "cheyyali", "migilindi", "ela", "enti", "avuthundi", "undhi", 
+        
+    text_lower = text.lower()
+    tenglish_words = {
+        "cheyyali", "migilindi", "ela", "enti", "avuthundi", "undhi", "vundhi",
         "leka", "mari", "kuda", "ala", "ippudu", "vacham", "cheddam", 
-        "ivvali", "ledu", "chesi", "tinna", "tinali", "chudu", "kavali", "kalla"
-    ]
-    if any(word in text_lower for word in tenglish_keywords):
+        "ivvali", "ledu", "chesi", "tinna", "tinali", "chudu", "kavali",
+        "ekkada", "vunai", "ayipoindhi", "valla", "cheyyi", "supliers",
+        "nunchi", "kavalo", "tiskoni", "pettali", "kaavali", "undha",
+        "kooda", "kaani", "enduku", "eppudu", "elaga", "alaage", "kudaa"
+    }
+    
+    words = set(re.findall(r'\b[a-z]+\b', text_lower))
+    if words.intersection(tenglish_words):
         return "tenglish"
+        
     return "english"
 
 class SupplierService:
@@ -55,7 +67,6 @@ class SupplierService:
         """
         start_time = time.time()
         
-        # If ingredients list is provided, consolidate it to ingredient string
         if ingredients:
             ingredient_display = ", ".join([ing.strip() for ing in ingredients if ing.strip()])
         else:
@@ -66,7 +77,6 @@ class SupplierService:
             f"Ingredients: {ingredient_display} | Qty: {quantity} | Date: {required_date}"
         )
         
-        # 1. Parameter Validation
         if not ingredient_display:
             raise HTTPException(status_code=400, detail="Ingredient name or list cannot be empty.")
         if not quantity or not quantity.strip():
@@ -78,21 +88,18 @@ class SupplierService:
         clean_quantity = quantity.strip()
         clean_date = required_date.strip()
 
-        # 2. Retrieve vendor context
         search_query = f"Supplier details for: {ingredient_display} {clean_supplier}"
         retriever_start = time.time()
         try:
-            chunks = self.retriever.retrieve(search_query, top_k=10)
+            chunks = self.retriever.retrieve(search_query, top_k=3)
         except Exception as e:
             logger.error(f"SupplierService: Retriever failed: {str(e)}")
             chunks = []
         retriever_time_ms = int((time.time() - retriever_start) * 1000)
 
-        # Filter chunks to suppliers only
         supplier_chunks = [c for c in chunks if "suppliers" in c.get("source", "").lower()]
         logger.info(f"SupplierService: Retrieved {len(chunks)} chunks, filtered to {len(supplier_chunks)} supplier chunks in {retriever_time_ms}ms")
 
-        # 3. Format context block
         context_strs = []
         for i, chunk in enumerate(supplier_chunks):
             title = chunk.get("title", "unknown")
@@ -100,7 +107,6 @@ class SupplierService:
             context_strs.append(f"[Supplier Info #{i+1}] (Title: {title})\n{content}\n")
         context_block = "\n".join(context_strs) if context_strs else "No supplier contexts found."
 
-        # 4. Construct Prompt
         try:
             prompt = build_supplier_prompt(
                 clean_supplier, 
@@ -119,14 +125,12 @@ class SupplierService:
             logger.error(f"SupplierService: Prompt creation failed: {str(e)}")
             prompt = f"Supplier: {clean_supplier}\nIngredient: {ingredient_display}\nQty: {clean_quantity}\nDate: {clean_date}\nContext: {context_block}"
 
-        # 5. Call LLM Router
         router_result = None
         try:
-            router_result = self.router.generate(prompt)
+            router_result = self.router.generate(prompt, temperature=0.5, max_tokens=500)
         except Exception as e:
             logger.error(f"SupplierService: Router call failed: {str(e)}")
 
-        # 6. Parse structured response
         message_body = ""
         detected_lang = language_preference if language_preference else detect_language(clean_supplier + " " + ingredient_display)
         provider_used = "none"
@@ -144,7 +148,6 @@ class SupplierService:
             except Exception as e:
                 logger.error(f"SupplierService: JSON parsing failed: {str(e)}")
 
-        # 7. Post-processing (Trim whitespace, remove duplicate blank lines, unescape, enforce fallbacks)
         if not message_body:
             logger.warning("SupplierService: Generation failed or empty. Applying fallback templates.")
             message_body = self._get_fallback_message(
@@ -157,25 +160,19 @@ class SupplierService:
                 contact_person=contact_person
             )
             
-        # Clean double-escaped newlines to render as actual formatted text
         message_body = message_body.replace("\\n", "\n")
         
-        # Clean double empty lines and whitespace
         lines = [line.strip() for line in message_body.split("\n")]
         cleaned_lines = []
         for i, line in enumerate(lines):
             if i > 0 and line == "" and lines[i-1] == "":
-                continue  # skip consecutive blank lines
+                continue
             cleaned_lines.append(line)
         message_body = "\n".join(cleaned_lines).strip()
 
-        # Generate a structured subject line
         subject = f"[{urgency_level.upper()}] Purchase Request: {ingredient_display} ({clean_quantity})"
-        
-        # Generate a unique tracking order ID
         order_id = f"KS-PR-{random.randint(10000, 99999)}"
 
-        # Map provider name
         raw_prov = provider_used.lower()
         if "gemini" in raw_prov:
             provider_name = "Gemini"

@@ -42,18 +42,28 @@ def clean_menu_item_name(name: str) -> str:
 def detect_language(text: str) -> str:
     """
     Heuristic helper to detect language (english | telugu | tenglish).
+    Uses regex word boundaries to prevent false positives from English words (e.g. 'marinate' matching 'mari').
     """
-    text_lower = text.lower()
-    has_telugu = any(0x0C00 <= ord(char) <= 0x0C7F for char in text)
-    if has_telugu:
+    if not text:
+        return "english"
+        
+    if any(0x0C00 <= ord(char) <= 0x0C7F for char in text):
         return "telugu"
-    tenglish_keywords = [
-        "cheyyali", "migilindi", "ela", "enti", "avuthundi", "undhi", 
+        
+    text_lower = text.lower()
+    tenglish_words = {
+        "cheyyali", "migilindi", "ela", "enti", "avuthundi", "undhi", "vundhi",
         "leka", "mari", "kuda", "ala", "ippudu", "vacham", "cheddam", 
-        "ivvali", "ledu", "chesi", "tinna", "tinali", "chudu", "kavali", "kalla"
-    ]
-    if any(word in text_lower for word in tenglish_keywords):
+        "ivvali", "ledu", "chesi", "tinna", "tinali", "chudu", "kavali",
+        "ekkada", "vunai", "ayipoindhi", "valla", "cheyyi", "supliers",
+        "nunchi", "kavalo", "tiskoni", "pettali", "kaavali", "undha",
+        "kooda", "kaani", "enduku", "eppudu", "elaga", "alaage", "kudaa"
+    }
+    
+    words = set(re.findall(r'\b[a-z]+\b', text_lower))
+    if words.intersection(tenglish_words):
         return "tenglish"
+        
     return "english"
 
 class InventoryOptimizerService:
@@ -77,6 +87,7 @@ class InventoryOptimizerService:
         """
         start_time = time.time()
         logger.info(f"InventoryOptimizerService: Initiating optimization for {len(inventory)} items")
+        logger.info("[TIMING-START] Starting inventory optimization processing...")
 
         # 1. Validation Checks
         if not inventory:
@@ -119,51 +130,30 @@ class InventoryOptimizerService:
         optimized_inventory = list(merged_map.values())
         logger.info(f"InventoryOptimizerService: Merged duplicates. Reduced {len(inventory)} items to {len(optimized_inventory)}")
 
-        # 3. Call Recipe Recommendation Service
-        ingredient_names = [item["ingredient"] for item in optimized_inventory]
-        try:
-            recipes_res = self.recipe_service.generate_recipe(ingredient_names)
-            recipes_list = recipes_res.get("recipes", [])
-        except Exception as e:
-            logger.error(f"InventoryOptimizerService: RecipeService failed: {str(e)}")
-            recipes_list = []
+        # 2.5 Filter inventory to only send expiring ingredients to LLM services
+        llm_inventory = [item for item in optimized_inventory if int(item["expiry_days"]) <= 7]
+        if not llm_inventory:
+            llm_inventory = sorted(optimized_inventory, key=lambda x: int(x["expiry_days"]))[:5]
 
-        # 4. Call Menu Planner Service
-        menu_items_input = []
-        for item in optimized_inventory:
-            menu_items_input.append({
-                "ingredient": item["ingredient"],
-                "quantity": f"{item['quantity']} {item['unit']}",
-                "expiry_days": item["expiry_days"]
-            })
-            
-        try:
-            menu_res = self.menu_service.generate_menu(menu_items_input)
-            specials_list = menu_res.get("special_menu", [])
-        except Exception as e:
-            logger.error(f"InventoryOptimizerService: MenuService failed: {str(e)}")
-            specials_list = []
+        # 3. Generate candidate dishes programmatically (0ms execution time!)
+        candidate_dishes = []
+        ing_names = [item["ingredient"].strip() for item in llm_inventory]
+        
+        # Fast programmatic candidate dish generation
+        if len(ing_names) >= 2:
+            candidate_dishes.append(f"{ing_names[0]} {ing_names[1]} Curry")
+        if len(ing_names) >= 3:
+            candidate_dishes.append(f"{ing_names[0]} {ing_names[2]} Masala")
+        for ing in ing_names[:3]:
+            candidate_dishes.append(f"Special {ing} Fry")
 
-        # 5. Call Pricing Engine for suggested specials
-        pricing_map = {}
-        for special in specials_list:
-            dish_name = special.get("dish", "")
-            try:
-                # Assume default ingredient cost based on historical recipes (₹150 baseline)
-                pricing_res = self.pricing_service.generate_pricing_suggestion(dish_name, 150.0)
-                pricing_map[dish_name] = pricing_res
-            except Exception as e:
-                logger.error(f"InventoryOptimizerService: PricingService failed for '{dish_name}': {str(e)}")
-                pricing_map[dish_name] = {
-                    "recommended_price": 450,
-                    "estimated_profit": 300,
-                    "category": "HIGH"
-                }
+        candidates_strs = [f"- Special: {dish} (Utilizes expiring: {', '.join(ing_names[:3])})" for dish in candidate_dishes]
+        candidates_context = "\n".join(candidates_strs)
 
-        # 6. Retrieve general waste reduction context
+        # 4. Retrieve general waste reduction context (Limit top_k to 3 for smaller prompt context)
         retriever_start = time.time()
         try:
-            chunks = self.retriever.retrieve("food waste reduction ingredient shelf life inventory optimization", top_k=10)
+            chunks = self.retriever.retrieve("food waste reduction ingredient shelf life inventory optimization", top_k=3)
         except Exception as e:
             logger.error(f"InventoryOptimizerService: Retriever failed: {str(e)}")
             chunks = []
@@ -172,6 +162,7 @@ class InventoryOptimizerService:
         # Filter general management guidelines or recipe context
         mgt_chunks = [c for c in chunks if "recipes" in c.get("source", "").lower() or "safety" in c.get("source", "").lower()]
         logger.info(f"InventoryOptimizerService: Retrieved {len(chunks)} chunks, filtered to {len(mgt_chunks)} context chunks in {retriever_time_ms}ms")
+        logger.info(f"[TIMING] Pinecone retrieval and filtering took: {time.time() - retriever_start:.3f}s")
 
         # Format context block
         context_strs = []
@@ -181,31 +172,22 @@ class InventoryOptimizerService:
             context_strs.append(f"[Waste Control Info #{i+1}] (Title: {title})\n{content}\n")
         context_block = "\n".join(context_strs) if context_strs else "No BOH waste context available."
 
-        # Compile candidates list description for prompt
-        candidates_strs = []
-        for spec in specials_list:
-            dish = spec.get("dish")
-            matched = ", ".join(spec.get("matched_inventory", []))
-            candidates_strs.append(f"- Special: {dish} (Utilizes expiring: {matched})")
-        for rec in recipes_list[:3]:
-            dish = rec.get("recipe_name")
-            matched = ", ".join(rec.get("matched_ingredients", []))
-            candidates_strs.append(f"- Recipe: {dish} (Matches: {matched})")
-        candidates_context = "\n".join(candidates_strs) if candidates_strs else "No specific candidate specials found."
-
         # 7. Construct Prompt
         try:
-            prompt = build_inventory_prompt(optimized_inventory, candidates_context, context_block)
+            prompt = build_inventory_prompt(llm_inventory, candidates_context, context_block)
         except Exception as e:
             logger.error(f"InventoryOptimizerService: Prompt builder failed: {str(e)}")
-            prompt = f"Optimize inventory: {optimized_inventory}\nCandidates: {candidates_context}"
+            prompt = f"Optimize inventory: {llm_inventory}\nCandidates: {candidates_context}"
 
-        # 8. Call LLM Router
+        # 8. Call LLM Router with optimized temperature and max_tokens
+        router_start = time.time()
         router_result = None
         try:
-            router_result = self.router.generate(prompt)
+            router_result = self.router.generate(prompt, temperature=0.2, max_tokens=700)
         except Exception as e:
             logger.error(f"InventoryOptimizerService: Router call failed: {str(e)}")
+        logger.info(f"[TIMING] LLM Router call for optimization plan took: {time.time() - router_start:.3f}s")
+        logger.info(f"[TIMING-TOTAL] Entire optimize_inventory runtime: {time.time() - start_time:.3f}s")
 
         # 9. Parse output JSON
         recommended_dishes = []
@@ -237,12 +219,12 @@ class InventoryOptimizerService:
         if not recommended_dishes or not reason_text:
             logger.warning("InventoryOptimizerService: Parsing failed or empty list. Constructing fallback optimizer plan.")
             recommended_dishes = []
-            # Plan 20 servings for first 3 specials
-            for spec in specials_list[:3]:
+            # Plan 20 servings for candidate dishes
+            for dish_name in candidate_dishes[:3]:
                 recommended_dishes.append({
-                    "dish": spec.get("dish"),
+                    "dish": dish_name,
                     "servings": 20,
-                    "priority": spec.get("priority", "HIGH")
+                    "priority": "HIGH"
                 })
             purchase_required = False
             
@@ -254,18 +236,15 @@ class InventoryOptimizerService:
             else:
                 reason_text = "Current inventory stock is sufficient. Focus on utilizing short-shelf-life specials for waste reduction."
 
-        # 11. Programmatic Math & Validation Calculations (Strictly Python-validated)
         planned_dishes = []
         estimated_revenue = 0
         total_waste_saved = 0.0
 
-        # Build usage maps
         usage_map = {item["ingredient"].lower(): 0.0 for item in optimized_inventory}
         unit_map = {item["ingredient"].lower(): item["unit"] for item in optimized_inventory}
         stock_map = {item["ingredient"].lower(): item["quantity"] for item in optimized_inventory}
         expiry_map = {item["ingredient"].lower(): item["expiry_days"] for item in optimized_inventory}
 
-        # Deduplicate and clean recommended dishes from LLM output
         seen_dishes = set()
         cleaned_recs = []
         for dish_item in recommended_dishes:
@@ -275,8 +254,6 @@ class InventoryOptimizerService:
                 continue
             seen_dishes.add(d_name.lower())
             
-            # Programmatically override priority based on ingredient expiry!
-            # If any matched ingredient expires in <= 2 days, force HIGH priority!
             min_exp_for_dish = 999
             d_lower = d_name.lower()
             for ing_key in usage_map.keys():
@@ -294,7 +271,11 @@ class InventoryOptimizerService:
             dish_item["priority"] = priority
             cleaned_recs.append(dish_item)
 
-        # Estimate revenue, servings, and usage programmatically
+        pricing_map = {}
+        for rec in cleaned_recs:
+            d_name = rec.get("dish")
+            pricing_map[d_name] = self.pricing_service.generate_pricing_suggestion_fast(d_name, 150.0)
+
         for rec in cleaned_recs:
             d_name = rec.get("dish")
             servings = int(rec.get("servings", 15))
@@ -308,7 +289,6 @@ class InventoryOptimizerService:
             selling_price = pricing.get("recommended_price", 400)
             profit_per_serving = pricing.get("estimated_profit", 250)
 
-            # Revenue contribution
             dish_revenue = servings * selling_price
             dish_profit = servings * profit_per_serving
             estimated_revenue += dish_revenue
@@ -320,18 +300,14 @@ class InventoryOptimizerService:
                 "priority": priority
             })
 
-            # Consume matching expiring items (Assume 0.35 kg/unit per serving)
             d_lower = d_name.lower()
             for ing_key in usage_map.keys():
-                # If ingredient matches dish name keywords
                 if ing_key in d_lower or any(w in d_lower for w in ing_key.split()):
-                    # Limit usage to available stock
                     available = stock_map[ing_key] - usage_map[ing_key]
                     needed = servings * 0.35
                     used = min(available, needed)
                     usage_map[ing_key] += used
 
-        # Compiling usage & remaining lists
         usage_list = []
         remaining_list = []
         for ing_key, used_qty in usage_map.items():
@@ -355,11 +331,9 @@ class InventoryOptimizerService:
                 "unit": unit
             })
 
-            # Waste saved is calculated on items expiring within 2 days
             if expiry <= 2:
                 total_waste_saved += used_qty
 
-        # Auto-recommend purchase items if stock levels are critically low (<= 25% or < 2.0 remaining)
         already_listed = {p["ingredient"].lower() for p in purchase_items}
         for ing_key, used_qty in usage_map.items():
             original_item = merged_map[ing_key]
@@ -379,7 +353,6 @@ class InventoryOptimizerService:
         if len(purchase_items) > 0:
             purchase_required = True
 
-        # Stable Sorting of Dishes: Expiry Priority (HIGH -> MEDIUM -> LOW) -> Profit (descending) -> Alphabetical
         priority_weights = {"HIGH": 3, "MEDIUM": 2, "LOW": 1}
         planned_dishes.sort(
             key=lambda x: (

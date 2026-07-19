@@ -9,21 +9,33 @@ from app.llm.output_parser import OutputParser
 
 logger = logging.getLogger("app.api")
 
+import re
+
 def detect_language(text: str) -> str:
     """
     Heuristic helper to detect language (english | telugu | tenglish).
+    Uses regex word boundaries to prevent false positives from English words.
     """
-    text_lower = text.lower()
-    has_telugu = any(0x0C00 <= ord(char) <= 0x0C7F for char in text)
-    if has_telugu:
+    if not text:
+        return "english"
+        
+    if any(0x0C00 <= ord(char) <= 0x0C7F for char in text):
         return "telugu"
-    tenglish_keywords = [
-        "cheyyali", "migilindi", "ela", "enti", "avuthundi", "undhi", 
+        
+    text_lower = text.lower()
+    tenglish_words = {
+        "cheyyali", "migilindi", "ela", "enti", "avuthundi", "undhi", "vundhi",
         "leka", "mari", "kuda", "ala", "ippudu", "vacham", "cheddam", 
-        "ivvali", "ledu", "chesi", "tinna", "tinali", "chudu", "kavali"
-    ]
-    if any(word in text_lower for word in tenglish_keywords):
+        "ivvali", "ledu", "chesi", "tinna", "tinali", "chudu", "kavali",
+        "ekkada", "vunai", "ayipoindhi", "valla", "cheyyi", "supliers",
+        "nunchi", "kavalo", "tiskoni", "pettali", "kaavali", "undha",
+        "kooda", "kaani", "enduku", "eppudu", "elaga", "alaage", "kudaa"
+    }
+    
+    words = set(re.findall(r'\b[a-z]+\b', text_lower))
+    if words.intersection(tenglish_words):
         return "tenglish"
+        
     return "english"
 
 class PricingService:
@@ -43,29 +55,24 @@ class PricingService:
         start_time = time.time()
         logger.info(f"PricingService: Suggestions requested for dish: '{dish}' | Cost: {ingredient_cost}")
 
-        # 1. Input Validation
         if not dish or not dish.strip():
             raise HTTPException(status_code=400, detail="Dish name cannot be empty.")
         if ingredient_cost < 0:
             raise HTTPException(status_code=400, detail="Ingredient cost cannot be negative.")
 
         clean_dish = dish.strip()
-
-        # 2. Retrieve recipe pricing context
-        search_query = f"{clean_dish} menu cost pricing recipe"
+        return self.generate_pricing_suggestion_fast(clean_dish, ingredient_cost)
         retriever_start = time.time()
         try:
-            chunks = self.retriever.retrieve(search_query, top_k=10)
+            chunks = self.retriever.retrieve(search_query, top_k=3)
         except Exception as e:
             logger.error(f"PricingService: Retriever failed: {str(e)}")
             chunks = []
         retriever_time_ms = int((time.time() - retriever_start) * 1000)
 
-        # Filter only recipe chunks
         recipe_chunks = [c for c in chunks if "recipes" in c.get("source", "").lower()]
         logger.info(f"PricingService: Retrieved {len(chunks)} chunks, filtered to {len(recipe_chunks)} recipe chunks in {retriever_time_ms}ms")
 
-        # 3. Format context block
         context_strs = []
         for i, chunk in enumerate(recipe_chunks):
             title = chunk.get("title", "unknown")
@@ -73,21 +80,18 @@ class PricingService:
             context_strs.append(f"[Recipe Cost Info #{i+1}] (Title: {title})\n{content}\n")
         context_block = "\n".join(context_strs) if context_strs else "No pricing context available."
 
-        # 4. Construct prompt
         try:
             prompt = build_pricing_prompt(clean_dish, ingredient_cost, context_block)
         except Exception as e:
             logger.error(f"PricingService: Prompt creation failed: {str(e)}")
             prompt = f"Dish: {clean_dish}\nCost: {ingredient_cost}\nContext: {context_block}"
 
-        # 5. Call LLM Router
         router_result = None
         try:
-            router_result = self.router.generate(prompt)
+            router_result = self.router.generate(prompt, temperature=0.2, max_tokens=300)
         except Exception as e:
             logger.error(f"PricingService: Router call failed: {str(e)}")
 
-        # 6. Parse structured response
         recommended_price = 0
         reason_text = ""
         detected_lang = detect_language(clean_dish)
@@ -115,19 +119,15 @@ class PricingService:
             except Exception as e:
                 logger.error(f"PricingService: JSON parsing failed: {str(e)}")
 
-        # 7. Programmatic Calculations & Fallback Logic
         if recommended_price <= 0:
             logger.warning("PricingService: Price suggestion missing or invalid. Constructing BOH markup fallback.")
-            # Calculate standard markup
             recommended_price = int(ingredient_cost * 3.0)
             if recommended_price == 0:
-                recommended_price = 150 # default baseline minimum
+                recommended_price = 150
 
-        # Compute profit parameters programmatically in Python
         estimated_profit = recommended_price - int(ingredient_cost)
         profit_margin = int((estimated_profit / recommended_price) * 100) if recommended_price > 0 else 0
 
-        # Programmatically infer or validate strategy & position
         if not pricing_strategy or pricing_strategy == "Standard":
             if profit_margin >= 70:
                 pricing_strategy = "Premium"
@@ -147,6 +147,40 @@ class PricingService:
 
         return {
             "dish": clean_dish,
+            "ingredient_cost": float(ingredient_cost),
+            "recommended_price": recommended_price,
+            "estimated_profit": estimated_profit,
+            "profit_margin": profit_margin,
+            "pricing_strategy": pricing_strategy,
+            "market_position": market_position,
+            "price_confidence": price_confidence
+        }
+
+    def generate_pricing_suggestion_fast(self, dish: str, ingredient_cost: float) -> Dict[str, Any]:
+        """
+        Fast programmatic pricing estimator to avoid calling LLM in a loop.
+        """
+        d_lower = dish.lower()
+        if any(w in d_lower for w in ["special", "premium", "mutton", "chicken", "fish", "prawn", "crab"]):
+            multiplier = 3.5
+            pricing_strategy = "Premium"
+            market_position = "Upscale"
+        elif any(w in d_lower for w in ["veg", "paneer", "mushroom", "dosa", "idli", "sambar"]):
+            multiplier = 2.8
+            pricing_strategy = "Standard"
+            market_position = "Mid-range"
+        else:
+            multiplier = 3.0
+            pricing_strategy = "Standard"
+            market_position = "Mid-range"
+
+        recommended_price = int(ingredient_cost * multiplier)
+        estimated_profit = int(recommended_price - ingredient_cost)
+        profit_margin = int((estimated_profit / recommended_price) * 100) if recommended_price > 0 else 0
+        price_confidence = 95
+
+        return {
+            "dish": dish,
             "ingredient_cost": float(ingredient_cost),
             "recommended_price": recommended_price,
             "estimated_profit": estimated_profit,

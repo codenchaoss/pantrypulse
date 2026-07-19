@@ -40,18 +40,28 @@ def clean_menu_description(desc: str) -> str:
 def detect_language(text: str) -> str:
     """
     Heuristic helper to detect language (english | telugu | tenglish).
+    Uses regex word boundaries to prevent false positives from English words.
     """
-    text_lower = text.lower()
-    has_telugu = any(0x0C00 <= ord(char) <= 0x0C7F for char in text)
-    if has_telugu:
+    if not text:
+        return "english"
+        
+    if any(0x0C00 <= ord(char) <= 0x0C7F for char in text):
         return "telugu"
-    tenglish_keywords = [
-        "cheyyali", "migilindi", "ela", "enti", "avuthundi", "undhi", 
+        
+    text_lower = text.lower()
+    tenglish_words = {
+        "cheyyali", "migilindi", "ela", "enti", "avuthundi", "undhi", "vundhi",
         "leka", "mari", "kuda", "ala", "ippudu", "vacham", "cheddam", 
-        "ivvali", "ledu", "chesi", "tinna", "tinali", "chudu"
-    ]
-    if any(word in text_lower for word in tenglish_keywords):
+        "ivvali", "ledu", "chesi", "tinna", "tinali", "chudu", "kavali",
+        "ekkada", "vunai", "ayipoindhi", "valla", "cheyyi", "supliers",
+        "nunchi", "kavalo", "tiskoni", "pettali", "kaavali", "undha",
+        "kooda", "kaani", "enduku", "eppudu", "elaga", "alaage", "kudaa"
+    }
+    
+    words = set(re.findall(r'\b[a-z]+\b', text_lower))
+    if words.intersection(tenglish_words):
         return "tenglish"
+        
     return "english"
 
 class DescriptionService:
@@ -70,7 +80,6 @@ class DescriptionService:
         start_time = time.time()
         logger.info(f"DescriptionService: Generating descriptions for dishes count: {len(dishes)}")
         
-        # 1. Input Validation
         if not dishes:
             raise HTTPException(status_code=400, detail="Dishes list cannot be empty.")
             
@@ -79,7 +88,6 @@ class DescriptionService:
             if not name or not name.strip():
                 raise HTTPException(status_code=400, detail="Dish name cannot be empty.")
 
-        # Remove duplicate input dishes to prevent wasteful LLM generation
         unique_dishes = []
         seen_names = set()
         for item in dishes:
@@ -88,21 +96,18 @@ class DescriptionService:
                 unique_dishes.append(item)
                 seen_names.add(name.lower())
 
-        # 2. Retrieve relevant recipe chunks
         search_query = "Recipes description for: " + ", ".join([d.get("dish", "") for d in unique_dishes])
         retriever_start = time.time()
         try:
-            chunks = self.retriever.retrieve(search_query, top_k=15)
+            chunks = self.retriever.retrieve(search_query, top_k=3)
         except Exception as e:
             logger.error(f"DescriptionService: Retriever failed: {str(e)}")
             chunks = []
         retriever_time_ms = int((time.time() - retriever_start) * 1000)
         
-        # Filter chunks to recipes only
         recipe_chunks = [c for c in chunks if "recipes" in c.get("source", "").lower()]
         logger.info(f"DescriptionService: Retrieved {len(chunks)} chunks, filtered to {len(recipe_chunks)} recipe chunks in {retriever_time_ms}ms")
 
-        # 3. Format context block
         context_strs = []
         for i, chunk in enumerate(recipe_chunks):
             title = chunk.get("title", "unknown")
@@ -110,21 +115,18 @@ class DescriptionService:
             context_strs.append(f"[Recipe Info #{i+1}] (Title: {title})\n{content}\n")
         context_block = "\n".join(context_strs) if context_strs else "No context info retrieved."
 
-        # 4. Construct prompt
         try:
             prompt = build_description_prompt(unique_dishes, context_block)
         except Exception as e:
             logger.error(f"DescriptionService: Prompt creation failed: {str(e)}")
             prompt = f"Target: {unique_dishes}\nContext: {context_block}"
 
-        # 5. Call LLM Router
         router_result = None
         try:
-            router_result = self.router.generate(prompt)
+            router_result = self.router.generate(prompt, temperature=0.6, max_tokens=500)
         except Exception as e:
             logger.error(f"DescriptionService: Router call failed: {str(e)}")
 
-        # 6. Parse structured response
         generated_list = []
         provider_used = "none"
         fallback_used = False
@@ -143,8 +145,6 @@ class DescriptionService:
             except Exception as e:
                 logger.error(f"DescriptionService: JSON parsing failed: {str(e)}")
 
-        # 7. Post-processing & Output sanitization
-        # Map generated descriptions by dish name for O(1) lookup
         out_map = {item.get("dish", "").lower().strip(): item for item in generated_list}
         
         final_descriptions = []
@@ -155,7 +155,6 @@ class DescriptionService:
             
             if matched_item:
                 desc_text = clean_menu_description(matched_item.get("description", "").strip())
-                # Verify description is not empty, if so use fallback
                 if not desc_text:
                     desc_text = self._get_fallback_text(name, category, recipe_chunks)
                 tone = matched_item.get("tone", "Premium")

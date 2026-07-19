@@ -24,7 +24,7 @@ class BaseProvider(ABC):
         pass
 
     @abstractmethod
-    def generate(self, prompt: str) -> Dict[str, Any]:
+    def generate(self, prompt: str, **kwargs) -> Dict[str, Any]:
         """
         Generates a structured text response for the prompt.
         Returns:

@@ -7,8 +7,13 @@ from app.services.inventory_optimizer_service import InventoryOptimizerService
 router = APIRouter()
 logger = logging.getLogger("app.api")
 
+_optimizer_service_instance = None
+
 def get_optimizer_service() -> InventoryOptimizerService:
-    return InventoryOptimizerService()
+    global _optimizer_service_instance
+    if _optimizer_service_instance is None:
+        _optimizer_service_instance = InventoryOptimizerService()
+    return _optimizer_service_instance
 
 @router.post("/optimization", response_model=ApiResponse[OptimizationResponseData])
 def optimize_inventory(request: OptimizationRequest, service: InventoryOptimizerService = Depends(get_optimizer_service)):

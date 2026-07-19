@@ -11,6 +11,9 @@ class ProviderRegistry:
     """
     Registry for configuring, tracking, and prioritizing LLM providers.
     """
+    # Cache to store permanently unhealthy/failing providers dynamically during runtime
+    _unhealthy_providers = set()
+
     def __init__(self):
         # 1. Instantiate provider clients
         self.providers = {
@@ -23,15 +26,15 @@ class ProviderRegistry:
             "mistral": MistralProvider()
         }
 
-        # 2. Configure default priority ranking (Gemini -> Grok -> OpenRouter -> Together -> Fireworks -> DeepSeek -> Mistral)
+        # 2. Configure default priority ranking (Gemini -> OpenRouter -> Together -> DeepSeek -> Mistral -> Fireworks -> Grok)
         self.priority_order = [
             "gemini",
-            "grok",
             "openrouter",
             "together_ai",
-            "fireworks_ai",
             "deepseek",
-            "mistral"
+            "mistral",
+            "fireworks_ai",
+            "grok"
         ]
 
     def get_provider(self, name: str) -> Any:
@@ -39,11 +42,17 @@ class ProviderRegistry:
 
     def get_active_providers_in_order(self) -> List[str]:
         """
-        Returns list of provider names sorted by priority, filtered to only those with configured API keys.
+        Returns list of provider names sorted by priority, filtered to only those with configured, valid API keys.
         """
         active_list = []
         for name in self.priority_order:
+            if name in ProviderRegistry._unhealthy_providers:
+                continue
             provider = self.providers.get(name)
             if provider and provider.api_key:
+                k = provider.api_key.lower().strip()
+                # Exclude dummy/placeholder keys
+                if not k or k.startswith("your-") or k.endswith("-here") or "placeholder" in k or k == "none" or k == "null":
+                    continue
                 active_list.append(name)
         return active_list

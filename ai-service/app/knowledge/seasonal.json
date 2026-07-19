@@ -1513,19 +1513,113 @@
     "pricing_trend": "High demand for warm comfort foods; stable prices for dry pantry staples.",
     "special_menu_tip": "Feature piping hot tomato rasam and crispy besan pakoras during rainy shifts."
   },
+  },
   {
-    "season": "Winter",
-    "week_number": 48,
-    "recommended_categories": [
-      "Main Course",
-      "Deserts"
-    ],
-    "seasonal_ingredients": [
-      "Ghee",
-      "Ragi",
-      "Jaggery"
-    ],
-    "pricing_trend": "High wholesale rates for organic jaggery; stable rates for millets.",
-    "special_menu_tip": "Feature warm Ragi Sangati with Natu Kodi Pulusu to attract dinner guests."
+    "season": "Spring-Summer (చైత్రము - Chaitram)",
+    "telugu_month": "Chaitram (చైత్ర మాసము - March/April)",
+    "sub_season": "Spring-Summer Transition",
+    "recommended_categories": ["Cooling Drinks", "Ugadi Specials", "Raw Mango Curries"],
+    "seasonal_ingredients": ["Raw Mango (Mamidikaya)", "Neem Flower", "Jaggery", "Tender Coconut", "Panakam", "Vadapappu"],
+    "pricing_trend": "High demand for fresh raw mangoes and sweet tamarind; low cost for tender coconut.",
+    "special_menu_tip": "Serve traditional Ugadi Pachadi, Raw Mango Rice (Mamidikaya Pulihora), and chilled Panakam."
+  },
+  {
+    "season": "Summer (వైశాఖము - Vaisakham)",
+    "telugu_month": "Vaisakham (వైశాఖ మాసము - April/May)",
+    "sub_season": "Early Summer Peak",
+    "recommended_categories": ["Cold Beverages", "Summer Salads", "Curd Rice & Buttermilk"],
+    "seasonal_ingredients": ["Ripe Mangoes (Banginapalli)", "Majjiga (Buttermilk)", "Watermelon", "Cucumber", "Curd", "Saggubiyyu (Tapioca)"],
+    "pricing_trend": "Peak season for Banginapalli mangoes with bulk discount; high demand for dairy buttermilk.",
+    "special_menu_tip": "Offer chilled Mango Lassi, Masala Majjiga with curry leaves, and Saggubiyyam Payasam."
+  },
+  {
+    "season": "Summer Peak (జ్యేష్ఠము - Jyeshtam)",
+    "telugu_month": "Jyeshtam (జ్యేష్ఠ మాసము - May/June)",
+    "sub_season": "Late Summer Peak",
+    "recommended_categories": ["Ice Creams", "Cooling Desserts", "Fruit Bowls"],
+    "seasonal_ingredients": ["Muskmelon (Kharbooja)", "Ice Apples (Taati Munjalu)", "Lemon", "Nannari Syrup", "Rose Water"],
+    "pricing_trend": "Highest seasonal rates for ice apples and melon; bulk savings on lemon and syrup.",
+    "special_menu_tip": "Feature Taati Munjalu Milkshake, Nannari Sugandhi Sharbat, and chilled Kharbooja Juice."
+  },
+  {
+    "season": "Rainy-Summer (ఆషాఢము - Aashadham)",
+    "telugu_month": "Aashadham (ఆషాఢ మాసము - June/July)",
+    "sub_season": "Monsoon Onset / Rainy-Summer Transition",
+    "recommended_categories": ["Hot Soups", "Herbal Teas", "Warm Snacks"],
+    "seasonal_ingredients": ["Ginger (Allam)", "Herbal Teas", "Corn (Mokka Jonna)", "Garlic", "Black Pepper"],
+    "pricing_trend": "High demand for warm roasted corn and ginger; stable prices for rainy produce.",
+    "special_menu_tip": "Serve Charcoal Roasted Corn (Mokka Jonna Kande), Allam Chai, and hot Veg Manchow Soup."
+  },
+  {
+    "season": "Monsoon (శ్రావణము - Shravanam)",
+    "telugu_month": "Shravanam (శ్రావణ మాసము - July/August)",
+    "sub_season": "Peak Monsoon / Festival Season",
+    "recommended_categories": ["Satvik Vegetarian", "Festival Sweets", "Crispy Fritters"],
+    "seasonal_ingredients": ["Chana Dal", "Jaggery", "Coconut", "Sesame Seeds", "Ghee", "Besan"],
+    "pricing_trend": "High demand for pure ghee, jaggery, and chana dal during Varalakshmi festival.",
+    "special_menu_tip": "Feature Puran Poli (Bobbattu), Garelu with Allam Pachadi, and Chana Dal Payasam."
+  },
+  {
+    "season": "Late Monsoon (భాద్రపదము - Bhadrapadam)",
+    "telugu_month": "Bhadrapadam (భాద్రపద మాసము - August/September)",
+    "sub_season": "Late Monsoon / Vinayaka Chavithi Season",
+    "recommended_categories": ["Vinayaka Chavithi Sweets", "Steamed Kudumulu", "Prasadam Items"],
+    "seasonal_ingredients": ["Rice Flour", "Jaggery", "Coconut", "Sesame (Nuvvulu)", "Kudumulu Ingredients"],
+    "pricing_trend": "High demand for fresh rice flour and jaggery; stable sesame pricing.",
+    "special_menu_tip": "Offer Steamed Bellam Kudumulu, Undrallu, Nuvvula Ladoo, and Pulihora."
+  },
+  {
+    "season": "Autumn (ఆశ్వయుజము - Aashwayujam)",
+    "telugu_month": "Aashwayujam (ఆశ్వయుజ మాసము - September/October)",
+    "sub_season": "Autumn / Dasara Festival Season",
+    "recommended_categories": ["Dasara Feast", "Traditional Andhra Thali", "Crispy Snacks"],
+    "seasonal_ingredients": ["Tamarind", "Chana Dal", "Groundnuts", "Curry Leaves", "Mustard Seeds"],
+    "pricing_trend": "High wholesale movement for thali staples, tamarind, and festival sweets.",
+    "special_menu_tip": "Serve Royal Dasara Festival Thali with Tamarind Pulihora, Daddojanam, and Garjalu."
+  },
+  {
+    "season": "Autumn-Winter (కార్తీకము - Karthikam)",
+    "telugu_month": "Karthikam (కార్తీక మాసము - October/November)",
+    "sub_season": "Autumn-Winter Transition / Satvik Month",
+    "recommended_categories": ["Karthika Vanabhojanalu Meals", "Satvik No-Onion No-Garlic Dishes", "Usiri Specials"],
+    "seasonal_ingredients": ["Indian Gooseberry (Usirikaya)", "Pumpkin (Gummadikaya)", "Sweet Potato (Cilagada Dampa)", "Tamarind", "Toor Dal"],
+    "pricing_trend": "Peak harvest for fresh Usirikaya (Gooseberry) and sweet pumpkins; high demand for satvik thali.",
+    "special_menu_tip": "Feature Usirikaya Rice, Gummadikaya Pulusu, and Cilagada Dampa Halwa for Vanabhojanalu."
+  },
+  {
+    "season": "Winter (మార్గాశిరము - Margasiram)",
+    "telugu_month": "Margasiram (మార్గాశిర మాసము - November/December)",
+    "sub_season": "Early Winter Peak",
+    "recommended_categories": ["Hot Gravies", "Millet Rotis", "Roasted Peanut Snacks"],
+    "seasonal_ingredients": ["Jowar (Jonna)", "Bajra (Sajja)", "Peanuts (Palli)", "Sesame", "Garlic", "Dry Ginger (Sonth)"],
+    "pricing_trend": "High demand for winter millets, peanuts, and warming spices.",
+    "special_menu_tip": "Offer Hot Jonna Rotte with Natu Kodi Gravy / Gutti Vankaya, and Roasted Palli Chutney."
+  },
+  {
+    "season": "Winter Peak (పుష్యము - Pushyam)",
+    "telugu_month": "Pushyam (పుష్య మాసము - December/January)",
+    "sub_season": "Peak Winter / Sankranti Festival Season",
+    "recommended_categories": ["Sankranti Sweets", "Hot Rasam & Soups", "Sugarcane Feasts"],
+    "seasonal_ingredients": ["Sugarcane (Cheruku)", "Fresh Sesame (Nuvvulu)", "New Rice", "Jaggery", "Ariselu Ingredients"],
+    "pricing_trend": "Peak seasonal demand for new rice harvest, sugarcane, and fresh jaggery.",
+    "special_menu_tip": "Feature Sankranti Ariselu, Sakinalu, Hot Pepper Miriyala Rasam, and Chakkera Pongali."
+  },
+  {
+    "season": "Winter-Spring (మాఘము - Magham)",
+    "telugu_month": "Magham (మాఘ మాసము - January/February)",
+    "sub_season": "Winter-Spring Transition / Mahashivaratri Season",
+    "recommended_categories": ["Fasting Dishes", "Light Spring Meals", "Herb Teas"],
+    "seasonal_ingredients": ["Sabudana", "Sweet Potato", "Curd", "Lemon", "Black Pepper"],
+    "pricing_trend": "High demand for Sabudana and sweet potatoes during Mahashivaratri fasting.",
+    "special_menu_tip": "Serve Sabudana Khichdi, Chilled Lemon Vadapappu, and Pepper Lemon Tea."
+  },
+  {
+    "season": "Spring (ఫాల్గుణము - Phalgunam)",
+    "telugu_month": "Phalgunam (ఫాల్గుణ మాసము - February/March)",
+    "sub_season": "Early Spring / Holi Festival Season",
+    "recommended_categories": ["Spring Thandai", "Colorful Desserts", "Fresh Herb Dishes"],
+    "seasonal_ingredients": ["Almonds (Badam)", "Pistachio", "Kesar (Saffron)", "Cardamom", "Rose Petals"],
+    "pricing_trend": "High seasonal demand for premium dry fruits, saffron, and Thandai ingredients for Holi.",
+    "special_menu_tip": "Offer Royal Kesar Badam Thandai, Malpua with Rabri, and Fresh Spring Veg Salad."
   }
 ]

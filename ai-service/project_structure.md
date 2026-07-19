@@ -33,31 +33,36 @@ ai-service/
 └── tests/                    # Unit verification tests suites
 ```
 
-languagelanguage---
+---
 
 ## Implemented GenAI Features
 
 The system implements 8 advanced AI features designed to optimize back-of-house (BOH) operations:
 
-### 1. Hybrid Multilingual Chatbot
+### 1. Hybrid Multilingual Chatbot & BOH Safety Assistant
 
 * Uses hybrid semantic vector searches (FAISS L2 distance) combined with fallback exact keyword indexing.
-* Determines user's script language (Telugu, English, Tenglish/Roman Telugu) and replies in the matching style.
+* Employs regex word-boundary tokenization (`re.findall(r'\b[a-z]+\b')`) to accurately detect language (English, Telugu, Tenglish) without false positives.
+* Includes 45 master BOH kitchen safety, injury first-aid (Pasupu / turmeric on chopping cuts), and emergency protocols (`safety.json`).
+* Integrates sub-seasons and 12 traditional Telugu lunar months calendar (`seasonal.json`) with festival menu recommendations.
+* Handles casual BOH staff equipment layout queries (knives, aprons, towels, trash bins, clean plates, cutting boards, keys).
 
 ### 2. Intelligent Inventory Optimization
 
 * Exposes `POST /optimization` to calculate food waste prevented and estimated revenue margins.
 * Identifies low-stock conditions and generates replenishment package lists dynamically.
+* Overrides priority to `HIGH` for short-expiry items (1-2 days).
 
 ### 3. Smart Recipe Recommendations
 
 * Validates available ingredients against FAISS and scores compatibility with matched/missing ingredients metrics.
+* Leverages master recipe datasets featuring Andhra Pradesh district specialties (Kakinada, Bhimavaram, Guntur, Rayalaseema, Nellore, Vizag), Telangana, Tamil Nadu, Kerala, Karnataka, Goa, Maharashtra, and Punjab dishes.
 
 ### 4. Daily Menu Specials Planner
 
 * Structures and sorts proposed daily menu specials prioritizing short-expiry items (1-2 days), fewest missing ingredients, and highest estimated profit margins.
 
-### 5. AI Pricing suggestions
+### 5. AI Pricing Suggestions
 
 * Classifies pricing strategies (Premium/Standard/Value) and market positioning (Upscale/Mid-range/Budget) based on estimated gross profit percentages.
 
@@ -67,11 +72,12 @@ The system implements 8 advanced AI features designed to optimize back-of-house 
 
 ### 7. Replenishment Supplier Messaging
 
-* Generates drafted replenishment letters. Formats email subject lines, custom restaurant branding signatures, urgency indicators, and tracking order IDs (`KS-PR-XXXXX`).
+* Generates drafted replenishment letters. Formats email subject lines, custom restaurant branding signatures, urgency indicators, commercial gas suppliers, and tracking order IDs (`KS-PR-XXXXX`).
 
-### 8. Semantic RAG Search
+### 8. Semantic RAG Search & Regional Pairings
 
 * Exposes a semantic retriever interface to run raw queries over the vector database index.
+* Features regional and seasonal dish pairings strictly adhering to master `{"ingredient": "...", "pairs": [...]}` schema (`pairing.json`).
 
 ---
 
@@ -104,9 +110,7 @@ The **OpenClaw Orchestrator** functions as a supervisor coordinating independent
   └── Execution Logger ───→ (Records step execution times & warning arrays)
 ```
 
-languagelanguage---
+---
 
-> [!NOTE]
->
-> * For the quick run instructions, see the main  **[Project README.md](file:///e:/TCWING_PRJ/ai-service/README.md)**.
-> * For directory logic details, see the  **[Project Logic Explanation (Project_logic_explanation.md)](file:///e:/TCWING_PRJ/ai-service/Project_logic_explanation.md)**.
+* For quick run instructions, see the main Project README.md (README.md).
+* For directory logic details, see the Project Logic Explanation (Project_logic_explanation.md).

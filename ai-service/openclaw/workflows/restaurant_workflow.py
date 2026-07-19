@@ -103,21 +103,28 @@ class RestaurantWorkflowOrchestrator:
             menu_result = {"special_menu": []}
 
         # =========================================================
-        # STEP 4: Pricing Suggestions
+        # STEP 4: Pricing Suggestions (Parallel Execution)
         # =========================================================
-        logger.info("OpenClaw Orchestrator: Executing Step 4 - Pricing and Margins")
+        logger.info("OpenClaw Orchestrator: Executing Step 4 - Pricing and Margins (Parallel)")
         specials = menu_result.get("special_menu", []) if menu_result else []
         pricing_results = []
-        for spec in specials:
-            dish_name = spec.get("dish")
-            try:
-                # Assume standard default cost of ₹150 for price suggest calculations
-                price_result = self.gateway.trigger_pricing_suggestions(dish_name, 150.0)
-                pricing_results.append(price_result)
-            except Exception as e:
-                logger.error(f"OpenClaw Orchestrator: Pricing failed for '{dish_name}': {str(e)}")
-                warnings.append(f"Pricing failed for '{dish_name}': {str(e)}")
-                action_plan["workflow_status"] = "partial_success"
+        import concurrent.futures
+
+        if specials:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=min(5, len(specials))) as executor:
+                futures = {
+                    executor.submit(self.gateway.trigger_pricing_suggestions, spec.get("dish"), 150.0): spec.get("dish")
+                    for spec in specials if spec.get("dish")
+                }
+                for future in concurrent.futures.as_completed(futures):
+                    dish_name = futures[future]
+                    try:
+                        price_result = future.result()
+                        pricing_results.append(price_result)
+                    except Exception as e:
+                        logger.error(f"OpenClaw Orchestrator: Pricing failed for '{dish_name}': {str(e)}")
+                        warnings.append(f"Pricing failed for '{dish_name}': {str(e)}")
+                        action_plan["workflow_status"] = "partial_success"
         action_plan["pricing"] = pricing_results
 
         # =========================================================
@@ -135,9 +142,9 @@ class RestaurantWorkflowOrchestrator:
                 action_plan["workflow_status"] = "partial_success"
 
         # =========================================================
-        # STEP 6: Supplier Replenishment Messaging
+        # STEP 6: Supplier Replenishment Messaging (Parallel Execution)
         # =========================================================
-        logger.info("OpenClaw Orchestrator: Executing Step 6 - Supplier Messages Drafting")
+        logger.info("OpenClaw Orchestrator: Executing Step 6 - Supplier Messages Drafting (Parallel)")
         
         # Check optimization outputs: ONLY draft replenishment orders if optimization recommends purchase
         purchase_required = False
@@ -149,22 +156,27 @@ class RestaurantWorkflowOrchestrator:
         supplier_results = []
         
         if purchase_required and purchase_items:
-            # Trigger supplier drafts for low-stock ingredients recommended for purchase
-            for item in purchase_items:
-                ing = item.get("ingredient")
-                qty = item.get("required_quantity", "20 kg")
-                try:
-                    supplier_result = self.gateway.trigger_supplier_messaging(
+            # Trigger supplier drafts in parallel for low-stock ingredients recommended for purchase
+            with concurrent.futures.ThreadPoolExecutor(max_workers=min(5, len(purchase_items))) as executor:
+                futures = {
+                    executor.submit(
+                        self.gateway.trigger_supplier_messaging,
                         supplier_name="Fresh Foods Inc",
-                        ingredient=ing,
-                        qty=qty,
+                        ingredient=item.get("ingredient"),
+                        qty=item.get("required_quantity", "20 kg"),
                         date="Tomorrow"
-                    )
-                    supplier_results.append(supplier_result)
-                except Exception as e:
-                    logger.error(f"OpenClaw Orchestrator: Supplier message failed for '{ing}': {str(e)}")
-                    warnings.append(f"Supplier message failed for '{ing}': {str(e)}")
-                    action_plan["workflow_status"] = "partial_success"
+                    ): item.get("ingredient")
+                    for item in purchase_items if item.get("ingredient")
+                }
+                for future in concurrent.futures.as_completed(futures):
+                    ing = futures[future]
+                    try:
+                        supplier_result = future.result()
+                        supplier_results.append(supplier_result)
+                    except Exception as e:
+                        logger.error(f"OpenClaw Orchestrator: Supplier message failed for '{ing}': {str(e)}")
+                        warnings.append(f"Supplier message failed for '{ing}': {str(e)}")
+                        action_plan["workflow_status"] = "partial_success"
                     
         action_plan["supplier"] = supplier_results
 

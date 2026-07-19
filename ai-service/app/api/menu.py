@@ -7,8 +7,13 @@ from app.services.menu_service import MenuService
 router = APIRouter()
 logger = logging.getLogger("app.api")
 
+_menu_service_instance = None
+
 def get_menu_service() -> MenuService:
-    return MenuService()
+    global _menu_service_instance
+    if _menu_service_instance is None:
+        _menu_service_instance = MenuService()
+    return _menu_service_instance
 
 @router.post("/menu", response_model=ApiResponse[MenuResponseData])
 def generate_menu(request: MenuRequest, service: MenuService = Depends(get_menu_service)):

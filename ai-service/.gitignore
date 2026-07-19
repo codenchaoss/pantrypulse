@@ -1,27 +1,52 @@
-# Virtual Environment
+# Environment & Secrets (Never commit actual API keys)
+.env
+.env.local
+.env.*.local
+
+
+# Python Virtual Environments
+venv/
 .venv/
 env/
-venv/
 ENV/
+env.bak/
+venv.bak/
 
-# Python compiled cache
+# Byte-compiled / Optimized / DLL files
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*$py.class
+*.so
 *.pyd
+
+# Testing & Coverage
 .pytest_cache/
 .coverage
 htmlcov/
+.nox/
+.hypothesis/
 
-# Local configuration
-.env
-.env.*
-!.env.example
-
-# Vector databases / indices
+# Vector Databases & Embeddings Indices (Generated dynamically)
 vector_db/faiss_index/
+*.index
+*.pkl
 
-# IDE files
+# IDE & Editor Files
 .vscode/
 .idea/
 *.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# System & OS Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs & Temporary Files
+*.log
+tmp/
+scratch/

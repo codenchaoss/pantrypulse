@@ -15,10 +15,10 @@ class ProviderManager:
     def __init__(self):
         self.registry = ProviderRegistry()
 
-    def generate(self, prompt: str, context_chunks: Optional[List[Dict[str, Any]]] = None) -> Dict[str, Any]:
+    def generate(self, prompt: str, context_chunks: Optional[List[Dict[str, Any]]] = None, **kwargs) -> Dict[str, Any]:
         """
         Routes the prompt to the highest priority active provider.
-        If all fail, executes RAG-only fallback text synthesis.
+        If all fail, executes RAG-only fallback response.
         """
         active_providers = self.registry.get_active_providers_in_order()
         logger.info(f"ProviderManager: Found active provider queue: {active_providers}")
@@ -32,7 +32,7 @@ class ProviderManager:
 
             # Define execution wrapper for retry manager
             def run_provider():
-                return provider.generate(prompt)
+                return provider.generate(prompt, **kwargs)
 
             try:
                 # Execute provider with retries for transient errors
@@ -48,9 +48,17 @@ class ProviderManager:
                         "error": None
                     }
                 else:
-                    logger.warning(f"ProviderManager: Provider {name} failed with error: {res.get('error')}")
+                    err_msg = str(res.get("error", ""))
+                    logger.warning(f"ProviderManager: Provider {name} failed with error: {err_msg}")
+                    if any(code in err_msg for code in ["404", "401", "403"]) or any(kw in err_msg.lower() for kw in ["not found", "unauthorized", "invalid", "quota"]):
+                        logger.error(f"ProviderRegistry: Marking provider '{name}' as permanently unhealthy due to: {err_msg}")
+                        ProviderRegistry._unhealthy_providers.add(name)
             except Exception as e:
-                logger.warning(f"ProviderManager: Provider {name} raised exception: {str(e)}")
+                err_msg = str(e)
+                logger.warning(f"ProviderManager: Provider {name} raised exception: {err_msg}")
+                if any(code in err_msg for code in ["404", "401", "403"]) or any(kw in err_msg.lower() for kw in ["not found", "unauthorized", "invalid", "quota"]):
+                    logger.error(f"ProviderRegistry: Marking provider '{name}' as permanently unhealthy due to: {err_msg}")
+                    ProviderRegistry._unhealthy_providers.add(name)
 
         # If we reach here, all cloud providers failed. Fallback to RAG-only mode!
         logger.error("ProviderManager: All cloud LLM providers failed or are unconfigured. Triggering RAG-only fallback...")

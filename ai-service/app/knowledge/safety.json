@@ -9742,5 +9742,341 @@
     "storage": "Pantry",
     "recommended_temperature": "15°C to 22°C",
     "maximum_shelf_life_days": 730
+  },
+  {
+    "topic": "First Aid - Chopping Cut & Turmeric Application (చేయి కట్ అయినప్పుడు)",
+    "title": "Chopping Cut & Turmeric First Aid Protocol",
+    "description": "When a chef or kitchen staff cuts their finger/hand while chopping (చేయి కట్ అయ్యింది): 1. Immediately rinse the wound under cold running tap water to wash away dirt. 2. Apply pressure with a clean sterile cloth to stop bleeding. 3. Apply clean organic Turmeric powder (పసుపు) or antiseptic cream as a traditional antibacterial first-aid antiseptic to prevent infection and stop minor bleeding. 4. Wrap with a waterproof bandage or finger cot. 5. Crucial: The staff member must wear a glove before returning to food prep, or be reassigned away from direct food contact to ensure 100% food hygiene.",
+    "rule": "Wash cut under cold running water, apply pressure, apply organic turmeric (పసుపు) or antiseptic cream, wrap with waterproof bandage, wear a glove before returning to food prep.",
+    "category": "First Aid & Kitchen Injury"
+  },
+  {
+    "topic": "First Aid - Hot Oil & Steam Burns (నూనె / ఆవిరి కాలడం)",
+    "title": "Hot Oil & Steam Burn First Aid",
+    "description": "For hot oil splashes or steam burns: 1. Cool the burned area immediately under cool running water for at least 10 to 15 minutes. 2. Do NOT apply ice directly or pop blisters. 3. Apply aloe vera gel or burn ointment. 4. Seek medical attention for deep or large burns.",
+    "rule": "Cool under running water for 15 mins. Never apply ice directly. Use burn gel.",
+    "category": "First Aid & Kitchen Injury"
+  },
+  {
+    "topic": "First Aid - Slippery Floor & Falls (జారుడు నేల)",
+    "title": "Slips, Trips & Wet Floor Safety",
+    "description": "To prevent slips and falls: 1. Immediately wipe any oil, water, or sauce spills on the floor. 2. Place yellow 'Caution: Wet Floor' warning signs. 3. All kitchen staff must wear certified non-slip rubber-soled footwear.",
+    "rule": "Clean spills immediately, use wet floor sign, wear non-slip shoes.",
+    "category": "BOH Floor Safety"
+  },
+  {
+    "topic": "Emergency - Commercial Gas Leak Protocol (గ్యాస్ లీక్ అయితే)",
+    "title": "LPG Gas Leakage Emergency Response",
+    "description": "If gas smell or LPG leak is detected (గ్యాస్ లీక్ అయ్యింది): 1. Immediately turn off the main gas regulator valve knob. 2. Open all doors and windows to vent gas. 3. DO NOT touch any electrical switches, exhaust fans, or light buttons. 4. Evacuate kitchen staff. 5. Call Deccan Commercial LPG Gas emergency helpline immediately.",
+    "rule": "Turn off main regulator knob, open doors/windows, do NOT touch electrical switches, evacuate, call emergency gas hotline.",
+    "category": "Gas & Utility Emergency"
+  },
+  {
+    "topic": "Leftover Used Cooking Oil Management (మిగిలిన నూనె ఏమి చేయాలి)",
+    "title": "Used Oil Storage & Disposal Rules",
+    "description": "Handling leftover frying oil (నూనె మిగిలితే): 1. Allow oil to cool completely before handling. 2. Filter out burnt food crumbs through a fine mesh strainer into a clean stainless steel container. 3. Never reuse oil more than 2-3 times to prevent toxic trans-fats. 4. NEVER pour used oil down kitchen sink drains (it solidifies and blocks plumbing). 5. Store used oil in sealed drums for biodiesel recycling collection.",
+    "rule": "Cool & strain oil into clean container. Max 2-3 reuses. Never pour oil down sink drains.",
+    "category": "Oil Safety & Waste Management"
+  },
+  {
+    "topic": "Emergency - Hot Oil Fire (నూనె మంట పడితే)",
+    "title": "Oil & Grease Fire Emergency Action",
+    "description": "If hot oil catches fire in a pan or fryer (నూనెలో మంటలు వచ్చాయి): 1. NEVER EVER pour water on an oil fire! Water explodes hot oil into massive fireballs. 2. Turn off the burner stove heat source immediately. 3. Cover the pan with a tight-fitting metal lid, baking sheet, or damp heavy towel to smother flames. 4. Use a Class K or Class BC fire extinguisher if fire spreads.",
+    "rule": "NEVER use water on oil fire. Turn off stove burner, smother pan with metal lid or damp towel.",
+    "category": "Fire Safety"
+  },
+  {
+    "topic": "Food Spoilage & Bad Odor Check (ఫుడ్ పాడైతే / దుర్వాసన వస్తే)",
+    "title": "Spoiled Food Inspection & Rejection",
+    "description": "If meat, dairy, or cooked food smells sour, foul, or feels slimy (ఫుడ్ పాడైంది): 1. Immediately throw away spoiled items in outer waste bins. 2. NEVER taste questionable food to check spoilage. 3. Sanitize the storage shelf and container.",
+    "rule": "If food smells sour/foul or feels slimy, discard immediately. Never taste suspect food.",
+    "category": "Food Hygiene & Spoilage"
+  },
+  {
+    "topic": "Cross Contamination Prevention (మాంసం కూరగాయలు కలవకుండా)",
+    "title": "Raw Meat & Produce Separation",
+    "description": "To prevent cross-contamination: 1. Use color-coded cutting boards (Red for Raw Meat, Green for Produce, Yellow for Poultry). 2. Store raw meat on the lowest shelf of the refrigerator below cooked food to prevent drippings. 3. Wash hands and knives after touching raw meat.",
+    "rule": "Use color-coded cutting boards. Store raw meat on bottom fridge shelf below cooked food.",
+    "category": "Cross Contamination Safety"
+  },
+  {
+    "topic": "Power Outage & Fridge Food Preservation (కరెంట్ పోయినప్పుడు)",
+    "title": "Power Outage Refrigeration Protocol",
+    "description": "During power cuts (కరెంట్ పోతే): 1. Keep refrigerator and walk-in cooler doors closed as much as possible. 2. Refrigerator keeps food cold for 4 hours if unopened. 3. Deep freezers keep food safe for 24-48 hours. 4. Discard perishable dairy/meat if fridge temp exceeds 10°C for over 4 hours.",
+    "rule": "Keep fridge doors closed. Food stays safe for 4h in fridge, 24-48h in freezer.",
+    "category": "Cold Chain & Equipment Safety"
+  },
+  {
+    "topic": "Emergency - Chemical Eye Splash (కెమికల్ కంట్లో పడితే)",
+    "title": "Chemical Splash First Aid",
+    "description": "If degreaser, bleach, or cleaning chemical splashes into eyes: 1. Rush to the eyewash station immediately. 2. Flush eyes with cold running water continuously for 15 minutes holding eyelids open. 3. Seek medical emergency attention.",
+    "rule": "Flush eyes at eyewash sink for 15 mins continuously. Seek medical aid.",
+    "category": "First Aid & Chemical Safety"
+  },
+  {
+    "topic": "Bulging & Dented Canned Food Check (డబ్బా పొంగితే)",
+    "title": "Canned Goods Safety & Botulism Prevention",
+    "description": "Inspect tin cans and canned ingredients: 1. Never open or use cans that are swollen, bulging, rusted, or severely dented. 2. Bulging cans indicate deadly Botulism toxin gas buildup. Discard immediately.",
+    "rule": "Discard swollen, bulging, or dented cans immediately. Never open bulging cans.",
+    "category": "Canned Food Safety"
+  },
+  {
+    "topic": "Broken Glass in Prep Counter (గాజు పగిలితే)",
+    "title": "Broken Glass Cleanup & Food Isolation",
+    "description": "If glass bottles or tableware break in food prep area (గాజు గ్లాస్ పగిలితే): 1. Halt prep work and isolate the area. 2. Throw away all exposed food, ice, or garnishes on nearby counters. 3. Sweep glass with broom and dustpan. 4. Wipe fine splinters with damp paper towel.",
+    "rule": "Halt prep, throw away exposed food nearby, sweep glass, wipe splinters with damp paper towel.",
+    "category": "Glass Hazard & Kitchen Safety"
+  },
+  {
+    "topic": "Mandoline Slicer & Cheese Grater Safety (తురుముతుంటే దెబ్బ తగలకుండా)",
+    "title": "Slicer & Grater Safety Guard Rule",
+    "description": "When using mandoline slicers or cheese graters: 1. Always use the food safety hand guard / push block attachment. 2. Never push vegetables with bare fingers when approaching blade end.",
+    "rule": "Always use safety hand guard push block on mandoline slicers and graters.",
+    "category": "Equipment Safety"
+  },
+  {
+    "topic": "Pest Control & Pantry Contamination (పందికొక్కు/బొద్దింకలు కనిపిస్తే)",
+    "title": "Pest Sighting & Pantry Protection",
+    "description": "If pests or insects are sighted in dry pantry: 1. Report to Shift Manager immediately. 2. Inspect flour/grain bags for nibble marks and discard contaminated bags. 3. Store all dry grains in sealed heavy plastic bins.",
+    "rule": "Report pest sightings, discard nibbled bags, store grains in sealed plastic bins.",
+    "category": "Pest Control Safety"
+  },
+  {
+    "topic": "Deep Fryer Splatter Prevention (నూనె చిట్లకుండా ఉండటానికి)",
+    "title": "Moisture & Oil Splatter Prevention",
+    "description": "Before dropping raw chicken, paneer, or french fries into hot oil: 1. Thoroughly pat food dry with paper towels to remove surface water. 2. Ice or water droplets cause explosive hot oil splattering.",
+    "rule": "Pat food dry before frying. Never drop wet or icy items into hot oil.",
+    "category": "Frying Safety"
+  },
+  {
+    "topic": "Hot Cookware Handling (వేడి బాండీలు పట్టుకునేటప్పుడు)",
+    "title": "Hot Pan & Oven Mitt Rule",
+    "description": "When moving hot kadais, pans, or baking trays: 1. ALWAYS use thick DRY oven mitts or dry towels. 2. NEVER use a wet kitchen towel—water conducts heat instantly and creates severe steam burns on hands.",
+    "rule": "Always use DRY oven mitts. Never use wet towels to lift hot pans.",
+    "category": "Burn Prevention"
+  },
+  {
+    "topic": "Raw Poultry Washing Safety (పచ్చి చికెన్ నీళ్ళలో కడగవచ్చా)",
+    "title": "Raw Chicken Washing Contamination Warning",
+    "description": "Rinsing raw chicken under tap water (పచ్చి చికెన్ కడగవచ్చా): 1. DO NOT wash raw chicken under running sink water. Water droplets splash Salmonella bacteria up to 3 feet onto counters and clean dishes. 2. Pat raw chicken dry with paper towels directly before cooking.",
+    "rule": "Do NOT wash raw chicken under running sink tap. Pat dry with paper towels directly.",
+    "category": "Poultry Hygiene"
+  },
+  {
+    "topic": "Microwave Metal & Foil Spark Hazard (మైక్రోవేవ్‌లో స్టీల్ గిన్నె పెట్టవచ్చా)",
+    "title": "Microwave Metal Safety",
+    "description": "Using containers in microwave oven: 1. NEVER place stainless steel bowls, metal utensils, or aluminum foil inside microwave. 2. Metal causes electric arcing, sparks, and microwave fires. Use microwave-safe glass or ceramic only.",
+    "rule": "Never put metal or aluminum foil in microwave. Use microwave-safe glass/ceramic only.",
+    "category": "Appliance Safety"
+  },
+  {
+    "topic": "Raw Egg Freshness Float Test (గుడ్డు మంచందో పాడైందో ఎలా తెలవాలి)",
+    "title": "Egg Freshness Water Float Test",
+    "description": "Testing if raw eggs are fresh or rotten (గుడ్డు టెస్టింగ్): 1. Place raw egg in a bowl of cold water. 2. Fresh eggs sink flat to the bottom. 3. Spoiled rotten eggs float to the top due to gas buildup (discard floating eggs immediately).",
+    "rule": "Fresh eggs sink to bottom; rotten eggs float to top in water test.",
+    "category": "Ingredient Quality Check"
+  },
+  {
+    "topic": "Blender Hot Liquid Venting (మిక్సీలో వేడి సూప్ గ్రైండ్ చేస్తే)",
+    "title": "Blending Hot Soups & Liquids",
+    "description": "Blending hot soup or hot sauces in blender/mixer: 1. Never fill blender container over halfway with hot liquid. 2. Remove center cap on lid to vent steam pressure. 3. Cover lid opening with folded towel before blending at low speed to prevent steam explosion.",
+    "rule": "Fill blender max halfway with hot liquids, remove lid center cap to vent steam, cover with towel.",
+    "category": "Kitchen Equipment Safety"
+  },
+  {
+    "topic": "Falling Knife Safety Rule (కత్తి కింద పడుతుంటే)",
+    "title": "Falling Knife Safety Reaction",
+    "description": "If a sharp knife slips and falls from counter: 1. NEVER attempt to catch a falling knife in mid-air! 2. Step back immediately, pull feet away, and let it fall to the floor. 3. Sanitize blade before picking up.",
+    "rule": "A falling knife has no handle! Never catch a falling knife—step back immediately.",
+    "category": "Knife Safety"
+  },
+  {
+    "topic": "Re-freezing Thawed Meat Warning (కరిగించిన చికెన్‌ని మళ్లీ ఫ్రీజ్ చేయవచ్చా)",
+    "title": "Thawed Raw Meat Re-freezing Warning",
+    "description": "Handling thawed frozen meat: 1. Never re-freeze raw meat that has been fully thawed at room temperature. 2. Re-freezing encourages rapid bacterial growth and ruins meat texture. Cook thawed meat immediately.",
+    "rule": "Never re-freeze raw meat thawed at room temp. Cook thawed meat immediately.",
+    "category": "Meat Storage Safety"
+  },
+  {
+    "topic": "Overcrowding Frying Pan (ఫ్రై చేసేటప్పుడు గిన్నెలో ఎక్కువ వేస్తే)",
+    "title": "Frying Pan Loading Rule",
+    "description": "Frying food in batches: 1. Do not overcrowd deep fryers or frying pans. 2. Overcrowding drops oil temperature rapidly, causing food to absorb excess oil and become soggy instead of crispy.",
+    "rule": "Fry in small batches. Overcrowding drops oil temp and makes food soggy.",
+    "category": "Cooking Safety & Quality"
+  },
+  {
+    "topic": "Thawing Frozen Meat Safely (ఫ్రోజెన్ చికెన్ డీఫ్రాస్ట్ ఎలా చేయాలి)",
+    "title": "Safe Defrosting Protocols",
+    "description": "Safely thawing frozen poultry/meat: 1. Thaw in refrigerator bottom shelf overnight (best method). 2. Submerge sealed meat pack in cold water bath changed every 30 mins. 3. Never leave frozen meat thawing on warm counter room temp.",
+    "rule": "Thaw in fridge overnight or cold water bath. Never leave thawing on warm counter.",
+    "category": "Defrosting Safety"
+  },
+  {
+    "topic": "Mold on Bread & Bakery Items (బ్రెడ్ మీద మచ్చలు/నాచు వస్తే)",
+    "title": "Bakery Mold Safety",
+    "description": "If mold spots appear on bread slice or soft bakery items: 1. Discard the ENTIRE loaf or package immediately. 2. Mold roots spread unseen microscopic toxins throughout porous bread. Do not just cut off green spots.",
+    "rule": "Discard entire bread loaf if mold appears. Mold roots spread deep through porous bread.",
+    "category": "Bakery Safety"
+  },
+  {
+    "topic": "Cooked Rice Storage & Spoilage Toxin (అన్నం బయట ఉంచితే ఏమవుతుంది)",
+    "title": "Bacillus Cereus Rice Poisoning Prevention",
+    "description": "Handling cooked rice: 1. Never leave cooked rice at room temperature for over 2 hours. 2. Room temp rice breeds Bacillus cereus bacteria toxins that survive reheating. 3. Cool rice quickly and store in fridge within 1 hour.",
+    "rule": "Never leave cooked rice at room temp >2 hours. Refrigerate within 1 hour.",
+    "category": "Rice & Grain Safety"
+  },
+  {
+    "topic": "Cutting Board Sanitization (కటింగ్ బోర్డ్ కడగడం ఎలా)",
+    "title": "Cutting Board Washing & Sanitizing",
+    "description": "Sanitizing cutting boards after use: 1. Wash cutting boards with hot soapy water. 2. Spray with food-safe sanitizer or diluted bleach water solution after cutting raw meat. 3. Air dry completely in vertical rack.",
+    "rule": "Wash with hot soapy water, sanitize after raw meat, air dry vertically in rack.",
+    "category": "Sanitization"
+  },
+  {
+    "topic": "FIFO Stock Rotation Rule (పాత సరుకులు ముందు వాడటం)",
+    "title": "First-In, First-Out (FIFO) Rotation",
+    "description": "Managing pantry and cold storage inventory: 1. Always place new stock behind older stock on shelves. 2. Use older ingredients with earlier expiry dates first (FIFO). 3. Label all opened packages with date.",
+    "rule": "Place new stock behind older stock. Use earlier expiry date items first (FIFO).",
+    "category": "Inventory Safety"
+  },
+  {
+    "topic": "Cooling Hot Soups & Curries (వేడి కూర/సూప్ ఫ్రిజ్‌లో పెట్టవచ్చా)",
+    "title": "Rapid Cooling Protocols for Hot Food",
+    "description": "Cooling hot large pots of gravy/soup before refrigeration: 1. Never put piping hot large pots directly into walk-in cooler (it raises cooler internal temp and spoils nearby food). 2. Divide hot food into shallow pans or use ice baths to cool to 21°C within 2 hours.",
+    "rule": "Cool hot food in shallow pans or ice bath before placing in fridge. Never put piping hot pots in cooler.",
+    "category": "Temperature Control"
+  },
+  {
+    "topic": "Kitchen Staff Hairnet & Hygiene Rule (జుట్టు పడకుండా)",
+    "title": "Staff Personal Hygiene & Hair Restraints",
+    "description": "Kitchen staff dress code: 1. All staff must wear clean hairnets or chef caps at all times in kitchen area. 2. Beard nets required for staff with facial hair. 3. Remove wristwatches and rings before prep.",
+    "rule": "Wear hairnets/chef caps and beard covers at all times. Remove jewelry before prep.",
+    "category": "Personal Hygiene"
+  },
+  {
+    "topic": "Handwashing 20-Second Rule (చేతులు ఎలా కడగాలి)",
+    "title": "Standard BOH Handwashing Protocol",
+    "description": "Washing hands in kitchen: 1. Wash hands with warm running water and antibacterial soap for at least 20 seconds. 2. Wash before starting prep, after handling raw meat, after garbage handling, and after bathroom breaks.",
+    "rule": "Scrub hands with soap and warm water for 20 seconds before prep and after raw meat/trash.",
+    "category": "Hand Hygiene"
+  },
+  {
+    "topic": "Broken Plate & Glass Disposal Safety (పగిలిన ప్లేట్లు ఎక్కడ వేయాలి)",
+    "title": "Sharp Glass & Ceramic Disposal Rule",
+    "description": "Disposing of broken crockery, glass, or ceramics: 1. Wrap broken sharp pieces in thick cardboard or heavy paper box. 2. Label container 'SHARP GLASS' before tossing into trash to protect cleaning staff from cuts.",
+    "rule": "Wrap sharp broken glass/crockery in cardboard before trash disposal. Label 'SHARP GLASS'.",
+    "category": "Waste Safety"
+  },
+  {
+    "topic": "Exhaust Hood Filter Cleaning (పొగగొట్టం నూనె జిడ్డు శుభ్రం)",
+    "title": "Exhaust Hood Grease Filter Maintenance",
+    "description": "Kitchen hood filter maintenance: 1. Clean exhaust hood grease filters weekly with degreaser chemical. 2. Accumulated grease in hood ducting is the #1 cause of commercial kitchen range fires.",
+    "rule": "Clean hood grease filters weekly. Accumulated duct grease causes commercial kitchen fires.",
+    "category": "Fire & Facility Safety"
+  },
+  {
+    "topic": "Electrical Safety & Wet Hands (తడి చేతులతో స్విచ్ వేస్తే)",
+    "title": "Wet Hands Electrical Shock Prevention",
+    "description": "Operating electrical equipment: 1. NEVER touch electrical switches, plugs, blenders, or mixers with wet hands. 2. Thoroughly dry hands before operating kitchen electrical appliances to avoid severe electrical shocks.",
+    "rule": "Never touch electrical switches, plugs, or mixers with wet hands. Dry hands thoroughly first.",
+    "category": "Electrical Safety"
+  },
+  {
+    "topic": "Pressure Cooker Safety & Steam Release (కుక్కర్ విజిల్ మూత తీసేటప్పుడు)",
+    "title": "Pressure Cooker Steam Safety",
+    "description": "Opening pressure cookers safely: 1. Never force open a hot pressure cooker lid! 2. Wait until steam pressure releases fully and whistle weight drops down naturally, or run cool water over lid to cool down before opening.",
+    "rule": "Never force open a hot pressure cooker. Wait for steam to vent fully before opening lid.",
+    "category": "Equipment Safety"
+  },
+  {
+    "topic": "First Aid - Choking & Heimlich Maneuver (ఎవరైనా ఊపిరి ఆడకపోతే)",
+    "title": "Staff & Guest Choking First Aid",
+    "description": "If someone is choking on food and cannot breathe or speak: 1. Perform Heimlich maneuver (stand behind victim, wrap arms around waist, make a fist above navel, give quick upward thrusts). 2. Call emergency medical team immediately.",
+    "rule": "Perform Heimlich maneuver (upward abdominal thrusts from behind) for choking victims. Call emergency medical aid.",
+    "category": "First Aid & Emergency"
+  },
+  {
+    "topic": "Deep Fryer Water Splash Explosion (నూనెలో నీళ్ళు/ఐస్ పడితే)",
+    "title": "Hot Oil Water Explosion Prevention",
+    "description": "Preventing fryer explosions: 1. Never drop ice cubes, wet ingredients, or water into hot fryer oil. 2. Water vaporizes 1,700 times its volume instantly, causing explosive hot oil splatters and violent fires.",
+    "rule": "Never drop ice or water into hot fryer oil. Water expands 1,700x as steam causing oil explosions.",
+    "category": "Frying Safety"
+  },
+  {
+    "topic": "Heavy Ergonomic Lifting (బరువైన పెట్టెలు మూటలు ఎత్తేటప్పుడు)",
+    "title": "Ergonomic Back Injury Prevention",
+    "description": "Lifting heavy rice/flour bags and oil cans: 1. Bend knees and lift with leg muscles, keeping back straight. 2. Never lift heavy loads by bending back. 3. Store heavy items on middle shelves between waist and knee height.",
+    "rule": "Bend knees and lift heavy bags with legs, not back. Keep heavy items on waist-height shelves.",
+    "category": "Ergonomics & Ergonomic Safety"
+  },
+  {
+    "topic": "Food Allergy Cross-Contact Prevention (అలర్జీ ఫుడ్ చేసేటప్పుడు)",
+    "title": "Allergen Cross-Contact Prevention",
+    "description": "Preparing allergen-free orders (peanut, gluten, dairy allergies): 1. Use clean sanitized pans, knives, and cutting boards. 2. Never use spoons contaminated with nuts, flour, or milk in allergen-free orders.",
+    "rule": "Use clean sanitized pans and utensils for allergen orders. Never cross-contaminate with nuts/dairy.",
+    "category": "Allergen Safety"
+  },
+  {
+    "topic": "Wet Plate Stacking & Mold Mildew Risk (తడి పళ్ళాలు అమరిస్తే)",
+    "title": "Crockery Air Drying Protocol",
+    "description": "Storing washed plates and bowls: 1. Never stack wet plates flat on top of each other. 2. Trapped moisture breeds foul mildew odors and bacterial slime. Air dry vertically in dish racks before stacking.",
+    "rule": "Air dry plates vertically in dish racks before stacking. Never stack wet crockery flat.",
+    "category": "Sanitization & Storage"
+  },
+  {
+    "topic": "Internal Cooking Temperature Probe (మాంసం ఎంతవరకు ఉడకాలి)",
+    "title": "Internal Food Cooking Temperatures",
+    "description": "Checking cooked meat safety with food thermometer: 1. Poultry/Chicken: 74°C (165°F). 2. Minced/Ground Meat: 71°C (160°F). 3. Whole Mutton/Beef Steaks: 63°C (145°F). 4. Insert thermometer into thickest part of meat.",
+    "rule": "Cook poultry to 74°C (165°F), minced meat to 71°C (160°F), mutton/steaks to 63°C (145°F).",
+    "category": "Temperature Control"
+  },
+  {
+    "topic": "Raw Sprouts Bacteria Warning (పచ్చి మొలకలు అలా తినవచ్చా)",
+    "title": "Raw Sprouts Cooking Requirement",
+    "description": "Serving bean sprouts and sprouted moong: 1. Always steam or blanch raw sprouts before serving in salads or gravies. 2. Warm moist sprouting conditions breed dangerous E. coli and Salmonella bacteria.",
+    "rule": "Always steam or blanch raw sprouts before serving to kill Salmonella and E. coli.",
+    "category": "Vegetable Hygiene"
+  },
+  {
+    "topic": "Slicing Round Vegetables Safely (గుండ్రటి కూరగాయలు కోసేటప్పుడు)",
+    "title": "Stable Base Cutting Technique",
+    "description": "Cutting round tomatoes, potatoes, or onions: 1. Slice round vegetables in half first to create a flat, non-slip base on the cutting board. 2. Cutting round wobbly vegetables leads to knife slippage cuts.",
+    "rule": "Cut round vegetables in half first to create a flat stable base on cutting board.",
+    "category": "Knife Safety"
+  },
+  {
+    "topic": "Ice Machine Sanitation & Glass Scoop Hazard (ఐస్ చేతితో లేదా గ్లాస్‌తో తీస్తే)",
+    "title": "Ice Machine Hygiene & Scoop Rules",
+    "description": "Handling ice cubes in ice machine: 1. Never scoop ice using drinking glassware (glass can chip into ice unnoticed). 2. Never use bare hands. 3. Always use designated plastic ice scoop stored in clean holder.",
+    "rule": "Never scoop ice with drinking glass or bare hands. Always use plastic ice scoop.",
+    "category": "Beverage Hygiene"
+  },
+  {
+    "topic": "Raw Honey Infant Botulism Warning (పిల్లలకు పచ్చి తేనె ఇవ్వవచ్చా)",
+    "title": "Raw Honey Age Restriction",
+    "description": "Serving raw honey in dishes or desserts: 1. NEVER serve raw honey to infants under 1 year of age. 2. Raw honey contains Clostridium botulinum spores that cause fatal infant botulism poisoning.",
+    "rule": "Never serve raw honey to infants under 1 year old (infant botulism risk).",
+    "category": "Ingredient Safety"
+  },
+  {
+    "topic": "Overheating Teflon Non-Stick Pans (నాన్-స్టిక్ పెనం ఎక్కువ వేడి చేస్తే)",
+    "title": "Teflon Non-Stick Pan Overheating Warning",
+    "description": "Using non-stick cookware: 1. Never heat empty Teflon non-stick pans on high heat flame over 260°C. 2. Overheated Teflon coating releases toxic polymer fumes that cause flu-like symptoms.",
+    "rule": "Never heat empty non-stick Teflon pans on high heat (prevents toxic PTFE fume release).",
+    "category": "Cookware Safety"
+  },
+  {
+    "topic": "Raw Fish Parasite Freeze Rule (సషీమి పచ్చి చేపల్లో పురుగులు)",
+    "title": "Raw Fish Parasite Destruction Protocol",
+    "description": "Serving raw fish or sushi/sashimi dishes: 1. Freeze raw fish at -20°C (-4°F) for at least 7 days before raw service. 2. Commercial freezing destroys harmful Anisakis parasite larvae.",
+    "rule": "Freeze raw fish intended for raw consumption at -20°C for 7 days to kill parasites.",
+    "category": "Seafood Hygiene"
+  },
+  {
+    "topic": "Dishwashing Chemical Dilution Ratios (సబ్బు సానిటైజర్ ఎంత కలపాలి)",
+    "title": "Chemical Dilution & Rinse Protocol",
+    "description": "Using dishwashing detergent and sanitizer chemicals: 1. Always follow manufacturer dilution ratios on chemical labels. 2. Concentrated chemical residue left on plates causes chemical burns and stomach distress.",
+    "rule": "Follow chemical dilution ratios on label. Thoroughly rinse plates with clean water.",
+    "category": "Chemical Safety"
   }
 ]

@@ -15,14 +15,14 @@ class LLMRouter:
     def __init__(self):
         self.manager = ProviderManager()
 
-    def generate(self, prompt: str, context_chunks: Optional[List[Dict[str, Any]]] = None) -> Dict[str, Any]:
+    def generate(self, prompt: str, context_chunks: Optional[List[Dict[str, Any]]] = None, **kwargs) -> Dict[str, Any]:
         """
         Executes LLM request through the ProviderManager with multi-provider fallback.
         """
         start_time = time.time()
         
         # Execute manager routing
-        res = self.manager.generate(prompt, context_chunks)
+        res = self.manager.generate(prompt, context_chunks, **kwargs)
         
         response_time_ms = int((time.time() - start_time) * 1000)
         provider_name = res.get("provider", "none")

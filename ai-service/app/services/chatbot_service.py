@@ -11,20 +11,28 @@ logger = logging.getLogger("app.llm")
 def detect_language(text: str) -> str:
     """
     Heuristic helper to detect language (english | telugu | roman_telugu).
+    Uses regex word boundaries to prevent false positives from English words.
     """
-    text_lower = text.lower()
+    if not text:
+        return "english"
+        
     # 1. Check if Telugu script characters exist (Unicode block 0C00-0C7F)
-    has_telugu = any(0x0C00 <= ord(char) <= 0x0C7F for char in text)
-    if has_telugu:
+    if any(0x0C00 <= ord(char) <= 0x0C7F for char in text):
         return "telugu"
         
-    # 2. Check for common Romanized Tenglish keywords
-    tenglish_keywords = [
+    text_lower = text.lower()
+    tenglish_words = {
         "cheyyali", "migilindi", "ela", "enti", "avuthundi", "undhi", "undha", "vundha", "vundhi",
         "leka", "mari", "kuda", "ala", "ippudu", "vacham", "cheddam", "kavali", "garu", "ayya",
-        "ivvali", "ledu", "chesi", "tinna", "tinali", "chudu", "andi", "vunda", "telusukovali", "unnaya"
-    ]
-    if any(word in text_lower for word in tenglish_keywords):
+        "ivvali", "ledu", "chesi", "tinna", "tinali", "chudu", "andi", "vunda", "telusukovali", "unnaya",
+        "ekkada", "yekkada", "akkada", "vunai", "vunnai", "unayi", "unnayi", "nunchi", "chaala", "chala",
+        "emi", "yemi", "yeda", "avunu", "kadu", "kaadu", "enduku", "yenduku", "evaru", "yevaru",
+        "cheppandi", "cheppu", "cheppava", "unai", "veyali", "ayipoindhi", "aipoyindi", "ayipoyindi",
+        "valla", "cheyyi", "cheyi", "supliers", "kud", "kudaa", "alaage", "elaga", "kaavali"
+    }
+    
+    words = set(re.findall(r'\b[a-z]+\b', text_lower))
+    if words.intersection(tenglish_words):
         return "roman_telugu"
         
     return "english"
@@ -235,16 +243,165 @@ class ChatbotService:
             context_strs.append(f"[Document #{i+1}] (Source: {source}, Title: {title})\n{content}\n")
             
         context_block = "\n".join(context_strs) if context_strs else "No relevant contexts retrieved."
+        
+        # 4.5 Multi-JSON Knowledge Base Context Injector (Scanning all 7 Knowledge Base Files)
+        kb = self._get_knowledge_base()
+        q_low = question.lower()
+        additional_contexts = []
+
+        # A. Suppliers
+        if any(w in q_low for w in ["supplier", "supliers", "inform", "restock", "replenish", "contact", "vendor", "expiring", "purchase", "gas", "fuel", "cylinder", "plate", "plates", "tissue", "tissues", "table", "tables", "dining", "infra", "infrastructure", "furniture", "crockery", "water", "drink", "drinks", "milk", "ice cream", "coffee", "tea", "bakery", "frozen"]):
+            sup_data = kb.get("suppliers.json", [])
+            sup_strs = ["=== SUPPLIER DIRECTORY & CONTACTS ==="]
+            for s in sup_data:
+                sup_strs.append(
+                    f"• {s.get('supplier_name')} (Category: {s.get('ingredient_category')}, City: {s.get('city')})\n"
+                    f"  Contact: {s.get('contact_email')} | Delivery: {s.get('delivery_time_hours')}h | Rating: {s.get('rating')}/5\n"
+                    f"  Supplies: {', '.join(s.get('supported_ingredients', []))}"
+                )
+            additional_contexts.append("\n".join(sup_strs))
+            sources.append("suppliers")
+
+        # B. Food Safety, First Aid & BOH Emergency Safety Protocols (45+ Categories)
+        safety_triggers = [
+            "safety", "temp", "temperature", "hygiene", "storage", "haccp", "clean", "shelf", "spoilage",
+            "cut", "cutiyindhi", "cutayindhi", "bleeding", "turmeric", "pasupu", "burn", "injury", "finger",
+            "hand", "wound", "first aid", "aid", "leak", "oil", "migilithe", "fire", "manta", "mantalu",
+            "smell", "wasana", "current", "power", "chemical", "glass", "pagilithe", "pest", "chicken",
+            "egg", "guddu", "rice", "annam", "blender", "mixi", "knife", "kathi", "thaw", "defrost",
+            "mold", "fifo", "hair", "juttu", "handwash", "hood", "spoiled", "rotten", "cooker", "electric",
+            "shock", "choking", "heimlich", "heavy", "lift", "allergy", "ice", "scoop", "honey", "teflon",
+            "parasite", "fish", "dilution"
+        ]
+        if any(w in q_low for w in safety_triggers):
+            safe_data = kb.get("safety.json", [])
+            safe_strs = ["=== BOH SAFETY, FIRST AID & EMERGENCY PROTOCOLS ==="]
+            
+            # Match specific safety topics based on query
+            matched_safety = []
+            for sf in safe_data:
+                topic = str(sf.get("topic", "")).lower()
+                title = str(sf.get("title", "")).lower()
+                desc = str(sf.get("description", "")).lower()
+                # Check if any trigger word matches topic/title/desc
+                if any(t in topic or t in title or t in desc for t in safety_triggers if len(t) > 3 and t in q_low):
+                    matched_safety.append(sf)
+            
+            if not matched_safety:
+                matched_safety = [sf for sf in safe_data if "topic" in sf or "title" in sf]
+                if not matched_safety:
+                    matched_safety = safe_data[-30:]  # Grab latest 30 BOH safety protocols
+                    
+            for sf in matched_safety[:5]:
+                title = sf.get("title") or sf.get("topic", "Safety Rule")
+                rule = sf.get("rule") or sf.get("description") or sf.get("content", "")
+                if title and rule:
+                    safe_strs.append(f"• {title}:\n  {rule}")
+            additional_contexts.append("\n".join(safe_strs))
+            sources.append("safety")
+
+        if any(w in q_low for w in ["chef", "note", "tip", "practice", "prep", "technique", "kitchen"]):
+            notes_data = kb.get("chef_notes.json", [])
+            note_strs = ["=== CHEF NOTES & BOH BEST PRACTICES ==="]
+            for n in notes_data[:5]:
+                topic = n.get("topic") or n.get("title", "Chef Tip")
+                note = n.get("note") or n.get("description") or n.get("content", "")
+                if topic and note:
+                    note_strs.append(f"• {topic}: {note}")
+            additional_contexts.append("\n".join(note_strs))
+            sources.append("chef_notes")
+
+        seasonal_triggers = [
+            "season", "seasonal", "monsoon", "summer", "winter", "spring", "autumn", "month", "masam",
+            "chaitram", "vaisakham", "jyeshtam", "aashadham", "shravanam", "bhadrapadam", "aashwayujam",
+            "karthikam", "margasiram", "pushyam", "magham", "phalgunam", "ugadi", "sankranti", "dasara"
+        ]
+        if any(w in q_low for w in seasonal_triggers):
+            sea_data = kb.get("seasonal.json", [])
+            sea_strs = ["=== SEASONAL & TELUGU MASAMULU CALENDAR ==="]
+            
+            matched_items = []
+            for sc in sea_data:
+                season_name = str(sc.get("season", "")).lower()
+                telugu_m = str(sc.get("telugu_month", "")).lower()
+                if any(t in season_name or t in telugu_m for t in seasonal_triggers if len(t) > 3 and t in q_low):
+                    matched_items.append(sc)
+            
+            if not matched_items:
+                matched_items = sea_data[-12:]
+                
+            for sc in matched_items[:6]:
+                period = sc.get("telugu_month") or sc.get("season") or "Season"
+                sub_s = sc.get("sub_season", "")
+                ings = sc.get("seasonal_ingredients") or sc.get("ingredients", [])
+                tip = sc.get("special_menu_tip", "")
+                sea_strs.append(
+                    f"• {period} ({sub_s}):\n"
+                    f"  Ingredients: {', '.join(ings) if isinstance(ings, list) else ings}\n"
+                    f"  Chef Tip: {tip}"
+                )
+            additional_contexts.append("\n".join(sea_strs))
+            sources.append("seasonal")
+
+        if any(w in q_low for w in ["pair", "pairing", "side", "combo", "combination", "serve with", "match"]):
+            pair_data = kb.get("pairing.json", [])
+            pair_strs = ["=== RECOMMENDED REGIONAL & SEASONAL DISH PAIRINGS ==="]
+            
+            matched_pairings = []
+            for p in pair_data:
+                ing_name = str(p.get("ingredient", "")).lower()
+                if any(k in ing_name for k in ["ragi", "rayalaseema", "godavari", "guntur", "nellore", "chettinad", "kerala", "mysore", "bisi", "summer", "monsoon", "autumn", "winter"] if k in q_low):
+                    matched_pairings.append(p)
+            
+            if not matched_pairings:
+                matched_pairings = pair_data[-16:]
+                
+            for p in matched_pairings[:6]:
+                ing = p.get("ingredient") or "Dish"
+                pairs = p.get("pairs", [])
+                if ing and pairs:
+                    pair_strs.append(f"• {ing}:\n  Pairs best with: {', '.join(pairs) if isinstance(pairs, list) else pairs}")
+            additional_contexts.append("\n".join(pair_strs))
+            sources.append("pairing")
+
+        if any(w in q_low for w in ["cost", "unit", "shelf", "price", "avg_cost"]):
+            ing_data = kb.get("ingredients.json", [])
+            ing_strs = ["=== INGREDIENT MASTER DATA ==="]
+            for ig in ing_data[:5]:
+                name = ig.get("name") or ig.get("ingredient")
+                cost = ig.get("avg_cost") or ig.get("cost", "N/A")
+                unit = ig.get("unit", "kg")
+                if name:
+                    ing_strs.append(f"• {name}: Avg Cost ₹{cost}/{unit}")
+            additional_contexts.append("\n".join(ing_strs))
+            sources.append("ingredients")
+
+        if any(w in q_low for w in ["knife", "knives", "tool", "tools", "utensil", "utensils", "pan", "board", "cutting board", "equipment", "station", "cutlery", "spoon", "fork", "apron", "towel", "trash", "dustbin", "bin", "plate", "plates", "key", "locker"]):
+            equip_strs = [
+                "=== BOH KITCHEN EQUIPMENT, STORAGE & CASUAL STAFF LAYOUT ===",
+                "• Chef Knives & Slicers: Main BOH Prep Station magnetic knife bar near the main prep counter.",
+                "• Aprons & Staff Linens: Stored in the BOH Linen Rack / Staff Locker Shelf near the staff entrance.",
+                "• Cutting Boards: Color-coded boards (Red: Meat, Green: Produce, Yellow: Poultry, Blue: Seafood) next to the main wash sink.",
+                "• Clean Plates & Cutlery: Clean dish drying racks located at the Pass-through counter / Dishwashing station.",
+                "• Waste Bins & Trash: Organic food waste bins located under the main prep counter and wash sink; Dry waste bins near the storage exit.",
+                "• Cleaning Towels & Sanitizer: Towel dispenser and sanitizer station located at the BOH Handwash Sink.",
+                "• Cookware & Pans: Stainless steel pans and kadais stored on the lower shelving below the stove ranges.",
+                "• Storage Keys & Supplies: Kept at the Head Chef / Shift Manager Desk at the main BOH office."
+            ]
+            additional_contexts.append("\n".join(equip_strs))
+            sources.append("chef_notes")
+
+        if additional_contexts:
+            context_block = "\n\n".join(additional_contexts) + "\n\n" + context_block
+
         sources = list(set(sources))
         if not sources:
             sources = ["general"]
             
-        # 5. Build prompt
         prompt = build_chat_prompt(question, context_block, history, detected_lang)
         
-        # 6. Execute LLM Router
         try:
-            router_result = self.router.generate(prompt, context_chunks=combined_chunks)
+            router_result = self.router.generate(prompt, context_chunks=combined_chunks, temperature=0.4, max_tokens=600)
         except Exception as e:
             logger.error(f"ChatbotService: LLM routing failed: {str(e)}")
             router_result = {
@@ -255,20 +412,16 @@ class ChatbotService:
                 "fallback_used": False
             }
             
-        # 7. Response cleanup
         raw_answer = router_result.get("response", "")
         clean_answer = clean_ai_response(raw_answer)
         
-        # Handle cases where model returned empty or fallback
         if not clean_answer:
             clean_answer = "I couldn't find an exact match for your request. Can I help you with another menu item?"
             
-        # Proper capitalisation for provider
         raw_provider = router_result.get("provider", "gemini")
         provider_name = "Gemini" if raw_provider.lower() == "gemini" else raw_provider.capitalize()
         response_time_ms = int((time.time() - start_time) * 1000)
         
-        # 8. Observability & Telemetry log
         api_logger = logging.getLogger("app.api")
         api_logger.info(
             f"[TELEMETRY] Query: '{question}' | Lang: {detected_lang} (conf: {confidence_score}) | "
@@ -287,3 +440,25 @@ class ChatbotService:
             "fallback_used": router_result.get("fallback_used", False),
             "response_time_ms": response_time_ms
         }
+
+    _knowledge_cache = None
+
+    def _get_knowledge_base(self) -> Dict[str, Any]:
+        import os, json
+        if ChatbotService._knowledge_cache is None:
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            kb_dir = os.path.join(base_dir, "knowledge")
+            kb_data = {}
+            for fname in ["recipes.json", "ingredients.json", "suppliers.json", "safety.json", "chef_notes.json", "seasonal.json", "pairing.json"]:
+                fpath = os.path.join(kb_dir, fname)
+                if os.path.exists(fpath):
+                    try:
+                        with open(fpath, "r", encoding="utf-8") as f:
+                            kb_data[fname] = json.load(f)
+                    except Exception as e:
+                        logger.error(f"ChatbotService: Failed to load {fname}: {e}")
+                        kb_data[fname] = []
+                else:
+                    kb_data[fname] = []
+            ChatbotService._knowledge_cache = kb_data
+        return ChatbotService._knowledge_cache

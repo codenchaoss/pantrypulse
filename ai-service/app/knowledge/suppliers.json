@@ -6,7 +6,12 @@
     "supported_ingredients": [
       "Tomato",
       "Onion",
-      "Coriander"
+      "Coriander",
+      "Carrot",
+      "Beans",
+      "Spring Onion",
+      "Garlic",
+      "Ginger"
     ],
     "delivery_time_hours": 24,
     "city": "Vijayawada",
@@ -21,7 +26,10 @@
       "Paneer",
       "Butter",
       "Milk",
-      "Ghee"
+      "Ghee",
+      "Cream",
+      "Curd",
+      "Cheese"
     ],
     "delivery_time_hours": 24,
     "city": "Hyderabad",
@@ -35,11 +43,365 @@
     "supported_ingredients": [
       "Maida",
       "Besan",
-      "Tamarind"
+      "Tamarind",
+      "Rice",
+      "Basmati Rice",
+      "Black Gram",
+      "Wheat Flour"
     ],
     "delivery_time_hours": 48,
     "city": "Nellore",
     "contact_email": "sales@srilakshmigrains.example.com",
     "rating": 4.7
+  },
+  {
+    "supplier_id": "SUP9004",
+    "supplier_name": "Deccan Commercial LPG Gas Agencies",
+    "ingredient_category": "Utilities & Cooking Fuel",
+    "supported_ingredients": [
+      "LPG Gas",
+      "Commercial Cooking Gas Cylinder",
+      "Gas",
+      "Commercial Gas",
+      "Gas Cylinder"
+    ],
+    "delivery_time_hours": 4,
+    "city": "Hyderabad",
+    "contact_email": "emergency-gas@deccangas.example.com",
+    "rating": 4.95
+  },
+  {
+    "supplier_id": "SUP9005",
+    "supplier_name": "Fresh Poultry & Meats",
+    "ingredient_category": "Poultry & Meat",
+    "supported_ingredients": [
+      "Chicken",
+      "Mutton",
+      "Egg",
+      "Eggs",
+      "Chicken Breast",
+      "Lamb"
+    ],
+    "delivery_time_hours": 12,
+    "city": "Hyderabad",
+    "contact_email": "orders@poultrymeat.example.com",
+    "rating": 4.9
+  },
+  {
+    "supplier_id": "SUP9006",
+    "supplier_name": "Coastal Seafoods & Fisheries",
+    "ingredient_category": "Seafood",
+    "supported_ingredients": [
+      "Fish",
+      "Prawns",
+      "Crab",
+      "Lobster",
+      "Seafood"
+    ],
+    "delivery_time_hours": 12,
+    "city": "Visakhapatnam",
+    "contact_email": "supply@coastalseafoods.example.com",
+    "rating": 4.85
+  },
+  {
+    "supplier_id": "SUP9007",
+    "supplier_name": "Royal Spices & Condiments",
+    "ingredient_category": "Spices",
+    "supported_ingredients": [
+      "Pepper",
+      "Soy Sauce",
+      "Garam Masala",
+      "Green Chilli",
+      "Red Chilli Powder",
+      "Turmeric",
+      "Cumin"
+    ],
+    "delivery_time_hours": 24,
+    "city": "Guntur",
+    "contact_email": "orders@royalspices.example.com",
+    "rating": 4.8
+  },
+  {
+    "supplier_id": "SUP9008",
+    "supplier_name": "Sri Annapurna Oil Mills",
+    "ingredient_category": "Oils & Fats",
+    "supported_ingredients": [
+      "Oil",
+      "Sunflower Oil",
+      "Groundnut Oil",
+      "Mustard Oil",
+      "Sesame Oil"
+    ],
+    "delivery_time_hours": 24,
+    "city": "Kakinada",
+    "contact_email": "sales@annapurnaoils.example.com",
+    "rating": 4.75
+  },
+  {
+    "supplier_id": "SUP9009",
+    "supplier_name": "EcoPack Food Packaging Supplies",
+    "ingredient_category": "Packaging & Disposables",
+    "supported_ingredients": [
+      "Parcel Containers",
+      "Food Containers",
+      "Aluminium Foil",
+      "Paper Bags",
+      "Napkins"
+    ],
+    "delivery_time_hours": 24,
+    "city": "Hyderabad",
+    "contact_email": "orders@ecopack.example.com",
+    "rating": 4.8
+  },
+  {
+    "supplier_id": "SUP9010",
+    "supplier_name": "Green Leaf Organic Hydroponics",
+    "ingredient_category": "Exotic Produce",
+    "supported_ingredients": [
+      "Capsicum",
+      "Broccoli",
+      "Lettuce",
+      "Mint",
+      "Basil",
+      "Parsley"
+    ],
+    "delivery_time_hours": 12,
+    "city": "Bengaluru",
+    "contact_email": "fresh@greenleaforganic.example.com",
+    "rating": 4.9
+  },
+  {
+    "supplier_id": "SUP9011",
+    "supplier_name": "Metro Crockery & Tableware Supplies",
+    "ingredient_category": "Crockery & Cutlery",
+    "supported_ingredients": [
+      "Plates",
+      "Ceramic Plates",
+      "Bowls",
+      "Spoons",
+      "Forks",
+      "Knives",
+      "Glassware",
+      "Serving Dishes"
+    ],
+    "delivery_time_hours": 24,
+    "city": "Hyderabad",
+    "contact_email": "orders@metrocrockery.example.com",
+    "rating": 4.85
+  },
+  {
+    "supplier_id": "SUP9012",
+    "supplier_name": "CleanHygiene Paper & Tissues Co",
+    "ingredient_category": "Tissues & Hygiene Disposables",
+    "supported_ingredients": [
+      "Tissues",
+      "Paper Napkins",
+      "Roll Towels",
+      "Wet Wipes",
+      "Tissue Dispensers",
+      "Hand Sanitizer"
+    ],
+    "delivery_time_hours": 24,
+    "city": "Vijayawada",
+    "contact_email": "supply@cleanhygiene.example.com",
+    "rating": 4.8
+  },
+  {
+    "supplier_id": "SUP9013",
+    "supplier_name": "Apex Restaurant Furniture & Dining Infra",
+    "ingredient_category": "Dining Furniture & Infrastructure",
+    "supported_ingredients": [
+      "Dining Tables",
+      "Restaurant Chairs",
+      "Booth Seating",
+      "Tables",
+      "Dining Infrastructure",
+      "Outdoor Furniture"
+    ],
+    "delivery_time_hours": 72,
+    "city": "Hyderabad",
+    "contact_email": "projects@apexfurniture.example.com",
+    "rating": 4.9
+  },
+  {
+    "supplier_id": "SUP9014",
+    "supplier_name": "Commercial Kitchen Solutions & Infrastructure",
+    "ingredient_category": "Kitchen Equipment & BOH Infrastructure",
+    "supported_ingredients": [
+      "Commercial Stove Ranges",
+      "Exhaust Hoods",
+      "Refrigerator Units",
+      "Stainless Steel Work Tables",
+      "Kitchen Infrastructure",
+      "Deep Fryers"
+    ],
+    "delivery_time_hours": 48,
+    "city": "Bengaluru",
+    "contact_email": "support@kitchensolutions.example.com",
+    "rating": 4.92
+  },
+  {
+    "supplier_id": "SUP9015",
+    "supplier_name": "Aquafina & Crystal Water Beverages",
+    "ingredient_category": "Water & Mineral Beverages",
+    "supported_ingredients": [
+      "Water",
+      "Mineral Water",
+      "20L Water Can",
+      "Water Bottles",
+      "Soda",
+      "Sparkling Water"
+    ],
+    "delivery_time_hours": 6,
+    "city": "Hyderabad",
+    "contact_email": "orders@crystalwater.example.com",
+    "rating": 4.9
+  },
+  {
+    "supplier_id": "SUP9016",
+    "supplier_name": "Refreshment Soft Drinks & Juices Co",
+    "ingredient_category": "Soft Drinks & Beverages",
+    "supported_ingredients": [
+      "Drinks",
+      "Soft Drinks",
+      "Cold Drinks",
+      "Fruit Juices",
+      "Syrups",
+      "Mocktail Mixers"
+    ],
+    "delivery_time_hours": 12,
+    "city": "Vijayawada",
+    "contact_email": "orders@refreshmentdrinks.example.com",
+    "rating": 4.85
+  },
+  {
+    "supplier_id": "SUP9017",
+    "supplier_name": "Vijaya Milk & Fresh Dairy Products",
+    "ingredient_category": "Milk & Fresh Dairy",
+    "supported_ingredients": [
+      "Milk",
+      "Fresh Milk",
+      "Cow Milk",
+      "Milk Products",
+      "Buttermilk",
+      "Yogurt",
+      "Badam Milk"
+    ],
+    "delivery_time_hours": 12,
+    "city": "Vijayawada",
+    "contact_email": "supply@vijayamilk.example.com",
+    "rating": 4.92
+  },
+  {
+    "supplier_id": "SUP9018",
+    "supplier_name": "Frostbite Ice Creams & Frozen Desserts",
+    "ingredient_category": "Ice Cream & Frozen Desserts",
+    "supported_ingredients": [
+      "Ice Cream",
+      "Bulk Ice Cream Tubs",
+      "Kulfi",
+      "Ice Cream Cones",
+      "Frozen Desserts"
+    ],
+    "delivery_time_hours": 12,
+    "city": "Hyderabad",
+    "contact_email": "orders@frostbiteicecream.example.com",
+    "rating": 4.88
+  },
+  {
+    "supplier_id": "SUP9019",
+    "supplier_name": "Artisan Bakery & Confectionery Ingredients",
+    "ingredient_category": "Bakery & Buns",
+    "supported_ingredients": [
+      "Bread",
+      "Burger Buns",
+      "Pav",
+      "Cake Bases",
+      "Pastries",
+      "Yeast"
+    ],
+    "delivery_time_hours": 12,
+    "city": "Hyderabad",
+    "contact_email": "sales@artisanbakery.example.com",
+    "rating": 4.8
+  },
+  {
+    "supplier_id": "SUP9020",
+    "supplier_name": "Deccan Premium Coffee Beans & Tea",
+    "ingredient_category": "Coffee & Tea",
+    "supported_ingredients": [
+      "Coffee Beans",
+      "Filter Coffee Powder",
+      "Espresso Beans",
+      "Tea Dust",
+      "Green Tea Bags"
+    ],
+    "delivery_time_hours": 24,
+    "city": "Visakhapatnam",
+    "contact_email": "orders@deccancoffee.example.com",
+    "rating": 4.9
+  },
+  {
+    "supplier_id": "SUP9021",
+    "supplier_name": "QuickServe Frozen Foods & Snacks",
+    "ingredient_category": "Frozen Ready-to-Cook Foods",
+    "supported_ingredients": [
+      "French Fries",
+      "Veg Nuggets",
+      "Frozen Parathas",
+      "Momos",
+      "Frozen Samosas"
+    ],
+    "delivery_time_hours": 24,
+    "city": "Hyderabad",
+    "contact_email": "supply@quickservefrozen.example.com",
+    "rating": 4.75
+  },
+  {
+    "supplier_id": "SUP9022",
+    "supplier_name": "CleanTech Dishwashing & Hygiene Chemicals",
+    "ingredient_category": "Cleaning & Sanitation Chemicals",
+    "supported_ingredients": [
+      "Dishwashing Liquid",
+      "Floor Cleaner",
+      "Sanitizer",
+      "Degreaser",
+      "Kitchen Soap"
+    ],
+    "delivery_time_hours": 24,
+    "city": "Vijayawada",
+    "contact_email": "orders@cleantechhygiene.example.com",
+    "rating": 4.8
+  },
+  {
+    "supplier_id": "SUP9023",
+    "supplier_name": "CoolZone Commercial Refrigeration & Ice Cubes",
+    "ingredient_category": "Ice Cubes & Cold Storage",
+    "supported_ingredients": [
+      "Ice Cubes",
+      "Commercial Ice Blocks",
+      "Deep Freezer Maintenance",
+      "Cold Storage Rental"
+    ],
+    "delivery_time_hours": 6,
+    "city": "Hyderabad",
+    "contact_email": "orders@coolzoneice.example.com",
+    "rating": 4.95
+  },
+  {
+    "supplier_id": "SUP9024",
+    "supplier_name": "ChefStyle Uniforms & Workwear",
+    "ingredient_category": "Kitchen Uniforms & Workwear",
+    "supported_ingredients": [
+      "Chef Coats",
+      "Aprons",
+      "Chef Caps",
+      "Waiter Uniforms",
+      "Non-slip Shoes"
+    ],
+    "delivery_time_hours": 48,
+    "city": "Hyderabad",
+    "contact_email": "sales@chefstyleuniforms.example.com",
+    "rating": 4.85
   }
 ]

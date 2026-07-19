@@ -8,7 +8,7 @@ An AI-powered restaurant management platform designed to automate and optimize B
 
 To help trace data flows and system layers, the diagrams utilize the following color-coded categories:
 
-*  **Blue (AI Intelligence Modules)**: Cognitive AI reasoning microservices.
+* **Blue (AI Intelligence Modules)**: Cognitive AI reasoning microservices.
 * **Green (Workflow & Orchestration)**: Lifecycle state trackers and workflow coordinators.
 * **Orange (Application Integration)**: Adapters translating data formats for user-facing modules.
 * **Purple (Operational Outputs)**: Final downstream resources and printer queues.
@@ -88,7 +88,7 @@ graph TD
     O --> T
 ```
 
-language#### OpenClaw Orchestration Documentation
+### OpenClaw Orchestration Documentation
 
 * **Purpose**: This workflow coordinates the ingest of raw inventory data, processes it through sequential AI engines, and publishes actionable alerts, digital menus, and print-ready kitchen tickets.
 * **Inputs**:
@@ -150,12 +150,12 @@ graph TD
     end
 ```
 
-language### AI Data Linkages Documentation
+### AI Data Linkages Documentation
 
 * **Purpose**: Tracks parameters as they flow sequentially between the individual AI modules, proving that decisions are logically linked.
 * **Inputs**:
   * Current ingredient stock list, quantities, units, and expiry days.
-  * Historical recipes knowledge base dataset.
+  * Historical recipes knowledge base dataset (including AP, Telangana, Tamil Nadu, Kerala, Karnataka, and regional specialties).
 * **Processing Steps**:
   1. **Waste Optimization**: The *Inventory Optimization Engine* determines which items must be consumed immediately and which items are running low.
   2. **Recipe Match**: The *Recipe Recommendation Engine* does a semantic RAG search to find recipes using those expiring ingredients.
@@ -171,7 +171,7 @@ language### AI Data Linkages Documentation
 
 ---
 
-## 🛡️ Resilient Multi-Provider Fallback Flowchart
+## Resilient Multi-Provider Fallback Flowchart
 
 KitchenSync employs a tiered failover structure. The system queries LLM APIs in a prioritized sequence, silently handling rate limits, quota limits, and API outages by auto-routing to the next provider. If all external APIs are exhausted, the local RAG engine synthesizes a Retrieval-only fallback response.
 
@@ -209,24 +209,25 @@ graph TD
     R1 & R2 --> Output[Action Plan response]
 ```
 
-### 📋 Fallback Documentation
-*   **Purpose**: Centralizes failure recovery logic, ensuring BOH managers never encounter raw timeouts or API errors during shifts.
-*   **Failover Conditions**: Skips providers automatically on HTTP 429 (rate limits), HTTP 500+ (outages), network timeouts, or missing/expired API credentials.
-*   **Graceful Degradation**: If the entire internet or all external APIs are unreachable, the system executes a RAG-only summary using local FAISS indexes.
+### Fallback Documentation
+* **Purpose**: Centralizes failure recovery logic, ensuring BOH managers never encounter raw timeouts or API errors during shifts.
+* **Failover Conditions**: Skips providers automatically on HTTP 429 (rate limits), HTTP 500+ (outages), network timeouts, or missing/expired API credentials.
+* **Graceful Degradation**: If the entire internet or all external APIs are unreachable, the system executes a RAG-only summary using local FAISS indexes.
 
 ---
 
-## 🛠️ Technology Stack
-*   **Language & Core Framework**: Python 3.11.9, FastAPI, Uvicorn, Pydantic v2
-*   **LLM Integration & Routing**: Google Gemini, xAI Grok, OpenRouter, Together AI, Fireworks AI, DeepSeek API, Mistral API, Local RAG-only fallback
-*   **Embeddings & Semantic Search**: SentenceTransformers (`BAAI/bge-small-en-v1.5`), Local FAISS L2-Distance Vector Index
-*   **RAG Knowledge Source**: Static databases of 9,132 unique recipe, pairing, safety, and supplier database chunks
-*   **Orchestration Engine**: OpenClaw (Modular sequential state-tracker, fault-tolerant execution)
-*   **Verification & Test Suites**: unittest, unittest.mock, HTTPX Client
+## Technology Stack
+* **Language & Core Framework**: Python 3.11.9, FastAPI, Uvicorn, Pydantic v2
+* **LLM Integration & Routing**: Google Gemini, xAI Grok, OpenRouter, Together AI, Fireworks AI, DeepSeek API, Mistral API, Local RAG-only fallback
+* **Embeddings & Semantic Search**: SentenceTransformers (`BAAI/bge-small-en-v1.5`), Local FAISS L2-Distance Vector Index
+* **RAG Knowledge Source**: Expanded master database of 9,132+ unique recipes, regional pairings, 45 BOH safety protocols, 12 Telugu lunar months calendar, and commercial supplier database chunks
+* **Accurate Multilingual Engine**: Regex word-boundary tokenized language detection (`re.findall(r'\b[a-z]+\b')`) across English, Telugu, and Tenglish
+* **Orchestration Engine**: OpenClaw (Modular sequential state-tracker, fault-tolerant execution)
+* **Verification & Test Suites**: unittest, unittest.mock, HTTPX Client
 
 ---
 
-## ⚡ Quick Run Commands
+## Quick Run Commands
 
 Execute these commands in the terminal to configure, populate, start, and verify the services:
 
@@ -254,6 +255,4 @@ python -m unittest discover -s openclaw/tests
 
 ---
 
-> [!NOTE]
-> For a detailed walkthrough of directory contents and file logic, please open the:
-> 🔗 **[Project Logic Explanation (Project_logic_explanation.md)](file:///e:/TCWING_PRJ/ai-service/Project_logic_explanation.md)**
+For a detailed walkthrough of directory contents and file logic, please refer to the Project Logic Explanation (Project_logic_explanation.md).

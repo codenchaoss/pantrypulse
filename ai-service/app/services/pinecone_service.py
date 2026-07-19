@@ -11,18 +11,21 @@ class PineconeService:
     Service wrapper for Pinecone Vector DB operations.
     Handles indexing, upserting, querying, and health status monitoring.
     """
+    _shared_pc = None
+    _shared_index = None
+
     def __init__(self):
         self.api_key = config.PINECONE_API_KEY
         self.index_name = config.PINECONE_INDEX_NAME
-        self.pc = None
-        self.index = None
-        self.initialized = False
+        self.pc = PineconeService._shared_pc
+        self.index = PineconeService._shared_index
+        self.initialized = PineconeService._shared_index is not None
 
     def initialize(self) -> bool:
         """
         Connects to Pinecone client and validates index existence.
         """
-        if self.initialized:
+        if self.initialized and self.index is not None:
             return True
 
         if not self.api_key:
@@ -30,18 +33,17 @@ class PineconeService:
             return False
 
         try:
-            logger.info("PineconeService: Initializing Pinecone client...")
-            self.pc = Pinecone(api_key=self.api_key)
+            if not PineconeService._shared_pc:
+                logger.info("PineconeService: Initializing Pinecone client...")
+                PineconeService._shared_pc = Pinecone(api_key=self.api_key)
             
-            # Check if index exists
-            active_indexes = [idx.name for idx in self.pc.list_indexes()]
-            if self.index_name not in active_indexes:
-                logger.error(f"PineconeService: Index '{self.index_name}' not found. Available indexes: {active_indexes}")
-                return False
+            if not PineconeService._shared_index:
+                PineconeService._shared_index = PineconeService._shared_pc.Index(self.index_name)
+                logger.info(f"PineconeService: Connected to index '{self.index_name}' successfully.")
 
-            self.index = self.pc.Index(self.index_name)
+            self.pc = PineconeService._shared_pc
+            self.index = PineconeService._shared_index
             self.initialized = True
-            logger.info(f"PineconeService: Connected to index '{self.index_name}' successfully.")
             return True
         except Exception as e:
             logger.error(f"PineconeService: Connection failed: {str(e)}")

@@ -56,19 +56,17 @@ class MenuService:
         
         retriever_start = time.time()
         try:
-            chunks = self.retriever.retrieve(query_str, top_k=15)
+            chunks = self.retriever.retrieve(query_str, top_k=3)
         except Exception as e:
             logger.error(f"MenuService: Retriever error: {str(e)}")
             chunks = []
         retriever_time_ms = int((time.time() - retriever_start) * 1000)
 
-        # 3. Filter only recipe chunks (do not expose safety or suppliers)
-        recipe_chunks = [c for c in chunks if "recipes" in c.get("source", "").lower()]
-        logger.info(f"MenuService: Retrieved {len(chunks)} chunks, filtered to {len(recipe_chunks)} recipe chunks in {retriever_time_ms}ms")
-        
-        if not recipe_chunks and not recipes:
-            logger.warning("MenuService: No recipe chunks retrieved. Returning empty specials.")
-            return {"special_menu": []}
+        # 3. Filter recipe chunks (fallback to all chunks if source tag is absent)
+        recipe_chunks = [c for c in chunks if "recipe" in c.get("source", "").lower()]
+        if not recipe_chunks:
+            recipe_chunks = chunks
+        logger.info(f"MenuService: Retrieved {len(chunks)} chunks, using {len(recipe_chunks)} context chunks in {retriever_time_ms}ms")
 
         # 4. Construct prompt
         context_strs = []
@@ -87,10 +85,10 @@ class MenuService:
             logger.error(f"MenuService: Prompt building failed: {str(e)}")
             prompt = f"Inventory: {inventory}\nContext: {context_block}"
 
-        # 5. Call LLM Router
+        # 5. Call LLM Router with optimized temperature and max_tokens
         router_result = None
         try:
-            router_result = self.router.generate(prompt)
+            router_result = self.router.generate(prompt, temperature=0.5, max_tokens=700)
         except Exception as e:
             logger.error(f"MenuService: Router failed: {str(e)}")
 

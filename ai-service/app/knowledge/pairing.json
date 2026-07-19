@@ -1391,5 +1391,151 @@
     "pairs": [
       "Jaggery"
     ]
+  },
+  {
+    "ingredient": "Rayalaseema Ragi Sangati (Rayalaseema / Kurnool Special)",
+    "pairs": [
+      "Natu Kodi Pulusu",
+      "Pure Cow Ghee",
+      "Erra Karam Chutney",
+      "Gutti Vankaya Curry",
+      "Mirchi Bajji"
+    ]
+  },
+  {
+    "ingredient": "Kadapa Uggani (Rayalaseema / Kadapa Special)",
+    "pairs": [
+      "Stuffed Mirchi Bajji",
+      "Groundnut Chutney",
+      "Filter Coffee"
+    ]
+  },
+  {
+    "ingredient": "Bhimavaram Royyala Pulusu (Godavari / Bhimavaram Special)",
+    "pairs": [
+      "Steamed White Rice",
+      "Raw Mango Slices",
+      "Ghee",
+      "Appadam"
+    ]
+  },
+  {
+    "ingredient": "Godavari Korrameenu Chepala Pulusu (Godavari / Rajahmundry Special)",
+    "pairs": [
+      "Hot Claypot Steam Rice",
+      "Gongura Pachadi",
+      "Majjiga (Buttermilk)"
+    ]
+  },
+  {
+    "ingredient": "Guntur Gongura Mutton (Guntur Special)",
+    "pairs": [
+      "Bagara Annam",
+      "Miriyala Kodi Vepudu",
+      "Onion Raita",
+      "Sambar Rice"
+    ]
+  },
+  {
+    "ingredient": "Nellore Chepala Pulusu (Nellore Special)",
+    "pairs": [
+      "Claypot Steam Rice",
+      "Raw Mango Slices",
+      "Fry Royyalu",
+      "Curd Rice"
+    ]
+  },
+  {
+    "ingredient": "Hyderabadi Mutton Dum Biryani (Telangana / Hyderabad Special)",
+    "pairs": [
+      "Mirchi Ka Salan",
+      "Dahi Ki Chutney (Raita)",
+      "Double Ka Meetha",
+      "Thums Up / Soda"
+    ]
+  },
+  {
+    "ingredient": "Telangana Sarva Pindi (Telangana Special)",
+    "pairs": [
+      "Allam Pachadi (Ginger Chutney)",
+      "Pachi Pulusu",
+      "Irani Chai"
+    ]
+  },
+  {
+    "ingredient": "Chettinad Chicken Curry (Tamil Nadu / Chettinad Special)",
+    "pairs": [
+      "Malabar Parotta",
+      "Kal Dosa",
+      "Seeraga Samba Rice",
+      "Madurai Jigarthanda"
+    ]
+  },
+  {
+    "ingredient": "Kerala Appam (Kerala Special)",
+    "pairs": [
+      "Vegetable Coconut Stew",
+      "Chicken Coconut Stew",
+      "Egg Curry",
+      "Filter Coffee"
+    ]
+  },
+  {
+    "ingredient": "Mysuru Masala Dosa (Karnataka / Mysuru Special)",
+    "pairs": [
+      "Mysore White Butter",
+      "Spicy Potato Palya",
+      "Coconut Chutney",
+      "Filter Coffee"
+    ]
+  },
+  {
+    "ingredient": "Karnataka Bisi Bele Bath (Karnataka Special)",
+    "pairs": [
+      "Potato Chips / Kara Boondi",
+      "Boondi Raita",
+      "Pure Ghee",
+      "Mysore Pak"
+    ]
+  },
+  {
+    "ingredient": "Summer Cooling Meal Pairings (Vaisakham & Jyeshtam Season)",
+    "pairs": [
+      "Chilled Curd Rice",
+      "Mango Avakaya Pickle",
+      "Mango Lassi",
+      "Masala Majjiga (Buttermilk)",
+      "Nannari Sugandhi Sharbat",
+      "Watermelon Juice"
+    ]
+  },
+  {
+    "ingredient": "Monsoon Rainy Meal Pairings (Aashadham & Shravanam Season)",
+    "pairs": [
+      "Charcoal Roasted Mokka Jonna Kande",
+      "Allam Chai (Ginger Tea)",
+      "Mirchi Bajji with Hot Tomato Rasam",
+      "Puran Poli (Bobbattu) with Ghee"
+    ]
+  },
+  {
+    "ingredient": "Autumn Festival Meal Pairings (Dasara & Karthikam Season)",
+    "pairs": [
+      "Tamarind Pulihora",
+      "Daddojanam (Curd Rice)",
+      "Usirikaya Rice",
+      "Gummadikaya Pulusu",
+      "Garjalu Sweet"
+    ]
+  },
+  {
+    "ingredient": "Winter & Sankranti Meal Pairings (Pushyam Season)",
+    "pairs": [
+      "Hot Jonna Rotte with Gutti Vankaya",
+      "Natu Kodi Gravy",
+      "Hot Pepper Miriyala Rasam",
+      "Sankranti Ariselu with Ghee",
+      "Sakinalu"
+    ]
   }
 ]

@@ -44,7 +44,7 @@ class GrokProvider(BaseProvider):
             latency = int((time.time() - start_time) * 1000)
             return {"status": "unhealthy", "latency_ms": latency, "message": str(e)}
 
-    def generate(self, prompt: str) -> Dict[str, Any]:
+    def generate(self, prompt: str, **kwargs) -> Dict[str, Any]:
         if not self.api_key:
             return {"status": "error", "text": "", "error": "Grok API key is not configured."}
 
