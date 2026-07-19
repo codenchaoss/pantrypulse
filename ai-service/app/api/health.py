@@ -11,18 +11,31 @@ logger = logging.getLogger("app.api")
 @router.get("/health", response_model=ApiResponse[HealthResponseData])
 def check_health():
     """
-    Checks structural availability of vector database indexes, configs, 
+    Checks structural availability of vector database indexes (Pinecone or local FAISS), 
     and checks communication with LLM provider endpoints.
     """
     logger.info("HealthController: Checking systems health...")
     
-    # 1. Check FAISS & Metadata paths
-    faiss_exists = os.path.exists(config.FAISS_INDEX_PATH)
-    meta_json_exists = os.path.exists(config.FAISS_METADATA_JSON_PATH)
-    meta_pkl_exists = os.path.exists(config.FAISS_METADATA_PATH)
+    vector_store_type = getattr(config, "VECTOR_STORE", "faiss").lower()
     
-    faiss_status = "healthy" if faiss_exists else "unhealthy"
-    rag_status = "healthy" if (meta_json_exists or meta_pkl_exists) else "unhealthy"
+    if vector_store_type == "pinecone":
+        # 1. Check Pinecone Cloud Index Health
+        from app.services.pinecone_service import PineconeService
+        pinecone_svc = PineconeService()
+        pinecone_health = pinecone_svc.health_check()
+        
+        faiss_status = "deprecated"
+        rag_status = "healthy" if (pinecone_health.get("status") == "healthy") else "unhealthy"
+        logger.info(f"HealthController: Pinecone status is {rag_status}. Health stats: {pinecone_health}")
+    else:
+        # Check local FAISS & Metadata paths
+        faiss_exists = os.path.exists(config.FAISS_INDEX_PATH)
+        meta_json_exists = os.path.exists(config.FAISS_METADATA_JSON_PATH)
+        meta_pkl_exists = os.path.exists(config.FAISS_METADATA_PATH)
+        
+        faiss_status = "healthy" if faiss_exists else "unhealthy"
+        rag_status = "healthy" if (meta_json_exists or meta_pkl_exists) else "unhealthy"
+        logger.info(f"HealthController: FAISS status is {faiss_status}, RAG status is {rag_status}")
     
     # 2. Check all LLM Providers via HealthMonitor
     monitor = HealthMonitor()
@@ -32,7 +45,6 @@ def check_health():
     openrouter_status = provider_report.get("openrouter", {}).get("status", "unhealthy")
     
     # 3. Determine active provider & fallback availability
-    # The active provider is the highest priority healthy provider in the registry order
     active_provider = "RAG-only Fallback"
     for name in monitor.registry.priority_order:
         p_status = provider_report.get(name, {}).get("status", "unhealthy")
@@ -40,8 +52,6 @@ def check_health():
             active_provider = name
             break
             
-    # Fallback is available if any provider other than the first healthy one is healthy,
-    # or if we have at least one fallback configured and healthy
     fallback_available = False
     for name in monitor.registry.priority_order[1:]:
         p_status = provider_report.get(name, {}).get("status", "unhealthy")
@@ -49,12 +59,12 @@ def check_health():
             fallback_available = True
             break
             
-    # Overall Status
+    # 4. Overall Health Status Decision
     overall_status = "healthy"
-    if faiss_status == "unhealthy" or rag_status == "unhealthy":
+    if rag_status == "unhealthy":
         overall_status = "unhealthy"
     
-    # If all configured providers are offline, report unhealthy
+    # If all configured LLM providers are offline/unhealthy, set overall status to unhealthy
     all_unhealthy = True
     for name in monitor.registry.priority_order:
         p_status = provider_report.get(name, {}).get("status", "unhealthy")
