@@ -6,14 +6,20 @@ import com.pantrypulse.recipe.service.RecipeService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+@Tag(
+        name="Recipe API",
+        description="Manage restaurant recipes.."
+)
+
 
 @RestController
 @RequestMapping("/api/recipes")
-@CrossOrigin(origins = "*")
 public class RecipeController {
 
     private final RecipeService recipeService;
@@ -27,12 +33,20 @@ public class RecipeController {
     public RecipeDto addRecipe(@Valid @RequestBody RecipeDto dto) {
         return recipeService.addRecipe(dto);
     }
+    @Operation(
+    		summary="Get All Recipes",
+    		description="Returns recipes that are availble."
+    		)
 
     @GetMapping
     public Page<RecipeDto> getAllRecipes(Pageable pageable) {
 
         return recipeService.getAllRecipes(pageable);
     }
+    @Operation(
+    	    summary = "Get Recipe by ID",
+    	    description = "Returns a specific Recipe ."
+    	)
 
     @GetMapping("/{id}")
     public RecipeDto getRecipeById(@PathVariable Long id) {
@@ -52,17 +66,28 @@ public class RecipeController {
     public void deleteRecipe(@PathVariable Long id) {
         recipeService.deleteRecipe(id);
     }
+    @Operation(
+    		summary="Search Recipes",
+    		description="Returns recipes that matches the search."
+    		)
 
     @GetMapping("/search")
     public List<RecipeDto> searchRecipe(@RequestParam String name) {
         return recipeService.searchRecipe(name);
     }
+    @Operation(
+    		summary="Get Recipes By Category",
+    		description="Returns recipes that matches the category."
+    		)
 
     @GetMapping("/category/{category}")
     public List<RecipeDto> getByCategory(@PathVariable RecipeCategory category) {
         return recipeService.getByCategory(category);
     }
-
+    @Operation(
+    		summary="Get Available Recipes",
+    		description="Returns all availble recipes."
+    		)
     @GetMapping("/available/{available}")
     public List<RecipeDto> getAvailableRecipes(@PathVariable Boolean available) {
         return recipeService.getAvailableRecipes(available);

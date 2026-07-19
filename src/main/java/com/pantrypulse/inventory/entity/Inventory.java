@@ -34,6 +34,6 @@ public class Inventory {
 
 	    private Boolean available;
 	    @OneToMany(mappedBy = "inventory")
-	    private List<RecipeIngredient> recipes;
+	    private List<RecipeIngredient> recipeIngredients;
 
 }

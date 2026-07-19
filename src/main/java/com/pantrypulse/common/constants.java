@@ -1,5 +1,5 @@
 package com.pantrypulse.common;
 
-public class constants {
+public class Constants {
 
 }

@@ -1,5 +1,5 @@
 package com.pantrypulse.util;
 
-public class dateutil {
+public class DateUtil {
 
 }

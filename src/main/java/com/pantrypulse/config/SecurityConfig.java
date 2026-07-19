@@ -11,8 +11,6 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        System.out.println(">>> CUSTOM SECURITY CONFIG LOADED <<<");
-
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
