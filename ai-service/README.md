@@ -22,12 +22,12 @@ This diagram shows how raw restaurant inputs are processed through the AI intell
 
 ```mermaid
 graph TD
-    %% Styling classes
-    classDef ai fill:#dbeafe,stroke:#2563eb,stroke-width:2px;
-    classDef workflow fill:#dcfce7,stroke:#16a34a,stroke-width:2px;
-    classDef app fill:#ffedd5,stroke:#ea580c,stroke-width:2px;
-    classDef output fill:#f3e8ff,stroke:#7c3aed,stroke-width:2px;
-    classDef external fill:#f3f4f6,stroke:#4b5563,stroke-width:2px;
+    %% High-Contrast Professional Styling Classes
+    classDef ai fill:#1e293b,stroke:#3b82f6,stroke-width:2px,color:#ffffff;
+    classDef workflow fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#ffffff;
+    classDef app fill:#7c2d12,stroke:#f97316,stroke-width:2px,color:#ffffff;
+    classDef output fill:#4c1d95,stroke:#a855f7,stroke-width:2px,color:#ffffff;
+    classDef external fill:#111827,stroke:#9ca3af,stroke-width:2px,color:#ffffff;
 
     %% Layer 1: Input Layer
     subgraph Layer 1: Input Layer [Layer 1: Input Layer]
@@ -118,7 +118,7 @@ This diagram displays the parameter-level logical connections between each of th
 
 ```mermaid
 graph TD
-    classDef ai fill:#dbeafe,stroke:#2563eb,stroke-width:2px;
+    classDef ai fill:#1e293b,stroke:#3b82f6,stroke-width:2px,color:#ffffff;
 
     subgraph 1. Inventory Optimization Engine
         A[Stock Levels & Expiry Dates] -->|Analyze Waste & Usage| B[Inventory Analysis Results]:::ai
@@ -177,11 +177,12 @@ KitchenSync employs a tiered failover structure. The system queries LLM APIs in 
 
 ```mermaid
 graph TD
-    classDef ai fill:#dbeafe,stroke:#2563eb,stroke-width:2px;
-    classDef workflow fill:#dcfce7,stroke:#16a34a,stroke-width:2px;
-    classDef output fill:#f3e8ff,stroke:#7c3aed,stroke-width:2px;
+    classDef ai fill:#1e293b,stroke:#3b82f6,stroke-width:2px,color:#ffffff;
+    classDef workflow fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#ffffff;
+    classDef output fill:#4c1d95,stroke:#a855f7,stroke-width:2px,color:#ffffff;
+    classDef default fill:#111827,stroke:#9ca3af,stroke-width:2px,color:#ffffff;
 
-    User[User BOH Query] --> Router[LLM Provider Manager]
+    User[User BOH Query]:::default --> Router[LLM Provider Manager]:::default
     
     Router -->|1. Primary| P1[Google Gemini API]:::ai
     P1 -->|Success| R1[Format response]:::workflow
@@ -206,7 +207,7 @@ graph TD
     P7 -->|Fail| P8[RAG-only Local Fallback]:::output
     
     P8 -->|Context Extractor| R2[Summarize FAISS context chunks]:::workflow
-    R1 & R2 --> Output[Action Plan response]
+    R1 & R2 --> Output[Action Plan response]:::default
 ```
 
 ### Fallback Documentation
