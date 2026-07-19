@@ -152,24 +152,31 @@ def chunk_chef_notes():
     return chunks
 
 def chunk_safety():
-    logger.info("Chunking safety rules...")
+    logger.info("Chunking safety rules & protocols...")
     safety_records = load_json(config.SAFETY_JSON)
     chunks = []
     
     for idx, record in enumerate(safety_records):
-        ing = record.get("ingredient", "Unknown")
+        chunk_id = f"SAFE{idx + 1:04d}"
+        
+        topic = record.get("topic") or record.get("title") or record.get("ingredient", "Safety Protocol")
+        title = record.get("title", topic)
+        desc = record.get("description") or record.get("content", "")
+        rule = record.get("rule", desc)
         storage = record.get("storage", "")
         temp = record.get("recommended_temperature", "")
-        max_shelf = record.get("maximum_shelf_life_days", 0)
-        chunk_id = f"SAFE{idx + 1:03d}"
+        max_shelf = record.get("maximum_shelf_life_days", "")
         
-        content = f"Store at {temp} ({storage}). Maximum shelf life {max_shelf} days."
-        
+        if storage or temp or max_shelf:
+            content = f"Safety Target: {topic}\nStorage: {storage}\nRecommended Temp: {temp}\nShelf Life: {max_shelf} days"
+        else:
+            content = f"Topic: {topic}\nTitle: {title}\nDescription: {desc}\nSafety Rule: {rule}"
+            
         chunk = {
             "chunk_id": chunk_id,
             "source": "safety",
             "document_id": chunk_id,
-            "title": ing,
+            "title": title,
             "content": content,
             "metadata": {
                 "knowledge_type": "safety"
@@ -180,6 +187,34 @@ def chunk_safety():
     save_json(config.SAFETY_CHUNKS, chunks)
     return chunks
 
+def chunk_pairing():
+    logger.info("Chunking regional and seasonal pairings...")
+    pairing_records = load_json(config.PAIRING_JSON)
+    chunks = []
+    
+    for idx, record in enumerate(pairing_records):
+        ing = record.get("ingredient", "Unknown")
+        pairs = record.get("pairs", [])
+        chunk_id = f"PAIR{idx + 1:04d}"
+        
+        pairs_str = ", ".join(pairs) if isinstance(pairs, list) else str(pairs)
+        content = f"Ingredient / Dish: {ing}\nRecommended Pairings: {pairs_str}"
+        
+        chunk = {
+            "chunk_id": chunk_id,
+            "source": "pairing",
+            "document_id": chunk_id,
+            "title": ing,
+            "content": content,
+            "metadata": {
+                "knowledge_type": "pairing"
+            }
+        }
+        chunks.append(chunk)
+        
+    save_json(config.PAIRING_CHUNKS, chunks)
+    return chunks
+
 def chunk_seasonal():
     logger.info("Chunking seasonal schedules...")
     seasonal_records = load_json(config.SEASONAL_JSON)
@@ -187,18 +222,23 @@ def chunk_seasonal():
     
     for idx, item in enumerate(seasonal_records):
         season = item.get("season", "")
+        telugu_m = item.get("telugu_month", "")
+        sub_season = item.get("sub_season", "")
         week = item.get("week_number", 0)
         cats = item.get("recommended_categories", [])
         ingredients = item.get("seasonal_ingredients", [])
         pricing_trend = item.get("pricing_trend", "")
         tip = item.get("special_menu_tip", "")
-        chunk_id = f"SEAS{idx + 1:03d}"
+        chunk_id = f"SEAS{idx + 1:04d}"
         
-        title = f"{season} Week {week}"
+        title = f"{season} {telugu_m}".strip() if telugu_m else f"{season} Week {week}"
         content = (
-            f"Recommended categories: {', '.join(cats)}. "
-            f"Seasonal ingredients: {', '.join(ingredients)}. "
-            f"Pricing trend: {pricing_trend}. "
+            f"Season: {season}\n"
+            f"Telugu Month: {telugu_m}\n"
+            f"Sub-season: {sub_season}\n"
+            f"Recommended categories: {', '.join(cats) if isinstance(cats, list) else cats}\n"
+            f"Seasonal ingredients: {', '.join(ingredients) if isinstance(ingredients, list) else ingredients}\n"
+            f"Pricing trend: {pricing_trend}\n"
             f"Menu tip: {tip}"
         )
         
@@ -221,12 +261,13 @@ def run_all_chunking():
     logger.info("Starting knowledge base chunking pipeline...")
     recipe_chunks = chunk_recipes()
     ing_chunks = chunk_ingredients()
+    pairing_chunks = chunk_pairing()
     sup_chunks = chunk_suppliers()
     chef_chunks = chunk_chef_notes()
     safety_chunks = chunk_safety()
     seasonal_chunks = chunk_seasonal()
     
-    total_chunks = len(recipe_chunks) + len(ing_chunks) + len(sup_chunks) + len(chef_chunks) + len(safety_chunks) + len(seasonal_chunks)
+    total_chunks = len(recipe_chunks) + len(ing_chunks) + len(pairing_chunks) + len(sup_chunks) + len(chef_chunks) + len(safety_chunks) + len(seasonal_chunks)
     logger.info(f"Chunking pipeline complete. Total chunks generated: {total_chunks}")
     return total_chunks
 

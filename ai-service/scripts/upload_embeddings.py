@@ -18,15 +18,24 @@ logger = logging.getLogger(__name__)
 def load_chunks_from_disk() -> List[Dict[str, Any]]:
     """
     Loads all generated chunk JSON files from the vector_db/chunks folder.
+    Auto-generates chunks from knowledge base JSON files if not present.
     """
     chunk_files = [
         config.RECIPES_CHUNKS,
         config.INGREDIENTS_CHUNKS,
+        config.PAIRING_CHUNKS,
         config.SUPPLIERS_CHUNKS,
         config.CHEF_CHUNKS,
         config.SAFETY_CHUNKS,
         config.SEASONAL_CHUNKS
     ]
+    
+    # Verify if chunks exist, if not run chunking pipeline automatically
+    missing_files = [f for f in chunk_files if not os.path.exists(f)]
+    if missing_files:
+        logger.info("Some chunk files are missing. Running knowledge base chunking pipeline...")
+        from app.rag.chunking import run_all_chunking
+        run_all_chunking()
     
     all_chunks = []
     for file_path in chunk_files:

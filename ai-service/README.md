@@ -232,11 +232,14 @@ graph TD
 
 Execute these commands in the terminal to configure, populate, start, and verify the services:
 
-### 1. Build and Populate the FAISS Vector Database
+### 1. Build and Populate the FAISS Vector Database & Pinecone Cloud Store
 ```powershell
-# Populate recipes knowledge database and build the semantic index
+# Populate recipes knowledge database and build the local semantic index
 python scripts/enrich_knowledge.py
 python scripts/build_embeddings.py
+
+# Sync all 7 Knowledge Base JSON files to Pinecone Cloud Vector Index
+python scripts/sync_pinecone.py
 ```
 
 ### 2. Launch the FastAPI Uvicorn Server
