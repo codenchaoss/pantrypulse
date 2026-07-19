@@ -1,0 +1,27 @@
+<div class="sidebar" [class.collapsed]="isCollapsed">
+
+    <!-- Logo / Brand Header -->
+    <div class="sidebar-logo" routerLink="/home" style="cursor: pointer;">
+        <img src="assets/logo/logo.png" alt="PantryPulse Logo" class="logo-img">
+        <span class="logo-text">PantryPulse</span>
+    </div>
+
+    <!-- Navigation Menu List -->
+    <ul class="menu">
+        <li *ngFor="let item of menuItems"
+            [routerLink]="item.route"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: item.exact || false }"
+            [title]="isCollapsed ? item.label : ''">
+            <span class="material-icons menu-icon">{{ item.icon }}</span>
+            <span class="menu-label">{{ item.label }}</span>
+        </li>
+    </ul>
+
+    <!-- Logout footer trigger -->
+    <div class="logout" (click)="logout()" [title]="isCollapsed ? 'Logout' : ''">
+        <span class="material-icons logout-icon">logout</span>
+        <span class="menu-label">Logout</span>
+    </div>
+
+</div>

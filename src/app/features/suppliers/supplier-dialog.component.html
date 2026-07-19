@@ -1,0 +1,150 @@
+<div class="supplier-dialog-container">
+  
+  <h2 mat-dialog-title class="dialog-title">{{ title }}</h2>
+  
+  <mat-dialog-content class="dialog-content">
+    
+    <!-- Error Alert message -->
+    <div class="alert alert-error" *ngIf="errorMessage">
+      <span class="alert-icon">✖</span> {{ errorMessage }}
+    </div>
+
+    <form [formGroup]="supplierForm" class="supplier-form">
+      
+      <!-- Supplier Name -->
+      <div class="form-group">
+        <label class="form-label">Supplier Name <span class="required-asterisk" *ngIf="mode !== 'view'">*</span></label>
+        <div class="input-wrapper">
+          <span class="material-icons input-icon">business</span>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="supplierName"
+            placeholder="e.g. Fresh Foods Ltd"
+            [class.is-invalid]="supplierForm.get('supplierName')?.touched && supplierForm.get('supplierName')?.invalid">
+        </div>
+        <div class="invalid-feedback" *ngIf="supplierForm.get('supplierName')?.touched && supplierForm.get('supplierName')?.hasError('required')">
+          Supplier name is required.
+        </div>
+      </div>
+
+      <div class="form-row">
+        <!-- Contact Person -->
+        <div class="form-group col">
+          <label class="form-label">Contact Person <span class="required-asterisk" *ngIf="mode !== 'view'">*</span></label>
+          <div class="input-wrapper">
+            <span class="material-icons input-icon">person</span>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="contactPerson"
+              placeholder="e.g. John Doe"
+              [class.is-invalid]="supplierForm.get('contactPerson')?.touched && supplierForm.get('contactPerson')?.invalid">
+          </div>
+          <div class="invalid-feedback" *ngIf="supplierForm.get('contactPerson')?.touched && supplierForm.get('contactPerson')?.hasError('required')">
+            Contact person is required.
+          </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="form-group col">
+          <label class="form-label">Phone Number <span class="required-asterisk" *ngIf="mode !== 'view'">*</span></label>
+          <div class="input-wrapper">
+            <span class="material-icons input-icon">phone</span>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="phone"
+              placeholder="e.g. 9876543210"
+              [class.is-invalid]="supplierForm.get('phone')?.touched && supplierForm.get('phone')?.invalid">
+          </div>
+          <div class="invalid-feedback" *ngIf="supplierForm.get('phone')?.touched && supplierForm.get('phone')?.hasError('required')">
+            Phone number is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <!-- Email -->
+        <div class="form-group col">
+          <label class="form-label">Email Address</label>
+          <div class="input-wrapper">
+            <span class="material-icons input-icon">email</span>
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              placeholder="e.g. info@freshfoods.com"
+              [class.is-invalid]="supplierForm.get('email')?.touched && supplierForm.get('email')?.invalid">
+          </div>
+          <div class="invalid-feedback" *ngIf="supplierForm.get('email')?.touched && supplierForm.get('email')?.hasError('email')">
+            Invalid email format.
+          </div>
+        </div>
+
+        <!-- GST Number -->
+        <div class="form-group col">
+          <label class="form-label">GST Number <span class="required-asterisk" *ngIf="mode !== 'view'">*</span></label>
+          <div class="input-wrapper">
+            <span class="material-icons input-icon">badge</span>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="gstNumber"
+              placeholder="e.g. 27AAAAA1111A1Z1"
+              [class.is-invalid]="supplierForm.get('gstNumber')?.touched && supplierForm.get('gstNumber')?.invalid">
+          </div>
+          <div class="invalid-feedback" *ngIf="supplierForm.get('gstNumber')?.touched && supplierForm.get('gstNumber')?.hasError('required')">
+            GST number is required.
+          </div>
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="form-group">
+        <label class="form-label">Address</label>
+        <div class="input-wrapper">
+          <span class="material-icons input-icon">place</span>
+          <textarea
+            class="form-control text-area-control"
+            formControlName="address"
+            placeholder="e.g. 123 Food Street, Suite A"
+            rows="2"></textarea>
+        </div>
+      </div>
+
+      <!-- Status Checkbox -->
+      <div class="checkbox-group" *ngIf="mode !== 'view'">
+        <label class="checkbox-container">
+          <input
+            type="checkbox"
+            formControlName="active">
+          <span class="checkmark"></span>
+          Active (Enabled for active supplier routing and selection)
+        </label>
+      </div>
+
+      <!-- Status Display for View Mode Only -->
+      <div class="form-group" *ngIf="mode === 'view'">
+        <label class="form-label">Active Status</label>
+        <div style="padding-top: 8px;">
+          <span class="status-badge" [ngClass]="supplierForm.get('active')?.value ? 'active-badge' : 'inactive-badge'">
+            {{supplierForm.get('active')?.value ? 'Active' : 'Inactive'}}
+          </span>
+        </div>
+      </div>
+
+    </form>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions class="dialog-actions">
+    <button class="action-btn cancel-btn" (click)="onCancel()" [disabled]="isSaving">
+      {{ mode === 'view' ? 'Close' : 'Cancel' }}
+    </button>
+    <button class="action-btn save-btn" (click)="onSave()" *ngIf="mode !== 'view'" [disabled]="isSaving">
+      <span *ngIf="isSaving" class="btn-spinner"></span>
+      {{ isSaving ? 'Saving...' : 'Save Supplier' }}
+    </button>
+  </mat-dialog-actions>
+  
+</div>

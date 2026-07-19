@@ -1,0 +1,164 @@
+<div class="recipe-details-page">
+
+  <!-- Toast Notification / Status Message -->
+  <div class="alert alert-error" *ngIf="errorMessage">
+    <span class="alert-icon">✖</span> {{ errorMessage }}
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-state" *ngIf="isLoading && !errorMessage">
+    <div class="loader"></div>
+    <p>Loading recipe details...</p>
+  </div>
+
+  <!-- Detailed Card View -->
+  <div class="details-card-container" *ngIf="!isLoading && !errorMessage && recipe">
+
+    <!-- Header Actions (Back button) -->
+    <div class="details-header">
+      <button class="back-link-btn" (click)="goBack()">
+        ← Back to Recipes
+      </button>
+    </div>
+
+    <!-- Main Card Body -->
+    <div class="details-card">
+
+      <!-- Column 1: Image -->
+      <div class="details-image-section">
+        <img
+          [src]="imagePreview || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22 viewBox=%220 0 300 200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%231b1b1b%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23d97706%22 font-size=%2248%22%3E🍳%3C/text%3E%3C/svg%3E'"
+          alt="Recipe Image"
+          onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22 viewBox=%220 0 300 200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%231b1b1b%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23d97706%22 font-size=%2248%22%3E🍳%3C/text%3E%3C/svg%3E'">
+
+        <div class="availability-badge" [ngClass]="recipe.available ? 'available' : 'unavailable'">
+          {{ recipe.available ? 'Available' : 'Unavailable' }}
+        </div>
+      </div>
+
+      <!-- Column 2: Recipe Information -->
+      <div class="details-info-section">
+
+        <span class="category-badge">
+          {{ formatCategory(recipe.category) }}
+        </span>
+
+        <h1 class="recipe-title">{{ recipe.recipeName }}</h1>
+
+        <p class="recipe-description">
+          {{ recipe.description || 'No description provided for this recipe.' }}
+        </p>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          
+          <div class="stat-card">
+            <span class="stat-icon">🕒</span>
+            <div class="stat-content">
+              <span class="stat-value">{{ recipe.preparationTime }} mins</span>
+              <span class="stat-label">Prep Time</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-icon">🍽</span>
+            <div class="stat-content">
+              <span class="stat-value">{{ recipe.servings }}</span>
+              <span class="stat-label">Servings</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-icon">🔥</span>
+            <div class="stat-content">
+              <span class="stat-value">{{ recipe.calories || 'N/A' }} kcal</span>
+              <span class="stat-label">Calories</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Price Section -->
+        <div class="price-section">
+          
+          <div class="price-item">
+            <span class="price-label">Cost Price</span>
+            <span class="price-value cost">₹ {{ recipe.costPrice | number:'1.2-2' }}</span>
+          </div>
+
+          <div class="price-item">
+            <span class="price-label">Selling Price</span>
+            <span class="price-value selling">₹ {{ recipe.sellingPrice | number:'1.2-2' }}</span>
+          </div>
+
+          <div class="price-item margin-item">
+            <span class="price-label">Margin Profit</span>
+            <span class="price-value margin">
+              ₹ {{ (recipe.sellingPrice - recipe.costPrice) | number:'1.2-2' }}
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Footer Action Buttons -->
+        <div class="details-actions">
+
+          <button class="action-btn back-btn" (click)="goBack()">
+            ← Back
+          </button>
+
+          <div class="right-actions">
+            <button class="action-btn edit-btn" (click)="editRecipe()">
+              ✏ Edit Recipe
+            </button>
+            <button class="action-btn delete-btn" (click)="requestDelete()">
+              🗑 Delete
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal-overlay" *ngIf="showDeleteModal" (click)="cancelDelete()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+
+      <div class="modal-icon">🗑</div>
+
+      <h3 class="modal-title">Delete Recipe?</h3>
+
+      <p class="modal-body">
+        Are you sure you want to delete
+        <strong>"{{ recipe?.recipeName }}"</strong>?
+        <br>
+        <span class="modal-warning">This action cannot be undone.</span>
+      </p>
+
+      <div class="modal-actions">
+
+        <button
+          class="modal-cancel-btn"
+          (click)="cancelDelete()"
+          [disabled]="isDeleting">
+          Cancel
+        </button>
+
+        <button
+          class="modal-delete-btn"
+          (click)="confirmDelete()"
+          [disabled]="isDeleting">
+          <span *ngIf="isDeleting" class="btn-spinner"></span>
+          {{ isDeleting ? 'Deleting...' : 'Yes, Delete' }}
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

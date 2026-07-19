@@ -1,0 +1,543 @@
+/* ==========================================================================
+   Dashboard Core Layout
+   ========================================================================== */
+
+.dashboard {
+    padding: 30px;
+    background: #121212;
+    min-height: 100vh;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    color: white;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.dashboard-header p {
+    color: #A5A5A5;
+    font-size: 15px;
+    margin: 0;
+}
+
+.refresh-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    background: #d97706; /* amber primary */
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.refresh-btn:hover:not(:disabled) {
+    background: #b45309;
+}
+
+.refresh-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   5-Column Stats Grid
+   ========================================================================== */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: #1B1B1B;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(217, 119, 6, 0.15);
+}
+
+.icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+/* Colors matching theme */
+.orange { background: #d97706; }
+.blue { background: #1d4ed8; }
+.yellow { background: #eab308; }
+.red { background: #dc2626; }
+.dark-red { background: #7f1d1d; }
+
+.stat-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.stat-content span {
+    display: block;
+    color: #A5A5A5;
+    font-size: 13px;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stat-content h2 {
+    color: white;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 2px;
+}
+
+.stat-content small {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.text-neutral { color: #8b8b8b; }
+.text-warn { color: #f59e0b; }
+.text-danger { color: #ef4444; }
+
+/* ==========================================================================
+   Loading Shimmer Skeletons
+   ========================================================================== */
+
+.skeleton-card {
+    background: #1B1B1B;
+    border: 1px solid rgba(255,255,255,.05);
+    height: 102px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-card::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+    animation: shimmer 1.6s infinite;
+}
+
+@keyframes shimmer {
+    100% { transform: translateX(100%); }
+}
+
+.skeleton-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #242424;
+    flex-shrink: 0;
+}
+
+.skeleton-lines {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skeleton-lines .line {
+    height: 12px;
+    background: #242424;
+    border-radius: 4px;
+}
+
+.skeleton-lines .line.short { width: 40%; }
+.skeleton-lines .line.medium { width: 75%; }
+
+/* ==========================================================================
+   Charts Grid & Tables Layout
+   ========================================================================== */
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.chart-card {
+    background: #1B1B1B;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+    padding: 24px;
+}
+
+.chart-card h3 {
+    color: white;
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dashboard-table th {
+    color: #9ca3af;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.dashboard-table td {
+    padding: 12px 0;
+    font-size: 0.88rem;
+    color: #e5e7eb;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+}
+
+.dashboard-table tr:last-child td {
+    border-bottom: none;
+}
+
+.bold-name {
+    font-weight: 600;
+    color: #f3f4f6;
+}
+
+.empty-table-msg {
+    text-align: center;
+    padding: 40px 0 !important;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Bottom Grids (Expiry Alerts & AI suggest)
+   ========================================================================== */
+
+.bottom-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.bottom-card {
+    background: #1B1B1B;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+    padding: 24px;
+}
+
+.flex-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header h3 {
+    color: white;
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.card-header a {
+    color: #d97706;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.card-header a:hover {
+    text-decoration: underline;
+}
+
+.card-header i {
+    color: #d97706;
+    font-size: 20px;
+}
+
+.expiry-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.expiry-table th {
+    color: #9ca3af;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.expiry-table td {
+    padding: 12px 0;
+    font-size: 0.88rem;
+    color: #e5e7eb;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+}
+
+.expiry-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badges styling */
+.badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge.danger {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.badge.warning {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.badge.success {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* AI Recommendation block */
+.ai-box {
+    text-align: center;
+    margin: 20px 0;
+    background: rgba(217, 119, 6, 0.04);
+    border: 1px dashed rgba(217, 119, 6, 0.15);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.ai-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: rgba(217, 119, 6, 0.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ai-icon i {
+    font-size: 28px;
+    color: #d97706;
+}
+
+.ai-box h4 {
+    color: white;
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.ai-box p {
+    color: #b3b3b3;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* Quick Actions in AI box */
+.quick-actions-section {
+    margin-top: auto;
+    border-top: 1px solid rgba(255,255,255,.05);
+    padding-top: 20px;
+}
+
+.quick-actions-section h4 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #9ca3af;
+    margin: 0 0 12px;
+}
+
+.actions-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.action-btn-dashboard {
+    height: 38px;
+    border-radius: 8px;
+    background: #242424;
+    border: 1px solid #333;
+    color: #d1d5db;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.action-btn-dashboard:hover {
+    background: #2e2e2e;
+    color: white;
+}
+
+.action-btn-dashboard i {
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   Spinner Loading Overlay & Error Alerts
+   ========================================================================== */
+
+.dashboard-loading-overlay {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+    left: 260px;
+    background: rgba(18, 18, 18, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    z-index: 110;
+    transition: left 0.3s ease;
+}
+
+.sidebar-collapsed .dashboard-loading-overlay {
+    left: 70px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-loading-overlay {
+        left: 0 !important;
+    }
+}
+
+.loader-spinner {
+    width: 44px;
+    height: 44px;
+    border: 3px solid #242424;
+    border-top-color: #d97706;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.dashboard-loading-overlay p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.alert-error {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid #ef4444;
+    color: #fca5a5;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1400px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .charts-grid,
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .actions-buttons-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .refresh-btn {
+        justify-content: center;
+    }
+}

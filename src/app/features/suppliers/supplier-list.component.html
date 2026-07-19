@@ -1,0 +1,98 @@
+<div class="supplier-page">
+
+  <!-- Connection Error Warning Banner -->
+  <div class="alert alert-error" *ngIf="isConnectionError">
+    <span class="alert-icon">⚠️</span> Unable to connect to the Supplier service. Please ensure the Spring Boot backend is running and reachable.
+  </div>
+
+  <!-- Controls Panel (Search & Add Button) -->
+  <div class="controls-panel">
+    <div class="search-box">
+      <span class="material-icons search-icon">search</span>
+      <input 
+        type="text" 
+        placeholder="Search suppliers by name, contact, phone, email..." 
+        [(ngModel)]="searchText"
+        (input)="onSearchChange()">
+    </div>
+    
+    <div class="action-buttons">
+      <button class="btn btn-add" (click)="openAddDialog()" [disabled]="isLoading">
+        <span class="material-icons">add</span> Add Supplier
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-state" *ngIf="isLoading">
+    <mat-spinner diameter="40" class="orange-spinner"></mat-spinner>
+    <p>Loading suppliers...</p>
+  </div>
+
+  <!-- Empty State (No connection error, not loading, and filteredSuppliers empty) -->
+  <div class="empty-state" *ngIf="!isLoading && !isConnectionError && filteredSuppliers.length === 0">
+    <span class="material-icons empty-icon">business</span>
+    <p>No suppliers found.</p>
+  </div>
+
+  <!-- Supplier Table Container -->
+  <div class="table-container" *ngIf="!isLoading && !isConnectionError && filteredSuppliers.length > 0">
+    <table mat-table [dataSource]="filteredSuppliers" class="supplier-table mat-elevation-z8">
+
+      <!-- Supplier Name Column -->
+      <ng-container matColumnDef="supplierName">
+        <th mat-header-cell *matHeaderCellDef> Supplier Name </th>
+        <td mat-cell *matCellDef="let element" class="supplier-name-cell"> {{element.supplierName}} </td>
+      </ng-container>
+
+      <!-- Contact Person Column -->
+      <ng-container matColumnDef="contactPerson">
+        <th mat-header-cell *matHeaderCellDef> Contact Person </th>
+        <td mat-cell *matCellDef="let element"> {{element.contactPerson}} </td>
+      </ng-container>
+
+      <!-- Phone Column -->
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email || '-'}} </td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element">
+          <span class="status-badge" [ngClass]="element.active ? 'active-badge' : 'inactive-badge'">
+            {{element.active ? 'Active' : 'Inactive'}}
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="actions-header"> Actions </th>
+        <td mat-cell *matCellDef="let element" class="actions-cell">
+          <button class="btn-icon view" (click)="openViewDialog(element)" title="View Supplier">
+            <span class="material-icons">visibility</span>
+          </button>
+          <button class="btn-icon edit" (click)="openEditDialog(element)" title="Edit Supplier">
+            <span class="material-icons">edit</span>
+          </button>
+          <button class="btn-icon delete" (click)="deleteSupplier(element.id, element.supplierName)" title="Delete Supplier">
+            <span class="material-icons">delete</span>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Header and Row Declarations -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+</div>

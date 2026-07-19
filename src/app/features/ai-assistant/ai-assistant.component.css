@@ -1,0 +1,159 @@
+/* ==========================================================================
+   AI Assistant Placeholder Page CSS
+   ========================================================================== */
+
+.ai-assistant-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Glassmorphism Card Layout */
+.assistant-card {
+  background: rgba(27, 27, 27, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(217, 119, 6, 0.15); /* orange border glow */
+  border-radius: 20px;
+  padding: 50px 40px;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 
+              0 0 40px rgba(217, 119, 6, 0.05); /* glowing effect */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.assistant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.6), 
+              0 0 50px rgba(217, 119, 6, 0.08);
+}
+
+/* SVG Illustration and Animations */
+.svg-container {
+  width: 160px;
+  height: 160px;
+  margin-bottom: 8px;
+}
+
+.robot-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px rgba(217, 119, 6, 0.15));
+}
+
+.pulse {
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+.blink-fast {
+  animation: blink-light 1.2s infinite ease-in-out;
+}
+
+.blink-slow {
+  animation: blink-light 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    fill: #fbbf24;
+    filter: drop-shadow(0 0 2px #d97706);
+  }
+  50% {
+    fill: #b45309;
+    filter: drop-shadow(0 0 8px #fbbf24);
+  }
+}
+
+@keyframes blink-light {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Typography styles */
+.assistant-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.assistant-message {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #a5a5a5;
+  margin: 0;
+  max-width: 420px;
+}
+
+/* Visual pending integration status */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 158, 11, 0.06);
+  border: 1px solid rgba(245, 158, 11, 0.12);
+  padding: 8px 16px;
+  border-radius: 30px;
+  margin-top: 8px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+  animation: signal-pulse 1.8s infinite ease-in-out;
+}
+
+.status-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #f59e0b;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+@keyframes signal-pulse {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+    box-shadow: 0 0 12px #fbbf24;
+  }
+}
+
+/* Responsive adjustment */
+@media (max-width: 576px) {
+  .assistant-card {
+    padding: 40px 24px;
+  }
+
+  .assistant-title {
+    font-size: 1.5rem;
+  }
+
+  .assistant-message {
+    font-size: 0.9rem;
+  }
+}

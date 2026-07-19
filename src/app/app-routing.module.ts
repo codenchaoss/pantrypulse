@@ -1,7 +1,134 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { LoginComponent } from './features/auth/login/login.component';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { InventoryComponent } from './features/inventory/inventory.component';
+import { AddIngredientComponent } from './features/inventory/add-ingredient/add-ingredient.component';
+import { EditIngredientComponent } from './features/inventory/edit-ingredient/edit-ingredient.component';
+import { RecipeListComponent } from './features/recipes/recipe-list/recipe-list.component';
+import { AddRecipeComponent } from './features/recipes/add-recipe/add-recipe.component';
+import { EditRecipeComponent } from './features/recipes/edit-recipe/edit-recipe.component';
+import { RecipeDetailsComponent } from './features/recipes/recipe-details/recipe-details.component';
+import { HomeComponent } from './features/home/home.component';
+import { RecipeIngredientsComponent } from './features/recipe-ingredients/recipe-ingredients.component';
+import { SupplierListComponent } from './features/suppliers/supplier-list.component';
+import { AiAssistantComponent } from './features/ai-assistant/ai-assistant.component';
+
+const routes: Routes = [
+
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+
+  {
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+
+      {
+        path: 'inventory',
+        component: InventoryComponent
+      },
+
+      {
+        path: 'inventory/add',
+        component: AddIngredientComponent
+      },
+
+      {
+        path: 'inventory/edit/:id',
+        component: EditIngredientComponent
+      },
+
+      {
+        path: 'recipes',
+        component: RecipeListComponent
+      },
+
+      {
+        path: 'recipes/add',
+        component: AddRecipeComponent
+      },
+
+      {
+        path: 'recipes/edit/:id',
+        component: EditRecipeComponent
+      },
+
+      {
+        path: 'recipes/view/:id',
+        component: RecipeDetailsComponent
+      },
+
+      {
+        path: 'recipe-ingredients',
+        component: RecipeIngredientsComponent
+      },
+
+      {
+        path: 'suppliers',
+        component: SupplierListComponent
+      },
+
+      {
+        path: 'ai-assistant',
+        component: AiAssistantComponent
+      },
+
+      {
+        path: 'expiry-tracking',
+        component: DashboardComponent
+      },
+
+      {
+        path: 'menu-planner',
+        component: DashboardComponent
+      },
+
+      {
+        path: 'reports',
+        component: DashboardComponent
+      },
+
+      {
+        path: 'settings',
+        component: DashboardComponent
+      }
+
+    ]
+  },
+
+  {
+    path: '**',
+    redirectTo: 'login'
+  }
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

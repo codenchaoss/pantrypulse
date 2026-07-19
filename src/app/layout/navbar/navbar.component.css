@@ -1,0 +1,199 @@
+
+.navbar{
+    height:70px;
+    background:#1B1B1B;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 35px;
+}
+
+.navbar-left {
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.hamburger-btn {
+    background:none;
+    border:none;
+    color:#e5e7eb;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    transition:background-color 0.2s, color 0.2s, transform 0.2s ease;
+    padding:0;
+    flex-shrink:0;
+}
+
+.hamburger-btn:hover {
+    background-color:#242424;
+    color:#f59e0b;
+    transform:scale(1.05);
+}
+
+.hamburger-btn span {
+    font-size:1.5rem;
+}
+
+.navbar-left h2{
+    color:#FFFFFF;
+    font-size:24px;
+    font-weight:600;
+    margin:0;
+}
+
+
+
+.navbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+
+
+.search-box{
+
+    width:320px;
+
+    height:45px;
+
+    background:#242424;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 18px;
+
+}
+
+.search-box i{
+
+    color:#9E9E9E;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    margin-left:12px;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+.search-box input::placeholder{
+
+    color:#8A8A8A;
+
+}
+
+
+
+.nav-icon{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#242424;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.nav-icon:hover{
+
+    background:#C76B29;
+
+}
+
+.nav-icon i{
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    cursor:pointer;
+
+}
+
+.profile img{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.profile-text{
+
+    text-align:right;
+
+}
+
+.profile-text h4{
+
+    color:white;
+
+    font-size:15px;
+
+    margin:0;
+
+}
+
+.profile-text span{
+
+    color:#A5A5A5;
+
+    font-size:13px;
+
+}

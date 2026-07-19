@@ -1,0 +1,196 @@
+<div class="recipes-page">
+
+  <!-- ════════════════════════════════════════
+       Toast Notification
+       ════════════════════════════════════════ -->
+  <div
+    class="toast"
+    [class.toast-success]="toastType === 'success'"
+    [class.toast-error]="toastType === 'error'"
+    *ngIf="toastMessage">
+    <span class="toast-icon">{{ toastType === 'success' ? '✔' : '✖' }}</span>
+    <span class="toast-text">{{ toastMessage }}</span>
+    <button class="toast-close" (click)="dismissToast()">✕</button>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       Delete Confirmation Modal
+       ════════════════════════════════════════ -->
+  <div class="modal-overlay" *ngIf="showDeleteModal" (click)="cancelDelete()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+
+      <div class="modal-icon">🗑</div>
+
+      <h3 class="modal-title">Delete Recipe?</h3>
+
+      <p class="modal-body">
+        Are you sure you want to delete
+        <strong>"{{ recipeToDelete?.recipeName }}"</strong>?
+        <br>
+        <span class="modal-warning">This action cannot be undone.</span>
+      </p>
+
+      <div class="modal-actions">
+
+        <button
+          class="modal-cancel-btn"
+          (click)="cancelDelete()"
+          [disabled]="isDeleting">
+          Cancel
+        </button>
+
+        <button
+          class="modal-delete-btn"
+          (click)="confirmDelete()"
+          [disabled]="isDeleting">
+          <span *ngIf="isDeleting" class="btn-spinner"></span>
+          {{ isDeleting ? 'Deleting...' : 'Yes, Delete' }}
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       Page Header
+       ════════════════════════════════════════ -->
+  <div class="page-header">
+
+    <div class="title-section">
+      <h2>Recipes</h2>
+      <p>Manage restaurant recipes
+        <span class="recipe-count" *ngIf="totalElements > 0">({{ totalElements }} total)</span>
+      </p>
+    </div>
+
+    <div class="header-actions">
+
+      <div class="search-box">
+        <input
+          type="text"
+          placeholder="Search recipes..."
+          [(ngModel)]="searchText"
+          (input)="searchRecipe()">
+      </div>
+
+      <button class="add-btn" routerLink="/recipes/add">
+        + Add Recipe
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Error State -->
+  <div class="error-state" *ngIf="errorMessage">
+    <span class="error-icon">⚠</span>
+    <p>{{ errorMessage }}</p>
+    <button class="retry-btn" (click)="loadRecipes()">Retry</button>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-state" *ngIf="isLoading">
+    <div class="loader"></div>
+    <p>Loading recipes...</p>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       Recipe Cards Grid
+       ════════════════════════════════════════ -->
+  <div class="recipe-grid" *ngIf="!isLoading && !errorMessage">
+
+    <div
+      class="recipe-card"
+      *ngFor="let recipe of filteredRecipes; trackBy: trackByRecipeId">
+
+      <!-- Image -->
+      <div class="recipe-image">
+
+        <img
+          [src]="recipe.imageUrl || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22 viewBox=%220 0 300 200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%231b1b1b%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23d97706%22 font-size=%2248%22%3E🍳%3C/text%3E%3C/svg%3E'"
+          alt="Recipe Image"
+          onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22 viewBox=%220 0 300 200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%231b1b1b%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23d97706%22 font-size=%2248%22%3E🍳%3C/text%3E%3C/svg%3E'">
+
+        <div class="availability"
+             [ngClass]="recipe.available ? 'available' : 'unavailable'">
+          {{ recipe.available ? 'Available' : 'Unavailable' }}
+        </div>
+
+      </div>
+
+      <!-- Body -->
+      <div class="recipe-content">
+
+        <div class="recipe-header">
+          <h3>{{ recipe.recipeName }}</h3>
+          <span class="favorite">♡</span>
+        </div>
+
+        <span class="category">
+          {{ categoryDisplayMap.get(recipe.id!) }}
+        </span>
+
+        <p class="description">{{ recipe.description || 'No description provided.' }}</p>
+
+        <div class="recipe-details">
+          <div class="detail">🕒 {{ recipe.preparationTime }} mins</div>
+          <div class="detail">🍽 {{ recipe.servings }} Servings</div>
+          <div class="detail">🔥 {{ recipe.calories }} kcal</div>
+        </div>
+
+        <div class="price-row">
+          <div>
+            <small>Selling Price</small>
+            <h3>₹ {{ recipe.sellingPrice }}</h3>
+          </div>
+          <div>
+            <small>Cost Price</small>
+            <h4>₹ {{ recipe.costPrice }}</h4>
+          </div>
+        </div>
+
+        <div class="card-actions">
+
+          <button
+            class="view-btn"
+            [routerLink]="['/recipes/view', recipe.id]">
+            👁 View
+          </button>
+
+          <button
+            class="edit-btn"
+            [routerLink]="['/recipes/edit', recipe.id]">
+            ✏ Edit
+          </button>
+
+          <button
+            class="delete-btn"
+            (click)="requestDelete(recipe)">
+            🗑 Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Empty State -->
+  <div
+    class="empty-state"
+    *ngIf="!isLoading && !errorMessage && filteredRecipes.length === 0">
+
+    <div class="empty-icon">🍽</div>
+    <h3>No Recipes Found</h3>
+    <p *ngIf="searchText">No results for "{{ searchText }}". Try a different keyword.</p>
+    <p *ngIf="!searchText">No recipes yet. Click <strong>+ Add Recipe</strong> to get started.</p>
+    <button class="add-btn" routerLink="/recipes/add" *ngIf="!searchText">
+      + Add First Recipe
+    </button>
+
+  </div>
+
+</div>

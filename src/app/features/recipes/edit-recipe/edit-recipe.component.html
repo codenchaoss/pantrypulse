@@ -1,0 +1,274 @@
+<div class="edit-recipe-page">
+
+  <div class="page-header">
+    <h2>Edit Recipe</h2>
+    <p>Update the details for this recipe</p>
+  </div>
+
+  <!-- Load Error State -->
+  <div class="load-error" *ngIf="loadError">
+    <div class="load-error-icon">⚠</div>
+    <h3>Could Not Load Recipe</h3>
+    <p>{{ loadError }}</p>
+    <div class="load-error-actions">
+      <button class="retry-btn" (click)="fetchRecipe()">Retry</button>
+      <button class="cancel-btn" (click)="cancel()">← Back to Recipes</button>
+    </div>
+  </div>
+
+  <!-- Skeleton Loader -->
+  <div class="form-container skeleton-container" *ngIf="isLoading && !loadError">
+    <div class="skeleton skeleton-title"></div>
+    <div class="skeleton skeleton-input"></div>
+    <div class="skeleton skeleton-input"></div>
+    <div class="skeleton skeleton-textarea"></div>
+    <div class="skeleton-row">
+      <div class="skeleton skeleton-input"></div>
+      <div class="skeleton skeleton-input"></div>
+    </div>
+    <div class="skeleton-row">
+      <div class="skeleton skeleton-input"></div>
+      <div class="skeleton skeleton-input"></div>
+    </div>
+    <div class="skeleton skeleton-input"></div>
+    <div class="skeleton skeleton-btn"></div>
+  </div>
+
+  <!-- Edit Form (shown when data is loaded) -->
+  <ng-container *ngIf="!isLoading && !loadError">
+
+    <!-- Success Message -->
+    <div class="alert alert-success" *ngIf="successMessage">
+      <span class="alert-icon">✔</span> {{ successMessage }}
+    </div>
+
+    <!-- Error Message -->
+    <div class="alert alert-error" *ngIf="errorMessage">
+      <span class="alert-icon">✖</span> {{ errorMessage }}
+    </div>
+
+    <div class="form-container">
+
+      <form #editForm="ngForm" (ngSubmit)="updateRecipe(editForm)" novalidate>
+
+        <!-- Recipe Name -->
+        <div class="form-group" [class.has-error]="recipeName.invalid && recipeName.touched">
+          <label for="recipeName">Recipe Name <span class="required">*</span></label>
+          <input
+            type="text"
+            id="recipeName"
+            name="recipeName"
+            [(ngModel)]="recipe.recipeName"
+            #recipeName="ngModel"
+            required
+            placeholder="e.g. Butter Chicken">
+          <div class="field-error" *ngIf="recipeName.invalid && recipeName.touched">
+            <span *ngIf="recipeName.errors?.['required']">Recipe name is required.</span>
+          </div>
+          <div class="field-error" *ngIf="fieldErrors['recipeName']">{{ fieldErrors['recipeName'] }}</div>
+        </div>
+
+        <!-- Category -->
+        <div class="form-group" [class.has-error]="category.invalid && category.touched">
+          <label for="category">Category <span class="required">*</span></label>
+          <select
+            id="category"
+            name="category"
+            [(ngModel)]="recipe.category"
+            #category="ngModel"
+            required>
+            <option value="" disabled>-- Select Category --</option>
+            <option *ngFor="let cat of categories" [value]="cat.value">{{ cat.label }}</option>
+          </select>
+          <div class="field-error" *ngIf="category.invalid && category.touched">
+            <span *ngIf="category.errors?.['required']">Category is required.</span>
+          </div>
+          <div class="field-error" *ngIf="fieldErrors['category']">{{ fieldErrors['category'] }}</div>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            [(ngModel)]="recipe.description"
+            placeholder="Brief description of the recipe..."></textarea>
+          <div class="field-error" *ngIf="fieldErrors['description']">{{ fieldErrors['description'] }}</div>
+        </div>
+
+        <!-- Row: Prep Time + Servings -->
+        <div class="row">
+
+          <div class="form-group" [class.has-error]="preparationTime.invalid && preparationTime.touched">
+            <label for="preparationTime">Preparation Time (mins) <span class="required">*</span></label>
+            <input
+              type="number"
+              id="preparationTime"
+              name="preparationTime"
+              [(ngModel)]="recipe.preparationTime"
+              #preparationTime="ngModel"
+              required
+              min="1"
+              placeholder="e.g. 30">
+            <div class="field-error" *ngIf="preparationTime.invalid && preparationTime.touched">
+              <span *ngIf="preparationTime.errors?.['required']">Preparation time is required.</span>
+              <span *ngIf="preparationTime.errors?.['min']">Must be at least 1 minute.</span>
+            </div>
+            <div class="field-error" *ngIf="fieldErrors['preparationTime']">{{ fieldErrors['preparationTime'] }}</div>
+          </div>
+
+          <div class="form-group" [class.has-error]="servings.invalid && servings.touched">
+            <label for="servings">Servings <span class="required">*</span></label>
+            <input
+              type="number"
+              id="servings"
+              name="servings"
+              [(ngModel)]="recipe.servings"
+              #servings="ngModel"
+              required
+              min="1"
+              placeholder="e.g. 4">
+            <div class="field-error" *ngIf="servings.invalid && servings.touched">
+              <span *ngIf="servings.errors?.['required']">Servings is required.</span>
+              <span *ngIf="servings.errors?.['min']">Must be at least 1.</span>
+            </div>
+            <div class="field-error" *ngIf="fieldErrors['servings']">{{ fieldErrors['servings'] }}</div>
+          </div>
+
+        </div>
+
+        <!-- Row: Cost Price + Selling Price -->
+        <div class="row">
+
+          <div class="form-group" [class.has-error]="costPrice.invalid && costPrice.touched">
+            <label for="costPrice">Cost Price (₹) <span class="required">*</span></label>
+            <input
+              type="number"
+              id="costPrice"
+              name="costPrice"
+              [(ngModel)]="recipe.costPrice"
+              #costPrice="ngModel"
+              required
+              min="0.01"
+              step="0.01"
+              placeholder="e.g. 150.00">
+            <div class="field-error" *ngIf="costPrice.invalid && costPrice.touched">
+              <span *ngIf="costPrice.errors?.['required']">Cost price is required.</span>
+              <span *ngIf="costPrice.errors?.['min']">Must be greater than 0.</span>
+            </div>
+            <div class="field-error" *ngIf="fieldErrors['costPrice']">{{ fieldErrors['costPrice'] }}</div>
+          </div>
+
+          <div class="form-group" [class.has-error]="sellingPrice.invalid && sellingPrice.touched">
+            <label for="sellingPrice">Selling Price (₹) <span class="required">*</span></label>
+            <input
+              type="number"
+              id="sellingPrice"
+              name="sellingPrice"
+              [(ngModel)]="recipe.sellingPrice"
+              #sellingPrice="ngModel"
+              required
+              min="0.01"
+              step="0.01"
+              placeholder="e.g. 250.00">
+            <div class="field-error" *ngIf="sellingPrice.invalid && sellingPrice.touched">
+              <span *ngIf="sellingPrice.errors?.['required']">Selling price is required.</span>
+              <span *ngIf="sellingPrice.errors?.['min']">Must be greater than 0.</span>
+            </div>
+            <div class="field-error" *ngIf="fieldErrors['sellingPrice']">{{ fieldErrors['sellingPrice'] }}</div>
+          </div>
+
+        </div>
+
+        <!-- Calories -->
+        <div class="form-group" [class.has-error]="calories.invalid && calories.touched">
+          <label for="calories">Calories (kcal) <span class="required">*</span></label>
+          <input
+            type="number"
+            id="calories"
+            name="calories"
+            [(ngModel)]="recipe.calories"
+            #calories="ngModel"
+            required
+            min="1"
+            placeholder="e.g. 450">
+          <div class="field-error" *ngIf="calories.invalid && calories.touched">
+            <span *ngIf="calories.errors?.['required']">Calories is required.</span>
+            <span *ngIf="calories.errors?.['min']">Must be at least 1.</span>
+          </div>
+          <div class="field-error" *ngIf="fieldErrors['calories']">{{ fieldErrors['calories'] }}</div>
+        </div>
+
+        <!-- Image Upload -->
+        <div class="form-group image-upload-group">
+          <label for="recipeImage">Recipe Image</label>
+          
+          <!-- Upload Area (when no preview is loaded) -->
+          <div class="image-dropzone" *ngIf="!imagePreview">
+            <div class="dropzone-inner">
+              <span class="upload-icon">📷</span>
+              <p>Click to upload a recipe image</p>
+              <small>Supports: JPG, JPEG, PNG, WEBP (Max 2MB)</small>
+              <input
+                type="file"
+                id="recipeImage"
+                accept="image/jpeg,image/jpg,image/png,image/webp"
+                (change)="onFileSelected($event)">
+            </div>
+          </div>
+
+          <!-- Preview Area (when image is loaded) -->
+          <div class="image-preview-container" *ngIf="imagePreview">
+            <img [src]="imagePreview" alt="Recipe Preview" class="preview-img">
+            <button type="button" class="remove-image-btn" (click)="removeImage()">
+              ✕ Remove Image
+            </button>
+          </div>
+
+          <!-- Error message if validation fails -->
+          <div class="field-error" *ngIf="imageError">
+            {{ imageError }}
+          </div>
+        </div>
+
+        <!-- Availability -->
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              id="available"
+              name="available"
+              [(ngModel)]="recipe.available">
+            <span class="checkbox-custom"></span>
+            Mark as Available
+          </label>
+          <p class="checkbox-hint">When checked, this recipe will be visible and orderable.</p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons">
+          <button
+            type="submit"
+            class="update-btn"
+            [disabled]="isSubmitting">
+            <span *ngIf="isSubmitting" class="spinner"></span>
+            {{ isSubmitting ? 'Updating...' : '✔ Update Recipe' }}
+          </button>
+
+          <button
+            type="button"
+            class="cancel-btn"
+            (click)="cancel()">
+            ✖ Cancel
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </ng-container>
+
+</div>

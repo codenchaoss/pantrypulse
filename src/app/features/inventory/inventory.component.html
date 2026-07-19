@@ -1,0 +1,197 @@
+<div class="inventory-page">
+
+  <!-- Operational Overview cards -->
+  <div class="stats-overview">
+    
+    <div class="stat-card">
+      <div class="stat-icon-wrapper blue">
+        <span class="material-icons">inventory_2</span>
+      </div>
+      <div class="stat-content">
+        <h3>{{ totalIngredients }}</h3>
+        <p>Total Items</p>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon-wrapper red">
+        <span class="material-icons">warning</span>
+      </div>
+      <div class="stat-content">
+        <h3>{{ lowStockCount }}</h3>
+        <p>Low Stock Items</p>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon-wrapper orange">
+        <span class="material-icons">alarm</span>
+      </div>
+      <div class="stat-content">
+        <h3>{{ expiringSoonCount }}</h3>
+        <p>Expiring Soon</p>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon-wrapper dark-red">
+        <span class="material-icons">dangerous</span>
+      </div>
+      <div class="stat-content">
+        <h3>{{ expiredCount }}</h3>
+        <p>Expired Items</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Table Controls (Search, Filters, Action buttons) -->
+  <div class="controls-panel">
+    
+    <div class="search-and-filter">
+      <!-- Search Input -->
+      <div class="search-box">
+        <span class="material-icons search-icon">search</span>
+        <input 
+          type="text" 
+          placeholder="Search ingredients..." 
+          [(ngModel)]="searchText"
+          (input)="cdr.markForCheck()">
+      </div>
+
+      <!-- Filters Select Grid -->
+      <div class="filters-grid">
+        <!-- Category -->
+        <select 
+          class="filter-select" 
+          [(ngModel)]="selectedCategory"
+          (change)="cdr.markForCheck()">
+          <option value="">All Categories</option>
+          <option value="Vegetables">Vegetables</option>
+          <option value="Fruits">Fruits</option>
+          <option value="Dairy">Dairy</option>
+          <option value="Meat">Meat</option>
+          <option value="Spices">Spices</option>
+          <option value="Others">Others</option>
+        </select>
+
+        <!-- Stock Status -->
+        <select 
+          class="filter-select" 
+          [(ngModel)]="selectedStockStatus"
+          (change)="cdr.markForCheck()">
+          <option value="">All Stock Levels</option>
+          <option value="normal">Normal Stock</option>
+          <option value="low">Low Stock</option>
+        </select>
+
+        <!-- Expiry Status -->
+        <select 
+          class="filter-select" 
+          [(ngModel)]="selectedExpiryStatus"
+          (change)="cdr.markForCheck()">
+          <option value="">All Expiry Statuses</option>
+          <option value="good">Good Expiry</option>
+          <option value="expiring_soon">Expiring Soon</option>
+          <option value="expired">Expired</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn btn-export" (click)="exportUIOnly()">
+        <span class="material-icons">download</span> Export
+      </button>
+      <button class="btn btn-add" routerLink="/inventory/add">
+        <span class="material-icons">add</span> Add Ingredient
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-state" *ngIf="isLoading">
+    <div class="loader"></div>
+    <p>Loading inventory list...</p>
+  </div>
+
+  <!-- Inventory Table Container -->
+  <div class="table-container" *ngIf="!isLoading">
+    
+    <table class="inventory-table">
+      <thead>
+        <tr>
+          <th>Ingredient Name</th>
+          <th>Category</th>
+          <th>Stock Level</th>
+          <th>Expiry Status</th>
+          <th class="actions-header">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredIngredients; trackBy: trackById">
+          <!-- Name & Availability -->
+          <td>
+            <div class="ingredient-name-cell">
+              <span class="name">{{ item.ingredientName }}</span>
+              <span class="status-indicator" [class.active]="item.available"></span>
+            </div>
+          </td>
+
+          <!-- Category Badge -->
+          <td>
+            <span class="category-badge">{{ item.category }}</span>
+          </td>
+
+          <!-- Quantity + Threshold Indicator -->
+          <td>
+            <div class="stock-level-cell">
+              <div class="stock-text">
+                <span class="qty">{{ item.quantity }} {{ item.unit }}</span>
+                <span class="min-lbl">Min: {{ item.minimumStock }} {{ item.unit }}</span>
+              </div>
+              <!-- Progress Bar -->
+              <div class="progress-track">
+                <div 
+                  class="progress-fill" 
+                  [ngClass]="item.quantity <= item.minimumStock ? 'critical' : 'good'"
+                  [style.width.%]="getStockPercent(item)">
+                </div>
+              </div>
+            </div>
+          </td>
+
+          <!-- Expiry Info -->
+          <td>
+            <div class="expiry-cell">
+              <span class="expiry-date">{{ item.expiryDate | date:'mediumDate' }}</span>
+              <span class="expiry-status" [ngClass]="getStatus(item.expiryDate, item.available)">
+                {{ getExpiryLabel(item.expiryDate) }}
+              </span>
+            </div>
+          </td>
+
+          <!-- Actions -->
+          <td class="actions-cell">
+            <button class="btn-icon edit" [routerLink]="['/inventory/edit', item.id]" title="Edit Item">
+              <span class="material-icons">edit</span>
+            </button>
+            <button class="btn-icon delete" (click)="deleteIngredient(item.id)" title="Delete Item">
+              <span class="material-icons">delete</span>
+            </button>
+          </td>
+        </tr>
+
+        <!-- Empty State -->
+        <tr *ngIf="filteredIngredients.length === 0">
+          <td colspan="5" class="empty-row">
+            <span class="material-icons empty-icon">inventory</span>
+            <p>No ingredients found matching the criteria.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

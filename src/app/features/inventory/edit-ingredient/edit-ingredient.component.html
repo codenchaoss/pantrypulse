@@ -1,0 +1,192 @@
+<div class="add-ingredient-page">
+
+  <!-- Status Alert message -->
+  <div class="alert alert-error" *ngIf="errorMessage">
+    <span class="alert-icon">✖</span> {{ errorMessage }}
+  </div>
+
+  <div class="form-card shadow">
+
+    <div class="form-card-header">
+      <div class="header-content">
+        <span class="material-icons header-icon">edit</span>
+        <h3>Edit Ingredient</h3>
+      </div>
+      <button class="back-link-btn" (click)="goBack()">
+        ← Back to Inventory
+      </button>
+    </div>
+
+    <div class="form-card-body">
+
+      <form (ngSubmit)="updateIngredient()" novalidate>
+
+        <!-- Ingredient Name -->
+        <div class="form-group">
+          <label class="form-label">Ingredient Name</label>
+          <div class="input-wrapper">
+            <span class="material-icons input-icon">label</span>
+            <input
+              type="text"
+              class="form-control"
+              name="ingredientName"
+              placeholder="e.g. Tomato Paste"
+              [(ngModel)]="ingredient.ingredientName"
+              [class.is-invalid]="backendErrors['ingredientName']"
+              required>
+          </div>
+          <div class="invalid-feedback" *ngIf="backendErrors['ingredientName']">
+            {{ backendErrors['ingredientName'] }}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <!-- Category -->
+          <div class="form-group col">
+            <label class="form-label">Category</label>
+            <div class="input-wrapper">
+              <span class="material-icons input-icon">category</span>
+              <select
+                class="form-select"
+                name="category"
+                [(ngModel)]="ingredient.category"
+                [class.is-invalid]="backendErrors['category']"
+                required>
+                <option value="">Select Category</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Fruits">Fruits</option>
+                <option value="Dairy">Dairy</option>
+                <option value="Meat">Meat</option>
+                <option value="Spices">Spices</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+            <div class="invalid-feedback" *ngIf="backendErrors['category']">
+              {{ backendErrors['category'] }}
+            </div>
+          </div>
+
+          <!-- Unit -->
+          <div class="form-group col">
+            <label class="form-label">Unit</label>
+            <div class="input-wrapper">
+              <span class="material-icons input-icon">straighten</span>
+              <select
+                class="form-select"
+                name="unit"
+                [(ngModel)]="ingredient.unit"
+                [class.is-invalid]="backendErrors['unit']"
+                required>
+                <option value="">Select Unit</option>
+                <option value="Kg">Kg</option>
+                <option value="g">g</option>
+                <option value="L">L</option>
+                <option value="ml">ml</option>
+                <option value="Pieces">Pieces</option>
+              </select>
+            </div>
+            <div class="invalid-feedback" *ngIf="backendErrors['unit']">
+              {{ backendErrors['unit'] }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <!-- Quantity -->
+          <div class="form-group col">
+            <label class="form-label">Quantity</label>
+            <div class="input-wrapper">
+              <span class="material-icons input-icon">onetwothree</span>
+              <input
+                type="number"
+                class="form-control"
+                name="quantity"
+                placeholder="e.g. 5"
+                [(ngModel)]="ingredient.quantity"
+                [class.is-invalid]="backendErrors['quantity']"
+                min="0.001"
+                step="any"
+                required>
+            </div>
+            <div class="invalid-feedback" *ngIf="backendErrors['quantity']">
+              {{ backendErrors['quantity'] }}
+            </div>
+          </div>
+
+          <!-- Minimum Stock -->
+          <div class="form-group col">
+            <label class="form-label">Minimum Stock Alert Threshold</label>
+            <div class="input-wrapper">
+              <span class="material-icons input-icon">notifications_active</span>
+              <input
+                type="number"
+                class="form-control"
+                name="minimumStock"
+                placeholder="e.g. 2"
+                [(ngModel)]="ingredient.minimumStock"
+                [class.is-invalid]="backendErrors['minimumStock']"
+                min="0.001"
+                step="any"
+                required>
+            </div>
+            <div class="invalid-feedback" *ngIf="backendErrors['minimumStock']">
+              {{ backendErrors['minimumStock'] }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Expiry Date -->
+        <div class="form-group">
+          <label class="form-label">Expiry Date</label>
+          <div class="input-wrapper">
+            <span class="material-icons input-icon">calendar_month</span>
+            <input
+              type="date"
+              class="form-control"
+              name="expiryDate"
+              [(ngModel)]="ingredient.expiryDate"
+              [class.is-invalid]="backendErrors['expiryDate']"
+              required>
+          </div>
+          <div class="invalid-feedback" *ngIf="backendErrors['expiryDate']">
+            {{ backendErrors['expiryDate'] }}
+          </div>
+        </div>
+
+        <!-- Available -->
+        <div class="checkbox-group">
+          <label class="checkbox-container">
+            <input
+              type="checkbox"
+              name="available"
+              [(ngModel)]="ingredient.available">
+            <span class="checkmark"></span>
+            Available for immediate recipe allocations
+          </label>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-actions">
+          <button
+            type="button"
+            class="action-btn cancel-btn"
+            (click)="goBack()"
+            [disabled]="isSaving">
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="action-btn save-btn"
+            [disabled]="isSaving">
+            <span *ngIf="isSaving" class="btn-spinner"></span>
+            {{ isSaving ? 'Saving...' : 'Update Ingredient' }}
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

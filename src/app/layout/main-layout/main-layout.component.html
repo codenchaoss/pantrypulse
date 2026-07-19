@@ -1,0 +1,29 @@
+<div class="main-layout" 
+     [class.sidebar-collapsed]="isCollapsed"
+     [class.sidebar-mobile-open]="isMobileOpen">
+
+    <!-- Mobile Drawer Overlay Backdrop -->
+    <div class="mobile-sidebar-overlay" (click)="closeMobileSidebar()"></div>
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+
+    <!-- Main Content wrapper -->
+    <div class="main-content">
+
+        <!-- Navbar -->
+        <app-navbar></app-navbar>
+
+        <!-- Page Content -->
+        <div class="page-content">
+
+            <router-outlet></router-outlet>
+
+        </div>
+
+        <!-- Footer -->
+        <app-footer></app-footer>
+
+    </div>
+
+</div>

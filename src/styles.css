@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+/* ===========================
+   PantryPulse Design System
+=========================== */
+
+:root{
+
+    /* Colors */
+
+    --bg:#121212;
+    --surface:#1b1b1b;
+    --sidebar:#181818;
+
+    --primary:#C76B29;
+    --primary-hover:#A95820;
+
+    --gold:#D8B26E;
+
+    --text:#FFFFFF;
+    --text-light:#A5A5A5;
+
+    --success:#43C36A;
+    --warning:#F4A62A;
+    --danger:#E15555;
+
+    --border:rgba(255,255,255,.08);
+
+    --radius:16px;
+
+    --transition:.25s ease;
+
+}
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    height:100%;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select,
+textarea{
+
+    font-family:inherit;
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}

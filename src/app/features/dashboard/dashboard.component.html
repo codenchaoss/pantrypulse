@@ -1,0 +1,250 @@
+<div class="dashboard">
+
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">
+        <div>
+            <h1>Dashboard</h1>
+            <p>Welcome back! Here's what's happening today.</p>
+        </div>
+        <button class="refresh-btn" (click)="triggerRefresh()" [disabled]="isLoading">
+            <i class="fa-solid fa-rotate" [class.fa-spin]="isLoading"></i>
+            Refresh
+        </button>
+    </div>
+
+    <!-- Error Banner Alert -->
+    <div class="alert alert-error" *ngIf="errorMessage">
+        <span class="alert-icon">✖</span> {{ errorMessage }}
+    </div>
+
+    <!-- Stats Grid (Loading Skeletons OR Live Cards) -->
+    <div class="stats-grid" *ngIf="isLoading && !data">
+        <div class="stat-card skeleton-card" *ngFor="let s of [1, 2, 3, 4, 5]">
+            <div class="skeleton-circle"></div>
+            <div class="skeleton-lines">
+                <div class="line short"></div>
+                <div class="line medium"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats-grid five-cols" *ngIf="data">
+        <!-- Total Ingredients -->
+        <div class="stat-card" routerLink="/inventory">
+            <div class="icon orange">
+                <i class="fa-solid fa-box"></i>
+            </div>
+            <div class="stat-content">
+                <span>Total Ingredients</span>
+                <h2>{{ data.totalIngredients }}</h2>
+                <small class="text-neutral">Total stock items</small>
+            </div>
+        </div>
+
+        <!-- Total Recipes -->
+        <div class="stat-card" routerLink="/recipes">
+            <div class="icon blue">
+                <i class="fa-solid fa-utensils"></i>
+            </div>
+            <div class="stat-content">
+                <span>Total Recipes</span>
+                <h2>{{ data.totalRecipes }}</h2>
+                <small class="text-neutral">Active menus</small>
+            </div>
+        </div>
+
+        <!-- Low Stock Items -->
+        <div class="stat-card" routerLink="/inventory">
+            <div class="icon yellow">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div class="stat-content">
+                <span>Low Stock Items</span>
+                <h2>{{ data.lowStockCount }}</h2>
+                <small [ngClass]="data.lowStockCount > 0 ? 'text-warn' : 'text-neutral'">
+                    {{ data.lowStockCount > 0 ? 'Needs Reorder' : 'Levels healthy' }}
+                </small>
+            </div>
+        </div>
+
+        <!-- Expiring Soon -->
+        <div class="stat-card" routerLink="/inventory">
+            <div class="icon red">
+                <i class="fa-solid fa-calendar-days"></i>
+            </div>
+            <div class="stat-content">
+                <span>Expiring Soon</span>
+                <h2>{{ data.expiringSoonCount }}</h2>
+                <small [ngClass]="data.expiringSoonCount > 0 ? 'text-warn' : 'text-neutral'">
+                    {{ data.expiringSoonCount > 0 ? 'Next 7 days' : 'None expiring' }}
+                </small>
+            </div>
+        </div>
+
+        <!-- Expired Items -->
+        <div class="stat-card" routerLink="/inventory">
+            <div class="icon dark-red">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+            <div class="stat-content">
+                <span>Expired Items</span>
+                <h2>{{ data.expiredCount }}</h2>
+                <small [ngClass]="data.expiredCount > 0 ? 'text-danger' : 'text-neutral'">
+                    {{ data.expiredCount > 0 ? 'Dispose immediately' : 'Zero wasted items' }}
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Center Section: Recents Tables -->
+    <div class="charts-grid" *ngIf="data">
+        
+        <!-- Recent Ingredients -->
+        <div class="chart-card">
+            <div class="card-header">
+                <h3>Recent Ingredients</h3>
+                <a routerLink="/inventory">View All</a>
+            </div>
+            <div class="table-wrapper">
+                <table class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Quantity</th>
+                            <th>Expiry</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of data.recentIngredients; trackBy: trackByIngredient">
+                            <td class="bold-name">{{ item.ingredientName }}</td>
+                            <td>{{ item.quantity }} {{ item.unit }}</td>
+                            <td>{{ item.expiryDate | date:'mediumDate' }}</td>
+                            <td>
+                                <span class="badge" [ngClass]="item.stockStatus === 'Low Stock' ? 'warning' : 'success'">
+                                    {{ item.stockStatus }}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr *ngIf="data.recentIngredients.length === 0">
+                            <td colspan="4" class="empty-table-msg">No ingredients available. Add some to get started.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Recent Recipes -->
+        <div class="chart-card">
+            <div class="card-header">
+                <h3>Recent Recipes</h3>
+                <a routerLink="/recipes">View All</a>
+            </div>
+            <div class="table-wrapper">
+                <table class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>Recipe Name</th>
+                            <th>Category</th>
+                            <th>Prep Time</th>
+                            <th>Available</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let recipe of data.recentRecipes; trackBy: trackByRecipe">
+                            <td class="bold-name">{{ recipe.recipeName }}</td>
+                            <td>{{ getCategoryLabel(recipe.category) }}</td>
+                            <td>{{ recipe.preparationTime }} mins</td>
+                            <td>
+                                <span class="badge" [ngClass]="recipe.available ? 'success' : 'danger'">
+                                    {{ recipe.available ? 'Available' : 'Unavailable' }}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr *ngIf="data.recentRecipes.length === 0">
+                            <td colspan="4" class="empty-table-msg">No recipes available. Add some to get started.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Section: Expiry Alerts & AI Recommendations / Quick Actions -->
+    <div class="bottom-grid" *ngIf="data">
+        
+        <!-- Expiry Alerts Table -->
+        <div class="bottom-card">
+            <div class="card-header">
+                <h3>Expiry Alerts</h3>
+                <a routerLink="/inventory">Manage Stock</a>
+            </div>
+            <div class="table-wrapper">
+                <table class="expiry-table">
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Quantity</th>
+                            <th>Alert Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let alert of data.expiryAlerts">
+                            <td class="bold-name">{{ alert.ingredientName }}</td>
+                            <td>{{ alert.quantity }}</td>
+                            <td>
+                                <span class="badge" [ngClass]="alert.badgeClass">
+                                    {{ alert.statusText }}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr *ngIf="data.expiryAlerts.length === 0">
+                            <td colspan="3" class="empty-table-msg">No urgent expiration alerts. Good job!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- AI Recommendation & Quick Actions -->
+        <div class="bottom-card flex-card">
+            <div class="card-header">
+                <h3>AI Recommendation</h3>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            
+            <div class="ai-box">
+                <div class="ai-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <h4>Today's Smart Suggestion</h4>
+                <p>{{ aiSuggestionsText }}</p>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions-section">
+                <h4>Quick Actions</h4>
+                <div class="actions-buttons-grid">
+                    <button class="action-btn-dashboard" routerLink="/inventory/add">
+                        <i class="fa-solid fa-plus"></i> Add Ingredient
+                    </button>
+                    <button class="action-btn-dashboard" routerLink="/recipes/add">
+                        <i class="fa-solid fa-utensils"></i> Add Recipe
+                    </button>
+                    <button class="action-btn-dashboard" routerLink="/inventory">
+                        <i class="fa-solid fa-boxes-stacked"></i> View Inventory
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Full page loading spinner overlay if no initial data is loaded -->
+    <div class="dashboard-loading-overlay" *ngIf="isLoading && !data">
+        <div class="loader-spinner"></div>
+        <p>Loading analytics engine...</p>
+    </div>
+
+</div>

@@ -1,0 +1,570 @@
+.recipes-page{
+    padding:25px;
+    background:#121212;
+    min-height:100vh;
+    color:white;
+}
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.page-header h2{
+    margin:0;
+    color:#fff;
+}
+
+.page-header p{
+    color:#9ca3af;
+    margin-top:5px;
+}
+
+.header-actions{
+    display:flex;
+    gap:15px;
+}
+
+.search-box input{
+    width:280px;
+    padding:10px 15px;
+    background:#1f1f1f;
+    border:1px solid #2f2f2f;
+    border-radius:8px;
+    color:white;
+}
+
+.add-btn{
+    background:#d97706;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.recipe-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:25px;
+}
+
+.recipe-card{
+    background:#1b1b1b;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+    border:1px solid #2d2d2d;
+}
+
+.recipe-card:hover{
+    transform:translateY(-5px);
+    border-color:#d97706;
+}
+
+.recipe-image img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.recipe-content{
+    padding:18px;
+}
+
+.recipe-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.recipe-top h3{
+    margin:0;
+    font-size:18px;
+}
+
+.favorite{
+    color:#f97316;
+    cursor:pointer;
+}
+
+.category{
+    display:inline-block;
+    margin-top:10px;
+    background:#3b2b16;
+    color:#f59e0b;
+    padding:4px 10px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.description{
+    color:#b5b5b5;
+    margin:15px 0;
+    height:40px;
+}
+
+.recipe-info{
+    display:flex;
+    justify-content:space-between;
+    color:#9ca3af;
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:20px;
+    color:#f59e0b;
+    font-weight:bold;
+}
+
+.bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:20px;
+}
+
+.status{
+    padding:5px 12px;
+    border-radius:20px;
+    background:#7f1d1d;
+    color:#fecaca;
+    font-size:12px;
+}
+
+.status.available{
+    background:#14532d;
+    color:#bbf7d0;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ============================
+   Availability Badge
+   ============================ */
+.recipe-image {
+    position: relative;
+}
+
+.availability {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.available {
+    background: #14532d;
+    color: #bbf7d0;
+}
+
+.unavailable {
+    background: #7f1d1d;
+    color: #fecaca;
+}
+
+/* ============================
+   Recipe Details Row
+   ============================ */
+.recipe-details {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+}
+
+.detail {
+    font-size: 0.78rem;
+    color: #9ca3af;
+    background: #242424;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+/* ============================
+   Price Row
+   ============================ */
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 12px 0 16px;
+    padding-top: 12px;
+    border-top: 1px solid #2a2a2a;
+}
+
+.price-row small {
+    color: #6b7280;
+    font-size: 0.72rem;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.price-row h3 {
+    margin: 0;
+    color: #f59e0b;
+    font-size: 1.1rem;
+}
+
+.price-row h4 {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+/* ============================
+   Recipe Header
+   ============================ */
+.recipe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.recipe-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #f5f5f5;
+    flex: 1;
+}
+
+/* ============================
+   Card Actions
+   ============================ */
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.view-btn, .edit-btn, .delete-btn {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: opacity 0.2s;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-btn {
+    background: #2e2e2e;
+    color: #e5e7eb;
+    border: 1px solid #3a3a3a;
+}
+
+.edit-btn {
+    background: #1d4ed8;
+    color: white;
+}
+
+.delete-btn {
+    background: #7f1d1d;
+    color: #fecaca;
+}
+
+.view-btn:hover, .edit-btn:hover, .delete-btn:hover {
+    opacity: 0.85;
+}
+
+/* ============================
+   Loading State
+   ============================ */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    color: #9ca3af;
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #2e2e2e;
+    border-top-color: #d97706;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================
+   Error State
+   ============================ */
+.error-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #f87171;
+}
+
+.error-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.retry-btn {
+    margin-top: 16px;
+    background: #d97706;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* ============================
+   Empty State
+   ============================ */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #9ca3af;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.empty-state h3 {
+    color: #e5e7eb;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    margin-bottom: 20px;
+}
+
+/* ============================
+   Delete Confirmation Modal
+   ============================ */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.modal-box {
+    background: #1e1e1e;
+    border: 1px solid #3a3a3a;
+    border-radius: 18px;
+    padding: 36px 32px 28px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    animation: slideUp 0.22s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+.modal-icon {
+    font-size: 2.8rem;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+.modal-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f5f5f5;
+    margin: 0 0 14px;
+}
+
+.modal-body {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.modal-body strong {
+    color: #f5f5f5;
+}
+
+.modal-warning {
+    color: #f87171;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 6px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.modal-cancel-btn {
+    flex: 1;
+    padding: 11px 20px;
+    background: #2e2e2e;
+    color: #d1d5db;
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.modal-cancel-btn:hover:not(:disabled) {
+    background: #3a3a3a;
+}
+
+.modal-cancel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.modal-delete-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 20px;
+    background: linear-gradient(135deg, #dc2626, #991b1b);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.modal-delete-btn:hover:not(:disabled) {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+.modal-delete-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* ============================
+   Toast Notification
+   ============================ */
+
+.toast {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    z-index: 1100;
+    max-width: 380px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    animation: toastIn 0.3s ease;
+}
+
+@keyframes toastIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+.toast-success {
+    background: rgba(16, 185, 129, 0.18);
+    border: 1px solid #10b981;
+    color: #6ee7b7;
+}
+
+.toast-error {
+    background: rgba(239, 68, 68, 0.18);
+    border: 1px solid #ef4444;
+    color: #fca5a5;
+}
+
+.toast-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.toast-text {
+    flex: 1;
+    line-height: 1.4;
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    padding: 0 0 0 6px;
+    flex-shrink: 0;
+    transition: opacity 0.15s;
+}
+
+.toast-close:hover {
+    opacity: 1;
+}
+
+/* ============================
+   Recipe Count Badge
+   ============================ */
+.recipe-count {
+    font-size: 0.78rem;
+    color: #6b7280;
+    margin-left: 4px;
+}
+
