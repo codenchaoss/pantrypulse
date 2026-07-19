@@ -11,7 +11,7 @@ logger = logging.getLogger("app.llm")
 def detect_language(text: str) -> str:
     """
     Heuristic helper to detect language (english | telugu | roman_telugu).
-    Uses regex word boundaries to prevent false positives from English words.
+    Uses regex word boundaries, interjection lexicons, and suffix patterns for accurate Tenglish detection.
     """
     if not text:
         return "english"
@@ -21,18 +21,54 @@ def detect_language(text: str) -> str:
         return "telugu"
         
     text_lower = text.lower()
+    
+    # 2. Comprehensive Romanized Telugu (Tenglish) words, interjections & stems
     tenglish_words = {
-        "cheyyali", "migilindi", "ela", "enti", "avuthundi", "undhi", "undha", "vundha", "vundhi",
-        "leka", "mari", "kuda", "ala", "ippudu", "vacham", "cheddam", "kavali", "garu", "ayya",
-        "ivvali", "ledu", "chesi", "tinna", "tinali", "chudu", "andi", "vunda", "telusukovali", "unnaya",
-        "ekkada", "yekkada", "akkada", "vunai", "vunnai", "unayi", "unnayi", "nunchi", "chaala", "chala",
-        "emi", "yemi", "yeda", "avunu", "kadu", "kaadu", "enduku", "yenduku", "evaru", "yevaru",
-        "cheppandi", "cheppu", "cheppava", "unai", "veyali", "ayipoindhi", "aipoyindi", "ayipoyindi",
-        "valla", "cheyyi", "cheyi", "supliers", "kud", "kudaa", "alaage", "elaga", "kaavali"
+        # Conversational Interjections, Slang & Fillers
+        "ohh", "oh", "oho", "ohho", "hurray", "hurey", "hurrah", "alright", "alrighty", "knaww",
+        "knoww", "kneww", "accha", "aachcha", "acha", "aah", "aha", "ahha", "abba", "abbha",
+        "ammo", "ammow", "ayyo", "ayyyo", "arey", "areyy", "are", "rey", "reyy", "ra", "raa",
+        "bey", "bhey", "boss", "bro", "dude", "sir", "ji", "mama", "macha", "machi", "machan",
+        "garu", "gaaru", "andi", "aandi", "ayya", "ayyachya", "bhayya", "bhai", "bhaya", "anna",
+        "annayya", "akka", "akkayya", "tammudu", "chello", "pilla", "potti", "babu", "bangaram",
+        "chelli", "gurinchi", "sangathi", "sangati", "visayam", "vishayam", "batti", "valana",
+        
+        # Question words & Pronouns
+        "enni", "yenni", "etla", "yetla", "ela", "yela", "enti", "yenti", "yem", "emi", "yemi",
+        "evaru", "yevaru", "yeda", "ekkada", "yekkada", "akkada", "yakkada", "yenduku", "enduku",
+        "eppudu", "yeppudu", "elaga", "yelaga", "evarki", "yevarki", "yavaru", "manaki", "manaku",
+        "naaku", "naku", "neeku", "tanaku", "vaallu", "vallu", "vaallaki", "vallaki", "athanu",
+        "atanu", "aavida", "idi", "adi", "ivi", "avi", "ikada", "akada",
+        
+        # Quantity, Time, Frequency & Manner
+        "sarlu", "saarlu", "sari", "saari", "chala", "chaala", "koncham", "konchem", "motham",
+        "mottham", "sariga", "sarigga", "thwaraga", "twaraga", "roju", "rojoo", "rojuki", "repu",
+        "ivvala", "eevala", "ninna", "ippudu", "appudu", "sepu", "sepati", "koddiseapu", "nundi", "nunchi",
+        
+        # Verbs & Auxiliary stems
+        "chesukuntadu", "chesukuntaru", "chesukuntam", "chesukuntadhi", "chesukuntai", "chesukovali",
+        "chesuko", "chesukoni", "cheyyali", "cheyali", "chesta", "chestha", "chestaru", "chestanu",
+        "chestam", "cheddam", "chesthunnaru", "chesthunna", "chesanu", "chesaru", "chesadu", "chesindi",
+        "chesav", "chesam", "chey", "cheyyi", "cheyi", "chesi", "chesinappudu", "chese", "chesetappudu",
+        "tinali", "tinna", "tinadam", "thinaru", "thintaru", "thinte", "tine", "thine", "tagali",
+        "thaagali", "tagina", "vundhi", "undhi", "vundi", "undi", "vundha", "undha", "vunda", "unda",
+        "vunnai", "unai", "unnayi", "unayi", "vunnaru", "unnaru", "vunnar", "unnar", "vuntadhi",
+        "vuntadi", "untadi", "untadhi", "vuntai", "untai", "avuthundi", "avutundi", "aipoyindi",
+        "ayipoindhi", "aipoyindhi", "migilindi", "migilindhi", "migilipoyindi", "leka", "ledu", "ledhu",
+        "ivvali", "ivvandi", "ivvu", "ivvacha", "pettali", "pettandi", "pettukovali", "tiskoni",
+        "theskoni", "theskovalane", "tisukoni", "thesukoni", "kavalo", "kavali", "kaavali", "kavalane",
+        "cheppandi", "cheppu", "cheppava", "cheppara", "chudu", "chudandi", "vacham", "vacha", "vachindi",
+        "vacharu", "vastadi", "vasthundhi", "vastaru", "vastanu", "povali", "potha", "pothanu", "potharu",
+        "poindi", "poyindi", "kuda", "kooda", "kudaa", "mari", "ala", "alaage", "alaga", "alage", "valla", "supliers"
     }
     
     words = set(re.findall(r'\b[a-z]+\b', text_lower))
     if words.intersection(tenglish_words):
+        return "roman_telugu"
+        
+    # Regex pattern for compound Tenglish verb suffixes
+    tenglish_regex = r'\b[a-z]+(?:kuntadu|kuntaru|kuntam|kovali|kovalani|kovalane|thundi|thunnaru|thari|thamu)\b'
+    if re.search(tenglish_regex, text_lower):
         return "roman_telugu"
         
     return "english"
@@ -262,35 +298,35 @@ class ChatbotService:
             additional_contexts.append("\n".join(sup_strs))
             sources.append("suppliers")
 
-        # B. Food Safety, First Aid & BOH Emergency Safety Protocols (45+ Categories)
+        # B. Food Safety, First Aid & BOH Emergency Safety Protocols (75+ Categories)
         safety_triggers = [
-            "safety", "temp", "temperature", "hygiene", "storage", "haccp", "clean", "shelf", "spoilage",
+            "safety", "temp", "temperature", "hygiene", "hygienic", "storage", "haccp", "clean", "shelf", "spoilage",
             "cut", "cutiyindhi", "cutayindhi", "bleeding", "turmeric", "pasupu", "burn", "injury", "finger",
-            "hand", "wound", "first aid", "aid", "leak", "oil", "migilithe", "fire", "manta", "mantalu",
+            "hand", "handwash", "wound", "first aid", "aid", "leak", "oil", "migilithe", "fire", "manta", "mantalu",
             "smell", "wasana", "current", "power", "chemical", "glass", "pagilithe", "pest", "chicken",
             "egg", "guddu", "rice", "annam", "blender", "mixi", "knife", "kathi", "thaw", "defrost",
-            "mold", "fifo", "hair", "juttu", "handwash", "hood", "spoiled", "rotten", "cooker", "electric",
+            "mold", "fifo", "hair", "juttu", "hood", "spoiled", "rotten", "cooker", "electric",
             "shock", "choking", "heimlich", "heavy", "lift", "allergy", "ice", "scoop", "honey", "teflon",
-            "parasite", "fish", "dilution"
+            "parasite", "fish", "dilution", "nail", "gollu", "ring", "jewelry", "apron", "sickness", "board",
+            "fridge", "danger", "cooling", "label", "tasting", "mop", "slicer", "sink", "cloth", "glove",
+            "gloves", "closing", "opening", "pedal", "dustbin", "trash", "sarlu", "sarl"
         ]
         if any(w in q_low for w in safety_triggers):
             safe_data = kb.get("safety.json", [])
             safe_strs = ["=== BOH SAFETY, FIRST AID & EMERGENCY PROTOCOLS ==="]
             
-            # Match specific safety topics based on query
             matched_safety = []
             for sf in safe_data:
                 topic = str(sf.get("topic", "")).lower()
                 title = str(sf.get("title", "")).lower()
                 desc = str(sf.get("description", "")).lower()
-                # Check if any trigger word matches topic/title/desc
-                if any(t in topic or t in title or t in desc for t in safety_triggers if len(t) > 3 and t in q_low):
+                if any(t in topic or t in title or t in desc for t in safety_triggers if t in q_low):
                     matched_safety.append(sf)
             
             if not matched_safety:
                 matched_safety = [sf for sf in safe_data if "topic" in sf or "title" in sf]
                 if not matched_safety:
-                    matched_safety = safe_data[-30:]  # Grab latest 30 BOH safety protocols
+                    matched_safety = safe_data[-30:]
                     
             for sf in matched_safety[:5]:
                 title = sf.get("title") or sf.get("topic", "Safety Rule")

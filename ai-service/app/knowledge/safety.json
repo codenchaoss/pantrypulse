@@ -10073,10 +10073,213 @@
     "category": "Seafood Hygiene"
   },
   {
-    "topic": "Dishwashing Chemical Dilution Ratios (సబ్బు సానిటైజర్ ఎంత కలపాలి)",
-    "title": "Chemical Dilution & Rinse Protocol",
-    "description": "Using dishwashing detergent and sanitizer chemicals: 1. Always follow manufacturer dilution ratios on chemical labels. 2. Concentrated chemical residue left on plates causes chemical burns and stomach distress.",
-    "rule": "Follow chemical dilution ratios on label. Thoroughly rinse plates with clean water.",
+    "topic": "Chef Handwashing Frequency & Protocol (చాయ్ / చెఫ్ ఎన్ని సార్లు హ్యాండ్‌వాష్ చేసుకోవాలి / cheff enni sarlu handwash chesukuntadu)",
+    "title": "Chef Handwashing Frequency & Hygiene Standard",
+    "description": "Chef handwashing rules: 1. Wash hands every 30 minutes, after handling raw meat/poultry, after touching face/hair, after trash handling, after restroom use, and before starting any food prep. 2. Scrub with warm water and soap for at least 20 seconds. 3. Dry with single-use paper towels or air dryer.",
+    "rule": "Wash hands every 30 minutes and after raw meat/restroom/trash contact for 20 seconds.",
+    "category": "Personal Hygiene"
+  },
+  {
+    "topic": "Hair Net & Beard Cover Protocol (హెయిర్ నెట్ వేసుకోవాలా / hair net mandatory ah)",
+    "title": "BOH Hair Constraint & Beard Restraint Standard",
+    "description": "Hair and beard hygiene: 1. Hair nets and beard covers are mandatory in all food prep and cooking stations. 2. Keeps loose hair from contaminating dishes and maintains 100% kitchen cleanliness.",
+    "rule": "Hair nets and beard covers must be worn at all times in food prep areas.",
+    "category": "Personal Hygiene"
+  },
+  {
+    "topic": "Nail Trimming & Polish Ban (గోళ్లు కట్ చేయాలా / gollu cut cheyyala)",
+    "title": "Chef Nail Care & Polish Prohibition",
+    "description": "Hand nail hygiene: 1. Keep fingernails short, clean, and neatly trimmed. 2. Nail polish and artificial fingernails are strictly prohibited because chipped polish or false nails can drop into food.",
+    "rule": "Keep nails short and unpolished; artificial nails prohibited in kitchen.",
+    "category": "Personal Hygiene"
+  },
+  {
+    "topic": "Jewelry & Ring Policy in BOH (రింగులు గొలుసులు వేసుకోవచ్చా / rings jewelry veskovacha)",
+    "title": "BOH Jewelry Restriction Standard",
+    "description": "Kitchen jewelry rules: 1. No watches, bracelets, stone rings, or loose jewelry allowed in BOH stations. 2. Only a plain smooth metal wedding band is permitted. 3. Prevents physical hazards and bacterial harborage.",
+    "rule": "Remove all jewelry except plain smooth wedding band before food prep.",
+    "category": "Personal Hygiene"
+  },
+  {
+    "topic": "Chef Uniform & Clean Apron Change (ఏప్రాన్ ఎప్పుడు మార్చాలి / apron enni sarlu marchali)",
+    "title": "Clean Apron & Uniform Hygiene Protocol",
+    "description": "Apron and uniform maintenance: 1. Wear clean uniform daily. 2. Change aprons immediately when soiled with raw meat juices. 3. ALWAYS remove aprons before entering restrooms or taking out trash to prevent cross-contamination.",
+    "rule": "Remove aprons before using restroom or trash disposal; change soiled aprons.",
+    "category": "Personal Hygiene"
+  },
+  {
+    "topic": "Sickness & Open Wound Reporting (జ్వరం వికారంగా ఉంటే కిచెన్‌లో పనిచేయవచ్చా / sickness jwaram osthe)",
+    "title": "Staff Illness Exclusion & Wound Cover Protocol",
+    "description": "Kitchen staff sickness policy: 1. Staff with fever, diarrhea, vomiting, or jaundice must report to manager immediately and be excluded from food prep. 2. Cuts on hands must be covered with waterproof blue bandage and single-use glove.",
+    "rule": "Exclude sick staff from kitchen; cover hand cuts with waterproof bandage and glove.",
+    "category": "Food Safety"
+  },
+  {
+    "topic": "Cutting Board Color Coding (కటింగ్ బోర్డు రంగులు దేనికి / red blue yellow board difference)",
+    "title": "Color-Coded Cutting Board Standard",
+    "description": "Cutting board color rules: 1. Red: Raw Red Meat. 2. Yellow: Raw Poultry (Chicken). 3. Blue: Raw Fish & Seafood. 4. Green: Fruits & Vegetables. 5. White: Dairy, Cheese & Bread. 6. Brown: Cooked Meats.",
+    "rule": "Use color-coded cutting boards to prevent raw and ready-to-eat cross-contamination.",
+    "category": "Kitchen Operations"
+  },
+  {
+    "topic": "Sanitizer Bucket PPM Concentration (శానిటైజర్ లిక్విడ్ వాటర్ ఎంత కలపాలి / sanitizer bucket ratio)",
+    "title": "Prep Station Sanitizer Bucket Concentration Protocol",
+    "description": "Sanitizing solution maintenance: 1. Maintain Chlorine sanitizer at 50-100 PPM (or Quat at 200 PPM). 2. Test concentration with test strips every 2-4 hours. 3. Replace sanitizer solution when greasy or diluted.",
+    "rule": "Check sanitizer PPM concentration with test strips every 2-4 hours.",
+    "category": "Sanitation"
+  },
+  {
+    "topic": "Walk-in Fridge Temperature Standard (ఫ్రిజ్ టెంపరేచర్ ఎంత ఉండాలి / fridge temperature enni degrees)",
+    "title": "Refrigeration & Walk-in Cooler Temperature Control",
+    "description": "Cold storage temperatures: 1. Walk-in fridge and chillers must be kept at 1°C to 4°C (34°F to 40°F). 2. Freezers must be kept at -18°C (0°F) or colder. 3. Log temperatures twice daily.",
+    "rule": "Maintain chillers between 1°C-4°C and freezers at -18°C or colder.",
+    "category": "Cold Storage"
+  },
+  {
+    "topic": "Hot Holding Temperature Threshold (వేడి వంటలు ఎంత వేడిగా ఉండాలి / hot food temperature threshold)",
+    "title": "BOH Hot Holding & Buffet Temperature Protocol",
+    "description": "Hot food holding: 1. Maintain cooked hot foods at 60°C (140°F) or hotter in bain-maries. 2. Check internal temperature using calibrated probe thermometer every 2 hours.",
+    "rule": "Hold cooked foods at 60°C (140°F) or hotter to prevent bacterial growth.",
+    "category": "Food Safety"
+  },
+  {
+    "topic": "Danger Zone Temperature Range (డేంజర్ జోన్ టెంపరేచర్ అంటే ఏంటి / temperature danger zone)",
+    "title": "Foodborne Bacteria Temperature Danger Zone",
+    "description": "Temperature Danger Zone rules: 1. Danger Zone is 5°C to 60°C (41°F to 140°F) where bacteria multiply rapidly. 2. Perishable food left in Danger Zone for >2 hours must be discarded.",
+    "rule": "Keep cold foods below 5°C and hot foods above 60°C; limit Danger Zone time to 2 hours.",
+    "category": "Food Safety"
+  },
+  {
+    "topic": "Two-Stage Cooling Process for Stocks & Curries (వేడి కర్రీలు త్వరగా ఎలా చల్లార్చాలి / cooling hot curry)",
+    "title": "BOH Two-Stage Rapid Food Cooling Protocol",
+    "description": "Cooling hot curries and gravies: 1. Stage 1: Cool from 60°C to 21°C within 2 hours. 2. Stage 2: Cool from 21°C to 5°C within next 4 hours. 3. Use ice baths, ice paddles, or shallow metal pans.",
+    "rule": "Cool hot foods from 60°C to 21°C in 2 hrs, then 21°C to 5°C in 4 hrs using ice baths.",
+    "category": "Food Safety"
+  },
+  {
+    "topic": "Thawing Meat Rules (మాంసం ఐస్ కరిగించడానికి గదిలో పెట్టవచ్చా / thawing meat ice melt)",
+    "title": "Safe Frozen Meat Thawing Methods",
+    "description": "Safe thawing techniques: 1. In refrigerator below 4°C (recommended). 2. Submerged under cold running water below 21°C. 3. Microwave (only if cooking immediately). 4. NEVER thaw meat at room temperature.",
+    "rule": "Never thaw frozen meat at room temperature; use refrigerator or cold running water.",
+    "category": "Food Safety"
+  },
+  {
+    "topic": "Food Labeling & Expiry Sticker Rule (ప్రిపేర్ చేసిన ఫుడ్ పైన డేట్ లేబుల్ వేయాలా / food labeling date sticker)",
+    "title": "BOH Prep Labeling & Expiry Tracking Standard",
+    "description": "Food labeling procedure: 1. All prepped sauces, sliced meats, and chopped veggies must have Date Labels. 2. Label must include: Item Name, Prep Date, Time, Use-By Expiry Date, and Chef Initials.",
+    "rule": "Label all prepped items with Item Name, Prep Date/Time, Expiry Date, and Initials.",
+    "category": "Kitchen Operations"
+  },
+  {
+    "topic": "FIFO Storage Protocol (ఫిఫో సిస్టమ్ అంటే ఏంటి / fifo system rules)",
+    "title": "First-In, First-Out (FIFO) Inventory Management",
+    "description": "FIFO inventory rule: 1. Store new stock behind older stock. 2. Use items with earlier expiration dates first. 3. Prevents ingredient spoilage and reduces kitchen food waste.",
+    "rule": "Always use older stock first (First-In, First-Out) to prevent ingredient spoilage.",
+    "category": "Inventory Management"
+  },
+  {
+    "topic": "Raw Meat Storage Hierarchy (చికెన్ మటన్ ఫ్రిజ్‌లో ఎక్కడ పెట్టాలి / raw meat fridge placement)",
+    "title": "Refrigerator Shelf Storage Hierarchy",
+    "description": "Fridge shelf arrangement (Top to Bottom): 1. Top Shelf: Ready-to-Eat Food / Cooked Dishes. 2. Middle Shelf: Raw Fish & Seafood. 3. Lower Shelf: Raw Whole Beef & Pork. 4. Bottom Shelf: Raw Chicken & Ground Meat.",
+    "rule": "Store raw poultry and ground meats on the lowest fridge shelf below cooked foods.",
+    "category": "Cold Storage"
+  },
+  {
+    "topic": "Tasting Food Hygiene Protocol (కర్రీల టేస్ట్ చూసేటప్పుడు / tasting spoon rule)",
+    "title": "Sanitary Food Tasting Standard",
+    "description": "Tasting dishes during cooking: 1. Ladle small portion into a separate clean tasting spoon or cup. 2. Step away from cooking pot to taste. 3. NEVER double-dip or reuse tasting spoon in cooking pot.",
+    "rule": "Use a separate clean spoon for food tasting and never double-dip into cooking pot.",
+    "category": "Personal Hygiene"
+  },
+  {
+    "topic": "Chemical Storage Segregation (క్లీనింగ్ లిక్విడ్స్ ఎక్కడ పెట్టాలి / chemical storage liquids)",
+    "title": "BOH Chemical Storage & Isolation Standard",
+    "description": "Storing cleaning chemicals: 1. Store detergents, bleach, and sanitizers in a locked chemical cabinet away from food prep areas. 2. NEVER store chemicals above food, plates, or single-use items.",
+    "rule": "Store cleaning chemicals in dedicated locked cabinets separated from all food prep areas.",
     "category": "Chemical Safety"
+  },
+  {
+    "topic": "Fly & Pest Control Screen Rule (కిచెన్‌లో ఈగలు బొద్దింకలు రాకుండా / fly pest control)",
+    "title": "Pest Prevention & Air Curtain Protocol",
+    "description": "Pest control guidelines: 1. Keep BOH back doors closed; maintain active air curtains and insect light traps. 2. Inspect incoming produce crates for pests before bringing into kitchen.",
+    "rule": "Keep back doors closed, maintain air curtains, and inspect incoming crates for pests.",
+    "category": "Sanitation"
+  },
+  {
+    "topic": "Trash Can Foot-Pedal Rule (డస్ట్‌బిన్ చేతితో తెరవవచ్చా / dustbin foot pedal rule)",
+    "title": "Waste Container Operation & Sanitization",
+    "description": "Trash bin usage: 1. Kitchen waste bins must have working foot-pedals so staff never touch bin lids with hands. 2. Empty trash bins when 3/4 full. 3. Wash hands immediately after trash disposal.",
+    "rule": "Use foot-pedal trash cans; wash hands immediately after touching waste containers.",
+    "category": "Sanitation"
+  },
+  {
+    "topic": "Mop Bucket & Broom Segregation (మాప్ బకెట్ ఎక్కడ కడగాలి / mop sink bucket wash)",
+    "title": "Sanitation Equipment & Mop Sink Isolation",
+    "description": "Washing mops and brooms: 1. Wash mops, buckets, and floor brooms exclusively in designated Mop Sinks (Service Sinks). 2. NEVER wash floor mops in food prep sinks or handwash sinks.",
+    "rule": "Wash mops and buckets only in designated service mop sinks, never in food prep sinks.",
+    "category": "Sanitation"
+  },
+  {
+    "topic": "Exhaust Hood Filter Cleaning (ఎగ్జాస్ట్ హుడ్ ఎప్పుడు క్లీన్ చేయాలి / exhaust hood cleaning)",
+    "title": "Grease Filter Maintenance & Fire Prevention",
+    "description": "Exhaust hood maintenance: 1. Remove and degrease stainless steel hood filters weekly. 2. Prevents accumulated grease from dripping onto cooking griddles or catching fire.",
+    "rule": "Degrease and clean exhaust hood filters weekly to prevent grease fires and dripping.",
+    "category": "BOH Maintenance"
+  },
+  {
+    "topic": "Slicing Machine Sanitization Routine (మీట్ స్లైసర్ మెషిన్ ఎప్పుడు కడగాలి / meat slicer cleaning)",
+    "title": "Commercial Slicer Cleaning & Disassembly Protocol",
+    "description": "Meat slicer sanitization: 1. Unplug slicer, set blade depth to zero, disassemble blade guard and carriage. 2. Wash, rinse, and sanitize after every 4 hours of continuous use or between meat types.",
+    "rule": "Unplug, disassemble, and sanitize meat slicers every 4 hours and when switching meat types.",
+    "category": "Equipment Safety"
+  },
+  {
+    "topic": "Dishwashing 3-Compartment Sink Routine (3 పార్ట్ సింక్ డిష్ వాషింగ్ / 3 compartment sink steps)",
+    "title": "Manual Dishwashing 3-Compartment Sink Protocol",
+    "description": "Manual dishwashing steps: 1. Sink 1: Wash in hot soapy water (minimum 43°C). 2. Sink 2: Rinse in clean warm water. 3. Sink 3: Sanitize in chemical solution for 60 seconds. 4. Air-dry completely.",
+    "rule": "Wash (43°C), Rinse, Sanitize (60s), and Air-Dry all pots, pans, and utensils.",
+    "category": "Sanitation"
+  },
+  {
+    "topic": "Wiping Cloth Sanitizer Storage (తుడిచే తడి గుడ్డలు కౌంటర్‌పై పెట్టవచ్చా / wiping cloth sanitizer bucket)",
+    "title": "Sanitizer Bucket Wiping Towel Protocol",
+    "description": "Using wiping towels: 1. Damp wiping towels used for counters must be stored submerged in sanitizer buckets between uses. 2. NEVER leave damp wiping cloths sitting on prep counters.",
+    "rule": "Keep damp wiping cloths submerged in sanitizer buckets when not actively wiping.",
+    "category": "Sanitation"
+  },
+  {
+    "topic": "Raw Egg Shell Wash Warning (గుడ్లను నీళ్లతో కడగవచ్చా / raw egg shell wash warning)",
+    "title": "Shell Egg Storage & Handling Standard",
+    "description": "Handling raw eggs: 1. Do NOT wash raw egg shells before storage (washing removes natural protective cuticle, letting bacteria enter). 2. Inspect for cracks and store refrigerated at <4°C.",
+    "rule": "Do not wash raw shell eggs before storage; keep refrigerated below 4°C.",
+    "category": "Food Safety"
+  },
+  {
+    "topic": "Ice Machine Hygiene & Scoop Usage (ఐస్ స్కూప్ మెషిన్ లోపల పెట్టవచ్చా / ice scoop holder usage)",
+    "title": "Ice Storage & Scoop Holder Standard",
+    "description": "Ice machine safety: 1. Store ice scoop outside the ice machine bin in a clean, sanitized holder or bracket. 2. NEVER leave scoop handle sitting inside the ice. 3. Wash ice bin monthly.",
+    "rule": "Store ice scoop outside ice bin in clean holder; never leave scoop handle inside ice.",
+    "category": "Beverage Hygiene"
+  },
+  {
+    "topic": "Food Spoilage Smell & Mold Rejection (చెడిపోయిన వాసన వస్తే ఉడికించవచ్చా / food spoilage mold smell)",
+    "title": "Food Spoilage & Contamination Rejection Policy",
+    "description": "Handling questionable food: 1. Discard any item showing off-odors, slime, discoloration, or mold immediately. 2. NEVER attempt to boil or cook spoiled food to save it (heat does not destroy all bacterial toxins).",
+    "rule": "Discard spoiled or moldy food immediately; cooking does not destroy all bacterial toxins.",
+    "category": "Food Safety"
+  },
+  {
+    "topic": "Gloves Changing Frequency (గ్లోవ్స్ ఎప్పుడు మార్చాలి / gloves changing frequency)",
+    "title": "Single-Use Disposable Glove Hygiene Standard",
+    "description": "Glove replacement rules: 1. Change disposable gloves every 4 hours of continuous task, when torn, after touching face/hair/trash, or when switching from raw chicken to salad prep.",
+    "rule": "Change single-use gloves every 4 hours, when torn, or when switching food prep tasks.",
+    "category": "Personal Hygiene"
+  },
+  {
+    "topic": "Daily Closing BOH Sanitation Checklist (నైట్ కిచెన్ క్లోజింగ్ క్లీనింగ్ రొటీన్ / night closing kitchen checklist)",
+    "title": "BOH Shift-End Closing Sanitation & Lockout Protocol",
+    "description": "BOH night closing routine: 1. Sweep and mop all floors with floor sanitizer. 2. Sanitize stainless counters. 3. Drain dishwashing machine. 4. Empty all trash cans. 5. Turn off main LPG gas valve. 6. Lock walk-in coolers.",
+    "rule": "Complete floor mopping, counter sanitization, trash emptying, and LPG gas lockout at closing.",
+    "category": "Kitchen Operations"
   }
 ]

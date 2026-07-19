@@ -40,7 +40,7 @@ def clean_menu_description(desc: str) -> str:
 def detect_language(text: str) -> str:
     """
     Heuristic helper to detect language (english | telugu | tenglish).
-    Uses regex word boundaries to prevent false positives from English words.
+    Uses regex word boundaries, interjections, and suffix patterns to prevent false positives.
     """
     if not text:
         return "english"
@@ -50,16 +50,25 @@ def detect_language(text: str) -> str:
         
     text_lower = text.lower()
     tenglish_words = {
-        "cheyyali", "migilindi", "ela", "enti", "avuthundi", "undhi", "vundhi",
-        "leka", "mari", "kuda", "ala", "ippudu", "vacham", "cheddam", 
-        "ivvali", "ledu", "chesi", "tinna", "tinali", "chudu", "kavali",
-        "ekkada", "vunai", "ayipoindhi", "valla", "cheyyi", "supliers",
-        "nunchi", "kavalo", "tiskoni", "pettali", "kaavali", "undha",
-        "kooda", "kaani", "enduku", "eppudu", "elaga", "alaage", "kudaa"
+        "ohh", "oh", "oho", "ohho", "hurray", "hurey", "hurrah", "alright", "alrighty", "knaww",
+        "knoww", "kneww", "accha", "aachcha", "acha", "aah", "aha", "ahha", "abba", "abbha",
+        "ammo", "ammow", "ayyo", "ayyyo", "arey", "areyy", "are", "rey", "reyy", "ra", "raa",
+        "bey", "bhey", "boss", "bro", "dude", "sir", "ji", "mama", "macha", "machi", "machan",
+        "garu", "gaaru", "andi", "aandi", "ayya", "bhayya", "bhai", "bhaya", "anna", "annayya",
+        "cheyyali", "migilindi", "ela", "enti", "avuthundi", "undhi", "vundhi", "leka", "mari",
+        "kuda", "ala", "ippudu", "vacham", "cheddam", "ivvali", "ledu", "chesi", "tinna", "tinali",
+        "chudu", "kavali", "ekkada", "vunai", "ayipoindhi", "valla", "cheyyi", "supliers", "nunchi",
+        "kavalo", "tiskoni", "pettali", "kaavali", "undha", "kooda", "kaani", "enduku", "eppudu",
+        "elaga", "alaage", "kudaa", "enni", "yenni", "etla", "yetla", "yela", "yenti", "yem", "emi",
+        "sarlu", "saarlu", "chesukuntadu", "chesukuntaru", "chesukovali", "chesukoni", "chesku"
     }
     
     words = set(re.findall(r'\b[a-z]+\b', text_lower))
     if words.intersection(tenglish_words):
+        return "tenglish"
+        
+    tenglish_regex = r'\b[a-z]+(?:kuntadu|kuntaru|kuntam|kovali|kovalani|kovalane|thundi|thunnaru|thari|thamu)\b'
+    if re.search(tenglish_regex, text_lower):
         return "tenglish"
         
     return "english"
