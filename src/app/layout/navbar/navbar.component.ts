@@ -11,7 +11,7 @@ import { SidebarService } from '../../core/services/sidebar.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  title = 'Home';
+  title = 'Dashboard';
   private sub = new Subscription();
 
   constructor(
@@ -48,9 +48,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private updateTitle(url: string): void {
     const path = url.split('/')[1] || '';
     switch (path) {
-      case 'home':
-        this.title = 'Home';
-        break;
       case 'dashboard':
         this.title = 'Dashboard';
         break;

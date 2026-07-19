@@ -21,12 +21,12 @@ export class SidebarComponent implements OnInit, OnDestroy {
   private sub = new Subscription();
 
   menuItems: MenuItem[] = [
-    { label: 'Home', icon: 'home', route: '/home', exact: true },
     { label: 'Dashboard', icon: 'dashboard', route: '/dashboard' },
     { label: 'Inventory', icon: 'inventory_2', route: '/inventory' },
     { label: 'Recipes', icon: 'restaurant_menu', route: '/recipes' },
     { label: 'Suppliers', icon: 'local_shipping', route: '/suppliers' },
-    { label: 'AI Assistant', icon: 'smart_toy', route: '/ai-assistant' },
+    { label: 'AI Menu Planner', icon: 'smart_toy', route: '/menu-planner' },
+    { label: 'AI Assistant', icon: 'psychology', route: '/ai-assistant' },
     { label: 'Reports', icon: 'trending_up', route: '/reports' },
     { label: 'Settings', icon: 'settings', route: '/settings' }
   ];

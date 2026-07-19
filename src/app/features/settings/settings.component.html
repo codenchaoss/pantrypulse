@@ -1,0 +1,458 @@
+<div class="settings-page">
+
+  <!-- ════════════════════════════════════════
+       LANDING PAGE VIEW (Category Cards Grid)
+       ════════════════════════════════════════ -->
+  <ng-container *ngIf="activeCategory === 'LANDING'">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="header-content">
+        <h2>{{ title }}</h2>
+        <p class="header-subtitle">{{ subtitle }}</p>
+      </div>
+    </div>
+
+    <!-- Category Tiles Grid -->
+    <div class="category-grid">
+
+      <div 
+        class="category-tile" 
+        *ngFor="let cat of categories"
+        [class.logout-tile]="cat.isLogout"
+        (click)="openCategory(cat)">
+
+        <div class="tile-icon-box">
+          <span>{{ cat.icon }}</span>
+        </div>
+
+        <div class="tile-content">
+          <h3 class="tile-title">{{ cat.title }}</h3>
+          <p class="tile-desc">{{ cat.description }}</p>
+        </div>
+
+        <div class="tile-arrow">
+          <span>➔</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </ng-container>
+
+  <!-- ════════════════════════════════════════
+       CATEGORY DETAIL VIEWS
+       ════════════════════════════════════════ -->
+  <ng-container *ngIf="activeCategory !== 'LANDING'">
+
+    <!-- Back Navigation & Header -->
+    <div class="detail-header-card">
+
+      <button class="back-btn" (click)="backToLanding()">
+        <span class="back-icon">←</span>
+        <span>Back to Settings</span>
+      </button>
+
+      <div class="detail-title-group">
+        <!-- PROFILE -->
+        <ng-container *ngIf="activeCategory === 'profile'">
+          <h2>Profile Settings</h2>
+          <p>Manage your personal information, contact details, and account photo.</p>
+        </ng-container>
+
+        <!-- NOTIFICATIONS -->
+        <ng-container *ngIf="activeCategory === 'notifications'">
+          <h2>Notification Settings</h2>
+          <p>Control alert thresholds, triggers, and notification delivery methods.</p>
+        </ng-container>
+
+        <!-- AI PREFERENCES -->
+        <ng-container *ngIf="activeCategory === 'ai-preferences'">
+          <h2>AI Engine Preferences</h2>
+          <p>Tailor the GenAI menu generation rules and chatbot assistant behavior.</p>
+        </ng-container>
+
+        <!-- RESTAURANT PREFERENCES -->
+        <ng-container *ngIf="activeCategory === 'restaurant'">
+          <h2>Restaurant Preferences</h2>
+          <p>Manage restaurant identity, GST registration, and capacity details.</p>
+        </ng-container>
+
+        <!-- APPEARANCE -->
+        <ng-container *ngIf="activeCategory === 'appearance'">
+          <h2>Appearance & Theme</h2>
+          <p>Choose interface theme and visual preferences for PantryPulse.</p>
+        </ng-container>
+
+        <!-- APPLICATION PREFERENCES -->
+        <ng-container *ngIf="activeCategory === 'application'">
+          <h2>Application Preferences</h2>
+          <p>Set default localization, currency format, time zone, and date display.</p>
+        </ng-container>
+
+        <!-- SECURITY -->
+        <ng-container *ngIf="activeCategory === 'security'">
+          <h2>Security & Authentication</h2>
+          <p>Manage password security, multi-factor authentication, and logged-in devices.</p>
+        </ng-container>
+
+        <!-- ABOUT -->
+        <ng-container *ngIf="activeCategory === 'about'">
+          <h2>About KitchenSync AI</h2>
+          <p>System build information, software licenses, and framework versions.</p>
+        </ng-container>
+      </div>
+
+    </div>
+
+    <!-- Detail Content Container -->
+    <div class="detail-content-card">
+
+      <!-- 1. PROFILE DETAIL CONTENT -->
+      <div class="detail-section" *ngIf="activeCategory === 'profile'">
+        <div class="backend-notice">
+          <span class="notice-icon">ℹ</span>
+          <span>Profile information will be loaded after backend integration.</span>
+        </div>
+
+        <div class="profile-avatar-row">
+          <div class="avatar-circle">
+            <svg viewBox="0 0 100 100" class="avatar-svg">
+              <circle cx="50" cy="50" r="50" fill="#d97706" />
+              <circle cx="50" cy="40" r="18" fill="#ffffff" opacity="0.9" />
+              <ellipse cx="50" cy="85" rx="30" ry="20" fill="#ffffff" opacity="0.9" />
+            </svg>
+          </div>
+
+          <div class="avatar-actions">
+            <button class="action-btn" disabled>Upload Photo</button>
+            <button class="action-btn secondary-btn" disabled>Change Photo</button>
+            <button class="action-btn danger-btn" disabled>Remove Photo</button>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Not loaded yet" disabled class="form-input">
+          </div>
+          <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="Not loaded yet" disabled class="form-input">
+          </div>
+          <div class="input-group">
+            <label>Phone Number</label>
+            <input type="text" placeholder="Not loaded yet" disabled class="form-input">
+          </div>
+          <div class="input-group">
+            <label>Role (Read Only)</label>
+            <input type="text" [value]="role" readonly class="form-input readonly-input">
+          </div>
+          <div class="input-group full-width">
+            <label>Restaurant Name</label>
+            <input type="text" placeholder="Not loaded yet" disabled class="form-input">
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. NOTIFICATIONS DETAIL CONTENT -->
+      <div class="detail-section" *ngIf="activeCategory === 'notifications'">
+        <div class="toggles-list">
+          <div class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-label">Low Stock Alerts</span>
+              <span class="toggle-sub">Receive notifications when ingredients fall below threshold</span>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" disabled>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-label">Expiry Alerts</span>
+              <span class="toggle-sub">Get warned about ingredients expiring within 3 days</span>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" disabled>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-label">AI Menu Notifications</span>
+              <span class="toggle-sub">Alerts when new special menus are recommended</span>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" disabled>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-label">Email Notifications</span>
+              <span class="toggle-sub">Send daily summary reports to account email</span>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" disabled>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        <div class="card-note">Toggles remain disabled until backend preferences API is integrated.</div>
+      </div>
+
+      <!-- 3. AI PREFERENCES DETAIL CONTENT -->
+      <div class="detail-section" *ngIf="activeCategory === 'ai-preferences'">
+        <div class="toggles-list">
+          <div class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-label">Enable AI Menu Planner</span>
+              <span class="toggle-sub">Automated inventory-driven menu generation</span>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" disabled checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-label">Enable AI Assistant</span>
+              <span class="toggle-sub">Interactive restaurant management chatbot</span>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" disabled checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-grid compact-grid">
+          <div class="input-group">
+            <label>Default Cuisine</label>
+            <select disabled class="form-input">
+              <option>All Cuisines</option>
+              <option>Indian</option>
+              <option>Italian</option>
+              <option>Mediterranean</option>
+              <option>Asian</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Menu Generation Frequency</label>
+            <select disabled class="form-input">
+              <option>Daily</option>
+              <option>Weekly</option>
+              <option>On Demand</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card-note">Controls will be enabled after backend AI integration.</div>
+      </div>
+
+      <!-- 4. RESTAURANT PREFERENCES DETAIL CONTENT -->
+      <div class="detail-section" *ngIf="activeCategory === 'restaurant'">
+        <div class="backend-notice">
+          <span class="notice-icon">ℹ</span>
+          <span>Restaurant preferences will be loaded after backend integration.</span>
+        </div>
+
+        <div class="form-grid">
+          <div class="input-group">
+            <label>Restaurant Name</label>
+            <input type="text" placeholder="Not loaded yet" disabled class="form-input">
+          </div>
+          <div class="input-group">
+            <label>GST / Tax Registration No.</label>
+            <input type="text" placeholder="Not loaded yet" disabled class="form-input">
+          </div>
+          <div class="input-group">
+            <label>Primary Contact Email</label>
+            <input type="email" placeholder="Not loaded yet" disabled class="form-input">
+          </div>
+          <div class="input-group">
+            <label>Primary Phone</label>
+            <input type="text" placeholder="Not loaded yet" disabled class="form-input">
+          </div>
+          <div class="input-group full-width">
+            <label>Address</label>
+            <input type="text" placeholder="Not loaded yet" disabled class="form-input">
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. APPEARANCE DETAIL CONTENT -->
+      <div class="detail-section" *ngIf="activeCategory === 'appearance'">
+        <div class="theme-options">
+          <div class="theme-card active-theme">
+            <div class="theme-preview dark-preview">
+              <div class="preview-sidebar"></div>
+              <div class="preview-content"></div>
+            </div>
+            <div class="theme-meta">
+              <span class="theme-name">Dark Mode</span>
+              <span class="active-badge">✓ Active</span>
+            </div>
+          </div>
+
+          <div class="theme-card disabled-theme">
+            <div class="theme-preview light-preview">
+              <div class="preview-sidebar"></div>
+              <div class="preview-content"></div>
+            </div>
+            <div class="theme-meta">
+              <span class="theme-name">Light Mode</span>
+              <span class="coming-soon-chip">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. APPLICATION PREFERENCES DETAIL CONTENT -->
+      <div class="detail-section" *ngIf="activeCategory === 'application'">
+        <div class="form-grid">
+          <div class="input-group">
+            <label>Language</label>
+            <select [(ngModel)]="selectedLanguage" class="form-input">
+              <option value="en">English (US)</option>
+              <option value="hi">Hindi (हिंदी)</option>
+              <option value="es">Spanish (Español)</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Currency</label>
+            <select [(ngModel)]="selectedCurrency" class="form-input">
+              <option value="INR">INR (₹)</option>
+              <option value="USD">USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Time Zone</label>
+            <select [(ngModel)]="selectedTimeZone" class="form-input">
+              <option value="IST">IST (UTC+05:30) India</option>
+              <option value="UTC">UTC (Coordinated Universal Time)</option>
+              <option value="EST">EST (UTC-05:00) Eastern Time</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Date Format</label>
+            <select [(ngModel)]="selectedDateFormat" class="form-input">
+              <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+              <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+              <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. SECURITY DETAIL CONTENT -->
+      <div class="detail-section" *ngIf="activeCategory === 'security'">
+        <div class="security-list">
+          <div class="security-item">
+            <div>
+              <span class="security-title">Change Password</span>
+              <span class="security-desc">Update your account password regularly for security</span>
+            </div>
+            <button class="action-btn secondary-btn" disabled>Change</button>
+          </div>
+          <div class="security-item">
+            <div>
+              <span class="security-title">Two Factor Authentication (2FA)</span>
+              <span class="security-desc">Add an extra layer of authentication security</span>
+            </div>
+            <button class="action-btn secondary-btn" disabled>Enable 2FA</button>
+          </div>
+          <div class="security-item">
+            <div>
+              <span class="security-title">Active Login Sessions</span>
+              <span class="security-desc">Manage devices currently logged into your account</span>
+            </div>
+            <button class="action-btn secondary-btn" disabled>View Sessions</button>
+          </div>
+        </div>
+
+        <div class="backend-notice margin-top-12">
+          <span class="notice-icon">🔒</span>
+          <span>Available after backend integration.</span>
+        </div>
+      </div>
+
+      <!-- 8. ABOUT DETAIL CONTENT -->
+      <div class="detail-section" *ngIf="activeCategory === 'about'">
+        <div class="about-info-list">
+          <div class="about-row">
+            <span class="about-label">Application:</span>
+            <span class="about-val highlight-gold">{{ systemName }}</span>
+          </div>
+          <div class="about-row">
+            <span class="about-label">System Version:</span>
+            <span class="about-val">Version 1.0</span>
+          </div>
+          <div class="about-row">
+            <span class="about-label">Frontend Version:</span>
+            <span class="about-val">v{{ appVersion }}</span>
+          </div>
+          <div class="about-row">
+            <span class="about-label">Angular Framework:</span>
+            <span class="about-val">Angular {{ angularVersion }}</span>
+          </div>
+        </div>
+
+        <!-- System Health Checks in About -->
+        <div class="status-section-wrapper margin-top-20">
+          <h4 class="sub-section-title">System Status Checks</h4>
+          <div class="status-cards-grid">
+            <div class="status-card">
+              <div class="status-card-header">
+                <span class="status-title">Backend API</span>
+                <span class="status-indicator-dot" [ngClass]="backendStatus"></span>
+              </div>
+              <div class="status-val-row">
+                <span class="status-text text-online" *ngIf="backendStatus === 'online'">Online</span>
+                <span class="status-text text-offline" *ngIf="backendStatus === 'offline'">Offline</span>
+                <span class="status-text" *ngIf="backendStatus === 'checking'">Checking...</span>
+              </div>
+            </div>
+
+            <div class="status-card">
+              <div class="status-card-header">
+                <span class="status-title">AI Service</span>
+                <span class="status-indicator-dot" [ngClass]="aiStatus"></span>
+              </div>
+              <div class="status-val-row">
+                <span class="status-text text-online" *ngIf="aiStatus === 'online'">Online</span>
+                <span class="status-text text-offline" *ngIf="aiStatus === 'offline'">Offline</span>
+                <span class="status-text" *ngIf="aiStatus === 'checking'">Checking...</span>
+              </div>
+            </div>
+
+            <div class="status-card">
+              <div class="status-card-header">
+                <span class="status-title">Database</span>
+                <span class="status-indicator-dot" [ngClass]="dbStatus"></span>
+              </div>
+              <div class="status-val-row">
+                <span class="status-text text-online" *ngIf="dbStatus === 'online'">Online</span>
+                <span class="status-text text-offline" *ngIf="dbStatus === 'offline'">Offline</span>
+                <span class="status-text" *ngIf="dbStatus === 'checking'">Checking...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Save Changes Button (Disabled until backend integration) -->
+      <div class="detail-card-footer">
+        <button class="save-btn" disabled title="Save functionality will be enabled after backend integration">
+          Save Changes (Disabled until backend integration)
+        </button>
+      </div>
+
+    </div>
+
+  </ng-container>
+
+</div>

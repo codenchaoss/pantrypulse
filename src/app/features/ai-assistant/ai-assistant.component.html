@@ -1,74 +1,296 @@
-<div class="ai-assistant-page">
+<div class="ai-menu-planner-page">
 
-  <div class="assistant-card">
-    
-    <!-- FUTURISTIC SVG ILLUSTRATION -->
-    <div class="svg-container">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="robot-svg">
-        <defs>
-          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#d97706" stop-opacity="0.3"/>
-            <stop offset="100%" stop-color="#1b1b1b" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="metal" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#4b5563"/>
-            <stop offset="50%" stop-color="#1f2937"/>
-            <stop offset="100%" stop-color="#111827"/>
-          </linearGradient>
-          <linearGradient id="neonOrange" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#fbbf24"/>
-            <stop offset="100%" stop-color="#d97706"/>
-          </linearGradient>
-        </defs>
+  <!-- ════════════════════════════════════════
+       Header Section
+       ════════════════════════════════════════ -->
+  <div class="page-header">
 
-        <!-- Ambient Glow -->
-        <circle cx="100" cy="100" r="80" fill="url(#glow)"/>
-
-        <!-- Robot Body -->
-        <!-- Neck -->
-        <rect x="92" y="115" width="16" height="20" rx="4" fill="#374151" stroke="#4b5563" stroke-width="2"/>
-        
-        <!-- Base / Torso Top -->
-        <path d="M 70 135 L 130 135 L 120 165 L 80 165 Z" fill="url(#metal)" stroke="#4b5563" stroke-width="2"/>
-        <circle cx="100" cy="150" r="6" fill="url(#neonOrange)"/>
-
-        <!-- Head outer shell -->
-        <rect x="60" y="55" width="80" height="65" rx="20" fill="url(#metal)" stroke="#4b5563" stroke-width="3"/>
-
-        <!-- Ears/Antennae bases -->
-        <rect x="52" y="75" width="8" height="25" rx="3" fill="#374151"/>
-        <rect x="140" y="75" width="8" height="25" rx="3" fill="#374151"/>
-
-        <!-- Antenna -->
-        <line x1="100" y1="55" x2="100" y2="35" stroke="#4b5563" stroke-width="3"/>
-        <circle cx="100" cy="32" r="6" fill="url(#neonOrange)" class="pulse"/>
-
-        <!-- Visor Faceplate -->
-        <rect x="70" y="67" width="60" height="36" rx="10" fill="#111827" stroke="#374151" stroke-width="2"/>
-
-        <!-- Visor Neon Glow Path (Eyes) -->
-        <rect x="78" y="77" width="44" height="6" rx="3" fill="url(#neonOrange)"/>
-        
-        <!-- Blinking Lights -->
-        <circle cx="85" cy="91" r="2" fill="#10b981" class="blink-fast"/>
-        <circle cx="93" cy="91" r="2" fill="#3b82f6" class="blink-slow"/>
-        <circle cx="101" cy="91" r="2" fill="#f59e0b"/>
-
-        <!-- Decorative details -->
-        <line x1="80" y1="123" x2="120" y2="123" stroke="#d97706" stroke-dasharray="2,2"/>
-      </svg>
+    <div class="header-title-group">
+      <div class="title-with-badge">
+        <h2>{{ title }}</h2>
+        <span class="api-status-badge">
+          <span class="pulse-dot"></span>
+          GET /api/ai/menu
+        </span>
+      </div>
+      <p class="header-subtitle">{{ subtitle }}</p>
     </div>
 
-    <!-- Title and message -->
-    <h2 class="assistant-title">{{ title }}</h2>
-    <p class="assistant-message">{{ message }}</p>
-
-    <!-- Visual status badge -->
-    <div class="status-indicator">
-      <span class="pulse-dot"></span>
-      <span class="status-text">Pending Integration</span>
+    <div class="header-actions">
+      <button 
+        class="regenerate-btn" 
+        (click)="regenerate()" 
+        [disabled]="isLoading"
+        title="Re-query Spring Boot AI Controller for fresh recommendations">
+        <span class="btn-icon" [class.spin]="isLoading">↻</span>
+        <span>{{ isLoading ? 'Refreshing...' : 'Regenerate AI Menu' }}</span>
+      </button>
     </div>
 
   </div>
+
+  <!-- ════════════════════════════════════════
+       Filter & Toolbar Bar
+       ════════════════════════════════════════ -->
+  <div class="toolbar-card" *ngIf="!isLoading && !errorMessage">
+
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input 
+        type="text" 
+        placeholder="Search special dishes or ingredients..." 
+        [(ngModel)]="searchQuery">
+    </div>
+
+    <div class="filter-controls">
+
+      <div class="priority-tabs">
+        <button 
+          class="tab-btn" 
+          [class.active]="selectedPriorityTab === 'ALL'" 
+          (click)="setPriorityTab('ALL')">
+          All ({{ specialMenuItems.length }})
+        </button>
+        <button 
+          class="tab-btn priority-high-tab" 
+          [class.active]="selectedPriorityTab === 'HIGH'" 
+          (click)="setPriorityTab('HIGH')">
+          🔥 High ({{ highPriorityCount }})
+        </button>
+        <button 
+          class="tab-btn priority-med-tab" 
+          [class.active]="selectedPriorityTab === 'MEDIUM'" 
+          (click)="setPriorityTab('MEDIUM')">
+          ⚡ Medium ({{ mediumPriorityCount }})
+        </button>
+        <button 
+          class="tab-btn priority-low-tab" 
+          [class.active]="selectedPriorityTab === 'LOW'" 
+          (click)="setPriorityTab('LOW')">
+          🌱 Low ({{ lowPriorityCount }})
+        </button>
+      </div>
+
+      <div class="select-group">
+        <label>Difficulty:</label>
+        <select [(ngModel)]="difficultyFilter">
+          <option value="ALL">All Levels</option>
+          <option value="EASY">Easy</option>
+          <option value="MEDIUM">Medium</option>
+          <option value="HARD">Hard</option>
+        </select>
+      </div>
+
+      <button 
+        class="clear-filter-btn" 
+        *ngIf="searchQuery || selectedPriorityTab !== 'ALL' || difficultyFilter !== 'ALL'"
+        (click)="clearFilters()">
+        Clear Filters
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════════
+       Loading State
+       ════════════════════════════════════════ -->
+  <div class="loading-state-card" *ngIf="isLoading">
+    <div class="ai-loader-container">
+      <div class="glowing-orb"></div>
+      <div class="spinner-ring"></div>
+    </div>
+    <h3>Querying Spring Boot AI Backend</h3>
+    <p class="loading-subtitle">Calling <code>GET /api/ai/menu</code> endpoint...</p>
+
+    <div class="loading-steps">
+      <div class="step-item active">
+        <span class="step-dot"></span>
+        <span>Fetching expiring inventory items</span>
+      </div>
+      <div class="step-item active">
+        <span class="step-dot"></span>
+        <span>Evaluating recipe popularity & historical orders</span>
+      </div>
+      <div class="step-item active">
+        <span class="step-dot"></span>
+        <span>Formatting special menu recommendations</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       Error State (Strictly No Mock Fallback)
+       ════════════════════════════════════════ -->
+  <div class="error-state-card" *ngIf="errorMessage && !isLoading">
+    <div class="error-header">
+      <div class="error-icon-badge">⚠</div>
+      <div>
+        <h3>Backend Service Error</h3>
+        <p class="error-endpoint-info">Spring Boot Endpoint: <code>http://localhost:8080/api/ai/menu</code></p>
+      </div>
+    </div>
+
+    <div class="error-body">
+      <p class="error-message-text">{{ errorMessage }}</p>
+      <div class="strict-notice">
+        <span class="notice-icon">ℹ</span>
+        <span>As requested, mock data generation is disabled. Connect the Spring Boot backend to view real AI menu recommendations.</span>
+      </div>
+    </div>
+
+    <div class="error-actions">
+      <button class="retry-btn" (click)="regenerate()">
+        <span>↻ Retry Connection</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       Results Section
+       ════════════════════════════════════════ -->
+  <ng-container *ngIf="!isLoading && !errorMessage">
+
+    <!-- Summary Metrics -->
+    <div class="metrics-grid" *ngIf="specialMenuItems.length > 0">
+
+      <div class="metric-card">
+        <div class="metric-icon">🍽</div>
+        <div class="metric-info">
+          <span class="metric-value">{{ specialMenuItems.length }}</span>
+          <span class="metric-label">Special Dishes Recommended</span>
+        </div>
+      </div>
+
+      <div class="metric-card highlight-metric">
+        <div class="metric-icon">🔥</div>
+        <div class="metric-info">
+          <span class="metric-value">{{ highPriorityCount }}</span>
+          <span class="metric-label">High Priority Specials</span>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon">🕒</div>
+        <div class="metric-info">
+          <span class="metric-value">{{ avgPrepTime }} <small>mins</small></span>
+          <span class="metric-label">Avg Preparation Time</span>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon">⏱</div>
+        <div class="metric-info">
+          <span class="metric-value time-val">{{ lastUpdatedTime || 'Just now' }}</span>
+          <span class="metric-label">Last Refreshed</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state-card" *ngIf="filteredMenuItems.length === 0">
+      <div class="empty-icon">🍳</div>
+      <h3>No Special Menu Recommendations</h3>
+      <p *ngIf="specialMenuItems.length > 0">
+        No dishes match your active filter criteria. Try clearing filters.
+      </p>
+      <p *ngIf="specialMenuItems.length === 0">
+        The Spring Boot AI service returned no special menu items at this time.
+      </p>
+      <button class="retry-btn" (click)="clearFilters()" *ngIf="specialMenuItems.length > 0">
+        Clear Filters
+      </button>
+      <button class="retry-btn" (click)="regenerate()" *ngIf="specialMenuItems.length === 0">
+        ↻ Regenerate Menu
+      </button>
+    </div>
+
+    <!-- Dish Cards Grid -->
+    <div class="dishes-grid" *ngIf="filteredMenuItems.length > 0">
+
+      <div 
+        class="dish-card" 
+        *ngFor="let item of filteredMenuItems"
+        [class.high-priority-card]="(item.priority || '').toUpperCase() === 'HIGH'">
+
+        <!-- Card Header -->
+        <div class="dish-card-header">
+          <div class="dish-title-wrapper">
+            <h3 class="dish-name">{{ item.dish }}</h3>
+            <span 
+              class="priority-badge"
+              [ngClass]="'priority-' + (item.priority || 'LOW').toLowerCase()">
+              {{ (item.priority || 'NORMAL') | uppercase }} PRIORITY
+            </span>
+          </div>
+
+          <span class="confidence-chip" *ngIf="item.confidence">
+            🎯 {{ (item.confidence * 100) | number:'1.0-0' }}% Confidence
+          </span>
+        </div>
+
+        <!-- AI Insights Reason -->
+        <div class="ai-reason-box" *ngIf="item.reason">
+          <span class="reason-icon">💡</span>
+          <p>{{ item.reason }}</p>
+        </div>
+
+        <!-- Key Metrics Badges -->
+        <div class="dish-metrics-row">
+          <div class="dish-metric-pill" *ngIf="getProfit(item) !== 'N/A'">
+            <span class="pill-label">Profit:</span>
+            <span class="pill-value profit-value">{{ getProfit(item) }}</span>
+          </div>
+          <div class="dish-metric-pill" *ngIf="getPrepTime(item)">
+            <span class="pill-label">Prep:</span>
+            <span class="pill-value">🕒 {{ getPrepTime(item) }} mins</span>
+          </div>
+          <div class="dish-metric-pill" *ngIf="item.difficulty">
+            <span class="pill-label">Level:</span>
+            <span class="pill-value difficulty-value">{{ item.difficulty }}</span>
+          </div>
+        </div>
+
+        <!-- Matched Inventory Section -->
+        <div class="ingredients-section" *ngIf="getMatchedInventory(item).length > 0">
+          <span class="section-tag-label matched-label">In-Stock Ingredients:</span>
+          <div class="tags-container">
+            <span class="tag-chip matched-chip" *ngFor="let ing of getMatchedInventory(item)">
+              ✔ {{ ing }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Missing Ingredients Section -->
+        <div class="ingredients-section" *ngIf="getMissingIngredients(item).length > 0">
+          <span class="section-tag-label missing-label">Ingredients Needed:</span>
+          <div class="tags-container">
+            <span class="tag-chip missing-chip" *ngFor="let ing of getMissingIngredients(item)">
+              🛒 {{ ing }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="dish-card-footer">
+          <button class="card-action-btn" (click)="regenerate()">
+            Regenerate Recommendation
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom Action Bar -->
+    <div class="bottom-action-bar" *ngIf="filteredMenuItems.length > 0">
+      <p>Powered by PantryPulse Spring Boot GenAI Module</p>
+      <button class="regenerate-btn" (click)="regenerate()" [disabled]="isLoading">
+        ↻ Regenerate AI Menu
+      </button>
+    </div>
+
+  </ng-container>
 
 </div>

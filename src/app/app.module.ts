@@ -25,6 +25,8 @@ import { FooterComponent } from './layout/footer/footer.component';
 
 // Features
 import { LoginComponent } from './features/auth/login/login.component';
+import { SignupComponent } from './features/auth/signup/signup.component';
+import { ForgotPasswordComponent } from './features/auth/forgot-password/forgot-password.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { InventoryComponent } from './features/inventory/inventory.component';
 import { AddIngredientComponent } from './features/inventory/add-ingredient/add-ingredient.component';
@@ -33,11 +35,12 @@ import { RecipeListComponent } from './features/recipes/recipe-list/recipe-list.
 import { AddRecipeComponent } from './features/recipes/add-recipe/add-recipe.component';
 import { EditRecipeComponent } from './features/recipes/edit-recipe/edit-recipe.component';
 import { RecipeDetailsComponent } from './features/recipes/recipe-details/recipe-details.component';
-import { HomeComponent } from './features/home/home.component';
 import { RecipeIngredientsComponent } from './features/recipe-ingredients/recipe-ingredients.component';
 import { SupplierListComponent } from './features/suppliers/supplier-list.component';
 import { SupplierDialogComponent } from './features/suppliers/supplier-dialog.component';
 import { AiAssistantComponent } from './features/ai-assistant/ai-assistant.component';
+import { AiChatComponent } from './features/ai-assistant/ai-chat/ai-chat.component';
+import { SettingsComponent } from './features/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,8 @@ import { AiAssistantComponent } from './features/ai-assistant/ai-assistant.compo
     NavbarComponent,
     FooterComponent,
     LoginComponent,
+    SignupComponent,
+    ForgotPasswordComponent,
     DashboardComponent,
     InventoryComponent,
     AddIngredientComponent,
@@ -55,11 +60,12 @@ import { AiAssistantComponent } from './features/ai-assistant/ai-assistant.compo
     AddRecipeComponent,
     EditRecipeComponent,
     RecipeDetailsComponent,
-    HomeComponent,
     RecipeIngredientsComponent,
     SupplierListComponent,
     SupplierDialogComponent,
-    AiAssistantComponent
+    AiAssistantComponent,
+    AiChatComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

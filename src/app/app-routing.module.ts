@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './features/auth/login/login.component';
+import { SignupComponent } from './features/auth/signup/signup.component';
+import { ForgotPasswordComponent } from './features/auth/forgot-password/forgot-password.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { InventoryComponent } from './features/inventory/inventory.component';
@@ -11,10 +13,11 @@ import { RecipeListComponent } from './features/recipes/recipe-list/recipe-list.
 import { AddRecipeComponent } from './features/recipes/add-recipe/add-recipe.component';
 import { EditRecipeComponent } from './features/recipes/edit-recipe/edit-recipe.component';
 import { RecipeDetailsComponent } from './features/recipes/recipe-details/recipe-details.component';
-import { HomeComponent } from './features/home/home.component';
 import { RecipeIngredientsComponent } from './features/recipe-ingredients/recipe-ingredients.component';
 import { SupplierListComponent } from './features/suppliers/supplier-list.component';
 import { AiAssistantComponent } from './features/ai-assistant/ai-assistant.component';
+import { AiChatComponent } from './features/ai-assistant/ai-chat/ai-chat.component';
+import { SettingsComponent } from './features/settings/settings.component';
 
 const routes: Routes = [
 
@@ -30,19 +33,24 @@ const routes: Routes = [
   },
 
   {
+    path: 'signup',
+    component: SignupComponent
+  },
+
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent
+  },
+
+  {
     path: '',
     component: MainLayoutComponent,
     children: [
 
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
-      },
-
-      {
-        path: 'home',
-        component: HomeComponent
       },
 
       {
@@ -97,7 +105,7 @@ const routes: Routes = [
 
       {
         path: 'ai-assistant',
-        component: AiAssistantComponent
+        component: AiChatComponent
       },
 
       {
@@ -107,7 +115,7 @@ const routes: Routes = [
 
       {
         path: 'menu-planner',
-        component: DashboardComponent
+        component: AiAssistantComponent
       },
 
       {
@@ -117,7 +125,12 @@ const routes: Routes = [
 
       {
         path: 'settings',
-        component: DashboardComponent
+        component: SettingsComponent
+      },
+
+      {
+        path: 'settings/:category',
+        component: SettingsComponent
       }
 
     ]

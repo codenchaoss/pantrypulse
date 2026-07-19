@@ -1,16 +1,11 @@
 <div class="login-page">
 
-
     <div class="left-section">
 
         <img
             src="/assets/logo/logo.png"
             alt="PantryPulse Logo"
             class="logo">
-
-        <h2 class="tagline">
-            SMART PANTRY. ZERO WASTE. MAX PROFIT.
-        </h2>
 
     </div>
 
@@ -27,38 +22,59 @@
                 Sign in to continue to your account
             </p>
 
-            <form>
+            <div *ngIf="errorMessage" class="alert-box error-alert">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span>{{ errorMessage }}</span>
+            </div>
 
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                <!-- Email -->
                 <div class="input-group">
 
                     <label>Email</label>
 
-                    <div class="input-box">
+                    <div class="input-box" [class.is-invalid]="f['email'].touched && f['email'].invalid">
 
                         <i class="fa-solid fa-envelope"></i>
 
                         <input
                             type="email"
+                            formControlName="email"
                             placeholder="Enter your email">
 
                     </div>
 
+                    <div class="field-error" *ngIf="f['email'].touched && f['email'].invalid">
+                        <span *ngIf="f['email'].errors?.['required']">Email address is required.</span>
+                        <span *ngIf="f['email'].errors?.['email']">Please enter a valid email address.</span>
+                    </div>
+
                 </div>
 
+                <!-- Password -->
                 <div class="input-group">
 
                     <label>Password</label>
 
-                    <div class="input-box">
+                    <div class="input-box" [class.is-invalid]="f['password'].touched && f['password'].invalid">
 
                         <i class="fa-solid fa-lock"></i>
 
                         <input
-                            type="password"
+                            [type]="showPassword ? 'text' : 'password'"
+                            formControlName="password"
                             placeholder="Enter your password">
 
-                        <i class="fa-regular fa-eye eye-icon"></i>
+                        <i
+                            [class]="showPassword ? 'fa-regular fa-eye-slash eye-icon' : 'fa-regular fa-eye eye-icon'"
+                            (click)="toggleShowPassword()"></i>
 
+                    </div>
+
+                    <div class="field-error" *ngIf="f['password'].touched && f['password'].invalid">
+                        <span *ngIf="f['password'].errors?.['required']">Password is required.</span>
+                        <span *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters.</span>
                     </div>
 
                 </div>
@@ -67,13 +83,13 @@
 
                     <label class="remember">
 
-                        <input type="checkbox">
+                        <input type="checkbox" formControlName="rememberMe">
 
                         Remember Me
 
                     </label>
 
-                    <a href="#">
+                    <a routerLink="/forgot-password">
 
                         Forgot Password?
 
@@ -82,15 +98,22 @@
                 </div>
 
                 <button
-                    type="button"
+                    type="submit"
                     class="login-btn"
-                    routerLink="/home">
+                    [disabled]="isSubmitting">
 
-                    Sign In
+                    <span *ngIf="!isSubmitting">Sign In</span>
+                    <i *ngIf="!isSubmitting" class="fa-solid fa-arrow-right"></i>
 
-                    <i class="fa-solid fa-arrow-right"></i>
+                    <mat-spinner *ngIf="isSubmitting" diameter="24" color="accent"></mat-spinner>
+                    <span *ngIf="isSubmitting" class="spinner-text">Authenticating...</span>
 
                 </button>
+
+                <div class="bottom-link">
+                    Don't have an account?
+                    <a routerLink="/signup">Sign Up</a>
+                </div>
 
             </form>
 
