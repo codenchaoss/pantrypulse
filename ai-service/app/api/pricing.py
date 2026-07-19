@@ -25,7 +25,8 @@ def suggest_pricing(request: PricingRequest, service: PricingService = Depends(g
         recommended_price=result.get("recommended_price", 0),
         estimated_profit=result.get("estimated_profit", 0),
         profit_margin=result.get("profit_margin", 0),
-        category=result.get("category", "LOW"),
-        reason=result.get("reason", "")
+        pricing_strategy=result.get("pricing_strategy", "Standard"),
+        market_position=result.get("market_position", "Mid-range"),
+        price_confidence=result.get("price_confidence", 90)
     )
     return ApiResponse(data=response_data)

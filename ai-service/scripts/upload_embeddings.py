@@ -101,7 +101,15 @@ def main():
     logger.info(f"Loading local embedding model: {config.EMBEDDING_MODEL_NAME}...")
     embedder = EmbeddingEngine()
     
-    # 5. Batch processing and upload
+    # 5. Clear old vectors for a clean database upload
+    logger.info("Clearing old vectors from Pinecone index for a clean upload...")
+    try:
+        pinecone_svc.index.delete(delete_all=True)
+        logger.info("Wiped old vectors successfully.")
+    except Exception as e:
+        logger.warning(f"Non-blocking index clear warning: {str(e)}")
+
+    # 6. Batch processing and upload
     batch_size = 100
     total_chunks = len(chunks)
     vectors_to_upsert = []

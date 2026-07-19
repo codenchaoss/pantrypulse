@@ -10,6 +10,16 @@ class KitchenSyncGateway:
     Funnels OpenClaw skill tool executions directly to the FastAPI backend AI microservice.
     """
     def __init__(self, base_url: str = "http://127.0.0.1:8000"):
+        import os
+        # Overwrite default localhost URL dynamically in production or containers
+        if base_url == "http://127.0.0.1:8000":
+            env_url = os.environ.get("BACKEND_URL")
+            if env_url:
+                base_url = env_url
+            else:
+                port = os.environ.get("PORT")
+                if port:
+                    base_url = f"http://127.0.0.1:{port}"
         self.base_url = base_url
 
     def _post(self, endpoint: str, json_data: Any) -> Dict[str, Any]:

@@ -16140,4503 +16140,1363 @@
     "common_usage": "Used in recipes as /2 cup Jaggery."
   },
   {
-    "ingredient_id": "ING2000",
-    "ingredient_name": "Coconut Oil V1",
+    "ingredient_id": "ING9001",
+    "ingredient_name": "Paneer",
     "category": "Dairy",
     "unit": "kg",
-    "average_shelf_life_days": 10,
+    "average_shelf_life_days": 7,
     "storage_type": "Refrigerator",
     "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
+    "common_usage": "Paneer is a fresh cottage cheese popular in South Asian dishes. In commercial kitchens, keep it refrigerated between 2°C to 4°C. Check for sour smell, sticky surface, or yellowing to detect spoilage. Do not freeze paneer directly as it ruins the soft texture."
   },
   {
-    "ingredient_id": "ING2001",
-    "ingredient_name": "Fenugreek Seeds (Methi) V2",
-    "category": "Spices",
+    "ingredient_id": "ING9002",
+    "ingredient_name": "Tomato",
+    "category": "Produce",
     "unit": "kg",
-    "average_shelf_life_days": 11,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2002",
-    "ingredient_name": "Urad Dal V3",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 12,
+    "average_shelf_life_days": 7,
     "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2003",
-    "ingredient_name": "Toor Dal V4",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 13,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2004",
-    "ingredient_name": "Kashmiri Chili V5",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 14,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2005",
-    "ingredient_name": "Jaggery V6",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 15,
-    "storage_type": "Pantry",
     "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian spices dishes."
+    "common_usage": "Tomatoes are fresh produce used for gravies, rasam, and salads. Keep refrigerated at 4°C to 7°C. Avoid storing them in the walk-in freezer to prevent ice crystal damage. Signs of spoilage include soft spots, leakage, or black mold."
   },
   {
-    "ingredient_id": "ING2006",
-    "ingredient_name": "Toor Dal V7",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 16,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2007",
-    "ingredient_name": "Rice Flour V8",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 17,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2008",
-    "ingredient_name": "Chana Dal V9",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 18,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2009",
-    "ingredient_name": "Mint Leaves V10",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 19,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2010",
-    "ingredient_name": "Ginger Paste V11",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 20,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2011",
-    "ingredient_name": "Toor Dal V12",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 21,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2012",
-    "ingredient_name": "Curry Leaves V13",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 22,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2013",
-    "ingredient_name": "Guntur Red Chillies V14",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 23,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2014",
-    "ingredient_name": "Toor Dal V15",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 24,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2015",
-    "ingredient_name": "Rice Flour V16",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 25,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2016",
-    "ingredient_name": "Kashmiri Chili V17",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 26,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2017",
-    "ingredient_name": "Kashmiri Chili V18",
+    "ingredient_id": "ING9004",
+    "ingredient_name": "Ghee",
     "category": "Dairy",
     "unit": "kg",
-    "average_shelf_life_days": 27,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2018",
-    "ingredient_name": "Ginger Paste V19",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 28,
+    "average_shelf_life_days": 180,
     "storage_type": "Pantry",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Clarified butter (Ghee) is shelf-stable and should be stored in a dry pantry in airtight containers to prevent moisture absorption. Spoilage signs include rancid smell or discoloration."
   },
   {
-    "ingredient_id": "ING2019",
-    "ingredient_name": "Pepper Corns V20",
+    "ingredient_id": "ING9005",
+    "ingredient_name": "Coriander",
+    "category": "Produce",
+    "unit": "kg",
+    "average_shelf_life_days": 4,
+    "storage_type": "Refrigerator",
+    "minimum_quantity_alert": 2.0,
+    "common_usage": "Fresh coriander leaves wilt quickly. Store dry, wrapped in paper towels inside a perforated container in the vegetable drawer at 4°C to 7°C. Discard if slimy or black."
+  },
+  {
+    "ingredient_id": "ING9007",
+    "ingredient_name": "Tamarind",
     "category": "Pantry",
     "unit": "kg",
-    "average_shelf_life_days": 29,
+    "average_shelf_life_days": 365,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Aged tamarind pulp is shelf-stable. Store in a cool, dry pantry in glass or food-safe plastic containers. Avoid metal containers to prevent acid reaction."
+  },
+  {
+    "ingredient_id": "ING9010",
+    "ingredient_name": "Maida",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 180,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 20.0,
+    "common_usage": "Refined wheat flour (Maida) must be stored in dry, moisture-free pantry bins. Sift before use to check for lumps or beetles."
+  },
+  {
+    "ingredient_id": "ING9011",
+    "ingredient_name": "Besan",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 180,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 15.0,
+    "common_usage": "Gram flour (Besan) is used for pakoras and batters. Keep dry in airtight containers to prevent clumping."
+  },
+  {
+    "ingredient_id": "ING9012",
+    "ingredient_name": "Soft Drinks",
+    "category": "Pantry",
+    "unit": "L",
+    "average_shelf_life_days": 120,
     "storage_type": "Pantry",
     "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
+    "common_usage": "Assorted sodas, colas, and carbonated beverages. Keep in pantry or front-of-house beverage chiller at 4°C to 6°C."
   },
   {
-    "ingredient_id": "ING2020",
-    "ingredient_name": "Urad Dal V21",
-    "category": "Spices",
+    "ingredient_id": "ING9014",
+    "ingredient_name": "Measuring Cup",
+    "category": "Pantry",
+    "unit": "pcs",
+    "average_shelf_life_days": 365,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Used for standardized kitchen portions and baking measurements."
+  },
+  {
+    "ingredient_id": "ING9015",
+    "ingredient_name": "Chef Knife",
+    "category": "Pantry",
+    "unit": "pcs",
+    "average_shelf_life_days": 365,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 2.0,
+    "common_usage": "Multi-purpose chef knife. Must be cleaned, dried, and stored on the magnetic strip or drawer near the preparation station."
+  },
+  {
+    "ingredient_id": "ING50000",
+    "ingredient_name": "Rice, Black Gram",
+    "category": "Pantry",
     "unit": "kg",
     "average_shelf_life_days": 30,
     "storage_type": "Pantry",
     "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian spices dishes."
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
   },
   {
-    "ingredient_id": "ING2021",
-    "ingredient_name": "Cumin Seeds V22",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 31,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2022",
-    "ingredient_name": "Garlic Cloves V23",
+    "ingredient_id": "ING50001",
+    "ingredient_name": "Plain",
     "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 32,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2023",
-    "ingredient_name": "Sesame Oil V24",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 33,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2024",
-    "ingredient_name": "Coriander Leaves V25",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 34,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2025",
-    "ingredient_name": "Garlic Cloves V26",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 35,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2026",
-    "ingredient_name": "Ginger Paste V27",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 36,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2027",
-    "ingredient_name": "Ginger Paste V28",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 37,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2028",
-    "ingredient_name": "Kashmiri Chili V29",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 38,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2029",
-    "ingredient_name": "Asafoetida (Hing) V30",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 39,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2030",
-    "ingredient_name": "Cinnamon Bark V31",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 40,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2031",
-    "ingredient_name": "Buttermilk V32",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 41,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2032",
-    "ingredient_name": "Shallots (Sambar Onions) V33",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 42,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2033",
-    "ingredient_name": "Green Chillies V34",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 43,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2034",
-    "ingredient_name": "Rice Flour V35",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 44,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2035",
-    "ingredient_name": "Shallots (Sambar Onions) V36",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 45,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2036",
-    "ingredient_name": "Urad Dal V37",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 46,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2037",
-    "ingredient_name": "Curry Leaves V38",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 47,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2038",
-    "ingredient_name": "Shallots (Sambar Onions) V39",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 48,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2039",
-    "ingredient_name": "Coriander Seeds V40",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 49,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2040",
-    "ingredient_name": "Cumin Seeds V41",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 50,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2041",
-    "ingredient_name": "Tamarind V42",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 51,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2042",
-    "ingredient_name": "Cinnamon Bark V43",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 52,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2043",
-    "ingredient_name": "Tamarind V44",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 53,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2044",
-    "ingredient_name": "Curry Powder V45",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 54,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2045",
-    "ingredient_name": "Rice Flour V46",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 55,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2046",
-    "ingredient_name": "Garlic Cloves V47",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 56,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2047",
-    "ingredient_name": "Cardamom V48",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 57,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2048",
-    "ingredient_name": "Mustard Seeds V49",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 58,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2049",
-    "ingredient_name": "Shallots (Sambar Onions) V50",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 59,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2050",
-    "ingredient_name": "Asafoetida (Hing) V51",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 60,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2051",
-    "ingredient_name": "Drumstick (Mulakkada) V52",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 61,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2052",
-    "ingredient_name": "Chana Dal V53",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 62,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2053",
-    "ingredient_name": "Jaggery V54",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 63,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2054",
-    "ingredient_name": "Green Chillies V55",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 64,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2055",
-    "ingredient_name": "Coriander Leaves V56",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 65,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2056",
-    "ingredient_name": "Grated Coconut V57",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 66,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2057",
-    "ingredient_name": "Grated Coconut V58",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 67,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2058",
-    "ingredient_name": "Urad Dal V59",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 68,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2059",
-    "ingredient_name": "Toor Dal V60",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 69,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2060",
-    "ingredient_name": "Kashmiri Chili V61",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 70,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2061",
-    "ingredient_name": "Garlic Cloves V62",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 71,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2062",
-    "ingredient_name": "Drumstick (Mulakkada) V63",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 72,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2063",
-    "ingredient_name": "Kashmiri Chili V64",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 73,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2064",
-    "ingredient_name": "Drumstick (Mulakkada) V65",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 74,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2065",
-    "ingredient_name": "Mint Leaves V66",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 75,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2066",
-    "ingredient_name": "Jaggery V67",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 76,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2067",
-    "ingredient_name": "Asafoetida (Hing) V68",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 77,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2068",
-    "ingredient_name": "Chana Dal V69",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 78,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2069",
-    "ingredient_name": "Cloves V70",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 79,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2070",
-    "ingredient_name": "Cinnamon Bark V71",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 80,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2071",
-    "ingredient_name": "Fenugreek Seeds (Methi) V72",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 81,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2072",
-    "ingredient_name": "Raw Mango V73",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 82,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2073",
-    "ingredient_name": "Fenugreek Seeds (Methi) V74",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 83,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2074",
-    "ingredient_name": "Asafoetida (Hing) V75",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 84,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2075",
-    "ingredient_name": "Fenugreek Seeds (Methi) V76",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 85,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2076",
-    "ingredient_name": "Sesame Oil V77",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 86,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2077",
-    "ingredient_name": "Cinnamon Bark V78",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 87,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2078",
-    "ingredient_name": "Coconut Oil V79",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 88,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2079",
-    "ingredient_name": "Coconut Oil V80",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 89,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2080",
-    "ingredient_name": "Buttermilk V81",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 90,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2081",
-    "ingredient_name": "Mustard Seeds V82",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 91,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2082",
-    "ingredient_name": "Curry Powder V83",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 92,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2083",
-    "ingredient_name": "Raw Mango V84",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 93,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2084",
-    "ingredient_name": "Rice Flour V85",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 94,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2085",
-    "ingredient_name": "Mustard Seeds V86",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 95,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2086",
-    "ingredient_name": "Jaggery V87",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 96,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2087",
-    "ingredient_name": "Rice Flour V88",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 97,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2088",
-    "ingredient_name": "Cumin Seeds V89",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 98,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2089",
-    "ingredient_name": "Sorghum (Jonna) V90",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 99,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2090",
-    "ingredient_name": "Cardamom V91",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 10,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2091",
-    "ingredient_name": "Asafoetida (Hing) V92",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 11,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2092",
-    "ingredient_name": "Rice Flour V93",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 12,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2093",
-    "ingredient_name": "Chana Dal V94",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 13,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2094",
-    "ingredient_name": "Kashmiri Chili V95",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 14,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2095",
-    "ingredient_name": "Asafoetida (Hing) V96",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 15,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2096",
-    "ingredient_name": "Lemon Grass V97",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 16,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2097",
-    "ingredient_name": "Mint Leaves V98",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 17,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2098",
-    "ingredient_name": "Finger Millet (Ragi) V99",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 18,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2099",
-    "ingredient_name": "Lemon Grass V100",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 19,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2100",
-    "ingredient_name": "Pepper Corns V101",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 20,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2101",
-    "ingredient_name": "Coriander Seeds V102",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 21,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2102",
-    "ingredient_name": "Mint Leaves V103",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 22,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2103",
-    "ingredient_name": "Mint Leaves V104",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 23,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2104",
-    "ingredient_name": "Grated Coconut V105",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 24,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2105",
-    "ingredient_name": "Pepper Corns V106",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 25,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2106",
-    "ingredient_name": "Buttermilk V107",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 26,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2107",
-    "ingredient_name": "Ginger Paste V108",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 27,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2108",
-    "ingredient_name": "Coriander Seeds V109",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 28,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2109",
-    "ingredient_name": "Pearl Millet (Sajja) V110",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 29,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2110",
-    "ingredient_name": "Cinnamon Bark V111",
-    "category": "Spices",
     "unit": "kg",
     "average_shelf_life_days": 30,
     "storage_type": "Pantry",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2111",
-    "ingredient_name": "Cloves V112",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 31,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2112",
-    "ingredient_name": "Tamarind V113",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 32,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2113",
-    "ingredient_name": "Grated Coconut V114",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 33,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2114",
-    "ingredient_name": "Pearl Millet (Sajja) V115",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 34,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2115",
-    "ingredient_name": "Asafoetida (Hing) V116",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 35,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2116",
-    "ingredient_name": "Curry Leaves V117",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 36,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2117",
-    "ingredient_name": "Cloves V118",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 37,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2118",
-    "ingredient_name": "Cumin Seeds V119",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 38,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2119",
-    "ingredient_name": "Pepper Corns V120",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 39,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2120",
-    "ingredient_name": "Cardamom V121",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 40,
-    "storage_type": "Pantry",
     "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
   },
   {
-    "ingredient_id": "ING2121",
-    "ingredient_name": "Curry Leaves V122",
+    "ingredient_id": "ING50002",
+    "ingredient_name": "Oil",
     "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 41,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2122",
-    "ingredient_name": "Ginger Paste V123",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 42,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2123",
-    "ingredient_name": "Tamarind V124",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 43,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2124",
-    "ingredient_name": "Buttermilk V125",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 44,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2125",
-    "ingredient_name": "Grated Coconut V126",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 45,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2126",
-    "ingredient_name": "Cinnamon Bark V127",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 46,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2127",
-    "ingredient_name": "Curry Powder V128",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 47,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2128",
-    "ingredient_name": "Cinnamon Bark V129",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 48,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2129",
-    "ingredient_name": "Curry Leaves V130",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 49,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2130",
-    "ingredient_name": "Asafoetida (Hing) V131",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 50,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2131",
-    "ingredient_name": "Mustard Seeds V132",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 51,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2132",
-    "ingredient_name": "Kashmiri Chili V133",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 52,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2133",
-    "ingredient_name": "Finger Millet (Ragi) V134",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 53,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2134",
-    "ingredient_name": "Lemon Grass V135",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 54,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2135",
-    "ingredient_name": "Pearl Millet (Sajja) V136",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 55,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2136",
-    "ingredient_name": "Byadagi Chillies V137",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 56,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2137",
-    "ingredient_name": "Cardamom V138",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 57,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2138",
-    "ingredient_name": "Guntur Red Chillies V139",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 58,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2139",
-    "ingredient_name": "Cloves V140",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 59,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2140",
-    "ingredient_name": "Gongura Leaves (Sorrel) V141",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 60,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2141",
-    "ingredient_name": "Finger Millet (Ragi) V142",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 61,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2142",
-    "ingredient_name": "Tamarind V143",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 62,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2143",
-    "ingredient_name": "Tamarind V144",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 63,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2144",
-    "ingredient_name": "Curry Leaves V145",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 64,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2145",
-    "ingredient_name": "Urad Dal V146",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 65,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2146",
-    "ingredient_name": "Toor Dal V147",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 66,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2147",
-    "ingredient_name": "Chana Dal V148",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 67,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2148",
-    "ingredient_name": "Urad Dal V149",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 68,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2149",
-    "ingredient_name": "Cloves V150",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 69,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2150",
-    "ingredient_name": "Cardamom V151",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 70,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2151",
-    "ingredient_name": "Sorghum (Jonna) V152",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 71,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2152",
-    "ingredient_name": "Kashmiri Chili V153",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 72,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2153",
-    "ingredient_name": "Mint Leaves V154",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 73,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2154",
-    "ingredient_name": "Shallots (Sambar Onions) V155",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 74,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2155",
-    "ingredient_name": "Coriander Leaves V156",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 75,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2156",
-    "ingredient_name": "Tamarind V157",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 76,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2157",
-    "ingredient_name": "Gongura Leaves (Sorrel) V158",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 77,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2158",
-    "ingredient_name": "Sesame Oil V159",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 78,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2159",
-    "ingredient_name": "Curry Powder V160",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 79,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2160",
-    "ingredient_name": "Gongura Leaves (Sorrel) V161",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 80,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2161",
-    "ingredient_name": "Jaggery V162",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 81,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2162",
-    "ingredient_name": "Rice Flour V163",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 82,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2163",
-    "ingredient_name": "Raw Mango V164",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 83,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2164",
-    "ingredient_name": "Curry Powder V165",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 84,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2165",
-    "ingredient_name": "Raw Mango V166",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 85,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2166",
-    "ingredient_name": "Coriander Leaves V167",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 86,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2167",
-    "ingredient_name": "Kashmiri Chili V168",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 87,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2168",
-    "ingredient_name": "Kashmiri Chili V169",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 88,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2169",
-    "ingredient_name": "Ginger Paste V170",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 89,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2170",
-    "ingredient_name": "Cinnamon Bark V171",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 90,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2171",
-    "ingredient_name": "Urad Dal V172",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 91,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2172",
-    "ingredient_name": "Chana Dal V173",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 92,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2173",
-    "ingredient_name": "Jaggery V174",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 93,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2174",
-    "ingredient_name": "Jaggery V175",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 94,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2175",
-    "ingredient_name": "Kashmiri Chili V176",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 95,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2176",
-    "ingredient_name": "Ginger Paste V177",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 96,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2177",
-    "ingredient_name": "Fenugreek Seeds (Methi) V178",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 97,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2178",
-    "ingredient_name": "Curry Powder V179",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 98,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2179",
-    "ingredient_name": "Urad Dal V180",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 99,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2180",
-    "ingredient_name": "Guntur Red Chillies V181",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 10,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2181",
-    "ingredient_name": "Jaggery V182",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 11,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2182",
-    "ingredient_name": "Finger Millet (Ragi) V183",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 12,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2183",
-    "ingredient_name": "Coriander Seeds V184",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 13,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2184",
-    "ingredient_name": "Toor Dal V185",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 14,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2185",
-    "ingredient_name": "Jaggery V186",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 15,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2186",
-    "ingredient_name": "Tamarind V187",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 16,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2187",
-    "ingredient_name": "Sesame Oil V188",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 17,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2188",
-    "ingredient_name": "Sorghum (Jonna) V189",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 18,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2189",
-    "ingredient_name": "Cumin Seeds V190",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 19,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2190",
-    "ingredient_name": "Curry Powder V191",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 20,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2191",
-    "ingredient_name": "Shallots (Sambar Onions) V192",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 21,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2192",
-    "ingredient_name": "Toor Dal V193",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 22,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2193",
-    "ingredient_name": "Urad Dal V194",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 23,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2194",
-    "ingredient_name": "Urad Dal V195",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 24,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2195",
-    "ingredient_name": "Cloves V196",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 25,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2196",
-    "ingredient_name": "Pepper Corns V197",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 26,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2197",
-    "ingredient_name": "Pepper Corns V198",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 27,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2198",
-    "ingredient_name": "Lemon Grass V199",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 28,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2199",
-    "ingredient_name": "Cardamom V200",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 29,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2200",
-    "ingredient_name": "Chana Dal V201",
-    "category": "Meat",
     "unit": "kg",
     "average_shelf_life_days": 30,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2201",
-    "ingredient_name": "Raw Mango V202",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 31,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2202",
-    "ingredient_name": "Ginger Paste V203",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 32,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2203",
-    "ingredient_name": "Kashmiri Chili V204",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 33,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2204",
-    "ingredient_name": "Urad Dal V205",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 34,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2205",
-    "ingredient_name": "Lemon Grass V206",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 35,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2206",
-    "ingredient_name": "Cumin Seeds V207",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 36,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2207",
-    "ingredient_name": "Byadagi Chillies V208",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 37,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2208",
-    "ingredient_name": "Fenugreek Seeds (Methi) V209",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 38,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2209",
-    "ingredient_name": "Sesame Oil V210",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 39,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2210",
-    "ingredient_name": "Garlic Cloves V211",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 40,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2211",
-    "ingredient_name": "Mint Leaves V212",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 41,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2212",
-    "ingredient_name": "Cinnamon Bark V213",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 42,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2213",
-    "ingredient_name": "Raw Mango V214",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 43,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2214",
-    "ingredient_name": "Coriander Seeds V215",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 44,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2215",
-    "ingredient_name": "Curry Powder V216",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 45,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2216",
-    "ingredient_name": "Cumin Seeds V217",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 46,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2217",
-    "ingredient_name": "Pearl Millet (Sajja) V218",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 47,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2218",
-    "ingredient_name": "Curry Leaves V219",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 48,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2219",
-    "ingredient_name": "Curry Powder V220",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 49,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2220",
-    "ingredient_name": "Curry Leaves V221",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 50,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2221",
-    "ingredient_name": "Mint Leaves V222",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 51,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2222",
-    "ingredient_name": "Shallots (Sambar Onions) V223",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 52,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2223",
-    "ingredient_name": "Garlic Cloves V224",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 53,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2224",
-    "ingredient_name": "Sorghum (Jonna) V225",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 54,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2225",
-    "ingredient_name": "Raw Mango V226",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 55,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2226",
-    "ingredient_name": "Gongura Leaves (Sorrel) V227",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 56,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2227",
-    "ingredient_name": "Tamarind V228",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 57,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2228",
-    "ingredient_name": "Cinnamon Bark V229",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 58,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2229",
-    "ingredient_name": "Asafoetida (Hing) V230",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 59,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2230",
-    "ingredient_name": "Curry Leaves V231",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 60,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2231",
-    "ingredient_name": "Rice Flour V232",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 61,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2232",
-    "ingredient_name": "Drumstick (Mulakkada) V233",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 62,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2233",
-    "ingredient_name": "Pearl Millet (Sajja) V234",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 63,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2234",
-    "ingredient_name": "Cumin Seeds V235",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 64,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2235",
-    "ingredient_name": "Mint Leaves V236",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 65,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2236",
-    "ingredient_name": "Chana Dal V237",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 66,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2237",
-    "ingredient_name": "Pearl Millet (Sajja) V238",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 67,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2238",
-    "ingredient_name": "Pearl Millet (Sajja) V239",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 68,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2239",
-    "ingredient_name": "Cardamom V240",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 69,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2240",
-    "ingredient_name": "Rice Flour V241",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 70,
     "storage_type": "Pantry",
     "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
   },
   {
-    "ingredient_id": "ING2241",
-    "ingredient_name": "Ginger Paste V242",
+    "ingredient_id": "ING50003",
+    "ingredient_name": "Rice, Urad Dal",
     "category": "Pantry",
     "unit": "kg",
-    "average_shelf_life_days": 71,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2242",
-    "ingredient_name": "Urad Dal V243",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 72,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2243",
-    "ingredient_name": "Toor Dal V244",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 73,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2244",
-    "ingredient_name": "Cardamom V245",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 74,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2245",
-    "ingredient_name": "Curry Leaves V246",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 75,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2246",
-    "ingredient_name": "Curry Powder V247",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 76,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2247",
-    "ingredient_name": "Fenugreek Seeds (Methi) V248",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 77,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2248",
-    "ingredient_name": "Byadagi Chillies V249",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 78,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2249",
-    "ingredient_name": "Lemon Grass V250",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 79,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2250",
-    "ingredient_name": "Mint Leaves V251",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 80,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2251",
-    "ingredient_name": "Coconut Oil V252",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 81,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2252",
-    "ingredient_name": "Coconut Oil V253",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 82,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2253",
-    "ingredient_name": "Lemon Grass V254",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 83,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2254",
-    "ingredient_name": "Byadagi Chillies V255",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 84,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2255",
-    "ingredient_name": "Mint Leaves V256",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 85,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2256",
-    "ingredient_name": "Rice Flour V257",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 86,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2257",
-    "ingredient_name": "Byadagi Chillies V258",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 87,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2258",
-    "ingredient_name": "Chana Dal V259",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 88,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2259",
-    "ingredient_name": "Cinnamon Bark V260",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 89,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2260",
-    "ingredient_name": "Cloves V261",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 90,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2261",
-    "ingredient_name": "Cardamom V262",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 91,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2262",
-    "ingredient_name": "Drumstick (Mulakkada) V263",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 92,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2263",
-    "ingredient_name": "Ginger Paste V264",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 93,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2264",
-    "ingredient_name": "Buttermilk V265",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 94,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2265",
-    "ingredient_name": "Kashmiri Chili V266",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 95,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2266",
-    "ingredient_name": "Tamarind V267",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 96,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2267",
-    "ingredient_name": "Mustard Seeds V268",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 97,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2268",
-    "ingredient_name": "Curry Leaves V269",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 98,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2269",
-    "ingredient_name": "Drumstick (Mulakkada) V270",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 99,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2270",
-    "ingredient_name": "Coriander Seeds V271",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 10,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2271",
-    "ingredient_name": "Urad Dal V272",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 11,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2272",
-    "ingredient_name": "Grated Coconut V273",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 12,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2273",
-    "ingredient_name": "Byadagi Chillies V274",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 13,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2274",
-    "ingredient_name": "Kashmiri Chili V275",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 14,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2275",
-    "ingredient_name": "Grated Coconut V276",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 15,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2276",
-    "ingredient_name": "Kashmiri Chili V277",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 16,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2277",
-    "ingredient_name": "Jaggery V278",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 17,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2278",
-    "ingredient_name": "Sesame Oil V279",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 18,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2279",
-    "ingredient_name": "Jaggery V280",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 19,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2280",
-    "ingredient_name": "Drumstick (Mulakkada) V281",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 20,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2281",
-    "ingredient_name": "Drumstick (Mulakkada) V282",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 21,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2282",
-    "ingredient_name": "Curry Powder V283",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 22,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2283",
-    "ingredient_name": "Mint Leaves V284",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 23,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2284",
-    "ingredient_name": "Buttermilk V285",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 24,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2285",
-    "ingredient_name": "Cinnamon Bark V286",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 25,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2286",
-    "ingredient_name": "Sorghum (Jonna) V287",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 26,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2287",
-    "ingredient_name": "Mustard Seeds V288",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 27,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2288",
-    "ingredient_name": "Cardamom V289",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 28,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2289",
-    "ingredient_name": "Sorghum (Jonna) V290",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 29,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2290",
-    "ingredient_name": "Curry Leaves V291",
-    "category": "Produce",
-    "unit": "g",
     "average_shelf_life_days": 30,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2291",
-    "ingredient_name": "Cumin Seeds V292",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 31,
     "storage_type": "Pantry",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2292",
-    "ingredient_name": "Toor Dal V293",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 32,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2293",
-    "ingredient_name": "Green Chillies V294",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 33,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2294",
-    "ingredient_name": "Curry Powder V295",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 34,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2295",
-    "ingredient_name": "Garlic Cloves V296",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 35,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2296",
-    "ingredient_name": "Finger Millet (Ragi) V297",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 36,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2297",
-    "ingredient_name": "Tamarind V298",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 37,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2298",
-    "ingredient_name": "Coconut Oil V299",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 38,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2299",
-    "ingredient_name": "Toor Dal V300",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 39,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2300",
-    "ingredient_name": "Shallots (Sambar Onions) V301",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 40,
-    "storage_type": "Refrigerator",
     "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian meat dishes."
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
   },
   {
-    "ingredient_id": "ING2301",
-    "ingredient_name": "Ginger Paste V302",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 41,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2302",
-    "ingredient_name": "Pearl Millet (Sajja) V303",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 42,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2303",
-    "ingredient_name": "Curry Powder V304",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 43,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2304",
-    "ingredient_name": "Sorghum (Jonna) V305",
+    "ingredient_id": "ING50004",
+    "ingredient_name": "Urad Dal, Green Chilli",
     "category": "Pantry",
     "unit": "kg",
-    "average_shelf_life_days": 44,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2305",
-    "ingredient_name": "Cardamom V306",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 45,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2306",
-    "ingredient_name": "Curry Powder V307",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 46,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2307",
-    "ingredient_name": "Toor Dal V308",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 47,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2308",
-    "ingredient_name": "Curry Leaves V309",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 48,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2309",
-    "ingredient_name": "Buttermilk V310",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 49,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2310",
-    "ingredient_name": "Cinnamon Bark V311",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 50,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2311",
-    "ingredient_name": "Garlic Cloves V312",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 51,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2312",
-    "ingredient_name": "Asafoetida (Hing) V313",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 52,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2313",
-    "ingredient_name": "Shallots (Sambar Onions) V314",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 53,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2314",
-    "ingredient_name": "Raw Mango V315",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 54,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2315",
-    "ingredient_name": "Kashmiri Chili V316",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 55,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2316",
-    "ingredient_name": "Pearl Millet (Sajja) V317",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 56,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2317",
-    "ingredient_name": "Curry Leaves V318",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 57,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2318",
-    "ingredient_name": "Cardamom V319",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 58,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2319",
-    "ingredient_name": "Byadagi Chillies V320",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 59,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2320",
-    "ingredient_name": "Raw Mango V321",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 60,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2321",
-    "ingredient_name": "Kashmiri Chili V322",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 61,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2322",
-    "ingredient_name": "Buttermilk V323",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 62,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2323",
-    "ingredient_name": "Sorghum (Jonna) V324",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 63,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2324",
-    "ingredient_name": "Cloves V325",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 64,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2325",
-    "ingredient_name": "Sorghum (Jonna) V326",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 65,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2326",
-    "ingredient_name": "Sorghum (Jonna) V327",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 66,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2327",
-    "ingredient_name": "Sorghum (Jonna) V328",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 67,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2328",
-    "ingredient_name": "Coconut Oil V329",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 68,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2329",
-    "ingredient_name": "Mustard Seeds V330",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 69,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2330",
-    "ingredient_name": "Toor Dal V331",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 70,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2331",
-    "ingredient_name": "Urad Dal V332",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 71,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2332",
-    "ingredient_name": "Rice Flour V333",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 72,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2333",
-    "ingredient_name": "Pepper Corns V334",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 73,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2334",
-    "ingredient_name": "Gongura Leaves (Sorrel) V335",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 74,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2335",
-    "ingredient_name": "Raw Mango V336",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 75,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2336",
-    "ingredient_name": "Jaggery V337",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 76,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2337",
-    "ingredient_name": "Coriander Leaves V338",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 77,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2338",
-    "ingredient_name": "Asafoetida (Hing) V339",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 78,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2339",
-    "ingredient_name": "Shallots (Sambar Onions) V340",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 79,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2340",
-    "ingredient_name": "Ginger Paste V341",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 80,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2341",
-    "ingredient_name": "Sesame Oil V342",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 81,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2342",
-    "ingredient_name": "Grated Coconut V343",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 82,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2343",
-    "ingredient_name": "Sesame Oil V344",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 83,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2344",
-    "ingredient_name": "Jaggery V345",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 84,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2345",
-    "ingredient_name": "Coconut Oil V346",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 85,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2346",
-    "ingredient_name": "Coconut Oil V347",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 86,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2347",
-    "ingredient_name": "Grated Coconut V348",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 87,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2348",
-    "ingredient_name": "Kashmiri Chili V349",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 88,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2349",
-    "ingredient_name": "Curry Leaves V350",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 89,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2350",
-    "ingredient_name": "Byadagi Chillies V351",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 90,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2351",
-    "ingredient_name": "Urad Dal V352",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 91,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2352",
-    "ingredient_name": "Lemon Grass V353",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 92,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2353",
-    "ingredient_name": "Sesame Oil V354",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 93,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2354",
-    "ingredient_name": "Sorghum (Jonna) V355",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 94,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2355",
-    "ingredient_name": "Fenugreek Seeds (Methi) V356",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 95,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2356",
-    "ingredient_name": "Asafoetida (Hing) V357",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 96,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2357",
-    "ingredient_name": "Raw Mango V358",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 97,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2358",
-    "ingredient_name": "Pearl Millet (Sajja) V359",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 98,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2359",
-    "ingredient_name": "Raw Mango V360",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 99,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2360",
-    "ingredient_name": "Pepper Corns V361",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 10,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2361",
-    "ingredient_name": "Fenugreek Seeds (Methi) V362",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 11,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2362",
-    "ingredient_name": "Mustard Seeds V363",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 12,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2363",
-    "ingredient_name": "Chana Dal V364",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 13,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2364",
-    "ingredient_name": "Guntur Red Chillies V365",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 14,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2365",
-    "ingredient_name": "Pearl Millet (Sajja) V366",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 15,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2366",
-    "ingredient_name": "Toor Dal V367",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 16,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2367",
-    "ingredient_name": "Byadagi Chillies V368",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 17,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2368",
-    "ingredient_name": "Sesame Oil V369",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 18,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2369",
-    "ingredient_name": "Sorghum (Jonna) V370",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 19,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2370",
-    "ingredient_name": "Raw Mango V371",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 20,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2371",
-    "ingredient_name": "Raw Mango V372",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 21,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2372",
-    "ingredient_name": "Drumstick (Mulakkada) V373",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 22,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2373",
-    "ingredient_name": "Cinnamon Bark V374",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 23,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2374",
-    "ingredient_name": "Shallots (Sambar Onions) V375",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 24,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2375",
-    "ingredient_name": "Lemon Grass V376",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 25,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2376",
-    "ingredient_name": "Ginger Paste V377",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 26,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2377",
-    "ingredient_name": "Ginger Paste V378",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 27,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2378",
-    "ingredient_name": "Jaggery V379",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 28,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2379",
-    "ingredient_name": "Cloves V380",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 29,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2380",
-    "ingredient_name": "Fenugreek Seeds (Methi) V381",
-    "category": "Produce",
-    "unit": "g",
     "average_shelf_life_days": 30,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2381",
-    "ingredient_name": "Shallots (Sambar Onions) V382",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 31,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2382",
-    "ingredient_name": "Cumin Seeds V383",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 32,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2383",
-    "ingredient_name": "Fenugreek Seeds (Methi) V384",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 33,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2384",
-    "ingredient_name": "Cloves V385",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 34,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2385",
-    "ingredient_name": "Byadagi Chillies V386",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 35,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2386",
-    "ingredient_name": "Cloves V387",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 36,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2387",
-    "ingredient_name": "Sorghum (Jonna) V388",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 37,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2388",
-    "ingredient_name": "Chana Dal V389",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 38,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2389",
-    "ingredient_name": "Buttermilk V390",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 39,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2390",
-    "ingredient_name": "Ginger Paste V391",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 40,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2391",
-    "ingredient_name": "Mustard Seeds V392",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 41,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2392",
-    "ingredient_name": "Guntur Red Chillies V393",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 42,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2393",
-    "ingredient_name": "Pearl Millet (Sajja) V394",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 43,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2394",
-    "ingredient_name": "Mustard Seeds V395",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 44,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2395",
-    "ingredient_name": "Pepper Corns V396",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 45,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2396",
-    "ingredient_name": "Finger Millet (Ragi) V397",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 46,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2397",
-    "ingredient_name": "Cloves V398",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 47,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2398",
-    "ingredient_name": "Sesame Oil V399",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 48,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2399",
-    "ingredient_name": "Fenugreek Seeds (Methi) V400",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 49,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2400",
-    "ingredient_name": "Green Chillies V401",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 50,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2401",
-    "ingredient_name": "Mint Leaves V402",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 51,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2402",
-    "ingredient_name": "Grated Coconut V403",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 52,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2403",
-    "ingredient_name": "Coriander Seeds V404",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 53,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2404",
-    "ingredient_name": "Mint Leaves V405",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 54,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2405",
-    "ingredient_name": "Garlic Cloves V406",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 55,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2406",
-    "ingredient_name": "Raw Mango V407",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 56,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2407",
-    "ingredient_name": "Jaggery V408",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 57,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2408",
-    "ingredient_name": "Gongura Leaves (Sorrel) V409",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 58,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2409",
-    "ingredient_name": "Buttermilk V410",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 59,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2410",
-    "ingredient_name": "Kashmiri Chili V411",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 60,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2411",
-    "ingredient_name": "Cumin Seeds V412",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 61,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2412",
-    "ingredient_name": "Ginger Paste V413",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 62,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2413",
-    "ingredient_name": "Curry Powder V414",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 63,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2414",
-    "ingredient_name": "Tamarind V415",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 64,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2415",
-    "ingredient_name": "Tamarind V416",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 65,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2416",
-    "ingredient_name": "Cumin Seeds V417",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 66,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2417",
-    "ingredient_name": "Drumstick (Mulakkada) V418",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 67,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2418",
-    "ingredient_name": "Mustard Seeds V419",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 68,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2419",
-    "ingredient_name": "Tamarind V420",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 69,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2420",
-    "ingredient_name": "Ginger Paste V421",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 70,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2421",
-    "ingredient_name": "Buttermilk V422",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 71,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2422",
-    "ingredient_name": "Byadagi Chillies V423",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 72,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2423",
-    "ingredient_name": "Drumstick (Mulakkada) V424",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 73,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2424",
-    "ingredient_name": "Cinnamon Bark V425",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 74,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2425",
-    "ingredient_name": "Raw Mango V426",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 75,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2426",
-    "ingredient_name": "Buttermilk V427",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 76,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2427",
-    "ingredient_name": "Raw Mango V428",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 77,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2428",
-    "ingredient_name": "Jaggery V429",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 78,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2429",
-    "ingredient_name": "Cumin Seeds V430",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 79,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2430",
-    "ingredient_name": "Gongura Leaves (Sorrel) V431",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 80,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 15.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2431",
-    "ingredient_name": "Guntur Red Chillies V432",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 81,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 16.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2432",
-    "ingredient_name": "Kashmiri Chili V433",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 82,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 17.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2433",
-    "ingredient_name": "Curry Leaves V434",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 83,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 18.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2434",
-    "ingredient_name": "Sesame Oil V435",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 84,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 19.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2435",
-    "ingredient_name": "Jaggery V436",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 85,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 20.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2436",
-    "ingredient_name": "Cardamom V437",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 86,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 21.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2437",
-    "ingredient_name": "Rice Flour V438",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 87,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 22.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2438",
-    "ingredient_name": "Mustard Seeds V439",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 88,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 23.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
-  },
-  {
-    "ingredient_id": "ING2439",
-    "ingredient_name": "Ginger Paste V440",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 89,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 24.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2440",
-    "ingredient_name": "Sorghum (Jonna) V441",
-    "category": "Pantry",
-    "unit": "kg",
-    "average_shelf_life_days": 90,
     "storage_type": "Pantry",
     "minimum_quantity_alert": 5.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
   },
   {
-    "ingredient_id": "ING2441",
-    "ingredient_name": "Chana Dal V442",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 91,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 6.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2442",
-    "ingredient_name": "Byadagi Chillies V443",
+    "ingredient_id": "ING50005",
+    "ingredient_name": "Rice Batter, Onion",
     "category": "Pantry",
     "unit": "kg",
-    "average_shelf_life_days": 92,
+    "average_shelf_life_days": 30,
     "storage_type": "Pantry",
-    "minimum_quantity_alert": 7.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
   },
   {
-    "ingredient_id": "ING2443",
-    "ingredient_name": "Cumin Seeds V444",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 93,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 8.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2444",
-    "ingredient_name": "Coriander Leaves V445",
-    "category": "Spices",
-    "unit": "kg",
-    "average_shelf_life_days": 94,
-    "storage_type": "Pantry",
-    "minimum_quantity_alert": 9.0,
-    "common_usage": "Used in regional South Indian spices dishes."
-  },
-  {
-    "ingredient_id": "ING2445",
-    "ingredient_name": "Jaggery V446",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 95,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 10.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2446",
-    "ingredient_name": "Ginger Paste V447",
-    "category": "Dairy",
-    "unit": "kg",
-    "average_shelf_life_days": 96,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 11.0,
-    "common_usage": "Used in regional South Indian dairy dishes."
-  },
-  {
-    "ingredient_id": "ING2447",
-    "ingredient_name": "Guntur Red Chillies V448",
-    "category": "Produce",
-    "unit": "g",
-    "average_shelf_life_days": 97,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 12.0,
-    "common_usage": "Used in regional South Indian produce dishes."
-  },
-  {
-    "ingredient_id": "ING2448",
-    "ingredient_name": "Coriander Leaves V449",
-    "category": "Meat",
-    "unit": "kg",
-    "average_shelf_life_days": 98,
-    "storage_type": "Refrigerator",
-    "minimum_quantity_alert": 13.0,
-    "common_usage": "Used in regional South Indian meat dishes."
-  },
-  {
-    "ingredient_id": "ING2449",
-    "ingredient_name": "Cinnamon Bark V450",
+    "ingredient_id": "ING50006",
+    "ingredient_name": "Whole Wheat Flour, Butter",
     "category": "Pantry",
     "unit": "kg",
-    "average_shelf_life_days": 99,
+    "average_shelf_life_days": 30,
     "storage_type": "Pantry",
-    "minimum_quantity_alert": 14.0,
-    "common_usage": "Used in regional South Indian pantry dishes."
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50007",
+    "ingredient_name": "Flattened Rice, Mustard Seeds",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50008",
+    "ingredient_name": "Semolina (Rava), Curry Leaves",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50009",
+    "ingredient_name": "Wheat Flour, Oil",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50010",
+    "ingredient_name": "Eggs, Black Pepper",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50011",
+    "ingredient_name": "Bread Slices, Butter",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50012",
+    "ingredient_name": "Masala",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50014",
+    "ingredient_name": "Rava",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50015",
+    "ingredient_name": "Ragi",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50016",
+    "ingredient_name": "Oats",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50017",
+    "ingredient_name": "Mint",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50018",
+    "ingredient_name": "Chilli",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50019",
+    "ingredient_name": "Spinach",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50020",
+    "ingredient_name": "Spicy",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50021",
+    "ingredient_name": "Special",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50022",
+    "ingredient_name": "Classic",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50023",
+    "ingredient_name": "Schezwan",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50024",
+    "ingredient_name": "Sweet",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50027",
+    "ingredient_name": "Strawberry",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50029",
+    "ingredient_name": "Mixed",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50030",
+    "ingredient_name": "Vegetable",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50031",
+    "ingredient_name": "Corn",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50033",
+    "ingredient_name": "Capsicum",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50034",
+    "ingredient_name": "Curd",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50035",
+    "ingredient_name": "Peanut",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50036",
+    "ingredient_name": "Almond",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50037",
+    "ingredient_name": "Cashew",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50038",
+    "ingredient_name": "Pista",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50039",
+    "ingredient_name": "Spices",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50041",
+    "ingredient_name": "Ginger-Garlic Paste",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50043",
+    "ingredient_name": "Yogurt",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50045",
+    "ingredient_name": "Green Peas",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50046",
+    "ingredient_name": "Onions",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50047",
+    "ingredient_name": "Tomatoes",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50048",
+    "ingredient_name": "Veggies",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50049",
+    "ingredient_name": "Lentils",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50050",
+    "ingredient_name": "Coconut Paste",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50051",
+    "ingredient_name": "Toor Dal",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50052",
+    "ingredient_name": "All Purpose Flour",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50053",
+    "ingredient_name": "Potatoes",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50054",
+    "ingredient_name": "Gram Flour (Besan)",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50055",
+    "ingredient_name": "Ajwain",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50056",
+    "ingredient_name": "Papdi",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50057",
+    "ingredient_name": "Tamarind Chutney",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50058",
+    "ingredient_name": "Breadcrumbs",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50059",
+    "ingredient_name": "Mashed Potatoes",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50060",
+    "ingredient_name": "Potato Vada",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50061",
+    "ingredient_name": "Pav (Bread)",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50063",
+    "ingredient_name": "Wrapper Sheets",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50064",
+    "ingredient_name": "Sea Salt",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50065",
+    "ingredient_name": "Chilli Powder",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50066",
+    "ingredient_name": "Minced Protein",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50067",
+    "ingredient_name": "Mustard Oil",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50068",
+    "ingredient_name": "Protein Cubes",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50069",
+    "ingredient_name": "Boiled Noodles",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50070",
+    "ingredient_name": "Corn Starch",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50071",
+    "ingredient_name": "Broth",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50072",
+    "ingredient_name": "Wheat Flour",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50073",
+    "ingredient_name": "Yeast",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50074",
+    "ingredient_name": "Ragi Flour",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50075",
+    "ingredient_name": "Rice Flour",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50077",
+    "ingredient_name": "Chana Dal",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50080",
+    "ingredient_name": "Dill Leaves",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50081",
+    "ingredient_name": "Grated Coconut",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50082",
+    "ingredient_name": "Cumin Seeds",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50083",
+    "ingredient_name": "Mixed Vegetables",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50084",
+    "ingredient_name": "Bisi Bele Bath Powder",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50085",
+    "ingredient_name": "Tamarind Juice",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50086",
+    "ingredient_name": "Cashews",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50087",
+    "ingredient_name": "Coconut Powder",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50088",
+    "ingredient_name": "Gongura Leaves (Sorrel)",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50089",
+    "ingredient_name": "Country Chicken",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50090",
+    "ingredient_name": "Andhra Chili Powder",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50091",
+    "ingredient_name": "Poppy Seeds Paste",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50092",
+    "ingredient_name": "Cardamom",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50093",
+    "ingredient_name": "Fenugreek Seeds (Methi)",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50094",
+    "ingredient_name": "Shallots (Sambar Onions)",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50095",
+    "ingredient_name": "Kashmiri Chili",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50096",
+    "ingredient_name": "Green Chillies",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50097",
+    "ingredient_name": "Cloves",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50099",
+    "ingredient_name": "Garlic Cloves",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50100",
+    "ingredient_name": "Raw Mango",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50101",
+    "ingredient_name": "Urad Dal",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50102",
+    "ingredient_name": "Pepper Corns",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50103",
+    "ingredient_name": "Drumstick (Mulakkada)",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50104",
+    "ingredient_name": "Coriander Leaves",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50105",
+    "ingredient_name": "Byadagi Chillies",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50106",
+    "ingredient_name": "Guntur Red Chillies",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50107",
+    "ingredient_name": "Ginger Paste",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50108",
+    "ingredient_name": "Lemon Grass",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50109",
+    "ingredient_name": "Pearl Millet (Sajja)",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50110",
+    "ingredient_name": "Cinnamon Bark",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50111",
+    "ingredient_name": "Asafoetida (Hing)",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50112",
+    "ingredient_name": "Jaggery",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50113",
+    "ingredient_name": "Sorghum (Jonna)",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50114",
+    "ingredient_name": "Finger Millet (Ragi)",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50115",
+    "ingredient_name": "Coconut Oil",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50116",
+    "ingredient_name": "Coriander Seeds",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50117",
+    "ingredient_name": "Sesame Oil",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50118",
+    "ingredient_name": "Mustard Seeds",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50120",
+    "ingredient_name": "Rose Syrup",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50121",
+    "ingredient_name": "Coffee Powder",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50122",
+    "ingredient_name": "Tea Powder",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50123",
+    "ingredient_name": "Milk Solids",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50124",
+    "ingredient_name": "Cocoa Butter",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50125",
+    "ingredient_name": "Mysore Pak Mix",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50126",
+    "ingredient_name": "Cheese",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50127",
+    "ingredient_name": "Chocolate",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50128",
+    "ingredient_name": "Banana",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50129",
+    "ingredient_name": "Mango",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50130",
+    "ingredient_name": "Potato",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50131",
+    "ingredient_name": "Garam Masala",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50132",
+    "ingredient_name": "Basmati Rice",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50133",
+    "ingredient_name": "Rice",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50134",
+    "ingredient_name": "Cabbage",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50135",
+    "ingredient_name": "Peanuts",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50136",
+    "ingredient_name": "Sesame Seeds",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50137",
+    "ingredient_name": "Curry Leaves",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50138",
+    "ingredient_name": "Mint Leaves",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
+  },
+  {
+    "ingredient_id": "ING50139",
+    "ingredient_name": "Curry Powder",
+    "category": "Pantry",
+    "unit": "kg",
+    "average_shelf_life_days": 30,
+    "storage_type": "Pantry",
+    "minimum_quantity_alert": 5.0,
+    "common_usage": "Auto-generated pantry base ingredient for recipe cross-validation compatibility."
   }
 ]

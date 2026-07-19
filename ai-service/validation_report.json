@@ -3,48 +3,48 @@
   "summary": {
     "recipes": {
       "status": "PASS",
-      "total_records": 500,
-      "valid_records": 500,
+      "total_records": 2878,
+      "valid_records": 2878,
       "invalid_records": 0,
       "duplicate_ids": 0,
       "duplicate_names": 0
     },
     "ingredients": {
       "status": "PASS",
-      "total_records": 1614,
-      "valid_records": 1614,
+      "total_records": 1750,
+      "valid_records": 1750,
       "invalid_records": 0,
       "duplicate_ids": 0,
       "duplicate_names": 0
     },
     "pairing": {
       "status": "PASS",
-      "total_records": 135,
-      "valid_records": 135,
+      "total_records": 141,
+      "valid_records": 141,
       "invalid_records": 0
     },
     "suppliers": {
       "status": "PASS",
-      "total_records": 35,
-      "valid_records": 35,
+      "total_records": 3,
+      "valid_records": 3,
       "invalid_records": 0
     },
     "chef_notes": {
       "status": "PASS",
-      "total_records": 90,
-      "valid_records": 90,
+      "total_records": 95,
+      "valid_records": 95,
       "invalid_records": 0
     },
     "safety": {
       "status": "PASS",
-      "total_records": 1614,
-      "valid_records": 1614,
+      "total_records": 1624,
+      "valid_records": 1624,
       "invalid_records": 0
     },
     "seasonal": {
       "status": "PASS",
-      "total_records": 52,
-      "valid_records": 52,
+      "total_records": 95,
+      "valid_records": 95,
       "invalid_records": 0
     }
   },
