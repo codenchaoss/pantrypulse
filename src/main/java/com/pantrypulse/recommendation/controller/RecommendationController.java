@@ -4,6 +4,8 @@ import com.pantrypulse.recommendation.dto.AiRecommendationInputDto;
 import com.pantrypulse.recommendation.service.RecommendationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 	)
 @RestController
 @RequestMapping("/api/recommendation")
+@ConditionalOnProperty(
+	    name = "ai.enabled",
+	    havingValue = "true"
+	)
 
 public class RecommendationController {
 

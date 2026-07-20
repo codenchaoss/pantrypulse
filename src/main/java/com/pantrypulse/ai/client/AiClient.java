@@ -1,6 +1,7 @@
 package com.pantrypulse.ai.client;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import lombok.extern.slf4j.Slf4j;
@@ -17,8 +18,11 @@ import com.pantrypulse.ai.dto.SupplierResponseDto;
 import org.springframework.web.client.RestClientException;
 @Slf4j
 @Component
+@ConditionalOnProperty(
+    name = "ai.enabled",
+    havingValue = "true"
+)
 public class AiClient {
-
     private final RestTemplate restTemplate;
 
     @Value("${ai.service.url}")

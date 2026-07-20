@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import com.pantrypulse.ai.dto.MenuRequestDto;
@@ -17,10 +18,15 @@ import com.pantrypulse.recipe.entity.Recipe;
 import com.pantrypulse.recipeingredient.entity.RecipeIngredient;
 import com.pantrypulse.recipeingredient.repository.RecipeIngredientRepository;
 import com.pantrypulse.recommendation.dto.AiRecommendationInputDto;
+
 import com.pantrypulse.recommendation.dto.CandidateRecipeDto;
 import com.pantrypulse.recommendation.dto.ExpiringIngredientDto;
 
 @Service
+@ConditionalOnProperty(
+	    name = "ai.enabled",
+	    havingValue = "true"
+	)
 public class RecommendationService {
 
     private final ExpirationService expirationService;

@@ -1,5 +1,6 @@
 package com.pantrypulse.ai.controller;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.*;
 
 import com.pantrypulse.ai.dto.RecipeRequestDto;
@@ -11,7 +12,10 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/ai")
 @RequiredArgsConstructor
-
+@ConditionalOnProperty(
+	    name = "ai.enabled",
+	    havingValue = "true"
+	)
 public class RecipeAiController {
 
     private final RecipeAiService recipeAiService;
