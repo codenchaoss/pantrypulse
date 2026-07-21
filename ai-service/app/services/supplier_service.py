@@ -97,65 +97,33 @@ class SupplierService:
         clean_quantity = quantity.strip()
         clean_date = required_date.strip()
 
-        search_query = f"Supplier details for: {ingredient_display} {clean_supplier}"
-        retriever_start = time.time()
-        try:
-            chunks = self.retriever.retrieve(search_query, top_k=3)
-        except Exception as e:
-            logger.error(f"SupplierService: Retriever failed: {str(e)}")
-            chunks = []
-        retriever_time_ms = int((time.time() - retriever_start) * 1000)
-
-        supplier_chunks = [c for c in chunks if "suppliers" in c.get("source", "").lower()]
-        logger.info(f"SupplierService: Retrieved {len(chunks)} chunks, filtered to {len(supplier_chunks)} supplier chunks in {retriever_time_ms}ms")
-
-        context_strs = []
-        for i, chunk in enumerate(supplier_chunks):
-            title = chunk.get("title", "unknown")
-            content = chunk.get("content", "")
-            context_strs.append(f"[Supplier Info #{i+1}] (Title: {title})\n{content}\n")
-        context_block = "\n".join(context_strs) if context_strs else "No supplier contexts found."
-
-        try:
-            prompt = build_supplier_prompt(
-                clean_supplier, 
-                ingredient_display, 
-                clean_quantity, 
-                clean_date, 
-                context_block,
-                restaurant_name=restaurant_name,
-                contact_person=contact_person,
-                supplier_email=supplier_email,
-                supplier_phone=supplier_phone,
-                urgency_level=urgency_level,
-                language_preference=language_preference
-            )
-        except Exception as e:
-            logger.error(f"SupplierService: Prompt creation failed: {str(e)}")
-            prompt = f"Supplier: {clean_supplier}\nIngredient: {ingredient_display}\nQty: {clean_quantity}\nDate: {clean_date}\nContext: {context_block}"
-
-        router_result = None
-        try:
-            router_result = self.router.generate(prompt, temperature=0.5, max_tokens=500)
-        except Exception as e:
-            logger.error(f"SupplierService: Router call failed: {str(e)}")
-
-        message_body = ""
-        detected_lang = language_preference if language_preference else detect_language(clean_supplier + " " + ingredient_display)
-        provider_used = "none"
-        fallback_used = False
+        # Invoke the hybrid orchestration pipeline
+        question = (
+            f"Draft order replenishment request email for supplier: {clean_supplier} for ingredient: {ingredient_display} with quantity: {clean_quantity} required by: {clean_date}. "
+            "You MUST respond with a valid JSON object matching the following structure:\n"
+            "{\n"
+            "  \"message\": \"The drafted email message body text to the supplier.\",\n"
+            "  \"language\": \"English\"\n"
+            "}\n"
+            "Return ONLY the raw JSON. Do not include markdown code block syntax."
+        )
         
-        if router_result and router_result.get("status") == "success":
-            raw_text = router_result.get("response", "")
-            provider_used = router_result.get("provider", "Gemini")
-            fallback_used = router_result.get("fallback_used", False)
-            
-            try:
-                parsed = OutputParser.parse_json(raw_text)
-                message_body = parsed.get("message", "").strip()
-                detected_lang = parsed.get("language", detected_lang)
-            except Exception as e:
-                logger.error(f"SupplierService: JSON parsing failed: {str(e)}")
+        from app.services.hybrid_chat_service import HybridChatService
+        hybrid_service = HybridChatService()
+        result = hybrid_service.get_response_sync(question)
+        
+        message_body = ""
+        detected_lang = language_preference if language_preference else result.get("language", "english")
+        provider_used = result.get("provider", "Gemini")
+        fallback_used = result.get("fallback_used", False)
+        raw_text = result.get("answer", "")
+        
+        try:
+            parsed = OutputParser.parse_json(raw_text)
+            message_body = parsed.get("message", "").strip()
+            detected_lang = parsed.get("language", detected_lang)
+        except Exception as e:
+            logger.error(f"SupplierService: JSON parsing failed: {str(e)}")
 
         if not message_body:
             logger.warning("SupplierService: Generation failed or empty. Applying fallback templates.")

@@ -159,70 +159,54 @@ class InventoryOptimizerService:
         candidates_strs = [f"- Special: {dish} (Utilizes expiring: {', '.join(ing_names[:3])})" for dish in candidate_dishes]
         candidates_context = "\n".join(candidates_strs)
 
-        # 4. Retrieve general waste reduction context (Limit top_k to 3 for smaller prompt context)
-        retriever_start = time.time()
-        try:
-            chunks = self.retriever.retrieve("food waste reduction ingredient shelf life inventory optimization", top_k=3)
-        except Exception as e:
-            logger.error(f"InventoryOptimizerService: Retriever failed: {str(e)}")
-            chunks = []
-        retriever_time_ms = int((time.time() - retriever_start) * 1000)
-
-        # Filter general management guidelines or recipe context
-        mgt_chunks = [c for c in chunks if "recipes" in c.get("source", "").lower() or "safety" in c.get("source", "").lower()]
-        logger.info(f"InventoryOptimizerService: Retrieved {len(chunks)} chunks, filtered to {len(mgt_chunks)} context chunks in {retriever_time_ms}ms")
-        logger.info(f"[TIMING] Pinecone retrieval and filtering took: {time.time() - retriever_start:.3f}s")
-
-        # Format context block
-        context_strs = []
-        for i, chunk in enumerate(mgt_chunks):
-            title = chunk.get("title", "unknown")
-            content = chunk.get("content", "")
-            context_strs.append(f"[Waste Control Info #{i+1}] (Title: {title})\n{content}\n")
-        context_block = "\n".join(context_strs) if context_strs else "No BOH waste context available."
-
-        # 7. Construct Prompt
-        try:
-            prompt = build_inventory_prompt(llm_inventory, candidates_context, context_block)
-        except Exception as e:
-            logger.error(f"InventoryOptimizerService: Prompt builder failed: {str(e)}")
-            prompt = f"Optimize inventory: {llm_inventory}\nCandidates: {candidates_context}"
-
-        # 8. Call LLM Router with optimized temperature and max_tokens
-        router_start = time.time()
-        router_result = None
-        try:
-            router_result = self.router.generate(prompt, temperature=0.2, max_tokens=700)
-        except Exception as e:
-            logger.error(f"InventoryOptimizerService: Router call failed: {str(e)}")
-        logger.info(f"[TIMING] LLM Router call for optimization plan took: {time.time() - router_start:.3f}s")
-        logger.info(f"[TIMING-TOTAL] Entire optimize_inventory runtime: {time.time() - start_time:.3f}s")
-
-        # 9. Parse output JSON
+        # Invoke the hybrid orchestration pipeline
+        inv_strs = [f"{item['ingredient']} (qty: {item['quantity']} {item['unit']}, expiry: {item['expiry_days']} days)" for item in llm_inventory]
+        question = (
+            f"Generate inventory waste optimization plan for inventory: {', '.join(inv_strs)}. "
+            "You MUST respond with a valid JSON object matching the following structure:\n"
+            "{\n"
+            "  \"recommended_dishes\": [\n"
+            "    {\n"
+            "      \"dish\": \"Dish Name\",\n"
+            "      \"servings\": 20,\n"
+            "      \"priority\": \"HIGH\"\n"
+            "    }\n"
+            "  ],\n"
+            "  \"purchase_required\": false,\n"
+            "  \"purchase_items\": [],\n"
+            "  \"reason\": \"Explanation of the waste optimization plan.\",\n"
+            "  \"language\": \"English\"\n"
+            "}\n"
+            "Return ONLY the raw JSON. Do not include markdown code block syntax."
+        )
+        
+        from app.services.hybrid_chat_service import HybridChatService
+        hybrid_service = HybridChatService()
+        result = hybrid_service.get_response_sync(question)
+        
         recommended_dishes = []
         purchase_required = False
         purchase_items = []
         reason_text = ""
         detected_lang = "english"
+        raw_text = result.get("answer", "")
         
-        if router_result and router_result.get("status") == "success":
-            raw_text = router_result.get("response", "")
-            try:
-                parsed = OutputParser.parse_json(raw_text)
-                recommended_dishes = parsed.get("recommended_dishes", [])
-                purchase_required = bool(parsed.get("purchase_required", False))
-                reason_text = parsed.get("reason", "").strip()
-                detected_lang = parsed.get("language", "english")
-                
-                purchase_items_raw = parsed.get("purchase_items", [])
-                for p in purchase_items_raw:
-                    if isinstance(p, dict) and "ingredient" in p:
-                        purchase_items.append({
-                            "ingredient": p["ingredient"].strip().title(),
-                            "required_quantity": str(p.get("required_quantity", "10 kg"))
-                        })
-            except Exception as e:
-                logger.error(f"InventoryOptimizerService: JSON parsing failed: {str(e)}")
+        try:
+            parsed = OutputParser.parse_json(raw_text)
+            recommended_dishes = parsed.get("recommended_dishes", [])
+            purchase_required = bool(parsed.get("purchase_required", False))
+            reason_text = parsed.get("reason", "").strip()
+            detected_lang = parsed.get("language", "english")
+            
+            purchase_items_raw = parsed.get("purchase_items", [])
+            for p in purchase_items_raw:
+                if isinstance(p, dict) and "ingredient" in p:
+                    purchase_items.append({
+                        "ingredient": p["ingredient"].strip().title(),
+                        "required_quantity": str(p.get("required_quantity", "10 kg"))
+                    })
+        except Exception as e:
+            logger.error(f"InventoryOptimizerService: JSON parsing failed: {str(e)}")
 
         # 10. Fallback Recovery if LLM output is empty/invalid
         if not recommended_dishes or not reason_text:

@@ -14,11 +14,13 @@ ai-service/
 │   ├── knowledge/            # Static Culinary Database (JSON)
 │   ├── llm/                  # Multi-provider manager, retry, and health modules
 │   │   └── providers/        # Individual API provider clients (Gemini, Grok, OpenRouter, Together, Fireworks, DeepSeek, Mistral)
+│   ├── models/               # Pydantic schemas, Route/Intent Models
 │   ├── prompts/              # System & Tool Prompt Sheets
 │   ├── rag/                  # FAISS Retriever & Embeddings Builder
 │   ├── retrievers/           # Base, FAISS, and Pinecone query retriever implementations
+│   ├── routing/              # Query Intent Detection & Decision Router (Phase 2)
 │   ├── schemas/              # Pydantic Request & Response Validators
-│   └── services/             # Core AI Business Logic Services
+│   └── services/             # Core AI Services & SpringApiClient (Spring Boot Integration Layer)
 ├── vector_db/                # Local FAISS Database Store
 ├── openclaw/                 # OpenClaw Workflow Engine
 │   ├── api/                  # Main /orchestrate entry point route

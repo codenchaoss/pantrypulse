@@ -12,7 +12,8 @@ class GeminiClient(BaseLLMClient):
     """
     def __init__(self, api_key: str = None, model: str = None):
         self.api_key = api_key or config.GEMINI_API_KEY
-        self.model = model or getattr(config, "PRIMARY_MODEL", "gemini-2.5-flash")
+        raw_model = model or getattr(config, "PRIMARY_MODEL", "gemini-2.5-flash")
+        self.model = raw_model.split("/")[-1] if "/" in raw_model else raw_model
         
     def health_check(self) -> Dict[str, Any]:
         """

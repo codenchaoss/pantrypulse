@@ -122,14 +122,14 @@ class ChatbotService:
     def __init__(self):
         self.retriever = KnowledgeRetriever()
         self.router = LLMRouter()
+        from app.services.hybrid_chat_service import HybridChatService
+        self.hybrid_service = HybridChatService()
 
     def generate_response(self, question: str, history: Optional[str] = None) -> Dict[str, Any]:
         """
-        Runs the hybrid RAG Chatbot v2 pipeline (language detection, text normalization,
-        dish extraction, exact search, similarity search, category mapping, RAG generation, and cleanup).
+        Delegates response generation to the Hybrid RAG Chatbot v2 pipeline.
         """
-        logger.info(f"ChatbotService: Processing query: '{question}' | History: {bool(history)}")
-        start_time = time.time()
+        return self.hybrid_service.get_response_sync(question, history)
         
         # 1. Detect language
         detected_lang = detect_language(question)

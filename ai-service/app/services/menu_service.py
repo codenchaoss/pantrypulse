@@ -47,71 +47,50 @@ class MenuService:
             if expiry_days < 0:
                 raise HTTPException(status_code=400, detail=f"Expiry days for {name} cannot be negative.")
 
-        # 2. Retrieve knowledge chunks matching expiring ingredients or chosen recipes
+        # Invoke the hybrid orchestration pipeline
+        inv_strs = [f"{item.get('ingredient')} ({item.get('expiry_days')} days remaining)" for item in inventory]
+        question = (
+            f"Generate daily specials menu using available inventory: {', '.join(inv_strs)}. "
+            "You MUST respond with a valid JSON object matching this schema:\n"
+            "{\n"
+            "  \"special_menu\": [\n"
+            "    {\n"
+            "      \"dish\": \"Dish Name\",\n"
+            "      \"reason\": \"Reason for selection.\",\n"
+            "      \"matched_inventory\": [\"ingredient1\"],\n"
+            "      \"missing_ingredients\": [\"ingredient2\"],\n"
+            "      \"estimated_profit\": 350,\n"
+            "      \"priority\": \"HIGH\",\n"
+            "      \"preparation_time\": 30,\n"
+            "      \"difficulty\": \"Medium\",\n"
+            "      \"confidence\": 0.85\n"
+            "    }\n"
+            "  ]\n"
+            "}\n"
+            "Return ONLY the raw JSON. Do not include markdown code block syntax."
+        )
         if recipes:
-            query_str = f"Recipes details for: {', '.join(recipes)}"
-        else:
-            ingredients_query = ", ".join([item.get("ingredient", "").strip() for item in inventory])
-            query_str = f"Expiring ingredients recipes: {ingredients_query}"
-        
-        retriever_start = time.time()
-        try:
-            chunks = self.retriever.retrieve(query_str, top_k=3)
-        except Exception as e:
-            logger.error(f"MenuService: Retriever error: {str(e)}")
-            chunks = []
-        retriever_time_ms = int((time.time() - retriever_start) * 1000)
-
-        # 3. Filter recipe chunks (fallback to all chunks if source tag is absent)
-        recipe_chunks = [c for c in chunks if "recipe" in c.get("source", "").lower()]
-        if not recipe_chunks:
-            recipe_chunks = chunks
-        logger.info(f"MenuService: Retrieved {len(chunks)} chunks, using {len(recipe_chunks)} context chunks in {retriever_time_ms}ms")
-
-        # 4. Construct prompt
-        context_strs = []
-        for i, chunk in enumerate(recipe_chunks):
-            source = chunk.get("source", "unknown")
-            title = chunk.get("title", "unknown")
-            content = chunk.get("content", "")
-            context_strs.append(f"[Recipe Reference #{i+1}] (Source: {source}, Title: {title})\n{content}\n")
-        context_block = "\n".join(context_strs)
-        
-        try:
-            prompt = build_menu_prompt(inventory, context_block)
-            if recipes:
-                prompt += f"\n=== CHOSEN TARGET RECIPES ===\nYou MUST generate daily specials based on these recipes: {', '.join(recipes)}\n"
-        except Exception as e:
-            logger.error(f"MenuService: Prompt building failed: {str(e)}")
-            prompt = f"Inventory: {inventory}\nContext: {context_block}"
-
-        # 5. Call LLM Router with optimized temperature and max_tokens
-        router_result = None
-        try:
-            router_result = self.router.generate(prompt, temperature=0.5, max_tokens=700)
-        except Exception as e:
-            logger.error(f"MenuService: Router failed: {str(e)}")
-
-        # 6. Parse structured JSON response
-        menu_items = []
-        provider_used = "none"
-        fallback_used = False
-        
-        if router_result and router_result.get("status") == "success":
-            raw_text = router_result.get("response", "")
-            provider_used = router_result.get("provider", "Gemini")
-            fallback_used = router_result.get("fallback_used", False)
+            question += f" Build specials based on recipes: {', '.join(recipes)}."
             
-            try:
-                parsed = OutputParser.parse_json(raw_text)
-                if "special_menu" in parsed and isinstance(parsed["special_menu"], list):
-                    menu_items = parsed["special_menu"]
-                elif "menu" in parsed and isinstance(parsed["menu"], list):
-                    menu_items = parsed["menu"]  # fallback compatibility
-                else:
-                    logger.warning("MenuService: Parsed JSON does not match expected Daily Menu root key.")
-            except Exception as e:
-                logger.error(f"MenuService: JSON parsing failed: {str(e)}")
+        from app.services.hybrid_chat_service import HybridChatService
+        hybrid_service = HybridChatService()
+        result = hybrid_service.get_response_sync(question)
+        
+        menu_items = []
+        provider_used = result.get("provider", "Gemini")
+        fallback_used = result.get("fallback_used", False)
+        raw_text = result.get("answer", "")
+        
+        try:
+            parsed = OutputParser.parse_json(raw_text)
+            if "special_menu" in parsed and isinstance(parsed["special_menu"], list):
+                menu_items = parsed["special_menu"]
+            elif "menu" in parsed and isinstance(parsed["menu"], list):
+                menu_items = parsed["menu"]
+            else:
+                logger.warning("MenuService: Parsed JSON does not match expected Daily Menu root key.")
+        except Exception as e:
+            logger.error(f"MenuService: JSON parsing failed: {str(e)}")
 
         # 7. Apply Post-processing Rules (Deduplicate, Verify Priority/Expiry thresholds, Sort)
         processed_specials = []

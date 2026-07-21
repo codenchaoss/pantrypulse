@@ -65,60 +65,47 @@ class RecipeService:
         if not clean_ingredients:
             raise HTTPException(status_code=400, detail="Ingredients list contains only invalid items.")
 
-        query_str = "Ingredients: " + ", ".join(clean_ingredients)
-        retriever_start = time.time()
-        try:
-            chunks = self.retriever.retrieve(query_str, top_k=3)
-        except Exception as e:
-            logger.error(f"RecipeService: Retriever error: {str(e)}")
-            chunks = []
-        retriever_time_ms = int((time.time() - retriever_start) * 1000)
+        # Invoke the hybrid orchestration pipeline
+        question = (
+            f"Suggest recipes using available ingredients: {', '.join(clean_ingredients)}. "
+            "You MUST respond with a valid JSON object matching the following structure:\n"
+            "{\n"
+            "  \"recipes\": [\n"
+            "    {\n"
+            "      \"recipe_id\": \"REC001\",\n"
+            "      \"recipe_name\": \"Dish Name\",\n"
+            "      \"description\": \"Description of the recipe suggestion.\",\n"
+            "      \"matched_ingredients\": [\"ingredient1\"],\n"
+            "      \"missing_ingredients\": [\"ingredient2\"],\n"
+            "      \"match_percentage\": 80,\n"
+            "      \"preparation_time_minutes\": 30,\n"
+            "      \"difficulty\": \"Easy\",\n"
+            "      \"estimated_calories\": 350,\n"
+            "      \"reason_for_recommendation\": \"Why this is recommended.\",\n"
+            "      \"confidence\": 0.85\n"
+            "    }\n"
+            "  ]\n"
+            "}\n"
+            "Return ONLY the raw JSON. Do not include markdown code block syntax (like ```json)."
+        )
         
-        recipe_chunks = [
-            c for c in chunks 
-            if "recipe" in c.get("source", "").lower() 
-            and not any(bad in c.get("title", "").lower() for bad in ["week", "seasonal", "supplier", "safety"])
-        ]
-            
-        logger.info(f"RecipeService: Retrieved {len(chunks)} chunks, using {len(recipe_chunks)} recipe context chunks in {retriever_time_ms}ms")
-            
-        context_strs = []
-        for i, chunk in enumerate(recipe_chunks):
-            source = chunk.get("source", "unknown")
-            title = chunk.get("title", "unknown")
-            content = chunk.get("content", "")
-            context_strs.append(f"[Recipe #{i+1}] (Source: {source}, Title: {title})\n{content}\n")
-        context_block = "\n".join(context_strs) if context_strs else "No exact recipe context matches."
+        from app.services.hybrid_chat_service import HybridChatService
+        hybrid_service = HybridChatService()
+        result = hybrid_service.get_response_sync(question)
         
-        try:
-            prompt = build_recipe_prompt(clean_ingredients, context_block)
-        except Exception as e:
-            logger.error(f"RecipeService: Prompt construction failed: {str(e)}")
-            prompt = f"Available: {', '.join(clean_ingredients)}\nContext: {context_block}"
-
-        router_result = None
-        try:
-            router_result = self.router.generate(prompt, temperature=0.4, max_tokens=600)
-        except Exception as e:
-            logger.error(f"RecipeService: Router call failed: {str(e)}")
-            
         recipes_list = []
-        provider_used = "none"
-        fallback_used = False
+        provider_used = result.get("provider", "Gemini")
+        fallback_used = result.get("fallback_used", False)
+        raw_text = result.get("answer", "")
         
-        if router_result and router_result.get("status") == "success":
-            raw_text = router_result.get("response", "")
-            provider_used = router_result.get("provider", "Gemini")
-            fallback_used = router_result.get("fallback_used", False)
-            
-            try:
-                parsed = OutputParser.parse_json(raw_text)
-                if "recipes" in parsed and isinstance(parsed["recipes"], list):
-                    recipes_list = parsed["recipes"]
-                else:
-                    logger.warning("RecipeService: Parsed output does not match expected JSON root schema.")
-            except Exception as e:
-                logger.error(f"RecipeService: JSON parsing failed: {str(e)}")
+        try:
+            parsed = OutputParser.parse_json(raw_text)
+            if "recipes" in parsed and isinstance(parsed["recipes"], list):
+                recipes_list = parsed["recipes"]
+            else:
+                logger.warning("RecipeService: Parsed output does not match expected JSON root schema.")
+        except Exception as e:
+            logger.error(f"RecipeService: JSON parsing failed: {str(e)}")
                 
         processed_recipes = []
         seen_ids = set()
