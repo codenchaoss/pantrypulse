@@ -3,7 +3,7 @@ from fastapi import FastAPI, Request, status
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from app.api import health, chat, recipe, menu, supplier, description, pricing, optimization, rebuild
+from app.api import health, chat, recipe, menu, supplier, description, pricing, optimization, rebuild, spring_proxy
 from openclaw.api import orchestrate
 from openclaw.routes import application, workflow_completion
 from app.core.middleware import RequestLoggingMiddleware
@@ -42,6 +42,7 @@ app.include_router(orchestrate.router, tags=["Orchestration"])
 app.include_router(application.router, tags=["Integration"])
 app.include_router(workflow_completion.router, tags=["Operations"])
 app.include_router(rebuild.router, tags=["Database Rebuild"])
+app.include_router(spring_proxy.router, tags=["Spring Boot Proxy"])
 
 @app.on_event("startup")
 def startup_prewarm():
