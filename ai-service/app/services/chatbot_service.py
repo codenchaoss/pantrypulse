@@ -285,11 +285,24 @@ class ChatbotService:
         q_low = question.lower()
         additional_contexts = []
 
-        # A. Suppliers
-        if any(w in q_low for w in ["supplier", "supliers", "inform", "restock", "replenish", "contact", "vendor", "expiring", "purchase", "gas", "fuel", "cylinder", "plate", "plates", "tissue", "tissues", "table", "tables", "dining", "infra", "infrastructure", "furniture", "crockery", "water", "drink", "drinks", "milk", "ice cream", "coffee", "tea", "bakery", "frozen"]):
+        # A. Suppliers Directory & Commercial Vendors (suppliers.json)
+        if any(w in q_low for w in ["supplier", "suppliers", "supliers", "inform", "restock", "replenish", "contact", "vendor", "vendors", "expiring", "purchase", "gas", "fuel", "cylinder", "plate", "plates", "tissue", "tissues", "table", "tables", "dining", "infra", "infrastructure", "furniture", "crockery", "water", "drink", "drinks", "milk", "ice cream", "coffee", "tea", "bakery", "frozen", "order", "buy", "konali", "thecchukovali", "stock", "wholesaler", "dealer", "distributor", "email", "rating"]):
             sup_data = kb.get("suppliers.json", [])
             sup_strs = ["=== SUPPLIER DIRECTORY & CONTACTS ==="]
+            
+            matched_sups = []
             for s in sup_data:
+                s_name = str(s.get("supplier_name", "")).lower()
+                s_cat = str(s.get("ingredient_category", "")).lower()
+                s_city = str(s.get("city", "")).lower()
+                s_ings = [str(i).lower() for i in s.get("supported_ingredients", [])]
+                if any(k in s_name or k in s_cat or k in s_city or any(k in ing for ing in s_ings) for k in q_low.split()):
+                    matched_sups.append(s)
+            
+            if not matched_sups:
+                matched_sups = sup_data[:8]
+                
+            for s in matched_sups[:5]:
                 sup_strs.append(
                     f"• {s.get('supplier_name')} (Category: {s.get('ingredient_category')}, City: {s.get('city')})\n"
                     f"  Contact: {s.get('contact_email')} | Delivery: {s.get('delivery_time_hours')}h | Rating: {s.get('rating')}/5\n"
@@ -298,7 +311,7 @@ class ChatbotService:
             additional_contexts.append("\n".join(sup_strs))
             sources.append("suppliers")
 
-        # B. Food Safety, First Aid & BOH Emergency Safety Protocols (75+ Categories)
+        # B. Food Safety, First Aid & BOH Emergency Safety Protocols (safety.json - 75+ Categories)
         safety_triggers = [
             "safety", "temp", "temperature", "hygiene", "hygienic", "storage", "haccp", "clean", "shelf", "spoilage",
             "cut", "cutiyindhi", "cutayindhi", "bleeding", "turmeric", "pasupu", "burn", "injury", "finger",
@@ -336,7 +349,8 @@ class ChatbotService:
             additional_contexts.append("\n".join(safe_strs))
             sources.append("safety")
 
-        if any(w in q_low for w in ["chef", "note", "tip", "practice", "prep", "technique", "kitchen"]):
+        # C. Chef Notes, Best Practices & Culinary Tips (chef_notes.json)
+        if any(w in q_low for w in ["chef", "note", "notes", "tip", "tips", "practice", "prep", "technique", "techniques", "kitchen", "advice", "method", "style"]):
             notes_data = kb.get("chef_notes.json", [])
             note_strs = ["=== CHEF NOTES & BOH BEST PRACTICES ==="]
             for n in notes_data[:5]:
@@ -347,6 +361,7 @@ class ChatbotService:
             additional_contexts.append("\n".join(note_strs))
             sources.append("chef_notes")
 
+        # D. Seasonal Schedules & Telugu Lunar Masamulu Calendar (seasonal.json)
         seasonal_triggers = [
             "season", "seasonal", "monsoon", "summer", "winter", "spring", "autumn", "month", "masam",
             "chaitram", "vaisakham", "jyeshtam", "aashadham", "shravanam", "bhadrapadam", "aashwayujam",
@@ -379,7 +394,8 @@ class ChatbotService:
             additional_contexts.append("\n".join(sea_strs))
             sources.append("seasonal")
 
-        if any(w in q_low for w in ["pair", "pairing", "side", "combo", "combination", "serve with", "match"]):
+        # E. Regional & Seasonal Dish Pairings (pairing.json)
+        if any(w in q_low for w in ["pair", "pairing", "pairings", "side", "sides", "side dish", "combo", "combination", "serve with", "match", "thodu", "jodugaa", "complement", "eat with"]):
             pair_data = kb.get("pairing.json", [])
             pair_strs = ["=== RECOMMENDED REGIONAL & SEASONAL DISH PAIRINGS ==="]
             
@@ -400,7 +416,8 @@ class ChatbotService:
             additional_contexts.append("\n".join(pair_strs))
             sources.append("pairing")
 
-        if any(w in q_low for w in ["cost", "unit", "shelf", "price", "avg_cost"]):
+        # F. Ingredient Master Data, Pricing & Shelf Life (ingredients.json)
+        if any(w in q_low for w in ["cost", "unit", "shelf", "price", "prices", "avg_cost", "rate", "kharchu", "vilava", "ennintiki", "gram", "kg", "liter", "litre", "packet"]):
             ing_data = kb.get("ingredients.json", [])
             ing_strs = ["=== INGREDIENT MASTER DATA ==="]
             for ig in ing_data[:5]:
@@ -412,6 +429,7 @@ class ChatbotService:
             additional_contexts.append("\n".join(ing_strs))
             sources.append("ingredients")
 
+        # G. Kitchen Tools, Equipment & BOH Casual Staff Queries (chef_notes.json)
         if any(w in q_low for w in ["knife", "knives", "tool", "tools", "utensil", "utensils", "pan", "board", "cutting board", "equipment", "station", "cutlery", "spoon", "fork", "apron", "towel", "trash", "dustbin", "bin", "plate", "plates", "key", "locker"]):
             equip_strs = [
                 "=== BOH KITCHEN EQUIPMENT, STORAGE & CASUAL STAFF LAYOUT ===",
@@ -426,6 +444,52 @@ class ChatbotService:
             ]
             additional_contexts.append("\n".join(equip_strs))
             sources.append("chef_notes")
+
+        # H. Recipes & Menu Selections (recipes.json - 3,100+ Master Recipes)
+        menu_triggers = [
+            "menu", "menus", "non veg", "non-veg", "veg", "vegetarian", "nonvegetarian", "non-vegetarian",
+            "dish", "dishes", "recipe", "recipes", "chicken", "mutton", "fish", "prawn", "prawns", "egg",
+            "biryani", "pulao", "starter", "starters", "main course", "dessert", "desserts", "drink", "drinks",
+            "beverage", "beverages", "special", "specials", "item", "items", "food", "tiffin", "tiffins",
+            "curry", "curries", "fry", "pulusu", "rasam", "sambar", "chutney", "pachadi"
+        ]
+        if any(w in q_low for w in menu_triggers):
+            recipes_data = kb.get("recipes.json", [])
+            recipe_strs = ["=== RESTAURANT RECIPES & MENU SELECTIONS ==="]
+            
+            is_non_veg_query = any(k in q_low for k in ["non veg", "non-veg", "nonvegetarian", "non-vegetarian", "chicken", "mutton", "fish", "prawn", "prawns", "egg", "meat"])
+            is_veg_query = any(k in q_low for k in ["veg", "vegetarian", "paneer", "dal", "pulihora", "sambar", "rasam"]) and not is_non_veg_query
+            
+            matched_recipes = []
+            for r in recipes_data:
+                r_name = str(r.get("recipe_name", "")).lower()
+                cat = str(r.get("category", "")).lower()
+                desc = str(r.get("description", "")).lower()
+                tags = [str(t).lower() for t in r.get("tags", [])]
+                
+                if is_non_veg_query:
+                    if any(k in r_name or k in cat or k in desc or k in tags for k in ["chicken", "mutton", "fish", "prawn", "egg", "meat", "kodi", "mamsam", "royyala", "chepala", "peethala", "non-veg"]):
+                        matched_recipes.append(r)
+                elif is_veg_query:
+                    if not any(k in r_name or k in cat or k in desc for k in ["chicken", "mutton", "fish", "prawn", "meat", "kodi", "mamsam"]):
+                        matched_recipes.append(r)
+                else:
+                    if any(k in r_name or k in cat for k in menu_triggers if k in q_low):
+                        matched_recipes.append(r)
+                        
+            if not matched_recipes:
+                matched_recipes = recipes_data[:12]
+                
+            for r in matched_recipes[:10]:
+                name = r.get("recipe_name") or r.get("name", "Dish")
+                category = r.get("category", "Main Course")
+                desc = r.get("description", "")
+                ings = r.get("ingredients", [])
+                ing_str = ", ".join(ings[:5]) if isinstance(ings, list) else str(ings)
+                recipe_strs.append(f"• {name} (Category: {category}):\n  Description: {desc}\n  Key Ingredients: {ing_str}")
+                
+            additional_contexts.append("\n".join(recipe_strs))
+            sources.append("recipes")
 
         if additional_contexts:
             context_block = "\n\n".join(additional_contexts) + "\n\n" + context_block
