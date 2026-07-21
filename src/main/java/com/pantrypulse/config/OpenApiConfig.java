@@ -18,26 +18,21 @@ public class OpenApiConfig {
     @Bean
     public OpenAPI customOpenAPI() {
 
-        final String securitySchemeName = "Bearer Authentication"; 
-
-        Server railwayServer = new Server();
-        railwayServer.setUrl("https://pantrypulse-production-up.up.railway.app");
-        railwayServer.setDescription("Production Server");
+        final String securitySchemeName = "Bearer Authentication";
 
         return new OpenAPI()
-                .servers(List.of(railwayServer))
                 .info(new Info()
                         .title("PantryPulse API")
                         .version("1.0")
                         .description("PantryPulse Backend API Documentation"))
-                .addSecurityItem(new SecurityRequirement()
-                        .addList(securitySchemeName))
                 .components(new Components()
                         .addSecuritySchemes(
                                 securitySchemeName,
                                 new SecurityScheme()
                                         .type(SecurityScheme.Type.HTTP)
                                         .scheme("bearer")
-                                        .bearerFormat("JWT")));
+                                        .bearerFormat("JWT")))
+                .addSecurityItem(new SecurityRequirement()
+                        .addList(securitySchemeName));
     }
 }

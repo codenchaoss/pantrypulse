@@ -34,12 +34,21 @@ public class SecurityConfig {
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/api/auth/**",
-                                "/api-docs/**",
-                                "/swagger-ui/**",
-                                "/swagger-ui.html")
-                        .permitAll()
+                		.requestMatchers(
+                		        "/api/auth/login",
+                		        "/api/auth/register",
+                		        "/api/auth/forgot-password",
+                		        "/api/auth/reset-password",
+
+                		        "/swagger-ui.html",
+                		        "/swagger-ui/**",
+
+                		        "/api-docs",
+                		        "/api-docs/**",
+
+                		        "/v3/api-docs/**",
+                		        "/webjars/**"
+                		).permitAll()
                         .anyRequest()
                         .authenticated())
                 .authenticationProvider(authenticationProvider())
