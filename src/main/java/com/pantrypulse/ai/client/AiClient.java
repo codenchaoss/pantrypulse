@@ -1,10 +1,15 @@
 package com.pantrypulse.ai.client;
 
+import java.time.Instant;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import lombok.extern.slf4j.Slf4j;
+
+import com.pantrypulse.ai.dto.ChatRequestDto;
+import com.pantrypulse.ai.dto.ChatResponseDto;
 import com.pantrypulse.ai.dto.MenuRequestDto;
 import com.pantrypulse.ai.dto.RecipeRequestDto;
 import com.pantrypulse.ai.dto.RecipeResponseDto;
@@ -69,6 +74,30 @@ public class AiClient {
     
     
 
+    }
+    public ChatResponseDto chat(ChatRequestDto request) {
+
+        log.info("Sending Chat AI request to {}", aiUrl);
+
+        try {
+
+            return restTemplate.postForObject(
+                    aiUrl + "/chat",
+                    request,
+                    ChatResponseDto.class
+            );
+
+        } catch (RestClientException ex) {
+
+            log.error("Chat AI unavailable", ex);
+
+            ChatResponseDto fallback = new ChatResponseDto();
+            fallback.setSuccess(false);
+            fallback.setTimestamp(Instant.now().toString());
+            fallback.setMessage("Chat AI service unavailable.");
+
+            return fallback;
+        }
     }
     public RecipeResponseDto recommendRecipe(RecipeRequestDto request) {
 

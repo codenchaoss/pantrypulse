@@ -13,11 +13,14 @@ public class SettingsController {
 
     private final SettingsService settingsService;
 
-
     @GetMapping("/profile")
     public ProfileDto getProfile() {
+
+       
+
         return settingsService.getProfile();
     }
+    
     @PutMapping("/profile")
     public ProfileDto updateProfile(@RequestBody ProfileDto dto) {
 

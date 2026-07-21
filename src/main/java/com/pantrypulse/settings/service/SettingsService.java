@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 public class SettingsService {
 
     private final SettingsRepository settingsRepository;
-
     private Settings getSettings() {
 
         return settingsRepository.findById(1L)

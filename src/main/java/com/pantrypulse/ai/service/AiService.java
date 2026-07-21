@@ -4,6 +4,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import com.pantrypulse.ai.client.AiClient;
+import com.pantrypulse.ai.dto.ChatRequestDto;
+import com.pantrypulse.ai.dto.ChatResponseDto;
 import com.pantrypulse.ai.dto.MenuRequestDto;
 import com.pantrypulse.ai.dto.MenuResponseDto;
 
@@ -22,5 +24,8 @@ public class AiService {
 
     public MenuResponseDto generateMenu(MenuRequestDto request) {
         return aiClient.generateMenu(request);
+    }
+    public ChatResponseDto chat(ChatRequestDto request) {
+        return aiClient.chat(request);
     }
 }
