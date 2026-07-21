@@ -62,7 +62,7 @@ export class AiChatComponent {
         const aiMessage: ChatMessage = {
           id: (Date.now() + 1).toString(),
           sender: 'ai',
-          text: res.response || res.message || 'Spring Boot AI Assistant response received.',
+          text: res.data?.answer || 'No response received from the AI Assistant.',
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
           status: 'sent'
         };
@@ -76,9 +76,13 @@ export class AiChatComponent {
         this.lastFailedPrompt = text;
 
         if (err.status === 0) {
-          this.errorMessage = 'Unable to connect to Spring Boot AI Chat service at http://localhost:8080/api/ai/chat. Ensure the backend server is running.';
+          this.errorMessage = 'Unable to connect to Spring Boot AI Chat service. Ensure the backend server is running and CORS is configured correctly.';
+        } else if (err.status === 403) {
+          this.errorMessage = 'AI Chat is currently unavailable or permission denied.';
         } else if (err.status === 404) {
           this.errorMessage = 'AI Chat endpoint (/api/ai/chat) not found on backend (HTTP 404).';
+        } else if (err.status === 500) {
+          this.errorMessage = 'The AI service is experiencing internal issues (HTTP 500). Please try again later.';
         } else if (err.error && err.error.message) {
           this.errorMessage = `Backend Error: ${err.error.message}`;
         } else {

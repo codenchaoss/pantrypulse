@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRe
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { SidebarService } from '../../core/services/sidebar.service';
+import { AuthService } from '../../core/services/auth.service';
 
 interface MenuItem {
   label: string;
@@ -27,13 +28,13 @@ export class SidebarComponent implements OnInit, OnDestroy {
     { label: 'Suppliers', icon: 'local_shipping', route: '/suppliers' },
     { label: 'AI Menu Planner', icon: 'smart_toy', route: '/menu-planner' },
     { label: 'AI Assistant', icon: 'psychology', route: '/ai-assistant' },
-    { label: 'Reports', icon: 'trending_up', route: '/reports' },
     { label: 'Settings', icon: 'settings', route: '/settings' }
   ];
 
   constructor(
     private sidebarService: SidebarService,
     private router: Router,
+    private authService: AuthService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -51,6 +52,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   logout(): void {
-    this.router.navigate(['/login']);
+    this.authService.logout();
   }
 }

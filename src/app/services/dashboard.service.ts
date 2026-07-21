@@ -1,8 +1,33 @@
 import { Injectable } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { InventoryService } from './inventory.service';
-import { RecipeService } from '../core/services/recipe.service';
+import { environment } from '../../environments/environment';
+
+export interface DashboardSummaryResponse {
+  totalIngredients: number;
+  totalRecipes: number;
+  lowStockItems: number;
+  expiringSoon: number;
+  expiredItems: number;
+  recentIngredients: Array<{
+    ingredient: string;
+    quantity: number;
+    expiry: string;
+    status: string;
+  }>;
+  recentRecipes: Array<{
+    recipeName: string;
+    category: string;
+    prepTime: string;
+    status: string;
+  }>;
+  expiryAlerts: Array<{
+    ingredient: string;
+    quantity: number;
+    alertStatus: string;
+  }>;
+}
 
 export interface DashboardData {
   totalIngredients: number;
@@ -19,104 +44,40 @@ export interface DashboardData {
   providedIn: 'root'
 })
 export class DashboardService {
+  private apiUrl = `${environment.apiUrl}/dashboard/summary`;
 
-  constructor(
-    private inventoryService: InventoryService,
-    private recipeService: RecipeService
-  ) {}
+  constructor(private http: HttpClient) {}
 
   getDashboardData(): Observable<DashboardData> {
-    return forkJoin({
-      ingredients: this.inventoryService.getIngredients(),
-      recipesResponse: this.recipeService.getAllRecipes(0, 1000)
-    }).pipe(
-      map(({ ingredients, recipesResponse }) => {
-        const recipes = recipesResponse.content || [];
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-
-        // 1. Stats calculations
-        let lowStockCount = 0;
-        let expiringSoonCount = 0;
-        let expiredCount = 0;
-        const expiryAlerts: any[] = [];
-
-        ingredients.forEach(item => {
-          // Low stock check
-          if (item.quantity <= item.minimumStock) {
-            lowStockCount++;
-          }
-
-          // Expiry status checks
-          if (item.expiryDate) {
-            const expiry = new Date(item.expiryDate);
-            expiry.setHours(0, 0, 0, 0);
-            const diffDays = Math.ceil((expiry.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-
-            if (diffDays < 0) {
-              expiredCount++;
-              expiryAlerts.push({
-                ingredientName: item.ingredientName,
-                quantity: `${item.quantity} ${item.unit}`,
-                statusText: 'Expired',
-                badgeClass: 'danger',
-                sortOrder: 0
-              });
-            } else if (diffDays === 0) {
-              expiringSoonCount++;
-              expiryAlerts.push({
-                ingredientName: item.ingredientName,
-                quantity: `${item.quantity} ${item.unit}`,
-                statusText: 'Expiring Today',
-                badgeClass: 'danger',
-                sortOrder: 1
-              });
-            } else if (diffDays <= 3) {
-              expiringSoonCount++;
-              expiryAlerts.push({
-                ingredientName: item.ingredientName,
-                quantity: `${item.quantity} ${item.unit}`,
-                statusText: `Expires in ${diffDays} days`,
-                badgeClass: 'warning',
-                sortOrder: 2
-              });
-            } else if (diffDays <= 7) {
-              expiryAlerts.push({
-                ingredientName: item.ingredientName,
-                quantity: `${item.quantity} ${item.unit}`,
-                statusText: `Expires in ${diffDays} days`,
-                badgeClass: 'success',
-                sortOrder: 3
-              });
-            }
-          }
-        });
-
-        // Sort expiry alerts: Expired first, then Today, then Soon
-        expiryAlerts.sort((a, b) => a.sortOrder - b.sortOrder);
-
-        // 2. Recent Items (slice latest 5 sorted by ID descending)
-        const recentIngredients = [...ingredients]
-          .sort((a, b) => (b.id || 0) - (a.id || 0))
-          .slice(0, 5)
-          .map(item => ({
-            ...item,
-            stockStatus: item.quantity <= item.minimumStock ? 'Low Stock' : 'Good'
-          }));
-
-        const recentRecipes = [...recipes]
-          .sort((a, b) => (b.id || 0) - (a.id || 0))
-          .slice(0, 5);
-
+    return this.http.get<DashboardSummaryResponse>(this.apiUrl).pipe(
+      map((res: DashboardSummaryResponse) => {
         return {
-          totalIngredients: ingredients.length,
-          totalRecipes: recipes.length,
-          lowStockCount,
-          expiringSoonCount, // Expiring today or within 7 days
-          expiredCount,
-          recentIngredients,
-          recentRecipes,
-          expiryAlerts: expiryAlerts.slice(0, 5) // Limit to top 5 alert items
+          totalIngredients: res.totalIngredients || 0,
+          totalRecipes: res.totalRecipes || 0,
+          lowStockCount: res.lowStockItems || 0,
+          expiringSoonCount: res.expiringSoon || 0,
+          expiredCount: res.expiredItems || 0,
+          recentIngredients: (res.recentIngredients || []).map((item, idx) => ({
+            id: idx + 1,
+            ingredientName: item.ingredient,
+            quantity: item.quantity,
+            unit: '',
+            expiryDate: item.expiry,
+            stockStatus: item.status
+          })),
+          recentRecipes: (res.recentRecipes || []).map((recipe, idx) => ({
+            id: idx + 1,
+            recipeName: recipe.recipeName,
+            category: recipe.category,
+            preparationTime: recipe.prepTime,
+            available: recipe.status === 'Available'
+          })),
+          expiryAlerts: (res.expiryAlerts || []).map(alert => ({
+            ingredientName: alert.ingredient,
+            quantity: alert.quantity,
+            statusText: alert.alertStatus,
+            badgeClass: alert.alertStatus === 'Expired' ? 'danger' : alert.alertStatus === 'Expiring Soon' ? 'warning' : 'info'
+          }))
         };
       })
     );

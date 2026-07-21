@@ -10,13 +10,21 @@ import { ChatRequestDto, ChatResponseDto } from '../models/chat-message.model';
 export class AiAssistantService {
   private apiUrl = `${environment.apiUrl}/ai`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   /**
    * Sends user prompt to Spring Boot AI Assistant API (POST /api/ai/chat)
    */
   sendMessage(prompt: string): Observable<ChatResponseDto> {
-    const payload: ChatRequestDto = { prompt };
-    return this.http.post<ChatResponseDto>(`${this.apiUrl}/chat`, payload);
+
+    const payload: ChatRequestDto = {
+      question: prompt,
+      history: ""
+    };
+
+    return this.http.post<ChatResponseDto>(
+      `${this.apiUrl}/chat`,
+      payload
+    );
   }
 }

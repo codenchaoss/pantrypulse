@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
 
 // Layout
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
@@ -41,6 +42,11 @@ import { SupplierDialogComponent } from './features/suppliers/supplier-dialog.co
 import { AiAssistantComponent } from './features/ai-assistant/ai-assistant.component';
 import { AiChatComponent } from './features/ai-assistant/ai-chat/ai-chat.component';
 import { SettingsComponent } from './features/settings/settings.component';
+
+import { NgChartsModule } from 'ng2-charts';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -81,9 +87,17 @@ import { SettingsComponent } from './features/settings/settings.component';
     MatButtonModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatIconModule,
+    NgChartsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

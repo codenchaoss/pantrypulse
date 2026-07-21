@@ -72,9 +72,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
       case 'menu-planner':
         this.title = 'AI Menu Planner';
         break;
-      case 'reports':
-        this.title = 'Reports';
-        break;
       case 'settings':
         this.title = 'Settings';
         break;

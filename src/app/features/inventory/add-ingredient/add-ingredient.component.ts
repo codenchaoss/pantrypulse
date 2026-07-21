@@ -36,6 +36,9 @@ export class AddIngredientComponent {
     this.backendErrors = {};
     this.cdr.markForCheck();
 
+    // Ensure boolean for available (prevent undefined)
+    this.ingredient.available = !!this.ingredient.available;
+
     // Frontend validation check
     if (!this.ingredient.ingredientName.trim()) {
       this.backendErrors['ingredientName'] = 'Ingredient name is required';
@@ -71,7 +74,7 @@ export class AddIngredientComponent {
       return;
     }
 
-    console.log("Sending Data:", this.ingredient);
+    console.log('Sending Data:', this.ingredient);
 
     this.inventoryService.addIngredient(this.ingredient).subscribe({
       next: () => {
@@ -81,7 +84,7 @@ export class AddIngredientComponent {
       error: (err) => {
         console.error(err);
         this.isSaving = false;
-        
+        // Handle validation (400) or other errors (403)
         if (err.status === 400 && err.error && err.error.errors) {
           this.errorMessage = 'Backend validation failed. Please check fields below.';
           err.error.errors.forEach((e: any) => {
@@ -89,6 +92,8 @@ export class AddIngredientComponent {
               this.backendErrors[e.field] = e.defaultMessage;
             }
           });
+        } else if (err.status === 403 && err.error && err.error.message) {
+          this.errorMessage = err.error.message;
         } else {
           this.errorMessage = err.error?.message || 'Failed to add ingredient. Make sure server is running.';
         }

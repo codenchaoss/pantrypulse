@@ -1,10 +1,8 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { VERSION } from '@angular/core';
-import { environment } from '../../../environments/environment';
-
+import { SettingsService } from '../../core/services/settings.service';
+import { ProfileSettings, NotificationSettings } from '../../core/models/settings.model';
 export interface SettingCategory {
   id: string;
   title: string;
@@ -24,26 +22,30 @@ export class SettingsComponent implements OnInit, OnDestroy {
   title = 'Settings';
   subtitle = 'Manage your account, preferences, notifications, AI settings, and security.';
 
-  activeCategory: string = 'LANDING'; // 'LANDING' | 'profile' | 'notifications' | 'ai-preferences' | 'restaurant' | 'appearance' | 'application' | 'security' | 'about'
+  activeCategory: string = 'LANDING'; // 'LANDING' | 'profile' | 'notifications' | 'appearance' | 'security'
   private routeSub = new Subscription();
 
-  angularVersion = VERSION.full;
-  appVersion = '1.0.0';
-  systemName = 'KitchenSync AI (PantryPulse)';
+  // Models for forms
+  profile: ProfileSettings = {
+    fullName: '',
+    email: '',
+    phoneNumber: '',
+    restaurantName: '',
+    role: 'Admin'
+  };
 
-  // System Status State
-  backendStatus: 'checking' | 'online' | 'offline' = 'checking';
-  aiStatus: 'checking' | 'online' | 'offline' = 'checking';
-  dbStatus: 'checking' | 'online' | 'offline' = 'checking';
+  notifications: NotificationSettings = {
+    lowStockAlerts: false,
+    expiryAlerts: false,
+    aiMenuNotifications: false,
+    emailNotifications: false
+  };
+
+  isSaving = false;
+  isLoading = false;
 
   // Read-only Profile Info
   role = 'Admin';
-  
-  // App Preferences State
-  selectedLanguage = 'en';
-  selectedCurrency = 'INR';
-  selectedTimeZone = 'IST';
-  selectedDateFormat = 'DD/MM/YYYY';
 
   categories: SettingCategory[] = [
     {
@@ -61,32 +63,11 @@ export class SettingsComponent implements OnInit, OnDestroy {
       route: '/settings/notifications'
     },
     {
-      id: 'ai-preferences',
-      title: 'AI Preferences',
-      description: 'Customize AI Menu Planner, AI Assistant chatbot, and default cuisine.',
-      icon: '🤖',
-      route: '/settings/ai-preferences'
-    },
-    {
-      id: 'restaurant',
-      title: 'Restaurant Preferences',
-      description: 'Manage restaurant identity, GST registration, and capacity details.',
-      icon: '🍽',
-      route: '/settings/restaurant'
-    },
-    {
       id: 'appearance',
       title: 'Appearance',
       description: 'Select UI theme preferences and dark/light mode options.',
       icon: '🎨',
       route: '/settings/appearance'
-    },
-    {
-      id: 'application',
-      title: 'Application Preferences',
-      description: 'Set default system language, currency, time zone, and date display.',
-      icon: '⚙',
-      route: '/settings/application'
     },
     {
       id: 'security',
@@ -115,8 +96,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private http: HttpClient,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private settingsService: SettingsService
   ) {}
 
   ngOnInit(): void {
@@ -125,14 +106,77 @@ export class SettingsComponent implements OnInit, OnDestroy {
         const cat = params['category'];
         if (cat) {
           this.activeCategory = cat.toLowerCase();
+          this.loadCategoryData(this.activeCategory);
         } else {
           this.activeCategory = 'LANDING';
         }
         this.cdr.markForCheck();
       })
     );
+  }
 
-    this.checkSystemStatus();
+  loadCategoryData(category: string): void {
+    if (category === 'profile') {
+      this.isLoading = true;
+      this.settingsService.getProfile().subscribe({
+        next: (data) => {
+          this.profile = data;
+          this.isLoading = false;
+          this.cdr.markForCheck();
+        },
+        error: (err) => {
+          console.error('Failed to load profile', err);
+          this.isLoading = false;
+          this.cdr.markForCheck();
+        }
+      });
+    } else if (category === 'notifications') {
+      this.isLoading = true;
+      this.settingsService.getNotifications().subscribe({
+        next: (data) => {
+          this.notifications = data;
+          this.isLoading = false;
+          this.cdr.markForCheck();
+        },
+        error: (err) => {
+          console.error('Failed to load notifications', err);
+          this.isLoading = false;
+          this.cdr.markForCheck();
+        }
+      });
+    }
+  }
+
+  saveChanges(): void {
+    if (this.activeCategory === 'profile') {
+      this.isSaving = true;
+      this.settingsService.updateProfile(this.profile).subscribe({
+        next: (data) => {
+          this.profile = data;
+          this.isSaving = false;
+          this.cdr.markForCheck();
+        },
+        error: (err) => {
+          console.error('Failed to save profile', err);
+          this.isSaving = false;
+          this.cdr.markForCheck();
+        }
+      });
+    } else if (this.activeCategory === 'notifications') {
+      this.isSaving = true;
+      this.settingsService.updateNotifications(this.notifications).subscribe({
+        next: (data) => {
+          this.notifications = data;
+          this.isSaving = false;
+          this.cdr.markForCheck();
+        },
+        error: (err) => {
+          console.error('Failed to save notifications', err);
+          this.isSaving = false;
+          this.cdr.markForCheck();
+        }
+      });
+    }
   }
 
   ngOnDestroy(): void {
@@ -155,49 +199,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
    */
   backToLanding(): void {
     this.router.navigate(['/settings']);
-  }
-
-  /**
-   * Pings Spring Boot backend endpoints for status check
-   */
-  checkSystemStatus(): void {
-    this.backendStatus = 'checking';
-    this.aiStatus = 'checking';
-    this.dbStatus = 'checking';
-    this.cdr.markForCheck();
-
-    this.http.get(`${environment.apiUrl}/recipes?page=0&size=1`).subscribe({
-      next: () => {
-        this.backendStatus = 'online';
-        this.dbStatus = 'online';
-        this.cdr.markForCheck();
-      },
-      error: (err) => {
-        if (err.status !== 0) {
-          this.backendStatus = 'online';
-          this.dbStatus = 'online';
-        } else {
-          this.backendStatus = 'offline';
-          this.dbStatus = 'offline';
-        }
-        this.cdr.markForCheck();
-      }
-    });
-
-    this.http.get(`${environment.apiUrl}/ai/menu`).subscribe({
-      next: () => {
-        this.aiStatus = 'online';
-        this.cdr.markForCheck();
-      },
-      error: (err) => {
-        if (err.status !== 0) {
-          this.aiStatus = 'online';
-        } else {
-          this.aiStatus = 'offline';
-        }
-        this.cdr.markForCheck();
-      }
-    });
   }
 
   logout(): void {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +13,18 @@ export class LoginComponent implements OnInit {
   isSubmitting = false;
   errorMessage: string | null = null;
   showPassword = false;
+  returnUrl = '/dashboard';
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     const savedEmail = localStorage.getItem('pantrypulse_remember_email') || '';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
 
     this.loginForm = this.fb.group({
       email: [savedEmail, [Validators.required, Validators.email]],
@@ -44,7 +49,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    const { email, rememberMe } = this.loginForm.value;
+    const { email, password, rememberMe } = this.loginForm.value;
 
     if (rememberMe) {
       localStorage.setItem('pantrypulse_remember_email', email);
@@ -54,10 +59,23 @@ export class LoginComponent implements OnInit {
 
     this.isSubmitting = true;
 
-    // Ready for backend integration: Navigate directly to dashboard on submit
-    setTimeout(() => {
-      this.isSubmitting = false;
-      this.router.navigate(['/dashboard']);
-    }, 600);
+    this.authService.login({ email, password }).subscribe({
+      next: () => {
+        this.isSubmitting = false;
+        this.router.navigateByUrl(this.returnUrl);
+      },
+      error: (err) => {
+        this.isSubmitting = false;
+        if (err.status === 401 || err.status === 400 || err.status === 403) {
+          this.errorMessage = 'Invalid email or password. Please try again.';
+        } else if (err.error && typeof err.error === 'string') {
+          this.errorMessage = err.error;
+        } else if (err.error && err.error.message) {
+          this.errorMessage = err.error.message;
+        } else {
+          this.errorMessage = 'Authentication failed. Please check your backend connection.';
+        }
+      }
+    });
   }
 }

@@ -21,12 +21,9 @@ export class AiMenuPlannerService {
   }
 
   /**
-   * Sends menu generation parameters if POST payload supported (POST /api/ai/menu)
+   * Generates menu plan using the AI endpoint (GET /api/ai/menu only as per requirements)
    */
   generateMenuPlan(request?: MenuRequestDto): Observable<MenuResponseDto> {
-    if (request && ((request.inventory && request.inventory.length > 0) || (request.recipes && request.recipes.length > 0))) {
-      return this.http.post<MenuResponseDto>(`${this.apiUrl}/menu`, request);
-    }
     return this.getMenuPlan();
   }
 }

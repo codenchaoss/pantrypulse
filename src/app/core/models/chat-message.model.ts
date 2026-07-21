@@ -8,13 +8,17 @@ export interface ChatMessage {
 }
 
 export interface ChatRequestDto {
-  prompt: string;
-  conversationId?: string;
+  question: string;
+  history?: string;
 }
+
 
 export interface ChatResponseDto {
   response?: string;
   message?: string;
   timestamp?: string;
   success?: boolean;
+  data?: {
+    answer?: string;
+  };
 }

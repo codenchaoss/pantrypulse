@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -64,15 +66,28 @@ export class SignupComponent implements OnInit {
       return;
     }
 
+    const { fullName, email, password } = this.signupForm.value;
+
     this.isSubmitting = true;
 
-    // Direct registration success feedback & navigation ready for backend API connection
-    setTimeout(() => {
-      this.isSubmitting = false;
-      this.successMessage = 'Registration successful! Redirecting to login...';
-      setTimeout(() => {
-        this.router.navigate(['/login']);
-      }, 1500);
-    }, 600);
+    this.authService.register({ name: fullName, email, password }).subscribe({
+      next: (res: string) => {
+        this.isSubmitting = false;
+        this.successMessage = typeof res === 'string' && res.trim() ? res : 'Registration successful! Redirecting to login...';
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 1500);
+      },
+      error: (err) => {
+        this.isSubmitting = false;
+        if (err.error && typeof err.error === 'string') {
+          this.errorMessage = err.error;
+        } else if (err.error && err.error.message) {
+          this.errorMessage = err.error.message;
+        } else {
+          this.errorMessage = 'Registration failed. Please check your backend connection.';
+        }
+      }
+    });
   }
 }

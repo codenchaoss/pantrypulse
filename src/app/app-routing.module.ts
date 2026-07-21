@@ -18,6 +18,7 @@ import { SupplierListComponent } from './features/suppliers/supplier-list.compon
 import { AiAssistantComponent } from './features/ai-assistant/ai-assistant.component';
 import { AiChatComponent } from './features/ai-assistant/ai-chat/ai-chat.component';
 import { SettingsComponent } from './features/settings/settings.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
 
@@ -45,6 +46,7 @@ const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
 
       {
@@ -116,11 +118,6 @@ const routes: Routes = [
       {
         path: 'menu-planner',
         component: AiAssistantComponent
-      },
-
-      {
-        path: 'reports',
-        component: DashboardComponent
       },
 
       {

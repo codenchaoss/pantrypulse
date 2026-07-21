@@ -60,9 +60,13 @@ export class AiAssistantComponent implements OnInit {
         this.menuResponse = null;
 
         if (err.status === 0) {
-          this.errorMessage = 'Unable to connect to Spring Boot backend at http://localhost:8080/api/ai/menu. Please ensure the backend server is running.';
+          this.errorMessage = 'Unable to connect to Spring Boot backend. Please ensure the backend server is running and CORS is configured correctly.';
+        } else if (err.status === 403) {
+          this.errorMessage = 'AI Menu Planner is currently unavailable.';
         } else if (err.status === 404) {
           this.errorMessage = 'Spring Boot AI endpoint (/api/ai/menu) not found on backend (HTTP 404).';
+        } else if (err.status === 500) {
+          this.errorMessage = 'Internal server error occurred while processing your request (HTTP 500). Please try again later.';
         } else if (err.error && err.error.message) {
           this.errorMessage = `Backend Error: ${err.error.message}`;
         } else {
