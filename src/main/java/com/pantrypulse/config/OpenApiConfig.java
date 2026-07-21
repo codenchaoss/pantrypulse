@@ -18,7 +18,7 @@ public class OpenApiConfig {
     @Bean
     public OpenAPI customOpenAPI() {
 
-        final String securitySchemeName = "Bearer Authentication";
+        final String securitySchemeName = "Bearer Authentication"; 
 
         Server railwayServer = new Server();
         railwayServer.setUrl("https://pantrypulse-production-up.up.railway.app");
