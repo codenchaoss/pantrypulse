@@ -2,7 +2,6 @@ package com.pantrypulse.settings.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 @Entity
 @Table(name = "settings")
 @Getter
@@ -15,6 +14,7 @@ public class Settings {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private String fullName;
 
@@ -29,7 +29,6 @@ public class Settings {
 
     private String profileImageUrl;
 
-
     @Builder.Default
     private Boolean lowStockAlerts = true;
 
@@ -41,40 +40,4 @@ public class Settings {
 
     @Builder.Default
     private Boolean emailNotifications = false;
-
-
-    @Builder.Default
-    private Boolean enableAiMenuPlanner = true;
-
-    @Builder.Default
-    private Boolean enableAiAssistant = true;
-
-    @Builder.Default
-    private String defaultCuisine = "All Cuisines";
-
-    @Builder.Default
-    private String menuGenerationFrequency = "DAILY";
-
-
-    private String gstNumber;
-
-    private String primaryContactEmail;
-
-    private String primaryPhone;
-
-    @Column(length = 500)
-    private String address;
-
-
-    @Builder.Default
-    private String language = "English";
-
-    @Builder.Default
-    private String currency = "INR";
-
-    @Builder.Default
-    private String timeZone = "Asia/Kolkata";
-
-    @Builder.Default
-    private String dateFormat = "dd/MM/yyyy";
 }
