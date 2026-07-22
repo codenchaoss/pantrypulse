@@ -13,27 +13,12 @@ public class EmailService {
 
     public void sendPasswordResetEmail(String email, String resetLink) {
 
-        try {
+        System.out.println("========================");
+        System.out.println("EMAIL METHOD CALLED");
+        System.out.println(email);
+        System.out.println(resetLink);
+        System.out.println("========================");
 
-            SimpleMailMessage message = new SimpleMailMessage();
-
-            message.setFrom("jaswanthvennapusa25@gmail.com");
-
-            message.setTo(email);
-
-            message.setSubject("PantryPulse Password Reset");
-
-            message.setText(resetLink);
-
-            mailSender.send(message);
-
-            System.out.println("MAIL SENT SUCCESSFULLY");
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-            throw e;
-        }
+        // DO NOT SEND MAIL
     }
 }
