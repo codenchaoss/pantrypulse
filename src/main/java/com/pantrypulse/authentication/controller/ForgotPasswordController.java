@@ -19,7 +19,9 @@ public class ForgotPasswordController {
 
     @PostMapping("/forgot-password")
     public ResponseEntity<String> forgotPassword(
-            @Valid @RequestBody ForgotPasswordRequest request) {
+            @RequestBody ForgotPasswordRequest request) {
+
+        System.out.println("Reached Forgot Password Controller");
 
         return ResponseEntity.ok(
                 passwordResetService.forgotPassword(request));
