@@ -59,7 +59,7 @@ class MistralProvider(BaseProvider):
         }
 
         try:
-            response = httpx.post(url, json=payload, headers=headers, timeout=30.0)
+            response = httpx.post(url, json=payload, headers=headers, timeout=5.0)
             if response.status_code == 200:
                 data = response.json()
                 choices = data.get("choices", [])

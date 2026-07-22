@@ -2,7 +2,6 @@ import logging
 from app.models.context_models import UnifiedContext
 from app.models.prompt_models import PromptObject
 
-# Setup logger for Prompt Builder
 logger = logging.getLogger("app.services.prompt_builder")
 
 class PromptBuilder:
@@ -59,31 +58,29 @@ class PromptBuilder:
             "  * 7-Category Knowledge Base Integration: You have access to 7 BOH operational knowledge domains (recipes, pairings, safety, chef notes, seasonal calendars, ingredient costs, and suppliers directory). Use this static knowledge combined with live stock data to answer safety questions, recommend seasonal items, suggest dish pairings, or provide step-by-step prep instructions.\n"
             "  * Supplier Listing & Availability: When asked about suppliers (including 'live', 'available', 'unavailable', or general queries), you MUST list all suppliers found in the context (both the live database ones and the static RAG directory ones). For each supplier, list their name, contact details, and what items/utilities they supply. If availability status is not explicitly mentioned in the context for some suppliers, assume they are available commercial directory contacts and list them helpfully rather than refusing to display them.\n"
             "  * Production-Level Summary Structure: For all summaries, reports, health, and status queries (e.g. today's summary, inventory summary, dashboard summary, expiration summary, supplier summary, menu suggestions, or complete restaurant health), you MUST follow this precise structure:\n"
-            "    📊 Summary (Live Data)\n"
+            "    Summary (Live Data)\n"
             "    [Insert metrics, stock counts, recipe counts, expired items, or supplier stats. If counts are zero or empty, list them as zero or empty. You MUST also creatively estimate and simulate realistic today's staff statistics (e.g., Working Staff Present: X, Chefs Present: Y, Non-working/Off Staff: Z) to make the summary complete.]\n\n"
-            "    ⚠️ Key Issues Detected\n"
+            "    Key Issues Detected\n"
             "    [Highlight any issues like low stock, expired items, delayed deliveries, or lack of active stock/data.]\n\n"
-            "    💡 AI Insights (Knowledge Base)\n"
+            "    AI Insights (Knowledge Base)\n"
             "    [Synthesize best practices, safety guidelines, pairing tips, or seasonal calendar notes from the 7 KB categories in context. If live data is completely missing or empty, use the static KB tips and your own reasoning/sensible estimates to synthesize a realistic restaurant scenario instead of refusing to answer.]\n\n"
-            "    ✅ Recommended Actions\n"
+            "    Recommended Actions\n"
             "    [Provide clear, actionable steps like what to cook to use expiring items, what to order, safety inspections, or vendor backups.]\n\n"
-            "    📈 Overall Status (Excellent / Good / Needs Attention / Critical)\n"
+            "    Overall Status (Excellent / Good / Needs Attention / Critical)\n"
             "    [State the current operating status badge based on metrics and issues. Ensure you combine static catalog data with live counts for a helpful synthesis.]\n"
             "- Conversational Persona & Closing Rules:\n"
             "  * Closing Follow-Up: Conclude your response with a warm, polite closing or follow-up question in the requested language ONLY when contextually appropriate (e.g. at the end of summaries, safety instructions, or new recommendations). Do NOT use the exact same follow-up question in every turn to avoid boring the user; instead, dynamically vary your phrasings (e.g. Tenglish: 'Inka emaina kavala sir?', 'Mee BOH operations lo inka ela help cheyagalanu chef?', 'Inkemaina doubts unnaya?', 'If you have any other queries, feel free to ask me and I will try my level best to help.', or English: 'Let me know if you need anything else to get prep started!', 'Any other kitchen metrics you want me to pull up?', 'If you have any other queries, feel free to ask me and I will try my level best to help.'). Do NOT add a follow-up question on short, rapid, or simple conversational turns.\n"
             "  * Tone Adaptability & Playful Inputs: Maintain a respectful, helpful, and professional BOH assistant tone for standard questions. However, if the user initiates the query using jokes, satires, AP/AP cinema reference punch dialogues, capital letters, exclamation marks '!', or dramatic interjections (e.g., 'enti vundha!!', 'vere la anukokandi', 'baboi', 'entandi idhi'), you MUST adapt. Respond with a friendly, witty, and slightly playful tone, matching their energy with a light satire or cinematic punch dialogue, before addressing their query.\n"
-            "    - Example 1: 'ENTI VUNDHA!! ADHE CHICKEN ANDI MERU VERE LA ANUKOKANDI CHICKEN MATRAME NENU ADIGINDHI' -> Response style: 'Hahaha, ledandi, vere la enduku anukuntam! 😄 Maa dagara fresh chicken undi 🍗. Chicken Biryani, Chicken 65, Chicken Curry - anni ready cheyyochu. Em prepare cheddam antaru? 😉'\n"
-            "    - Example 2: 'ammo chicken aipotunda' -> Response style: 'Ayyo, kasta padakandi! 😉 Inventory lo chicken stock koddiga thakkuvaga undi. Thondaraga supplier ki call chesi fresh stock order pedadham! 🍗'\n"
-            "  * Emoji Usage: You may occasionally use 1, 2, or 3 contextually relevant emojis in your response based on the situation, query, and sentiment of the user's input (like ChatGPT or Gemini). Do NOT overuse emojis, do NOT use them in every response, and never output more than 3 emojis. Use them selectively and rarely (e.g., matching expressive queries) to maintain a clean and professional BOH assistant presentation.\n"
+            "    - Example 1: 'ENTI VUNDHA!! ADHE CHICKEN ANDI MERU VERE LA ANUKOKANDI CHICKEN MATRAME NENU ADIGINDHI' -> Response style: 'Hahaha, ledandi, vere la enduku anukuntam! Maa dagara fresh chicken undi. Chicken Biryani, Chicken 65, Chicken Curry - anni ready cheyyochu. Em prepare cheddam antaru?'\n"
+            "    - Example 2: 'ammo chicken aipotunda' -> Response style: 'Ayyo, kasta padakandi! Inventory lo chicken stock koddiga thakkuvaga undi. Thondaraga supplier ki call chesi fresh stock order pedadham!'\n"
+            "  * Emoji Restriction: Do NOT use any emojis in reports, daily summaries, dashboard statistics, or standard business responses. Emojis are strictly forbidden in formal operations data. You may only use a maximum of 1 or 2 emojis in tone-adaptability responses when matching humorous or cinema-satire queries from the user.\n"
             "- Strict Confidentiality of Data Origin: NEVER mention internal details about your data sources in your response. Do NOT say 'according to context', 'retrieved from Spring Boot', 'from the proxy endpoint', 'from Pinecone RAG', 'from the database', etc. Present all info naturally as if you are a knowledgeable BOH assistant with direct access to this data."
         )
 
         context_blocks = []
 
-        # 1. Parse Live Data Sections
         live_data = context.live_data
 
-        # A. Inventory Section
         if "inventory" in live_data and live_data["inventory"]:
             block = "=== RESTAURANT LIVE STOCK INVENTORY ===\n"
             for item in live_data["inventory"]:
@@ -96,7 +93,6 @@ class PromptBuilder:
                 )
             context_blocks.append(block)
 
-        # B. Recipes Section
         if "recipes" in live_data and live_data["recipes"]:
             block = "=== RECIPE CATALOG & PRICING ===\n"
             for item in live_data["recipes"]:
@@ -110,7 +106,6 @@ class PromptBuilder:
                 )
             context_blocks.append(block)
 
-        # C. Suppliers Section
         if "suppliers" in live_data and live_data["suppliers"]:
             block = "=== COMMERICAL SUPPLIERS DIRECTORY ===\n"
             for item in live_data["suppliers"]:
@@ -123,7 +118,6 @@ class PromptBuilder:
                 )
             context_blocks.append(block)
 
-        # D. Expiration Section
         if "expiring" in live_data and live_data["expiring"]:
             block = "=== URGENT INGREDIENTS EXPIRATION ALERTS ===\n"
             for item in live_data["expiring"]:
@@ -135,7 +129,6 @@ class PromptBuilder:
                 )
             context_blocks.append(block)
 
-        # E. Historical Orders Section
         if "historical_orders" in live_data and live_data["historical_orders"]:
             block = "=== HISTORICAL PURCHASING ORDERS ===\n"
             for item in live_data["historical_orders"]:
@@ -148,8 +141,6 @@ class PromptBuilder:
                 )
             context_blocks.append(block)
 
-        # F. Dashboard Summary Statistics
-        # Check if the keys are present in live_data
         dash_keys = ["totalIngredients", "totalRecipes", "lowStockItems", "expiringSoon"]
         if any(k in live_data for k in dash_keys):
             block = "=== RESTAURANT PERFORMANCE DASHBOARD SUMMARY ===\n"
@@ -162,7 +153,6 @@ class PromptBuilder:
             )
             context_blocks.append(block)
 
-        # G. Recommendation AI inputs
         if "expiringIngredients" in live_data or "candidateRecipes" in live_data:
             block = "=== AI OPERATIONAL RECOMMENDATION INPUT ===\n"
             if "expiringIngredients" in live_data:
@@ -171,13 +161,11 @@ class PromptBuilder:
                 block += f"- Candidate Recipes: {live_data.get('candidateRecipes')}\n"
             context_blocks.append(block)
 
-        # H. Restaurant Profile Settings
         if "settings" in live_data and live_data["settings"]:
             block = "=== RESTAURANT OPERATING PROFILE ===\n"
             block += f"- Profile Settings: {live_data.get('settings')}\n"
             context_blocks.append(block)
 
-        # 2. Parse Knowledge base Sections
         if context.knowledge:
             block = "=== RAG KNOWLEDGE BASE DOMAIN TIPS ===\n"
             for i, chunk in enumerate(context.knowledge):
@@ -187,7 +175,6 @@ class PromptBuilder:
                 block += f"[Doc #{i+1}] (Source: {source}, Title: {title}) {content}\n"
             context_blocks.append(block)
 
-        # 3. Assemble prompts
         if context.intent == "GENERAL_CHAT":
             system_prompt = (
                 "You are PantryPulse AI Assistant, a friendly and professional Back-of-House (BOH) restaurant operations assistant.\n"

@@ -20,6 +20,7 @@ class SpringApiClient:
         self.base_url = (base_url or config.SPRING_API_BASE_URL).rstrip("/")
         self.timeout = timeout or config.SPRING_API_TIMEOUT
         self.auth_token = auth_token if auth_token is not None else config.SPRING_API_AUTH_TOKEN
+        self._cache = {}
         logger.info(f"SpringApiClient initialized | Base URL: {self.base_url} | Timeout: {self.timeout}s | Auth Configured: {bool(self.auth_token)}")
 
     def _get_headers(self) -> Dict[str, str]:
@@ -35,6 +36,13 @@ class SpringApiClient:
         """
         Internal helper method to execute async HTTP GET requests with telemetry logging and error handling.
         """
+        cache_key = f"{endpoint}:{str(params)}"
+        if cache_key in self._cache:
+            cached_time, cached_data = self._cache[cache_key]
+            if time.time() - cached_time < 5.0:  # 5 seconds TTL
+                logger.info(f"[SPRING_API CACHE HIT] GET {endpoint}")
+                return cached_data
+
         url = f"{self.base_url}{endpoint}"
         start_time = time.time()
         headers = self._get_headers()
@@ -47,7 +55,9 @@ class SpringApiClient:
                 if response.status_code == 200:
                     logger.info(f"[SPRING_API SUCCESS] GET {endpoint} | Status: 200 | Latency: {latency_ms}ms")
                     try:
-                        return response.json()
+                        data = response.json()
+                        self._cache[cache_key] = (time.time(), data)
+                        return data
                     except Exception as parse_err:
                         logger.error(f"[SPRING_API PARSE_ERR] GET {endpoint} | Invalid JSON payload: {str(parse_err)}")
                         return []
@@ -137,6 +147,13 @@ class SpringApiClient:
     # =========================================================================
 
     def _request_sync(self, endpoint: str, params: Optional[Dict[str, Any]] = None) -> Any:
+        cache_key = f"{endpoint}:{str(params)}"
+        if cache_key in self._cache:
+            cached_time, cached_data = self._cache[cache_key]
+            if time.time() - cached_time < 5.0:  # 5 seconds TTL
+                logger.info(f"[SPRING_API CACHE HIT SYNC] GET {endpoint}")
+                return cached_data
+
         url = f"{self.base_url}{endpoint}"
         start_time = time.time()
         headers = self._get_headers()
@@ -146,7 +163,9 @@ class SpringApiClient:
                 latency_ms = int((time.time() - start_time) * 1000)
                 if response.status_code == 200:
                     logger.info(f"[SPRING_API SYNC SUCCESS] GET {endpoint} | Status: 200 | Latency: {latency_ms}ms")
-                    return response.json()
+                    data = response.json()
+                    self._cache[cache_key] = (time.time(), data)
+                    return data
                 else:
                     logger.warning(f"[SPRING_API SYNC WARN] GET {endpoint} | Status: {response.status_code}")
                     return []

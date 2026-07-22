@@ -33,8 +33,16 @@ class GeminiService:
         )
         
         try:
+            # Dynamic configuration to minimize latency and ensure factual calculations
+            intent_lower = (prompt_obj.intent or "").lower()
+            if any(kw in intent_lower for kw in ["pricing", "inventory", "optimization", "summary", "report", "health", "analysis"]):
+                temperature = 0.2
+            else:
+                temperature = 0.7
+            max_tokens = 400
+
             # Generate content using the prioritised provider queue (OpenRouter -> Gemini -> Fallback)
-            res = self.manager.generate(combined_prompt)
+            res = self.manager.generate(combined_prompt, temperature=temperature, max_tokens=max_tokens)
             latency_ms = int((time.time() - start_time) * 1000)
             
             if res.get("status") == "success":

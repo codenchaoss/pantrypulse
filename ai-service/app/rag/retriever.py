@@ -23,6 +23,7 @@ class KnowledgeRetriever:
     def __init__(self, top_k: int = config.DEFAULT_TOP_K):
         self.top_k = top_k
         self.vector_store_type = getattr(config, "VECTOR_STORE", "faiss").lower()
+        self._cache = {}
 
         if self.vector_store_type == "pinecone":
             logger.info("KnowledgeRetriever: Selecting Pinecone Cloud vector store.")
@@ -38,4 +39,14 @@ class KnowledgeRetriever:
         """
         Retrieves matching context chunks using the active database store.
         """
-        return self.active_retriever.retrieve(query, top_k=top_k)
+        import time
+        cache_key = f"{query}:{top_k}"
+        if cache_key in self._cache:
+            cached_time, cached_data = self._cache[cache_key]
+            if time.time() - cached_time < 10.0:  # 10 seconds TTL
+                logger.info(f"KnowledgeRetriever: Cache hit for query: '{query}'")
+                return cached_data
+
+        res = self.active_retriever.retrieve(query, top_k=top_k)
+        self._cache[cache_key] = (time.time(), res)
+        return res

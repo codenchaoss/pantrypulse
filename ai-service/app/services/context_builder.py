@@ -163,6 +163,11 @@ class ContextBuilder:
                     logger.error(f"[CONTEXT_BUILDER] Pinecone query failed: {str(p_err)}")
                     knowledge = []
                     
+            elif route_result.route == Route.GEMINI_ONLY:
+                # No live API calls or Pinecone RAG queries needed for general chat
+                live_data = {}
+                knowledge = []
+                
             # 3. Route to Hybrid route (both Spring Inventory + Spring Recipes + Pinecone recipe/menu RAG search)
             elif route_result.route == Route.HYBRID:
                 spring_calls.extend([
