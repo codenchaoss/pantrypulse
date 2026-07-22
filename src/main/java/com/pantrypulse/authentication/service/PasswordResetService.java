@@ -29,37 +29,31 @@ public class PasswordResetService {
     @Value("${frontend.url}")
     private String frontendUrl;
 @Transactional
-    public String forgotPassword(ForgotPasswordRequest request) {
+public String forgotPassword(ForgotPasswordRequest request) {
 
-        User user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() ->
-                        new RuntimeException("User not found."));
+    User user = userRepository.findByEmail(request.getEmail())
+            .orElseThrow(() ->
+                    new RuntimeException("User not found."));
 
-        tokenRepository.findByUser(user)
-        .ifPresent(tokenRepository::delete);
+    PasswordResetToken passwordResetToken =
+            tokenRepository.findByUser(user)
+                    .orElse(new PasswordResetToken());
 
-tokenRepository.flush();
+    passwordResetToken.setUser(user);
+    passwordResetToken.setToken(UUID.randomUUID().toString());
+    passwordResetToken.setExpiryDate(LocalDateTime.now().plusMinutes(30));
 
-        String token = UUID.randomUUID().toString();
+    tokenRepository.save(passwordResetToken);
 
-        PasswordResetToken passwordResetToken =
-                PasswordResetToken.builder()
-                        .token(token)
-                        .user(user)
-                        .expiryDate(LocalDateTime.now().plusMinutes(30))
-                        .build();
+    String resetLink =
+            frontendUrl + "/reset-password?token=" + passwordResetToken.getToken();
 
-        tokenRepository.save(passwordResetToken);
+    emailService.sendPasswordResetEmail(
+            user.getEmail(),
+            resetLink);
 
-        String resetLink =
-                frontendUrl + "/reset-password?token=" + token;
-
-        emailService.sendPasswordResetEmail(
-                user.getEmail(),
-                resetLink);
-
-        return "Password reset link sent successfully.";
-    }
+    return "Password reset link sent successfully.";
+}
 
     public String resetPassword(ResetPasswordRequest request) {
 
