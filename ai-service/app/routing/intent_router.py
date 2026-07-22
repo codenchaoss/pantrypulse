@@ -46,7 +46,22 @@ class IntentRouter:
                 "highest profit recipe", "cheapest recipe", "low cost dish", "best margin", "most profitable",
                 "use expiring items", "recipes before expiry", "avoid waste", "consume today", "reduce waste",
                 "missing ingredients", "order ingredients", "what should i buy", "create purchase list",
-                "generate shopping list"
+                "generate shopping list", "special menu", "menu enti", "special menu enti", "special enti",
+                "iroju special", "iroju menu", "iroju special menu", "iroju special menu enti", "e roju menu",
+                "e roju special", "e roju special menu", "today special menu", "today menu enti",
+                "what is today special menu", "daily special menu",
+                "unnavati to recipes", "unnavati to vantalu", "unna stock to recipes", "available stock to recipes",
+                "chicken unte em cheyyali", "chicken to recipes", "tomato to recipes", "onion to recipes",
+                "potato to recipes", "paner to recipes", "egg to recipes", "mutton to recipes",
+                "chepalu to recipes", "fish to recipes", "rice to recipes", "milku to recipes",
+                "unna stock thoti recipes", "unna ingredients list vantalu", "unnavatitho vantalu cheppu",
+                "unnavatitho em cheyyochu", "unnavatitho em vandochu", "unna stock tho em vandali",
+                "available sarakulatho em vandali", "e roju em prepare cheyali", "iroju em prepare cheyali",
+                "special items in stock", "stock recipes enti", "available ingredients vantalu",
+                "available items tho recipes", "stock list recipes", "invenoty to cook", "inventory recipes enti",
+                "cook using stock", "prepare using stock", "suggest dishes based on stock",
+                "recommend recipes based on stock", "special recipes with stock", "menu based on inventory",
+                "menu based on stock", "specials with inventory"
             ],
             Intent.INVENTORY: [
                 "inventory", "ingredient", "ingredients", "stock", "available", "quantity",
@@ -86,7 +101,7 @@ class IntentRouter:
                 "dishes recipes", "signature dish", "chef recipe", "how can i prepare", "food menu list",
                 "dish instruction", "dish preparation", "curry preparation", "making steps",
                 "vantalu", "vanta ela cheyali", "vandadam ela", "tayaru cheyadam ela", "curry cheyadam ela",
-                "indian", "south indian", "north indian", "chinese", "italian", "continental", "mexican",
+                "indian", "south indian", "north indian", "chinese", "italian", "continental", "megical",
                 "thai", "breakfast", "lunch", "dinner", "snacks", "starter", "main course", "dessert",
                 "beverage", "veg", "non veg", "spicy", "sweet", "healthy", "protein rich", "kids menu",
                 "diet food", "quick recipe", "easy recipe"
@@ -191,6 +206,12 @@ class IntentRouter:
                 "namaste master", "heyy", "yoo", "yo", "morning", "evening", "night", "good night",
                 "good afternoon", "good night", "how's everything", "how are things", "nice", "awesome",
                 "excellent", "cool", "okay", "ok", "fine", "thank you very much", "appreciate it"
+            ],
+            Intent.SETTINGS: [
+                "settings", "restaurant settings", "restaurant profile", "operating parameter",
+                "operating parameters", "operating profile", "profile settings", "restaurant config",
+                "restaurant configuration", "operating profile configuration", "working hours",
+                "business name", "opening time", "closing time", "tax rate", "currency", "address"
             ]
         }
         
@@ -203,6 +224,7 @@ class IntentRouter:
             Intent.EXPIRATION: ["expired items", "which ingredients are expiring soon", "shelf life alerts", "expiring tomorrow list"],
             Intent.DASHBOARD: ["dashboard overview statistics", "today summary records", "show metrics overview", "daily restaurant status"],
             Intent.KNOWLEDGE: ["how should milk be stored", "food safety guidelines", "first aid for kitchen cuts", "hazard control instructions"],
+            Intent.SETTINGS: ["what are the restaurant settings", "show restaurant profile settings", "restaurant operating parameters", "configuration parameters"],
             Intent.GENERAL_CHAT: ["hello how are you", "good morning", "thank you so much", "how is it going"]
         }
         
@@ -232,8 +254,8 @@ class IntentRouter:
         matched_kws = []
         
         # 1. Search for co-occurrence of hybrid indicators (e.g. available + recipe)
-        has_available_indicators = any(w in q_clean for w in ["available", "inventory", "stock", "today", "tomorrow"])
-        has_recipe_indicators = any(w in q_clean for w in ["recipe", "recipes", "menu", "dishes", "cook", "prepare"])
+        has_available_indicators = any(w in q_clean for w in ["available", "inventory", "stock", "today", "tomorrow", "iroju", "e roju", "eraju", "unna", "unnavati"])
+        has_recipe_indicators = any(w in q_clean for w in ["recipe", "recipes", "menu", "dishes", "cook", "prepare", "vantalu", "vanta", "tayaru", "tayari", "vandadam", "vandali"])
         
         # Check if it is a simple catalog listing request
         is_catalog_query = any(w in q_clean for w in ["show all", "list all", "show me all", "list of all", "all recipes", "recipes list"])
@@ -323,10 +345,13 @@ class IntentRouter:
         elif best_intent == Intent.GENERAL_CHAT:
             best_route = Route.GEMINI_ONLY
             reason = "Query is a general greeting or non-operational casual chat."
+        elif best_intent == Intent.SETTINGS:
+            best_route = Route.SPRING_SETTINGS
+            reason = "Query requests restaurant profile configurations, operating parameters, or settings."
         else:
             best_intent = Intent.UNKNOWN
-            best_route = Route.UNKNOWN
-            reason = "No matching keywords found. Routing to default LLM generator."
+            best_route = Route.HYBRID
+            reason = "No matching keywords found. Defaulting to Hybrid route to maximize live data and knowledge base integration."
 
         # Calculate confidence based on keyword density or semantic similarity score
         if is_semantic_fallback:

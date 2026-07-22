@@ -13,7 +13,10 @@ class GeminiProvider(BaseProvider):
     """
     def __init__(self):
         self.api_key = config.GEMINI_API_KEY
-        self.model = getattr(config, "PRIMARY_MODEL", "gemini-2.5-flash")
+        model_str = getattr(config, "PRIMARY_MODEL", "gemini-2.5-flash")
+        if "/" in model_str:
+            model_str = model_str.split("/")[-1]
+        self.model = model_str
 
     def initialize(self) -> None:
         pass

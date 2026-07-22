@@ -1,4 +1,5 @@
 from typing import Dict, Any, List
+from app.core import config
 from app.llm.providers.gemini_provider import GeminiProvider
 from app.llm.providers.grok_provider import GrokProvider
 from app.llm.providers.openrouter_provider import OpenRouterProvider
@@ -26,8 +27,11 @@ class ProviderRegistry:
             "mistral": MistralProvider()
         }
 
-        # 2. Configure default priority ranking (Gemini -> OpenRouter -> Together -> DeepSeek -> Mistral -> Fireworks -> Grok)
-        self.priority_order = [
+        # 2. Configure default priority ranking based on config.PRIMARY_PROVIDER and config.FALLBACK_PROVIDER
+        primary = getattr(config, "PRIMARY_PROVIDER", "gemini")
+        fallback = getattr(config, "FALLBACK_PROVIDER", "openrouter")
+        
+        defaults = [
             "gemini",
             "openrouter",
             "together_ai",
@@ -36,6 +40,15 @@ class ProviderRegistry:
             "fireworks_ai",
             "grok"
         ]
+        
+        self.priority_order = []
+        if primary in defaults:
+            self.priority_order.append(primary)
+        if fallback in defaults and fallback != primary:
+            self.priority_order.append(fallback)
+        for p in defaults:
+            if p not in self.priority_order:
+                self.priority_order.append(p)
 
     def get_provider(self, name: str) -> Any:
         return self.providers.get(name)

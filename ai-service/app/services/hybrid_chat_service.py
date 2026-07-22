@@ -86,7 +86,7 @@ class HybridChatService:
 
         # 4. Compile prompt (Phase 4)
         try:
-            prompt_obj = self.prompt_builder.build_prompt(question, context)
+            prompt_obj = self.prompt_builder.build_prompt(question, context, detected_lang)
         except Exception as e:
             logger.error(f"[HYBRID_ORCHESTRATOR] PromptBuilder failed: {str(e)}")
             from app.models.prompt_models import PromptObject

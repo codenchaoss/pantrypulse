@@ -28,22 +28,30 @@ def detect_language(text: str) -> str:
         "ohh", "oh", "oho", "ohho", "hurray", "hurey", "hurrah", "alright", "alrighty", "knaww",
         "knoww", "kneww", "accha", "aachcha", "acha", "aah", "aha", "ahha", "abba", "abbha",
         "ammo", "ammow", "ayyo", "ayyyo", "arey", "areyy", "are", "rey", "reyy", "ra", "raa",
-        "bey", "bhey", "boss", "bro", "dude", "sir", "ji", "mama", "macha", "machi", "machan",
+        "bey", "bhey", "boss", "bro", "dude", "sir", "ji", "mama", "macha", "machan",
         "garu", "gaaru", "andi", "aandi", "ayya", "ayyachya", "bhayya", "bhai", "bhaya", "anna",
         "annayya", "akka", "akkayya", "tammudu", "chello", "pilla", "potti", "babu", "bangaram",
         "chelli", "gurinchi", "sangathi", "sangati", "visayam", "vishayam", "batti", "valana",
+        "kadha", "kada", "kadhaa", "avunu", "lanti", "lantivi", "entante", "ante", "sare", "sarey",
         
         # Question words & Pronouns
         "enni", "yenni", "etla", "yetla", "ela", "yela", "enti", "yenti", "yem", "emi", "yemi",
         "evaru", "yevaru", "yeda", "ekkada", "yekkada", "akkada", "yakkada", "yenduku", "enduku",
         "eppudu", "yeppudu", "elaga", "yelaga", "evarki", "yevarki", "yavaru", "manaki", "manaku",
         "naaku", "naku", "neeku", "tanaku", "vaallu", "vallu", "vaallaki", "vallaki", "athanu",
-        "atanu", "aavida", "idi", "adi", "ivi", "avi", "ikada", "akada",
+        "atanu", "aavida", "idi", "adi", "ivi", "avi", "ikada", "akada", "ye", "yee",
+        "yemaindi", "yemaindhi", "elaa", "yetlaa", "ekkadaa", "eppudoo", "evadu", "vaadu", "veedu",
+        "vadu", "vidu", "adhi", "dheenitho", "danitho", "denitho", "yevariki", "yevaritho", "denikosam",
+        "denivalla", "yento", "ento",
         
         # Quantity, Time, Frequency & Manner
         "sarlu", "saarlu", "sari", "saari", "chala", "chaala", "koncham", "konchem", "motham",
         "mottham", "sariga", "sarigga", "thwaraga", "twaraga", "roju", "rojoo", "rojuki", "repu",
         "ivvala", "eevala", "ninna", "ippudu", "appudu", "sepu", "sepati", "koddiseapu", "nundi", "nunchi",
+        "baga", "baaga", "ekkuva", "takkuva", "thagguva", "thaakkuva", "sagham", "sagam", "peddha",
+        "pedda", "chinnadhi", "chinnadi", "kotha", "kottha", "patha", "paatha", "tho", "thoti",
+        "vadda", "dhaggara", "daggara", "dhaggarlo", "daggarlo", "gurunchi", "kosam", "matrame",
+        "maathrame", "kudaa", "thappakunda", "katchithamga", "khachitamga", "valla", "valana",
         
         # Verbs & Auxiliary stems
         "chesukuntadu", "chesukuntaru", "chesukuntam", "chesukuntadhi", "chesukuntai", "chesukovali",
@@ -59,7 +67,33 @@ def detect_language(text: str) -> str:
         "theskoni", "theskovalane", "tisukoni", "thesukoni", "kavalo", "kavali", "kaavali", "kavalane",
         "cheppandi", "cheppu", "cheppava", "cheppara", "chudu", "chudandi", "vacham", "vacha", "vachindi",
         "vacharu", "vastadi", "vasthundhi", "vastaru", "vastanu", "povali", "potha", "pothanu", "potharu",
-        "poindi", "poyindi", "kuda", "kooda", "kudaa", "mari", "ala", "alaage", "alaga", "alage", "valla", "supliers"
+        "poindi", "poyindi", "kuda", "kooda", "kudaa", "mari", "ala", "alaage", "alaga", "alage", "valla", "supliers",
+        "vachindha", "vaccindhi", "vastha", "vasthadi", "poyindhi", "poyindha", "pothundhi", "pothadi",
+        "chesthundi", "chesthadi", "cheyyala", "cheyala", "cheyalasinna", "cheyyaali", "ivvagalara", "cheppagalara",
+        "dhorukuthundhi", "dorukuthundhi", "dhorukuthadha", "dorukuthada", "dhorukuthai", "dorukuthayi",
+        "avuthundhi", "ayipothundhi", "aithundhi", "vandali", "vandu", "vandandi", "vandadam", "vandatam",
+        "vandhutaru", "tinandi", "thinala", "thinandi", "tagandi", "thaagandi", "pettukondi", "pettukovali",
+        "theskovali", "tisukovali", "teesukovali", "teesukondi", "pampinchu", "pampinchandi", "kanipinchadam",
+        "dorakadam", "kudaradhu", "kudaradu",
+        
+        # BOH & Culinary terms in Roman script
+        "vantalu", "vantalani", "thindi", "kura", "koora", "pappu", "charu", "pulusu", "vepudu",
+        "mamulu", "sarakulu", "samanu", "samulu", "samanyam", "kurchi", "bhojanam", "kuralu",
+        "pappulu", "biyyam", "annam", "neellu", "neeru", "palu", "paalu", "perugu", "neyyi",
+        "noone", "nune", "uppu", "karam", "kaaram", "pasupu", "masala", "vanta", "vantage",
+        "kodi", "mamsam", "royyalu", "chepalu", "peethalu", "guddu", "gudlu", "tiffin", "tiffins",
+        "palaharam", "telugu", "panduga", "sankranthi", "dussehra",
+        
+        # 60 Additional Tenglish Verbs, Nouns & Phrases
+        "vantashala", "vantagaduri", "vantagadhi", "vantaamanu", "kannada", "tamil", "malayalam",
+        "basha", "matladu", "matladandi", "rasthadu", "rayali", "rayandi", "rasanu", "rasaru",
+        "chustadu", "chudali", "chupinchu", "chupinchandi", "chupisthadhi", "chupisthadi",
+        "telusthundi", "thelusthadhi", "telusukovali", "piluvali", "pilavandi", "piluvu",
+        "adugu", "adagandi", "aduguthadu", "adagali", "ammali", "ammadam", "konadam", "konali",
+        "konandi", "kontaru", "kochindhi", "poyyaali", "poyyi", "kalapali", "kalupandi", "kalupu",
+        "thiyyalasinna", "thiyyi", "thiyyandi", "teyyali", "vellali", "velli", "vellandi", "potharu",
+        "undaka", "undakapothe", "unnavadu", "unnavallu", "unnadhi", "vunnadhi", "ledhandi",
+        "kadhandi", "sarekadhara"
     }
     
     words = set(re.findall(r'\b[a-z]+\b', text_lower))
