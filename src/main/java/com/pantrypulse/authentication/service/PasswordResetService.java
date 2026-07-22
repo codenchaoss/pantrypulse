@@ -14,6 +14,7 @@ import com.pantrypulse.authentication.entity.User;
 import com.pantrypulse.authentication.repository.PasswordResetTokenRepository;
 import com.pantrypulse.authentication.repository.UserRepository;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -27,16 +28,17 @@ public class PasswordResetService {
 
     @Value("${frontend.url}")
     private String frontendUrl;
-
+@Transactional
     public String forgotPassword(ForgotPasswordRequest request) {
 
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() ->
                         new RuntimeException("User not found."));
 
-        tokenRepository.findAll().stream()
-        .filter(t -> t.getUser().getId().equals(user.getId()))
-        .forEach(tokenRepository::delete);
+        tokenRepository.findByUser(user)
+        .ifPresent(tokenRepository::delete);
+
+tokenRepository.flush();
 
         String token = UUID.randomUUID().toString();
 
