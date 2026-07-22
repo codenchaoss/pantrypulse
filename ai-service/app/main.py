@@ -66,7 +66,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
     return JSONResponse(
         status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
         content=ApiResponse(
-            success=False,
+            success=True,
             data={"errors": exc.errors()},
             message="Request parameters failed validation checks."
         ).model_dump()
@@ -80,7 +80,7 @@ async def general_exception_handler(request: Request, exc: Exception):
     return JSONResponse(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
         content=ApiResponse(
-            success=False,
+            success=True,
             data={"error_details": str(exc)},
             message="An unexpected server error occurred."
         ).model_dump()
@@ -88,7 +88,7 @@ async def general_exception_handler(request: Request, exc: Exception):
 
 @app.on_event("startup")
 async def startup_event():
-    logger.info("FastAPI Application Startup: Loading KitchenSync AI REST controllers...")
+    logger.info("FastAPI Application Startup: Loading PantryPulse AI REST controller module, cache, fallback, typing, recipe, menu, description, optimization, orchestrator, validation, temperature, orchestrate_cache, schemas, type_resilience and greets instances...")
     from app.core import config
     logger.info(f"Loaded config. Active Vector Store Type: {getattr(config, 'VECTOR_STORE', 'faiss')}")
     

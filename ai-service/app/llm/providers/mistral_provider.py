@@ -35,7 +35,7 @@ class MistralProvider(BaseProvider):
 
         start_time = time.time()
         try:
-            response = httpx.post(url, json=payload, headers=headers, timeout=5.0)
+            response = httpx.post(url, json=payload, headers=headers, timeout=2.5)
             latency = int((time.time() - start_time) * 1000)
             if response.status_code == 200:
                 return {"status": "healthy", "latency_ms": latency, "message": "Online"}
@@ -59,7 +59,7 @@ class MistralProvider(BaseProvider):
         }
 
         try:
-            response = httpx.post(url, json=payload, headers=headers, timeout=5.0)
+            response = httpx.post(url, json=payload, headers=headers, timeout=2.5)
             if response.status_code == 200:
                 data = response.json()
                 choices = data.get("choices", [])

@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Any, Generic, TypeVar, List, Dict, Optional
+from typing import Any, Generic, TypeVar, List, Dict, Optional, Union
 from datetime import datetime
 
 DataT = TypeVar('DataT')
@@ -87,17 +87,17 @@ class DescriptionResponseData(BaseModel):
 class PricingResponseData(BaseModel):
     dish: str = Field(..., description="Name of the recipe dish")
     ingredient_cost: float = Field(..., description="Ingredient cost input")
-    recommended_price: int = Field(..., description="Suggested menu price in rupees")
-    estimated_profit: int = Field(..., description="Estimated profit margin in rupees")
-    profit_margin: int = Field(..., description="Percentage profit margin (0-100)")
+    recommended_price: Union[int, float] = Field(..., description="Suggested menu price in rupees")
+    estimated_profit: Union[int, float] = Field(..., description="Estimated profit margin in rupees")
+    profit_margin: Union[int, float] = Field(..., description="Percentage profit margin (0-100)")
     pricing_strategy: str = Field(..., description="Pricing strategy applied (Premium | Value | Standard)")
     market_position: str = Field(..., description="Market positioning (Budget | Mid-range | Upscale)")
-    price_confidence: int = Field(..., description="Price recommendation confidence index (0-100)")
+    price_confidence: Union[int, float] = Field(..., description="Price recommendation confidence index (0-100)")
 
 class RecommendedDishItem(BaseModel):
     dish: str = Field(..., description="Name of the recommended dish")
-    servings: int = Field(..., ge=0, description="Suggested servings count to prepare")
-    profit: int = Field(..., description="Expected profit in local currency")
+    servings: Union[int, float] = Field(..., ge=0, description="Suggested servings count to prepare")
+    profit: Union[int, float] = Field(..., description="Expected profit in local currency")
     priority: str = Field(..., description="Priority based on expiry (HIGH | MEDIUM | LOW)")
 
 class OptimizationUsageItem(BaseModel):
@@ -119,13 +119,13 @@ class OptimizationRemainingItem(BaseModel):
     unit: str = Field(..., description="Unit of measurement")
 
 class OptimizationResponseData(BaseModel):
-    recommended_dishes: List[RecommendedDishItem] = Field(..., description="Optimized dish suggestions")
-    inventory_usage: List[OptimizationUsageItem] = Field(..., description="Consumed ingredient details")
-    estimated_revenue: int = Field(..., ge=0, description="Total expected revenue")
+    recommended_dishes: List[RecommendedDishItem] = Field(default=[], description="Optimized dish suggestions")
+    inventory_usage: List[OptimizationUsageItem] = Field(default=[], description="Consumed ingredient details")
+    estimated_revenue: Union[int, float] = Field(default=0, ge=0, description="Total expected revenue")
     currency: str = Field("INR", description="Currency unit of the revenue (e.g. INR)")
-    waste_saved: WasteSavedDetail = Field(..., description="Total amount of waste saved details")
-    remaining_inventory: List[OptimizationRemainingItem] = Field(..., description="Leftover inventory details")
-    purchase_required: bool = Field(..., description="Whether replacement purchase is needed")
-    purchase_items: List[PurchaseRequirementItem] = Field(default=[], description="Items recommended for replenishment purchase")
-    reason: str = Field(..., description="Manager explanation and justification")
-    language: str = Field(..., description="Detected script language")
+    waste_saved: Optional[WasteSavedDetail] = Field(default=None, description="Total amount of waste saved details")
+    remaining_inventory: List[OptimizationRemainingItem] = Field(default=[], description="Leftover inventory details")
+    purchase_required: bool = Field(default=False, description="Whether replacement purchase is needed")
+    purchase_items: List[Union[PurchaseRequirementItem, str]] = Field(default=[], description="Items recommended for replenishment purchase")
+    reason: str = Field(default="", description="Manager explanation and justification")
+    language: str = Field(default="English", description="Detected script language")

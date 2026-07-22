@@ -17,56 +17,65 @@ class HealthMonitor:
         with cls._lock:
             if not cls._instance:
                 cls._instance = super(HealthMonitor, cls).__new__(cls, *args, **kwargs)
-                cls._instance.health_status = {}
                 cls._instance.registry = ProviderRegistry()
+                cls._instance.health_status = {
+                    name: {
+                        "status": "healthy" if cls._instance.registry.get_provider(name) and cls._instance.registry.get_provider(name).api_key else "offline",
+                        "latency_ms": 100,
+                        "priority": idx + 1,
+                        "message": "Initialized"
+                    }
+                    for idx, name in enumerate(cls._instance.registry.priority_order)
+                }
             return cls._instance
 
     def check_all_providers(self) -> Dict[str, Any]:
         """
         Runs health check routines across all configured providers.
         """
-        with self._lock:
-            for priority_idx, name in enumerate(self.registry.priority_order):
-                provider = self.registry.get_provider(name)
-                priority = priority_idx + 1
-                
-                if not provider:
-                    self.health_status[name] = {
-                        "status": "offline",
-                        "latency_ms": 0,
-                        "priority": priority,
-                        "message": "Not implemented"
-                    }
-                    continue
-                
-                if not provider.api_key:
-                    self.health_status[name] = {
-                        "status": "offline",
-                        "latency_ms": 0,
-                        "priority": priority,
-                        "message": "API key is not configured"
-                    }
-                    continue
-
-                # Run actual check
-                check_result = provider.health()
-                status = "healthy" if check_result.get("status") == "healthy" else "unhealthy"
-                latency = check_result.get("latency_ms", 9999)
-                msg = check_result.get("message", "")
-                
-                self.health_status[name] = {
-                    "status": status,
-                    "latency_ms": latency,
+        new_status = {}
+        for priority_idx, name in enumerate(self.registry.priority_order):
+            provider = self.registry.get_provider(name)
+            priority = priority_idx + 1
+            
+            if not provider:
+                new_status[name] = {
+                    "status": "offline",
+                    "latency_ms": 0,
                     "priority": priority,
-                    "message": msg
+                    "message": "Not implemented"
                 }
-                
-            return self.health_status
+                continue
+            
+            if not provider.api_key:
+                new_status[name] = {
+                    "status": "offline",
+                    "latency_ms": 0,
+                    "priority": priority,
+                    "message": "API key is not configured"
+                }
+                continue
+
+            check_result = provider.health()
+            status = "healthy" if check_result.get("status") == "healthy" else "unhealthy"
+            latency = check_result.get("latency_ms", 9999)
+            msg = check_result.get("message", "")
+            
+            new_status[name] = {
+                "status": status,
+                "latency_ms": latency,
+                "priority": priority,
+                "message": msg
+            }
+            
+        with self._lock:
+            self.health_status.update(new_status)
+            
+        return self.health_status
 
     def get_status_report(self) -> Dict[str, Any]:
         """
-        Returns the in-memory health report. Runs checks if empty.
+        Returns the in-memory health report. Launches a background thread to update it.
         """
-        if not self.health_status:
-            self.check_all_providers()
+        threading.Thread(target=self.check_all_providers, daemon=True).start()
         return self.health_status

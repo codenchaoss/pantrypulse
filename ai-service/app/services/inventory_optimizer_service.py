@@ -180,16 +180,14 @@ class InventoryOptimizerService:
             "Return ONLY the raw JSON. Do not include markdown code block syntax."
         )
         
-        from app.services.hybrid_chat_service import HybridChatService
-        hybrid_service = HybridChatService()
-        result = hybrid_service.get_response_sync(question)
+        router_result = self.router.generate(question, temperature=0.2, max_tokens=300)
         
         recommended_dishes = []
         purchase_required = False
         purchase_items = []
         reason_text = ""
         detected_lang = "english"
-        raw_text = result.get("answer", "")
+        raw_text = router_result.get("response", "")
         
         try:
             parsed = OutputParser.parse_json(raw_text)

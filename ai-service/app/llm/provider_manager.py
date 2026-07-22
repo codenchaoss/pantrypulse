@@ -36,7 +36,7 @@ class ProviderManager:
 
             try:
                 # Execute provider with retries for transient errors
-                res = RetryManager.execute_with_retry(run_provider, max_retries=1)
+                res = RetryManager.execute_with_retry(run_provider, max_retries=0)
                 if res.get("status") == "success":
                     text = res.get("text", "")
                     logger.info(f"ProviderManager: Provider {name} succeeded.")
@@ -62,7 +62,7 @@ class ProviderManager:
 
         # If we reach here, all cloud providers failed. Fallback to RAG-only mode!
         logger.error("ProviderManager: All cloud LLM providers failed or are unconfigured. Triggering RAG-only fallback...")
-        fallback_text = self._synthesize_rag_fallback(context_chunks)
+        fallback_text = self._synthesize_rag_fallback(context_chunks, prompt)
         return {
             "status": "success",
             "text": fallback_text,
@@ -71,11 +71,16 @@ class ProviderManager:
             "error": None
         }
 
-    def _synthesize_rag_fallback(self, chunks: Optional[List[Dict[str, Any]]] = None) -> str:
+    def _synthesize_rag_fallback(self, chunks: Optional[List[Dict[str, Any]]] = None, prompt: str = "") -> str:
         """
         Constructs a structured, human-readable summary response from retrieved knowledge chunks
         without using any LLM call.
         """
+        p_low = prompt.lower().strip()
+        greetings = ["hi", "hello", "hey", "hii", "helloo", "whom you are", "who are you", "what is your name", "who are you?", "what are you?"]
+        if any(g in p_low for g in greetings) or len(p_low) < 6:
+            return "Hello! I am KitchenSync AI, your smart kitchen and restaurant management assistant. How can I help you today?"
+
         if not chunks:
             return "I'm unable to find relevant information in the restaurant knowledge base."
 

@@ -39,7 +39,7 @@ def check_health():
     
     # 2. Check all LLM Providers via HealthMonitor
     monitor = HealthMonitor()
-    provider_report = monitor.check_all_providers()
+    provider_report = monitor.get_status_report()
     
     gemini_status = provider_report.get("gemini", {}).get("status", "unhealthy")
     openrouter_status = provider_report.get("openrouter", {}).get("status", "unhealthy")

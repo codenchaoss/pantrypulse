@@ -50,8 +50,11 @@ class MenuService:
         # Invoke the hybrid orchestration pipeline
         inv_strs = [f"{item.get('ingredient')} ({item.get('expiry_days')} days remaining)" for item in inventory]
         question = (
-            f"Generate daily specials menu using available inventory: {', '.join(inv_strs)}. "
-            "You MUST respond with a valid JSON object matching this schema:\n"
+            f"Generate daily specials menu. Available inventory: {', '.join(inv_strs)}.\n"
+            "CRITICAL RULES:\n"
+            "1. You MUST ONLY suggest daily specials that utilize the ingredients specified in the provided Available inventory list above. Do NOT suggest dishes that do not use any of these ingredients.\n"
+            "2. Every suggested dish's 'matched_inventory' MUST strictly contain ONLY ingredients that are present in the provided Available inventory list above.\n"
+            "3. You MUST respond with a valid JSON object matching this schema:\n"
             "{\n"
             "  \"special_menu\": [\n"
             "    {\n"
@@ -185,8 +188,19 @@ class MenuService:
             s.pop("estimated_profit_value", None)
             
         # Fallback to retrieved recipe chunks if parse/generation failed completely
-        if not final_specials and recipe_chunks:
+        if not final_specials:
             logger.warning("MenuService: Specials processing yielded empty list. Implementing heuristic fallback.")
+            try:
+                search_query = "Recipes using available ingredients: " + ", ".join([item.get("ingredient", "") for item in inventory])
+                chunks = self.retriever.retrieve(search_query, top_k=5)
+                recipe_chunks = [c for c in chunks if "recipes" in c.get("source", "").lower()]
+            except Exception as e:
+                logger.error(f"MenuService: Fallback retrieval failed: {str(e)}")
+                recipe_chunks = []
+                
+            if not recipe_chunks:
+                recipe_chunks = [{"title": "Chef's Special Special", "content": "Tandoori chicken, paneer tikka, and mixed vegetable curry."}]
+                
             final_specials = self._get_fallback_menu(inventory, recipe_chunks)
             
         total_latency = int((time.time() - start_time) * 1000)

@@ -1,5 +1,6 @@
 import time
 import logging
+from typing import List, Dict, Any, Optional
 from app.models.prompt_models import PromptObject, GeminiResponse
 from app.llm.provider_manager import ProviderManager
 
@@ -16,7 +17,7 @@ class GeminiService:
         # Reuse existing Enterprise Provider Manager with built-in multi-provider fallbacks
         self.manager = ProviderManager()
 
-    def generate_response(self, prompt_obj: PromptObject) -> GeminiResponse:
+    def generate_response(self, prompt_obj: PromptObject, context_chunks: Optional[List[Dict[str, Any]]] = None) -> GeminiResponse:
         """
         Invokes Gemini API using the formatted PromptObject.
         Utilizes ProviderManager to handle fallback models (OpenRouter, Gemini) when rate limited (HTTP 429).
@@ -34,15 +35,11 @@ class GeminiService:
         
         try:
             # Dynamic configuration to minimize latency and ensure factual calculations
-            intent_lower = (prompt_obj.intent or "").lower()
-            if any(kw in intent_lower for kw in ["pricing", "inventory", "optimization", "summary", "report", "health", "analysis"]):
-                temperature = 0.2
-            else:
-                temperature = 0.7
-            max_tokens = 400
+            temperature = 0.2
+            max_tokens = 500
 
             # Generate content using the prioritised provider queue (OpenRouter -> Gemini -> Fallback)
-            res = self.manager.generate(combined_prompt, temperature=temperature, max_tokens=max_tokens)
+            res = self.manager.generate(combined_prompt, context_chunks=context_chunks, temperature=temperature, max_tokens=max_tokens)
             latency_ms = int((time.time() - start_time) * 1000)
             
             if res.get("status") == "success":

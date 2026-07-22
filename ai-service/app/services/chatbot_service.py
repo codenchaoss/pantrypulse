@@ -91,8 +91,7 @@ def detect_language(text: str) -> str:
     words = set(re.findall(r'\b[a-z]+\b', text_lower))
     if words.intersection(tenglish_words):
         return "roman_telugu"
-        
-        tenglish_regex = r'\b[a-z]+(?:kuntadu|kuntaru|kuntam|kovali|kovalani|kovalane|thundi|thunnaru|thari|thamu)\b'
+    tenglish_regex = r'\b[a-z]+(?:kuntadu|kuntaru|kuntam|kovali|kovalani|kovalane|thundi|thunnaru|thari|thamu)\b'
     if re.search(tenglish_regex, text_lower):
         return "roman_telugu"
         

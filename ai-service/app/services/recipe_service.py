@@ -88,7 +88,12 @@ class RecipeService:
             "}\n"
             "Return ONLY the raw JSON. Do not include markdown code block syntax (like ```json)."
         )
-        
+        # Retrieve grounding chunks from RAG vector database
+        retriever_start = time.time()
+        chunks = self.retriever.retrieve(question)
+        retriever_time_ms = int((time.time() - retriever_start) * 1000)
+        recipe_chunks = [c for c in chunks if "recipes" in c.get("source", "").lower()]
+        logger.info(f"RecipeService: Retrieved {len(chunks)} chunks, filtered to {len(recipe_chunks)} recipe chunks in {retriever_time_ms}ms")
         from app.services.hybrid_chat_service import HybridChatService
         hybrid_service = HybridChatService()
         result = hybrid_service.get_response_sync(question)

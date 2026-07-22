@@ -55,7 +55,7 @@ API_LOG_PATH = os.path.join(LOGS_DIR, "api.log")
 
 # RAG & Embedding Settings
 EMBEDDING_MODEL_NAME = "BAAI/bge-small-en-v1.5"
-DEFAULT_TOP_K = 5
+DEFAULT_TOP_K = 3
 PINECONE_API_KEY = os.environ.get("PINECONE_API_KEY", "")
 PINECONE_INDEX_NAME = os.environ.get("PINECONE_INDEX_NAME", "pantrypulse-rag")
 VECTOR_STORE = os.environ.get("VECTOR_STORE", "faiss")
@@ -76,7 +76,7 @@ FALLBACK_MODEL = os.environ.get("FALLBACK_MODEL", "meta-llama/llama-3.1-8b-instr
 
 # Spring Boot Backend API Configuration Settings
 SPRING_API_BASE_URL = os.environ.get("SPRING_API_BASE_URL", "https://pantrypulse-production-up.up.railway.app").rstrip("/")
-SPRING_API_TIMEOUT = int(os.environ.get("SPRING_API_TIMEOUT", "10"))
+SPRING_API_TIMEOUT = int(os.environ.get("SPRING_API_TIMEOUT", "2"))
 SPRING_API_AUTH_TOKEN = os.environ.get("SPRING_API_AUTH_TOKEN", "")
 
 # Ensure target directories exist

@@ -13,6 +13,19 @@ class RestaurantWorkflowOrchestrator:
     """
     def __init__(self, base_url: str = "http://127.0.0.1:8000"):
         self.gateway = KitchenSyncGateway(base_url=base_url)
+        from app.services.inventory_optimizer_service import InventoryOptimizerService
+        from app.services.recipe_service import RecipeService
+        from app.services.menu_service import MenuService
+        from app.services.pricing_service import PricingService
+        from app.services.description_service import DescriptionService
+        from app.services.supplier_service import SupplierService
+        
+        self.opt_service = InventoryOptimizerService()
+        self.recipe_service = RecipeService()
+        self.menu_service = MenuService()
+        self.pricing_service = PricingService()
+        self.desc_service = DescriptionService()
+        self.supplier_service = SupplierService()
 
     def execute_workflow(self, raw_inventory: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
@@ -38,7 +51,7 @@ class RestaurantWorkflowOrchestrator:
         # =========================================================
         logger.info("OpenClaw Orchestrator: Executing Step 1 - Inventory Optimization")
         try:
-            opt_result = self.gateway.trigger_inventory_optimization(raw_inventory)
+            opt_result = self.opt_service.optimize_inventory(raw_inventory)
             action_plan["optimization"] = opt_result
         except Exception as e:
             logger.error(f"OpenClaw Orchestrator: Step 1 failed: {str(e)}")
@@ -68,7 +81,7 @@ class RestaurantWorkflowOrchestrator:
         recipe_result = None
         if ingredients:
             try:
-                recipe_result = self.gateway.trigger_recipe_recommendation(ingredients)
+                recipe_result = self.recipe_service.generate_recipe(ingredients)
                 action_plan["recipe"] = recipe_result
             except Exception as e:
                 logger.error(f"OpenClaw Orchestrator: Step 2 failed: {str(e)}")
@@ -94,7 +107,7 @@ class RestaurantWorkflowOrchestrator:
             })
             
         try:
-            menu_result = self.gateway.trigger_menu_generation(menu_items_input, recipes=recipes)
+            menu_result = self.menu_service.generate_menu(menu_items_input, recipes=recipes)
             action_plan["menu"] = menu_result
         except Exception as e:
             logger.error(f"OpenClaw Orchestrator: Step 3 failed: {str(e)}")
@@ -113,7 +126,7 @@ class RestaurantWorkflowOrchestrator:
         if specials:
             with concurrent.futures.ThreadPoolExecutor(max_workers=min(5, len(specials))) as executor:
                 futures = {
-                    executor.submit(self.gateway.trigger_pricing_suggestions, spec.get("dish"), 150.0): spec.get("dish")
+                    executor.submit(self.pricing_service.generate_pricing_suggestion, spec.get("dish"), 150.0): spec.get("dish")
                     for spec in specials if spec.get("dish")
                 }
                 for future in concurrent.futures.as_completed(futures):
@@ -134,7 +147,7 @@ class RestaurantWorkflowOrchestrator:
         if specials:
             desc_input = [{"dish": spec.get("dish"), "category": "Main Course"} for spec in specials]
             try:
-                desc_result = self.gateway.trigger_description_generation(desc_input)
+                desc_result = self.desc_service.generate_descriptions(desc_input)
                 action_plan["description"] = desc_result
             except Exception as e:
                 logger.error(f"OpenClaw Orchestrator: Step 5 failed: {str(e)}")
@@ -160,11 +173,11 @@ class RestaurantWorkflowOrchestrator:
             with concurrent.futures.ThreadPoolExecutor(max_workers=min(5, len(purchase_items))) as executor:
                 futures = {
                     executor.submit(
-                        self.gateway.trigger_supplier_messaging,
-                        supplier_name="Fresh Foods Inc",
+                        self.supplier_service.generate_supplier_message,
                         ingredient=item.get("ingredient"),
-                        qty=item.get("required_quantity", "20 kg"),
-                        date="Tomorrow"
+                        quantity=item.get("required_quantity", "20 kg"),
+                        supplier_name="Fresh Foods Inc",
+                        required_date="Tomorrow"
                     ): item.get("ingredient")
                     for item in purchase_items if item.get("ingredient")
                 }

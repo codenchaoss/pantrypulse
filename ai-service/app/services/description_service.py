@@ -132,7 +132,7 @@ class DescriptionService:
 
         router_result = None
         try:
-            router_result = self.router.generate(prompt, temperature=0.6, max_tokens=500)
+            router_result = self.router.generate(prompt, context_chunks=recipe_chunks, temperature=0.6, max_tokens=500)
         except Exception as e:
             logger.error(f"DescriptionService: Router call failed: {str(e)}")
 
@@ -193,5 +193,21 @@ class DescriptionService:
         """
         Generates a premium restaurant description fallback for the given dish.
         """
+        for chunk in chunks:
+            title = chunk.get("title", "").lower().strip()
+            content = chunk.get("content", "")
+            if name.lower().strip() in title or title in name.lower().strip():
+                if content:
+                    import json
+                    if "{" in content and "}" in content:
+                        try:
+                            start = content.find("{")
+                            end = content.rfind("}") + 1
+                            data = json.loads(content[start:end])
+                            if "description" in data:
+                                return clean_menu_description(data["description"])
+                        except Exception:
+                            pass
+                    return clean_menu_description(content[:300])
         cat_str = f" delicious {category.lower()}" if category else " culinary creation"
         return f"A premium{cat_str} featuring {name.title()}, prepared fresh using select spices and high-quality local ingredients for a truly authentic taste."

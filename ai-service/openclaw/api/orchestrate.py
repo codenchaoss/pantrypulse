@@ -30,6 +30,10 @@ def get_workflow_manager() -> OpenClawWorkflowManager:
     # Trigger requests on local host
     return OpenClawWorkflowManager(base_url="http://127.0.0.1:8000")
 
+import time
+
+_orchestrate_cache = {}
+
 @router.post("/orchestrate", response_model=ApiResponse[OrchestrationResponseData])
 def trigger_orchestration(
     request: OptimizationRequest,
@@ -40,12 +44,34 @@ def trigger_orchestration(
     """
     logger.info(f"OrchestrateController: Triggering BOH workflows for {len(request.inventory)} inventory items.")
     
+    # Check cache (10.0-second TTL)
+    cache_key = tuple(
+        (item.ingredient.strip().lower(), item.quantity, item.unit.strip().lower(), item.expiry_days)
+        for item in request.inventory
+    )
+    now = time.time()
+    if cache_key in _orchestrate_cache:
+        cached_time, cached_res = _orchestrate_cache[cache_key]
+        if now - cached_time < 10.0:
+            logger.info("OrchestrateController: Response cache hit for orchestrate!")
+            return ApiResponse(data=cached_res)
+            
     # Translate inventory pydantic items to dictionary
     inventory_items = [item.dict() for item in request.inventory]
     result = manager.run_restaurant_optimization_workflow(inventory_items)
     
+    opt_data = result.get("optimization")
+    if opt_data and isinstance(opt_data, dict):
+        w_saved = opt_data.get("waste_saved", 0.0)
+        unit_val = request.inventory[0].unit if request.inventory else "kg"
+        if not isinstance(w_saved, dict):
+            opt_data["waste_saved"] = {
+                "value": float(w_saved),
+                "unit": unit_val
+            }
+            
     response_data = OrchestrationResponseData(
-        optimization=result.get("optimization"),
+        optimization=opt_data,
         recipe=result.get("recipe"),
         menu=result.get("menu"),
         pricing=result.get("pricing", []),
@@ -54,4 +80,8 @@ def trigger_orchestration(
         warnings=result.get("warnings", []),
         workflow_status=result.get("workflow_status", "completed")
     )
+    
+    # Save to cache
+    _orchestrate_cache[cache_key] = (now, response_data)
+    
     return ApiResponse(data=response_data)

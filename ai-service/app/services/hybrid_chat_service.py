@@ -40,6 +40,8 @@ def run_async_synchronously(coro):
         raise exception[0]
     return result[0]
 
+_chat_response_cache = {}
+
 class HybridChatService:
     """
     Central Orchestration Pipeline for BOH AI Operations.
@@ -58,6 +60,17 @@ class HybridChatService:
         """
         start_time = time.time()
         
+        # Check in-memory response cache (10.0-second TTL)
+        cache_key = (question.strip().lower(), history or "")
+        now = time.time()
+        if cache_key in _chat_response_cache:
+            cached_time, cached_res = _chat_response_cache[cache_key]
+            if now - cached_time < 10.0:
+                logger.info(f"[HYBRID_ORCHESTRATOR] Response cache hit for key: {cache_key}")
+                res_copy = cached_res.copy()
+                res_copy["response_time_ms"] = int((time.time() - start_time) * 1000)
+                return res_copy
+
         # 1. Detect query language
         detected_lang = detect_language(question)
         confidence_score = get_language_confidence(question, detected_lang)
@@ -99,7 +112,7 @@ class HybridChatService:
 
         # 5. Invoke LLM Manager (Phase 4)
         try:
-            gemini_res = self.gemini_service.generate_response(prompt_obj)
+            gemini_res = self.gemini_service.generate_response(prompt_obj, context_chunks=context.knowledge)
         except Exception as e:
             logger.error(f"[HYBRID_ORCHESTRATOR] GeminiService failed: {str(e)}")
             from app.models.prompt_models import GeminiResponse
@@ -134,7 +147,7 @@ class HybridChatService:
             f"Success: {gemini_res.metadata.get('success', False)} | Latency: {latency_ms}ms"
         )
 
-        return {
+        result_dict = {
             "question": question,
             "language": detected_lang,
             "confidence": confidence_score,
@@ -147,6 +160,11 @@ class HybridChatService:
             "intent": route_res.intent.value,
             "route": route_res.route.value
         }
+        
+        # Save to cache with current timestamp
+        _chat_response_cache[cache_key] = (time.time(), result_dict)
+        
+        return result_dict
 
     def get_response_sync(self, question: str, history: Optional[str] = None) -> Dict[str, Any]:
         """
