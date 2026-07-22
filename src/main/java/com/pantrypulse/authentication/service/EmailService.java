@@ -1,24 +1,60 @@
 package com.pantrypulse.authentication.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClient;
+
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class EmailService {
 
-    private final JavaMailSender mailSender;
+    private final RestClient restClient;
 
-    public void sendPasswordResetEmail(String email, String resetLink) {
+    @Value("${brevo.api.key}")
+    private String apiKey;
 
-        System.out.println("========================");
-        System.out.println("EMAIL METHOD CALLED");
-        System.out.println(email);
-        System.out.println(resetLink);
-        System.out.println("========================");
+    @Value("${brevo.sender.email}")
+    private String senderEmail;
 
-        // DO NOT SEND MAIL
+    @Value("${brevo.sender.name}")
+    private String senderName;
+
+    public void sendPasswordResetEmail(String toEmail, String resetLink) {
+
+        Map<String, Object> body = Map.of(
+                "sender", Map.of(
+                        "name", senderName,
+                        "email", senderEmail
+                ),
+                "to", new Object[]{
+                        Map.of("email", toEmail)
+                },
+                "subject", "PantryPulse Password Reset",
+                "htmlContent",
+                """
+                <h2>Reset your password</h2>
+                <p>Click the button below to reset your password:</p>
+                <a href="%s"
+                   style="padding:12px 20px;
+                          background:#4CAF50;
+                          color:white;
+                          text-decoration:none;
+                          border-radius:5px;">
+                    Reset Password
+                </a>
+                """.formatted(resetLink)
+        );
+
+        restClient.post()
+                .uri("https://api.brevo.com/v3/smtp/email")
+                .contentType(MediaType.APPLICATION_JSON)
+                .header("api-key", apiKey)
+                .body(body)
+                .retrieve()
+                .toBodilessEntity();
     }
 }
