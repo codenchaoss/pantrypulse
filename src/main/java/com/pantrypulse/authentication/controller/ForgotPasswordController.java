@@ -1,5 +1,7 @@
 package com.pantrypulse.authentication.controller;
 
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,17 +18,16 @@ import lombok.RequiredArgsConstructor;
 public class ForgotPasswordController {
 
     private final PasswordResetService passwordResetService;
-
     @PostMapping("/forgot-password")
-    public ResponseEntity<String> forgotPassword(
+    public ResponseEntity<Map<String, String>> forgotPassword(
             @RequestBody ForgotPasswordRequest request) {
 
-        System.out.println("Reached Forgot Password Controller");
+        String message = passwordResetService.forgotPassword(request);
 
         return ResponseEntity.ok(
-                passwordResetService.forgotPassword(request));
+            Map.of("message", message)
+        );
     }
-
     @PostMapping("/reset-password")
     public ResponseEntity<String> resetPassword(
             @Valid @RequestBody ResetPasswordRequest request) {
