@@ -77,8 +77,14 @@ class ProviderManager:
         without using any LLM call.
         """
         p_low = prompt.lower().strip()
-        greetings = ["hi", "hello", "hey", "hii", "helloo", "whom you are", "who are you", "what is your name", "who are you?", "what are you?"]
-        if any(g in p_low for g in greetings) or len(p_low) < 6:
+        greetings = {
+            "hi", "hello", "hey", "hii", "helloo", "who are you", "what is your name", "who are you?", "what are you?",
+            "namaste", "namaskaram", "hai", "hlo"
+        }
+        
+        # Check if the entire prompt is exactly a greeting or if the first word is a greeting (for short phrases)
+        first_word = p_low.split()[0] if p_low else ""
+        if p_low in greetings or (len(p_low.split()) <= 2 and first_word in greetings):
             return "Hello! I am KitchenSync AI, your smart kitchen and restaurant management assistant. How can I help you today?"
 
         if not chunks:
