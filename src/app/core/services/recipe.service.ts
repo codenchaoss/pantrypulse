@@ -40,4 +40,19 @@ export class RecipeService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
+  // Search recipes
+  searchRecipes(name: string): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(`${this.apiUrl}/search?name=${encodeURIComponent(name)}`);
+  }
+
+  // Get recipes by category
+  getRecipesByCategory(category: string): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(`${this.apiUrl}/category/${category}`);
+  }
+
+  // Get available recipes
+  getAvailableRecipes(available: boolean): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(`${this.apiUrl}/available/${available}`);
+  }
+
 }

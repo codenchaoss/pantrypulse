@@ -108,6 +108,9 @@
           </button>
 
           <div class="right-actions">
+            <button class="action-btn ai-price-btn" (click)="getAiPriceSuggestion()" style="background: rgba(6, 182, 212, 0.1); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.2);">
+              💡 AI Suggest Price
+            </button>
             <button class="action-btn edit-btn" (click)="editRecipe()">
               ✏ Edit Recipe
             </button>
@@ -158,6 +161,58 @@
 
       </div>
 
+    </div>
+  </div>
+
+  <!-- AI Price Suggestion Modal -->
+  <div class="modal-overlay" *ngIf="showPricingModal" (click)="closePricingModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+      <div class="modal-icon">💡</div>
+      <h3 class="modal-title">AI Price Suggestion</h3>
+      
+      <div *ngIf="isPricingLoading" class="modal-loading">
+        <div class="btn-spinner"></div>
+        <p>Analyzing costs and market margins...</p>
+      </div>
+
+      <div *ngIf="pricingError" class="modal-error">
+        <span class="error-icon">⚠</span>
+        <p>{{ pricingError }}</p>
+      </div>
+
+      <div *ngIf="!isPricingLoading && !pricingError && pricingSuggestion" class="pricing-details">
+        <h4 class="pricing-dish">{{ pricingSuggestion.dish }}</h4>
+        <div class="pricing-metrics">
+          <div class="metric">
+            <span class="label">Current Cost:</span>
+            <span class="value">₹{{ pricingSuggestion.ingredient_cost | number:'1.2-2' }}</span>
+          </div>
+          <div class="metric highlight">
+            <span class="label">Suggested Price:</span>
+            <span class="value">₹{{ pricingSuggestion.recommended_price | number:'1.2-2' }}</span>
+          </div>
+          <div class="metric">
+            <span class="label">Profit Margin:</span>
+            <span class="value">{{ (pricingSuggestion.profit_margin * 100) | number:'1.1-1' }}%</span>
+          </div>
+          <div class="metric">
+            <span class="label">Estimated Profit:</span>
+            <span class="value">₹{{ pricingSuggestion.estimated_profit | number:'1.2-2' }}</span>
+          </div>
+        </div>
+
+        <div class="pricing-explanation" *ngIf="pricingSuggestion.pricing_strategy">
+          <h5>AI Explanation</h5>
+          <p>{{ pricingSuggestion.pricing_strategy }}</p>
+          <small class="market-pos" *ngIf="pricingSuggestion.market_position">
+            Market Position: <strong>{{ pricingSuggestion.market_position }}</strong> (Confidence: {{ (pricingSuggestion.price_confidence * 100) | number:'1.0-0' }}%)
+          </small>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="modal-cancel-btn" (click)="closePricingModal()">Close</button>
+      </div>
     </div>
   </div>
 

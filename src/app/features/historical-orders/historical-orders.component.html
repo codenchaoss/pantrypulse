@@ -1,0 +1,145 @@
+<div class="supplier-page">
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="title-section">
+      <h2>Orders History</h2>
+      <p>Historical recipe demand records for planning & analysis</p>
+    </div>
+  </div>
+
+  <!-- Connection Error Warning Banner -->
+  <div class="alert alert-error" *ngIf="isConnectionError">
+    <span class="alert-icon">⚠️</span> Unable to connect to the Historical Orders service. Please ensure the backend is running and reachable.
+  </div>
+
+  <!-- Top Summary Cards -->
+  <div class="stats-row" *ngIf="!isLoading && !isConnectionError">
+    <!-- Total Records -->
+    <div class="stat-card">
+      <div class="icon orange">
+        <i class="fa-solid fa-folder-open"></i>
+      </div>
+      <div class="stat-content">
+        <span>Total Records</span>
+        <h2>{{ totalRecords }}</h2>
+        <small class="text-neutral">Saved demand entries</small>
+      </div>
+    </div>
+
+    <!-- Total Quantity Ordered -->
+    <div class="stat-card">
+      <div class="icon blue">
+        <i class="fa-solid fa-calculator"></i>
+      </div>
+      <div class="stat-content">
+        <span>Total Quantity</span>
+        <h2>{{ totalQuantity }}</h2>
+        <small class="text-neutral">Total units consumed</small>
+      </div>
+    </div>
+
+    <!-- Most Ordered Recipe -->
+    <div class="stat-card">
+      <div class="icon yellow">
+        <i class="fa-solid fa-utensils"></i>
+      </div>
+      <div class="stat-content">
+        <span>Most Demanded</span>
+        <h2>{{ mostOrderedRecipe }}</h2>
+        <small class="text-neutral">Top recipe by quantity</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls Panel (Search, Date Filter & Add Button) -->
+  <div class="controls-panel">
+    <div class="search-box">
+      <span class="material-icons search-icon">search</span>
+      <input 
+        type="text" 
+        placeholder="Search by recipe name..." 
+        [(ngModel)]="searchText"
+        (input)="applyFilters()">
+    </div>
+
+    <div class="filter-select-wrapper">
+      <input 
+        type="date" 
+        [(ngModel)]="filterDate" 
+        (change)="applyFilters()" 
+        class="filter-select"
+        style="width: 160px; font-family: inherit;">
+      <button 
+        *ngIf="filterDate" 
+        class="btn-icon" 
+        (click)="clearDateFilter()" 
+        title="Clear Date Filter" 
+        style="margin-left: 8px; color: #fca5a5;">
+        <span class="material-icons">clear</span>
+      </button>
+    </div>
+    
+    <div class="action-buttons">
+      <button class="btn btn-add" (click)="openAddDialog()" [disabled]="isLoading">
+        <span class="material-icons">add</span> Add Record
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-state" *ngIf="isLoading">
+    <mat-spinner diameter="40" class="orange-spinner"></mat-spinner>
+    <p>Loading historical records...</p>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="!isLoading && !isConnectionError && filteredOrders.length === 0">
+    <span class="material-icons empty-icon">history</span>
+    <p>No historical records found.</p>
+  </div>
+
+  <!-- Table Container -->
+  <div class="table-container" *ngIf="!isLoading && !isConnectionError && filteredOrders.length > 0">
+    <table mat-table [dataSource]="filteredOrders" class="supplier-table mat-elevation-z8">
+
+      <!-- Recipe Name Column -->
+      <ng-container matColumnDef="recipeName">
+        <th mat-header-cell *matHeaderCellDef> Recipe Name </th>
+        <td mat-cell *matCellDef="let element" class="supplier-name-cell">
+          {{ element.recipeName || getRecipeName(element.recipeId) }}
+        </td>
+      </ng-container>
+
+      <!-- Quantity Column -->
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{ element.quantity }} </td>
+      </ng-container>
+
+      <!-- Order Date Column -->
+      <ng-container matColumnDef="orderDate">
+        <th mat-header-cell *matHeaderCellDef> Order Date </th>
+        <td mat-cell *matCellDef="let element"> {{ element.orderDate | date:'mediumDate' }} </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="actions-header"> Actions </th>
+        <td mat-cell *matCellDef="let element" class="actions-cell">
+          <button class="btn-icon view" (click)="openViewDialog(element)" title="View Details">
+            <span class="material-icons">visibility</span>
+          </button>
+          <button class="btn-icon delete" (click)="deleteOrder(element.id, element.recipeId)" title="Delete Record">
+            <span class="material-icons">delete</span>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Header and Row Declarations -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+</div>

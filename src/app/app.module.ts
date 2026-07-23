@@ -42,6 +42,18 @@ import { SupplierDialogComponent } from './features/suppliers/supplier-dialog.co
 import { AiAssistantComponent } from './features/ai-assistant/ai-assistant.component';
 import { AiChatComponent } from './features/ai-assistant/ai-chat/ai-chat.component';
 import { SettingsComponent } from './features/settings/settings.component';
+import { ResetPasswordComponent } from './features/auth/reset-password/reset-password.component';
+import { SplashScreenComponent } from './features/splash-screen/splash-screen.component';
+
+// Historical Orders Features
+import { HistoricalOrdersComponent } from './features/historical-orders/historical-orders.component';
+import { HistoricalOrderDialogComponent } from './features/historical-orders/historical-order-dialog.component';
+
+// AI Recipe Features
+import { AiRecipeDialogComponent } from './features/recipes/ai-recipe-dialog/ai-recipe-dialog.component';
+
+// AI Supplier Features
+import { AiSupplierDialogComponent } from './features/suppliers/ai-supplier-dialog/ai-supplier-dialog.component';
 
 import { NgChartsModule } from 'ng2-charts';
 
@@ -71,7 +83,13 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
     SupplierDialogComponent,
     AiAssistantComponent,
     AiChatComponent,
-    SettingsComponent
+    SettingsComponent,
+    ResetPasswordComponent,
+    SplashScreenComponent,
+    HistoricalOrdersComponent,
+    HistoricalOrderDialogComponent,
+    AiRecipeDialogComponent,
+    AiSupplierDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, timer } from 'rxjs';
-import { catchError, switchMap, takeUntil } from 'rxjs/operators';
+import { Subject, timer, forkJoin } from 'rxjs';
+import { catchError, switchMap, takeUntil, map } from 'rxjs/operators';
 import { DashboardData, DashboardService } from '../../services/dashboard.service';
+import { ExpirationService, ExpiringIngredient } from '../../services/expiration.service';
+import { InventoryService } from '../../services/inventory.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +14,7 @@ import { DashboardData, DashboardService } from '../../services/dashboard.servic
 export class DashboardComponent implements OnInit, OnDestroy {
 
   data: DashboardData | null = null;
+  expiringIngredients: ExpiringIngredient[] = [];
   isLoading = true;
   errorMessage = '';
   aiSuggestionsText = '';
@@ -21,8 +24,43 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   constructor(
     private dashboardService: DashboardService,
+    private expirationService: ExpirationService,
+    private inventoryService: InventoryService,
     public cdr: ChangeDetectorRef
   ) {}
+
+  private fetchDashboardDetails() {
+    return forkJoin({
+      dashboard: this.dashboardService.getDashboardData(),
+      expiring: this.expirationService.getExpiringIngredients(),
+      inventory: this.inventoryService.getIngredients()
+    }).pipe(
+      map(({ dashboard, expiring, inventory }) => {
+        const expiringWithCategory = expiring.map(exp => {
+          const matched = inventory.find((inv: any) => 
+            inv.id === exp.inventoryId || 
+            (inv.ingredientName && exp.ingredientName && inv.ingredientName.toLowerCase() === exp.ingredientName.toLowerCase())
+          );
+          return {
+            ...exp,
+            category: matched ? matched.category : 'Others'
+          };
+        });
+        this.expiringIngredients = expiringWithCategory;
+        return dashboard;
+      })
+    );
+  }
+
+  getExpirationStatus(days: number): { text: string; class: string } {
+    if (days <= 3) {
+      return { text: '🔴 Critical', class: 'danger' };
+    } else if (days <= 7) {
+      return { text: '🟠 Warning', class: 'warning' };
+    } else {
+      return { text: '🟢 Safe', class: 'success' };
+    }
+  }
 
   ngOnInit(): void {
     // 60-second automatic refresh timer combined with manual refresh trigger
@@ -32,7 +70,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.isLoading = true;
         this.errorMessage = '';
         this.cdr.markForCheck();
-        return this.dashboardService.getDashboardData().pipe(
+        return this.fetchDashboardDetails().pipe(
           catchError(err => {
             console.error('Error in automatic dashboard fetch:', err);
             this.errorMessage = 'Failed to load dashboard data. Ensure backend is running.';
@@ -61,7 +99,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.isLoading = true;
         this.errorMessage = '';
         this.cdr.markForCheck();
-        return this.dashboardService.getDashboardData().pipe(
+        return this.fetchDashboardDetails().pipe(
           catchError(err => {
             console.error('Error in manual dashboard fetch:', err);
             this.errorMessage = 'Failed to refresh dashboard. Check connection.';

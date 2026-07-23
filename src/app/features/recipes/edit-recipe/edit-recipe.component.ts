@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe, RecipeCategory } from '../../../core/models/recipe.model';
@@ -52,7 +52,8 @@ export class EditRecipeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -60,6 +61,7 @@ export class EditRecipeComponent implements OnInit {
     if (!idParam || isNaN(Number(idParam))) {
       this.loadError = 'Invalid recipe ID in URL.';
       this.isLoading = false;
+      this.cdr.markForCheck();
       return;
     }
     this.recipeId = Number(idParam);
@@ -69,6 +71,7 @@ export class EditRecipeComponent implements OnInit {
   fetchRecipe(): void {
     this.isLoading = true;
     this.loadError = '';
+    this.cdr.markForCheck();
 
     this.recipeService.getRecipeById(this.recipeId).subscribe({
       next: (data: Recipe) => {
@@ -80,6 +83,7 @@ export class EditRecipeComponent implements OnInit {
         this.imageCleared = false;
         
         this.isLoading = false;
+        this.cdr.markForCheck();
       },
       error: (err) => {
         this.isLoading = false;
@@ -91,6 +95,7 @@ export class EditRecipeComponent implements OnInit {
           this.loadError = `Failed to load recipe (HTTP ${err.status}).`;
         }
         console.error('Error fetching recipe:', err);
+        this.cdr.markForCheck();
       }
     });
   }
@@ -111,6 +116,7 @@ export class EditRecipeComponent implements OnInit {
       this.imageFile = null;
       this.imagePreview = null;
       input.value = ''; // Reset input element
+      this.cdr.markForCheck();
       return;
     }
 
@@ -121,6 +127,7 @@ export class EditRecipeComponent implements OnInit {
       this.imageFile = null;
       this.imagePreview = null;
       input.value = ''; // Reset input element
+      this.cdr.markForCheck();
       return;
     }
 
@@ -131,9 +138,11 @@ export class EditRecipeComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreview = reader.result as string;
+      this.cdr.markForCheck();
     };
     reader.onerror = () => {
       this.imageError = 'Failed to read file.';
+      this.cdr.markForCheck();
     };
     reader.readAsDataURL(file);
   }
@@ -148,6 +157,7 @@ export class EditRecipeComponent implements OnInit {
     if (fileInput) {
       fileInput.value = '';
     }
+    this.cdr.markForCheck();
   }
 
   updateRecipe(form: NgForm): void {
@@ -157,6 +167,7 @@ export class EditRecipeComponent implements OnInit {
 
     if (form.invalid) {
       form.form.markAllAsTouched();
+      this.cdr.markForCheck();
       return;
     }
 
@@ -164,6 +175,7 @@ export class EditRecipeComponent implements OnInit {
     console.log('PUT /api/recipes/' + this.recipeId, JSON.stringify(this.recipe, null, 2));
 
     this.isSubmitting = true;
+    this.cdr.markForCheck();
 
     this.recipeService.updateRecipe(this.recipeId, this.recipe).subscribe({
       next: (updatedRecipe: Recipe) => {
@@ -182,6 +194,7 @@ export class EditRecipeComponent implements OnInit {
 
         this.successMessage = `Recipe "${updatedRecipe.recipeName}" updated successfully!`;
         console.log('Recipe updated:', updatedRecipe);
+        this.cdr.markForCheck();
         setTimeout(() => {
           this.router.navigate(['/recipes']);
         }, 1500);
@@ -213,6 +226,7 @@ export class EditRecipeComponent implements OnInit {
         } else {
           this.errorMessage = `Server error (${error.status}): ${error.message}`;
         }
+        this.cdr.markForCheck();
       }
     });
   }

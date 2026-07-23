@@ -1,0 +1,310 @@
+<div class="supplier-dialog-container recipe-dialog-large">
+  
+  <h2 mat-dialog-title class="dialog-title">
+    <span class="title-text">{{ title }}</span>
+    <span class="step-badge" *ngIf="step === 'form'">Step 1: Supplier Parameters</span>
+    <span class="step-badge" *ngIf="step === 'result'">Step 2: AI Recommendations</span>
+  </h2>
+  
+  <mat-dialog-content class="dialog-content">
+    
+    <!-- Error banner alert -->
+    <div class="alert alert-error" *ngIf="errorMessage">
+      <span class="alert-icon">✖</span> {{ errorMessage }}
+    </div>
+
+    <!-- loading pre-fill data state -->
+    <div class="dialog-loading" *ngIf="isLoadingPrefill">
+      <mat-spinner diameter="30" class="orange-spinner"></mat-spinner>
+      <p>Loading profile and supplier details...</p>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         STEP 1: PARAMETERS FORM INPUTS
+         ════════════════════════════════════════ -->
+    <div *ngIf="step === 'form' && !isLoadingPrefill" class="supplier-form-step">
+      
+      <!-- Pre-fill Selection Dropdown -->
+      <div class="prefill-section form-group">
+        <label class="form-label font-gold">Quick Pre-fill from Active Supplier Database</label>
+        <select class="form-control form-select-control highlight-border" (change)="onSupplierSelect($event)">
+          <option value="">-- Select Supplier to Pre-fill Contacts --</option>
+          <option *ngFor="let s of suppliersList" [value]="s.supplierName">{{ s.supplierName }}</option>
+        </select>
+      </div>
+
+      <form [formGroup]="supplierForm" class="supplier-form margin-top-20">
+        
+        <!-- Ingredient Name & Required Quantity -->
+        <div class="form-row">
+          <div class="form-group col">
+            <label class="form-label">Ingredient to Source *</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              formControlName="ingredient" 
+              placeholder="e.g. Rice, Tomato"
+              [class.error-border]="supplierForm.get('ingredient')?.touched && supplierForm.get('ingredient')?.invalid">
+            <span class="error-text" *ngIf="supplierForm.get('ingredient')?.touched && supplierForm.get('ingredient')?.invalid">
+              Ingredient name is required
+            </span>
+          </div>
+          
+          <div class="form-group col">
+            <label class="form-label">Required Quantity *</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              formControlName="required_quantity" 
+              placeholder="e.g. 50 kg, 20 liters"
+              [class.error-border]="supplierForm.get('required_quantity')?.touched && supplierForm.get('required_quantity')?.invalid">
+            <span class="error-text" *ngIf="supplierForm.get('required_quantity')?.touched && supplierForm.get('required_quantity')?.invalid">
+              Required quantity is required
+            </span>
+          </div>
+        </div>
+
+        <!-- Required Date & Urgency Level -->
+        <div class="form-row">
+          <div class="form-group col">
+            <label class="form-label">Required Date *</label>
+            <input 
+              type="date" 
+              class="form-control" 
+              formControlName="required_date"
+              [class.error-border]="supplierForm.get('required_date')?.touched && supplierForm.get('required_date')?.invalid">
+            <span class="error-text" *ngIf="supplierForm.get('required_date')?.touched && supplierForm.get('required_date')?.invalid">
+              Required date is required
+            </span>
+          </div>
+          
+          <div class="form-group col">
+            <label class="form-label">Urgency Level *</label>
+            <select 
+              class="form-control form-select-control" 
+              formControlName="urgency_level">
+              <option *ngFor="let u of urgencyLevels" [value]="u.value" [className]="u.class">{{ u.label }}</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Supplier Details -->
+        <div class="form-row">
+          <div class="form-group col">
+            <label class="form-label">Target Supplier Name</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              formControlName="supplier_name" 
+              placeholder="Enter Supplier Name">
+          </div>
+          
+          <div class="form-group col">
+            <label class="form-label">Supplier Email</label>
+            <input 
+              type="email" 
+              class="form-control" 
+              formControlName="supplier_email" 
+              placeholder="e.g. supplier@example.com"
+              [class.error-border]="supplierForm.get('supplier_email')?.touched && supplierForm.get('supplier_email')?.invalid">
+            <span class="error-text" *ngIf="supplierForm.get('supplier_email')?.touched && supplierForm.get('supplier_email')?.invalid">
+              Please enter a valid email format
+            </span>
+          </div>
+
+          <div class="form-group col">
+            <label class="form-label">Supplier Phone</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              formControlName="supplier_phone" 
+              placeholder="Enter Supplier Phone">
+          </div>
+        </div>
+
+        <!-- Restaurant details (Pre-filled) -->
+        <div class="form-row">
+          <div class="form-group col">
+            <label class="form-label">Restaurant Name</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              formControlName="restaurant_name" 
+              placeholder="Enter Restaurant Name">
+          </div>
+          
+          <div class="form-group col">
+            <label class="form-label">Contact Person</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              formControlName="contact_person" 
+              placeholder="Enter Contact Person">
+          </div>
+
+          <div class="form-group col">
+            <label class="form-label">Language Preference</label>
+            <select 
+              class="form-control form-select-control" 
+              formControlName="language_preference">
+              <option *ngFor="let l of languages" [value]="l.value">{{ l.label }}</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Inventory Multi-Select Checklist (For current shortages context) -->
+        <div class="form-group">
+          <label class="form-label font-gold">Associate Current Shortages Context (Multi-select Ingredients)</label>
+          
+          <div class="search-box-wrapper margin-bottom-8">
+            <span class="material-icons search-icon">search</span>
+            <input 
+              type="text" 
+              placeholder="Filter current inventory items..." 
+              [(ngModel)]="searchText"
+              [ngModelOptions]="{standalone: true}"
+              (input)="applyFilter()"
+              class="form-control">
+          </div>
+
+          <div class="ingredients-selection-list">
+            <div 
+              *ngFor="let item of filteredInventory" 
+              class="ingredient-item-row"
+              [class.selected]="selectedIngredients.has(item.ingredientName)"
+              (click)="toggleIngredient(item.ingredientName)">
+              
+              <label class="checkbox-container" (click)="$event.stopPropagation()">
+                <input 
+                  type="checkbox" 
+                  [checked]="selectedIngredients.has(item.ingredientName)"
+                  (change)="toggleIngredient(item.ingredientName)">
+                <span class="checkmark"></span>
+              </label>
+
+              <div class="ingredient-info">
+                <span class="ing-name">{{ item.ingredientName }}</span>
+              </div>
+
+              <div class="ingredient-stock font-gold">
+                In Stock: {{ item.quantity }} {{ item.unit }}
+              </div>
+            </div>
+
+            <div *ngIf="filteredInventory.length === 0" class="empty-list-placeholder">
+              <p>No inventory items match filter.</p>
+            </div>
+          </div>
+
+          <div class="selection-footer">
+            <span>Linked: <strong>{{ selectedIngredients.size }}</strong> ingredient(s)</span>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         AI GENERATING LOADING STATE
+         ════════════════════════════════════════ -->
+    <div *ngIf="step === 'loading'" class="glowing-ai-loader">
+      <div class="glowing-orb purple-orb"></div>
+      <p class="loader-title">Consulting PantryPulse AI Recommendation Engine...</p>
+      <p class="loader-sub">Assessing delivery schedules, urgency warnings, and vendor lists</p>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         STEP 2: RENDER AI RECOMMENDATIONS
+         ════════════════════════════════════════ -->
+    <div *ngIf="step === 'result' && aiResponse" class="ai-recommendations-result">
+      
+      <!-- Scenario: Plaintext Fallback Card -->
+      <div *ngIf="aiResponse.isPlaintext" class="plaintext-result-card">
+        <h4 class="section-card-title">GenAI Supplier Report</h4>
+        <div class="plaintext-body-wrapper">
+          {{ aiResponse.text }}
+        </div>
+      </div>
+
+      <!-- Scenario: Structured Recommendations Layout -->
+      <div *ngIf="!aiResponse.isPlaintext" class="structured-result-grid">
+        
+        <!-- Primary Recommended Supplier Card -->
+        <div class="result-highlight-card">
+          <div class="card-icon">🏆</div>
+          <div class="card-main-info">
+            <span class="meta-label">Recommended Supplier</span>
+            <h3 class="meta-val">{{ aiResponse.recommendedSupplier }}</h3>
+          </div>
+        </div>
+
+        <div class="result-details-row">
+          
+          <!-- Recommended Quantity -->
+          <div class="result-detail-item col">
+            <span class="detail-icon">📦</span>
+            <div class="detail-body">
+              <span class="meta-label">Recommended Quantity</span>
+              <span class="meta-val font-highlight">{{ aiResponse.recommendedQuantity }}</span>
+            </div>
+          </div>
+
+          <!-- Cost/Pricing Notes -->
+          <div class="result-detail-item col">
+            <span class="detail-icon">💰</span>
+            <div class="detail-body">
+              <span class="meta-label">Cost & Pricing Notes</span>
+              <span class="meta-val">{{ aiResponse.costPricingNotes }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivery & Shipping Suggestions -->
+        <div class="plaintext-result-card margin-top-12">
+          <h4 class="section-card-title">🕒 Delivery & Shipping Suggestions</h4>
+          <p class="card-text">{{ aiResponse.deliverySuggestions }}</p>
+        </div>
+
+        <!-- Alternative Suppliers Checklist -->
+        <div class="plaintext-result-card margin-top-12" *ngIf="aiResponse.alternativeSuppliers.length > 0">
+          <h4 class="section-card-title">🤝 Alternative Suppliers</h4>
+          <ul class="alternatives-list">
+            <li *ngFor="let alt of aiResponse.alternativeSuppliers">{{ alt }}</li>
+          </ul>
+        </div>
+
+        <!-- AI Recommendation Explanation -->
+        <div class="plaintext-result-card margin-top-12 border-purple">
+          <h4 class="section-card-title font-purple">💡 AI Explanation & Strategy</h4>
+          <p class="card-text">{{ aiResponse.aiExplanation }}</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </mat-dialog-content>
+  
+  <mat-dialog-actions class="dialog-actions">
+    <button 
+      class="action-btn cancel-btn" 
+      (click)="cancel()">
+      Close
+    </button>
+    
+    <button 
+      class="action-btn cancel-btn" 
+      (click)="backToForm()" 
+      *ngIf="step === 'result'">
+      ← Edit Form
+    </button>
+
+    <button 
+      class="action-btn save-btn ai-supplier-btn-gradient" 
+      (click)="onSubmit()" 
+      *ngIf="step === 'form'">
+      Ask Assistant
+    </button>
+  </mat-dialog-actions>
+  
+</div>

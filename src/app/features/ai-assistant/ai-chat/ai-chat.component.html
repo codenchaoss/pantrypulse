@@ -4,23 +4,38 @@
        Header
        ════════════════════════════════════════ -->
   <div class="chat-header">
-    <div class="header-info">
-      <div class="title-row">
-        <h2>{{ title }}</h2>
-        <span class="status-pill">
-          <span class="dot"></span> Spring Boot API Ready
-        </span>
+    <div class="header-left">
+      <div class="header-avatar">
+        <svg class="ai-chef-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" fill="rgba(249, 115, 22, 0.1)" stroke="rgba(249, 115, 22, 0.3)" stroke-width="1"/>
+          <path d="M7.5 17C4.5 17 4 12.5 6.5 10.5C5.5 7 9 4.5 12 6.5C15 4.5 18.5 7 17.5 10.5C20 12.5 19.5 17 16.5 17Z" fill="rgba(255, 255, 255, 0.9)" stroke="#ffffff" stroke-width="1.2"/>
+          <rect x="7" y="17" width="10" height="2.5" rx="1" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+          <circle cx="12" cy="11" r="1.5" fill="#F97316" stroke="none"/>
+          <path d="M12 11L12 17" stroke="#F97316" stroke-width="1.5"/>
+          <circle cx="9" cy="13" r="1" fill="#F97316" stroke="none"/>
+          <path d="M9 13L9 17" stroke="#F97316" stroke-width="1"/>
+          <circle cx="15" cy="13" r="1" fill="#F97316" stroke="none"/>
+          <path d="M15 13L15 17" stroke="#F97316" stroke-width="1"/>
+        </svg>
       </div>
-      <p class="description-text">{{ description }}</p>
+      <div class="header-info">
+        <h2 class="chat-title">{{ title }}</h2>
+        <p class="chat-subtitle">{{ description }}</p>
+      </div>
     </div>
 
-    <div class="header-actions">
+    <div class="header-right">
+      <div class="status-indicator-pill">
+        <span class="online-dot glowing"></span>
+        <span>Online</span>
+      </div>
       <button 
         class="clear-chat-btn" 
         (click)="clearChat()" 
         *ngIf="messages.length > 0 || errorMessage"
         title="Clear conversation history">
-        🗑 Clear Chat
+        <span class="material-icons">delete_sweep</span>
+        <span class="btn-text">Clear Chat</span>
       </button>
     </div>
   </div>
@@ -29,131 +44,163 @@
        Chat Area Window
        ════════════════════════════════════════ -->
   <div class="chat-window">
+    <div class="chat-content-constraint">
 
-    <!-- Empty State (Before First Message) -->
-    <div class="empty-chat-state" *ngIf="messages.length === 0 && !isTyping && !errorMessage">
-      <div class="bot-avatar-large">
-        <span class="bot-icon">🤖</span>
+      <!-- Empty State -->
+      <div class="empty-chat-state" *ngIf="messages.length === 0 && !isTyping && !errorMessage">
+        <div class="bot-avatar-large">
+          <svg class="ai-chef-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" fill="rgba(249, 115, 22, 0.1)" stroke="rgba(249, 115, 22, 0.3)" stroke-width="1"/>
+            <path d="M7.5 17C4.5 17 4 12.5 6.5 10.5C5.5 7 9 4.5 12 6.5C15 4.5 18.5 7 17.5 10.5C20 12.5 19.5 17 16.5 17Z" fill="rgba(255, 255, 255, 0.9)" stroke="#ffffff" stroke-width="1.2"/>
+            <rect x="7" y="17" width="10" height="2.5" rx="1" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+            <circle cx="12" cy="11" r="1.5" fill="#F97316" stroke="none"/>
+            <path d="M12 11L12 17" stroke="#F97316" stroke-width="1.5"/>
+            <circle cx="9" cy="13" r="1" fill="#F97316" stroke="none"/>
+            <path d="M9 13L9 17" stroke="#F97316" stroke-width="1"/>
+            <circle cx="15" cy="13" r="1" fill="#F97316" stroke="none"/>
+            <path d="M15 13L15 17" stroke="#F97316" stroke-width="1"/>
+          </svg>
+        </div>
+        <h3>Welcome to KitchenPulse AI</h3>
+        <p class="empty-subtitle">
+          I'm your intelligent restaurant copilot. I can help you analyze inventory, plan menus, reduce waste, and optimize operations.
+        </p>
       </div>
 
-      <h3>Welcome to PantryPulse AI Assistant</h3>
-      <p class="empty-subtitle">
-        I can help you analyze expiring inventory, recommend special menus, check low stock items, and optimize restaurant operations.
-      </p>
+      <!-- Messages Container -->
+      <div class="messages-list" *ngIf="messages.length > 0">
+        <div 
+          class="message-wrapper" 
+          *ngFor="let msg of messages"
+          [class.user-wrapper]="msg.sender === 'user'"
+          [class.ai-wrapper]="msg.sender === 'ai'">
 
-      <div class="suggested-prompts-section">
-        <span class="section-title">💡 Try asking:</span>
-        <div class="prompts-grid">
-          <button 
-            class="prompt-chip" 
-            *ngFor="let prompt of suggestedPrompts"
-            (click)="selectSuggestedPrompt(prompt)">
-            <span class="chip-sparkle">✦</span>
-            <span>{{ prompt }}</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Messages Container -->
-    <div class="messages-list" *ngIf="messages.length > 0">
-
-      <div 
-        class="message-wrapper" 
-        *ngFor="let msg of messages"
-        [class.user-wrapper]="msg.sender === 'user'"
-        [class.ai-wrapper]="msg.sender === 'ai'">
-
-        <!-- Avatar -->
-        <div class="avatar">
-          <span *ngIf="msg.sender === 'user'">👤</span>
-          <span *ngIf="msg.sender === 'ai'">🤖</span>
-        </div>
-
-        <!-- Bubble -->
-        <div class="message-bubble" [class.error-bubble]="msg.status === 'error'">
-          <div class="sender-label">
-            {{ msg.sender === 'user' ? 'You' : 'AI Assistant' }}
+          <!-- AI Avatar -->
+          <div class="avatar ai-avatar" *ngIf="msg.sender === 'ai'">
+            <svg class="ai-chef-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" fill="rgba(249, 115, 22, 0.1)" stroke="rgba(249, 115, 22, 0.3)" stroke-width="1"/>
+              <path d="M7.5 17C4.5 17 4 12.5 6.5 10.5C5.5 7 9 4.5 12 6.5C15 4.5 18.5 7 17.5 10.5C20 12.5 19.5 17 16.5 17Z" fill="rgba(255, 255, 255, 0.9)" stroke="#ffffff" stroke-width="1.2"/>
+              <rect x="7" y="17" width="10" height="2.5" rx="1" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+              <circle cx="12" cy="11" r="1.5" fill="#F97316" stroke="none"/>
+              <path d="M12 11L12 17" stroke="#F97316" stroke-width="1.5"/>
+              <circle cx="9" cy="13" r="1" fill="#F97316" stroke="none"/>
+              <path d="M9 13L9 17" stroke="#F97316" stroke-width="1"/>
+              <circle cx="15" cy="13" r="1" fill="#F97316" stroke="none"/>
+              <path d="M15 13L15 17" stroke="#F97316" stroke-width="1"/>
+            </svg>
           </div>
-          <p class="message-text">{{ msg.text }}</p>
-          <div class="message-meta">
-            <span class="timestamp">{{ msg.timestamp }}</span>
-            <span class="status-indicator" *ngIf="msg.sender === 'user'">
-              {{ msg.status === 'sending' ? '⏳ Sending...' : (msg.status === 'error' ? '⚠ Error' : '✔') }}
-            </span>
+
+          <!-- Bubble -->
+          <div class="message-bubble" [class.error-bubble]="msg.status === 'error'">
+            <div class="sender-label" *ngIf="msg.sender === 'user'">You</div>
+            <div class="sender-label" *ngIf="msg.sender === 'ai'">KitchenPulse AI</div>
+            
+            <p class="message-text" [class.markdown-text]="msg.sender === 'ai'">{{ msg.text }}</p>
+            
+            <div class="message-meta">
+              <span class="timestamp">{{ msg.timestamp }}</span>
+              <span class="status-indicator" *ngIf="msg.sender === 'user'">
+                <span *ngIf="msg.status === 'sending'">⏳ Sending...</span>
+                <span *ngIf="msg.status === 'error'">⚠ Error</span>
+                <span *ngIf="msg.status === 'sent'">✔</span>
+              </span>
+            </div>
           </div>
+
+          <!-- User Avatar Placeholder (Optional, currently omitted for cleaner Copilot look) -->
         </div>
 
+        <!-- Typing Indicator -->
+        <div class="message-wrapper ai-wrapper typing-wrapper" *ngIf="isTyping">
+          <div class="avatar ai-avatar">
+            <svg class="ai-chef-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" fill="rgba(249, 115, 22, 0.1)" stroke="rgba(249, 115, 22, 0.3)" stroke-width="1"/>
+              <path d="M7.5 17C4.5 17 4 12.5 6.5 10.5C5.5 7 9 4.5 12 6.5C15 4.5 18.5 7 17.5 10.5C20 12.5 19.5 17 16.5 17Z" fill="rgba(255, 255, 255, 0.9)" stroke="#ffffff" stroke-width="1.2"/>
+              <rect x="7" y="17" width="10" height="2.5" rx="1" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+              <circle cx="12" cy="11" r="1.5" fill="#F97316" stroke="none"/>
+              <path d="M12 11L12 17" stroke="#F97316" stroke-width="1.5"/>
+              <circle cx="9" cy="13" r="1" fill="#F97316" stroke="none"/>
+              <path d="M9 13L9 17" stroke="#F97316" stroke-width="1"/>
+              <circle cx="15" cy="13" r="1" fill="#F97316" stroke="none"/>
+              <path d="M15 13L15 17" stroke="#F97316" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="message-bubble typing-bubble">
+            <div class="sender-label">KitchenPulse AI</div>
+            <div class="typing-indicator">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Typing Indicator -->
-      <div class="message-wrapper ai-wrapper typing-wrapper" *ngIf="isTyping">
-        <div class="avatar">🤖</div>
-        <div class="message-bubble typing-bubble">
-          <div class="sender-label">AI Assistant</div>
-          <div class="typing-indicator">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="typing-text">AI is thinking...</span>
+      <!-- Error Banner inside Chat Window -->
+      <div class="error-banner" *ngIf="errorMessage">
+        <div class="error-content">
+          <span class="error-icon">⚠</span>
+          <div class="error-text">
+            <strong>Backend Service Unavailable:</strong>
+            <p>{{ errorMessage }}</p>
           </div>
         </div>
+        <button class="retry-btn" (click)="retryLastMessage()" *ngIf="lastFailedPrompt">
+          ↻ Retry Message
+        </button>
       </div>
 
     </div>
-
-    <!-- Error Banner inside Chat Window -->
-    <div class="error-banner" *ngIf="errorMessage">
-      <div class="error-content">
-        <span class="error-icon">⚠</span>
-        <div class="error-text">
-          <strong>Backend Service Unavailable:</strong>
-          <p>{{ errorMessage }}</p>
-        </div>
-      </div>
-      <button class="retry-btn" (click)="retryLastMessage()" *ngIf="lastFailedPrompt">
-        ↻ Retry Message
-      </button>
-    </div>
-
   </div>
 
   <!-- ════════════════════════════════════════
        Input & Prompt Chips Bar
        ════════════════════════════════════════ -->
   <div class="input-bar-container">
+    <div class="input-content-constraint">
 
-    <!-- Quick Prompt Chips (Always available above input) -->
-    <div class="quick-chips-row" *ngIf="messages.length > 0">
-      <button 
-        class="mini-chip" 
-        *ngFor="let prompt of suggestedPrompts"
-        (click)="selectSuggestedPrompt(prompt)"
-        [disabled]="isTyping">
-        ✦ {{ prompt }}
-      </button>
+      <!-- Suggested Prompts -->
+      <div class="quick-chips-row" *ngIf="suggestedPrompts && suggestedPrompts.length > 0 && messages.length === 0">
+        <button 
+          class="prompt-chip" 
+          *ngFor="let prompt of suggestedPrompts"
+          (click)="selectSuggestedPrompt(prompt)"
+          [disabled]="isTyping">
+          <span class="chip-icon">✦</span>
+          <span>{{ prompt }}</span>
+        </button>
+      </div>
+
+      <!-- Inline chips if chat has started -->
+      <div class="quick-chips-inline" *ngIf="suggestedPrompts && suggestedPrompts.length > 0 && messages.length > 0">
+        <button 
+          class="mini-chip" 
+          *ngFor="let prompt of suggestedPrompts"
+          (click)="selectSuggestedPrompt(prompt)"
+          [disabled]="isTyping">
+          {{ prompt }}
+        </button>
+      </div>
+
+      <!-- Message Input Form -->
+      <div class="input-box-wrapper">
+        <textarea 
+          class="chat-textarea"
+          rows="1"
+          placeholder="Ask KitchenPulse AI anything about your kitchen..."
+          [(ngModel)]="promptText"
+          (keydown)="onKeyDown($event)"
+          [disabled]="isTyping">
+        </textarea>
+        <button 
+          class="send-btn" 
+          (click)="sendMessage()" 
+          [disabled]="!promptText.trim() || isTyping">
+          <span class="material-icons">send</span>
+        </button>
+      </div>
+
     </div>
-
-    <!-- Message Input Form -->
-    <div class="input-box-wrapper">
-      <textarea 
-        class="chat-textarea"
-        rows="1"
-        placeholder="Ask AI Assistant anything about inventory, recipes, or menu planning... (Press Enter to send)"
-        [(ngModel)]="promptText"
-        (keydown)="onKeyDown($event)"
-        [disabled]="isTyping">
-      </textarea>
-
-      <button 
-        class="send-btn" 
-        (click)="sendMessage()" 
-        [disabled]="!promptText.trim() || isTyping">
-        <span class="send-icon">➔</span>
-        <span class="send-label">Send</span>
-      </button>
-    </div>
-
   </div>
 
 </div>

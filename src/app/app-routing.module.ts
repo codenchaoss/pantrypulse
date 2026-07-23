@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './features/auth/login/login.component';
 import { SignupComponent } from './features/auth/signup/signup.component';
 import { ForgotPasswordComponent } from './features/auth/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './features/auth/reset-password/reset-password.component';
+import { SplashScreenComponent } from './features/splash-screen/splash-screen.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { InventoryComponent } from './features/inventory/inventory.component';
@@ -19,12 +21,13 @@ import { AiAssistantComponent } from './features/ai-assistant/ai-assistant.compo
 import { AiChatComponent } from './features/ai-assistant/ai-chat/ai-chat.component';
 import { SettingsComponent } from './features/settings/settings.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { HistoricalOrdersComponent } from './features/historical-orders/historical-orders.component';
 
 const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'login',
+    component: SplashScreenComponent,
     pathMatch: 'full'
   },
 
@@ -41,6 +44,11 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent
+  },
+
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
   },
 
   {
@@ -103,6 +111,11 @@ const routes: Routes = [
       {
         path: 'suppliers',
         component: SupplierListComponent
+      },
+
+      {
+        path: 'historical-orders',
+        component: HistoricalOrdersComponent
       },
 
       {

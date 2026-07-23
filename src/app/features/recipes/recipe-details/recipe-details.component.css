@@ -491,3 +491,103 @@
     text-align: center;
   }
 }
+
+/* AI Pricing Button & Modal Styles */
+.ai-price-btn {
+    background: rgba(6, 182, 212, 0.1);
+    color: #06b6d4;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.ai-price-btn:hover {
+    background: rgba(6, 182, 212, 0.2);
+    border-color: #06b6d4;
+    transform: translateY(-1px);
+}
+
+.modal-loading {
+    padding: 20px 0;
+    color: #a1a1aa;
+}
+
+.pricing-dish {
+    margin: 0 0 16px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pricing-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.metric {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.metric.highlight {
+    background: rgba(217, 119, 6, 0.08);
+    border-color: rgba(217, 119, 6, 0.2);
+}
+
+.metric .label {
+    font-size: 11px;
+    color: #71717a;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.metric .value {
+    font-size: 15px;
+    color: #fafafa;
+    font-weight: 700;
+}
+
+.metric.highlight .value {
+    color: #fbbf24;
+}
+
+.pricing-explanation {
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 3px solid #06b6d4;
+    padding: 12px;
+    border-radius: 0 8px 8px 0;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.pricing-explanation h5 {
+    margin: 0 0 6px;
+    font-size: 12px;
+    color: #06b6d4;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.pricing-explanation p {
+    margin: 0;
+    font-size: 13px;
+    color: #d1d5db;
+    line-height: 1.5;
+}
+
+.market-pos {
+    display: block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #9ca3af;
+}

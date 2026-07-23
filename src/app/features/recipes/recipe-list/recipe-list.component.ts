@@ -5,8 +5,11 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
-import { Recipe } from '../../../core/models/recipe.model';
+import { Recipe, RecipeCategory } from '../../../core/models/recipe.model';
 import { RecipeService } from '../../../core/services/recipe.service';
+import { AiAssistantService } from '../../../core/services/ai-assistant.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AiRecipeDialogComponent } from '../ai-recipe-dialog/ai-recipe-dialog.component';
 
 @Component({
   selector: 'app-recipe-list',
@@ -27,6 +30,20 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   isLoading = true;
   errorMessage = '';
 
+  selectedCategory = '';
+  selectedAvailability = 'ALL';
+
+  categories: { label: string; value: RecipeCategory }[] = [
+    { label: 'Starter',     value: 'STARTER' },
+    { label: 'Main Course', value: 'MAIN_COURSE' },
+    { label: 'Dessert',     value: 'DESSERT' },
+    { label: 'Beverage',    value: 'BEVERAGE' },
+    { label: 'Snack',       value: 'SNACK' },
+    { label: 'Salad',       value: 'SALAD' },
+    { label: 'Soup',        value: 'SOUP' },
+    { label: 'Side Dish',   value: 'SIDE_DISH' }
+  ];
+
   // Pagination state
   currentPage = 0;
   pageSize = 100;
@@ -36,6 +53,12 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   showDeleteModal = false;
   recipeToDelete: Recipe | null = null;
   isDeleting = false;
+
+  // ── AI Pricing suggestion modal ────────────────────────────────────────────
+  showPricingModal = false;
+  isPricingLoading = false;
+  pricingError = '';
+  pricingSuggestion: any = null;
 
   // ── Toast notification ─────────────────────────────────────────────────────
   toastMessage = '';
@@ -49,7 +72,9 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   constructor(
     private recipeService: RecipeService,
-    private cdr: ChangeDetectorRef
+    private aiAssistantService: AiAssistantService,
+    private cdr: ChangeDetectorRef,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -117,22 +142,109 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   }
 
   searchRecipe(): void {
-    const query = this.searchText.trim().toLowerCase();
+    const query = this.searchText.trim();
     if (query === this.lastSearchText) {
       return;
     }
     this.lastSearchText = query;
 
+    this.selectedCategory = '';
+    this.selectedAvailability = 'ALL';
+
     if (!query) {
       this.filteredRecipes = this.recipes;
+      this.cdr.markForCheck();
     } else {
-      this.filteredRecipes = this.recipes.filter(recipe =>
-        recipe.recipeName.toLowerCase().includes(query) ||
-        recipe.category.toLowerCase().includes(query)
-      );
+      this.isLoading = true;
+      this.errorMessage = '';
+      this.cdr.markForCheck();
+
+      this.recipeService.searchRecipes(query).subscribe({
+        next: (results) => {
+          this.filteredRecipes = results.map(recipe => ({
+            ...recipe,
+            imageUrl: recipe.id ? (localStorage.getItem('recipe_image_' + recipe.id) || undefined) : undefined
+          }));
+          this.buildCategoryDisplayMap(this.filteredRecipes);
+          this.isLoading = false;
+          this.cdr.markForCheck();
+        },
+        error: (err) => {
+          console.error('Error searching recipes:', err);
+          this.isLoading = false;
+          this.errorMessage = 'Failed to search recipes.';
+          this.cdr.markForCheck();
+        }
+      });
     }
-    // OnPush: must tell Angular the view is dirty
+  }
+
+  onCategoryChange(): void {
+    this.searchText = '';
+    this.selectedAvailability = 'ALL';
+    this.lastSearchText = '';
+
+    if (!this.selectedCategory) {
+      this.loadRecipes();
+      return;
+    }
+
+    this.isLoading = true;
+    this.errorMessage = '';
     this.cdr.markForCheck();
+
+    this.recipeService.getRecipesByCategory(this.selectedCategory).subscribe({
+      next: (results) => {
+        this.filteredRecipes = results.map(recipe => ({
+          ...recipe,
+          imageUrl: recipe.id ? (localStorage.getItem('recipe_image_' + recipe.id) || undefined) : undefined
+        }));
+        this.buildCategoryDisplayMap(this.filteredRecipes);
+        this.isLoading = false;
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        console.error('Error fetching recipes by category:', err);
+        this.isLoading = false;
+        this.errorMessage = 'Failed to load recipes for this category.';
+        this.cdr.markForCheck();
+      }
+    });
+  }
+
+  onAvailabilityChange(): void {
+    this.searchText = '';
+    this.selectedCategory = '';
+    this.lastSearchText = '';
+
+    if (this.selectedAvailability === 'ALL') {
+      this.loadRecipes();
+      return;
+    }
+
+    const isAvailable = this.selectedAvailability === 'AVAILABLE';
+
+    this.isLoading = true;
+    this.errorMessage = '';
+    this.cdr.markForCheck();
+
+    this.recipeService.getAvailableRecipes(isAvailable).subscribe({
+      next: (results) => {
+        this.filteredRecipes = results.map(recipe => ({
+          ...recipe,
+          imageUrl: recipe.id ? (localStorage.getItem('recipe_image_' + recipe.id) || undefined) : undefined
+        }));
+        this.buildCategoryDisplayMap(this.filteredRecipes);
+        this.isLoading = false;
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        console.error('Error fetching available recipes:', err);
+        this.isLoading = false;
+        this.errorMessage = 'Failed to load recipes by availability.';
+        this.cdr.markForCheck();
+      }
+    });
   }
 
   // ── Opens the custom confirmation modal ───────────────────────────────────
@@ -224,6 +336,54 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   // ── Pure helper — only called programmatically, NOT in the template ───────
   private formatCategory(category: string): string {
     return category.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  // ── AI Pricing suggestion modal ────────────────────────────────────────────
+  getAiPriceSuggestion(recipe: Recipe, event: Event): void {
+    event.stopPropagation();
+    this.showPricingModal = true;
+    this.isPricingLoading = true;
+    this.pricingError = '';
+    this.pricingSuggestion = null;
+    this.cdr.markForCheck();
+
+    this.aiAssistantService.suggestPricing(recipe.recipeName, recipe.costPrice).subscribe({
+      next: (res) => {
+        this.isPricingLoading = false;
+        if (res && res.success && res.data) {
+          this.pricingSuggestion = res.data;
+        } else {
+          this.pricingError = res.message || 'Failed to generate price suggestion.';
+        }
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        this.isPricingLoading = false;
+        this.pricingError = 'AI Pricing service is currently unavailable. Ensure the AI profile is enabled on the backend.';
+        console.error('AI Pricing error:', err);
+        this.cdr.markForCheck();
+      }
+    });
+  }
+
+  closePricingModal(): void {
+    this.showPricingModal = false;
+    this.pricingSuggestion = null;
+    this.pricingError = '';
+    this.cdr.markForCheck();
+  }
+
+  openAiRecipeDialog(): void {
+    const dialogRef = this.dialog.open(AiRecipeDialogComponent, {
+      width: '750px',
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.loadRecipes();
+      }
+    });
   }
 
 }

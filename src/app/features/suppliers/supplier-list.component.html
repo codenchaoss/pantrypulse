@@ -1,5 +1,13 @@
 <div class="supplier-page">
 
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="title-section">
+      <h2>Suppliers</h2>
+      <p>Manage your ingredient suppliers and contacts</p>
+    </div>
+  </div>
+
   <!-- Connection Error Warning Banner -->
   <div class="alert alert-error" *ngIf="isConnectionError">
     <span class="alert-icon">⚠️</span> Unable to connect to the Supplier service. Please ensure the Spring Boot backend is running and reachable.
@@ -15,8 +23,22 @@
         [(ngModel)]="searchText"
         (input)="onSearchChange()">
     </div>
+
+    <div class="filter-select-wrapper">
+      <select 
+        [(ngModel)]="selectedActiveFilter" 
+        (change)="onActiveFilterChange()" 
+        class="filter-select">
+        <option value="ALL">All Suppliers</option>
+        <option value="ACTIVE">Active Only</option>
+        <option value="INACTIVE">Inactive Only</option>
+      </select>
+    </div>
     
     <div class="action-buttons">
+      <button class="btn btn-ai-supplier" (click)="openAiSupplierDialog()" [disabled]="isLoading">
+        🤖 AI Supplier Assistant
+      </button>
       <button class="btn btn-add" (click)="openAddDialog()" [disabled]="isLoading">
         <span class="material-icons">add</span> Add Supplier
       </button>

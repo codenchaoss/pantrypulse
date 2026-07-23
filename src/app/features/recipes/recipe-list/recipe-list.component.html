@@ -74,8 +74,33 @@
           (input)="searchRecipe()">
       </div>
 
+      <div class="filter-select-wrapper">
+        <select
+          [(ngModel)]="selectedCategory"
+          (change)="onCategoryChange()"
+          class="filter-select">
+          <option value="">All Categories</option>
+          <option *ngFor="let cat of categories" [value]="cat.value">{{ cat.label }}</option>
+        </select>
+      </div>
+
+      <div class="filter-select-wrapper">
+        <select
+          [(ngModel)]="selectedAvailability"
+          (change)="onAvailabilityChange()"
+          class="filter-select">
+          <option value="ALL">All Availability</option>
+          <option value="AVAILABLE">Available</option>
+          <option value="UNAVAILABLE">Unavailable</option>
+        </select>
+      </div>
+
+      <button class="ai-gen-btn" (click)="openAiRecipeDialog()">
+        <span class="material-icons btn-icon">auto_awesome</span> AI Recipe Generator
+      </button>
+
       <button class="add-btn" routerLink="/recipes/add">
-        + Add Recipe
+        <span class="material-icons btn-icon">add</span> Add Recipe
       </button>
 
     </div>
@@ -112,11 +137,6 @@
           alt="Recipe Image"
           onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22 viewBox=%220 0 300 200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%231b1b1b%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23d97706%22 font-size=%2248%22%3E🍳%3C/text%3E%3C/svg%3E'">
 
-        <div class="availability"
-             [ngClass]="recipe.available ? 'available' : 'unavailable'">
-          {{ recipe.available ? 'Available' : 'Unavailable' }}
-        </div>
-
       </div>
 
       <!-- Body -->
@@ -124,30 +144,17 @@
 
         <div class="recipe-header">
           <h3>{{ recipe.recipeName }}</h3>
-          <span class="favorite">♡</span>
         </div>
-
-        <span class="category">
-          {{ categoryDisplayMap.get(recipe.id!) }}
-        </span>
 
         <p class="description">{{ recipe.description || 'No description provided.' }}</p>
 
-        <div class="recipe-details">
-          <div class="detail">🕒 {{ recipe.preparationTime }} mins</div>
-          <div class="detail">🍽 {{ recipe.servings }} Servings</div>
-          <div class="detail">🔥 {{ recipe.calories }} kcal</div>
-        </div>
-
-        <div class="price-row">
-          <div>
-            <small>Selling Price</small>
-            <h3>₹ {{ recipe.sellingPrice }}</h3>
-          </div>
-          <div>
-            <small>Cost Price</small>
-            <h4>₹ {{ recipe.costPrice }}</h4>
-          </div>
+        <div class="ai-pricing-section">
+          <button 
+            type="button" 
+            class="btn-ai-price" 
+            (click)="getAiPriceSuggestion(recipe, $event)">
+            💡 AI Price Suggestion
+          </button>
         </div>
 
         <div class="card-actions">
@@ -191,6 +198,58 @@
       + Add First Recipe
     </button>
 
+  </div>
+
+  <!-- AI Price Suggestion Modal -->
+  <div class="modal-overlay" *ngIf="showPricingModal" (click)="closePricingModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+      <div class="modal-icon">💡</div>
+      <h3 class="modal-title">AI Price Suggestion</h3>
+      
+      <div *ngIf="isPricingLoading" class="modal-loading">
+        <div class="btn-spinner"></div>
+        <p>Analyzing costs and market margins...</p>
+      </div>
+
+      <div *ngIf="pricingError" class="modal-error">
+        <span class="error-icon">⚠</span>
+        <p>{{ pricingError }}</p>
+      </div>
+
+      <div *ngIf="!isPricingLoading && !pricingError && pricingSuggestion" class="pricing-details">
+        <h4 class="pricing-dish">{{ pricingSuggestion.dish }}</h4>
+        <div class="pricing-metrics">
+          <div class="metric">
+            <span class="label">Current Cost:</span>
+            <span class="value">₹{{ pricingSuggestion.ingredient_cost | number:'1.2-2' }}</span>
+          </div>
+          <div class="metric highlight">
+            <span class="label">Suggested Price:</span>
+            <span class="value">₹{{ pricingSuggestion.recommended_price | number:'1.2-2' }}</span>
+          </div>
+          <div class="metric">
+            <span class="label">Profit Margin:</span>
+            <span class="value">{{ (pricingSuggestion.profit_margin * 100) | number:'1.1-1' }}%</span>
+          </div>
+          <div class="metric">
+            <span class="label">Estimated Profit:</span>
+            <span class="value">₹{{ pricingSuggestion.estimated_profit | number:'1.2-2' }}</span>
+          </div>
+        </div>
+
+        <div class="pricing-explanation" *ngIf="pricingSuggestion.pricing_strategy">
+          <h5>AI Explanation</h5>
+          <p>{{ pricingSuggestion.pricing_strategy }}</p>
+          <small class="market-pos" *ngIf="pricingSuggestion.market_position">
+            Market Position: <strong>{{ pricingSuggestion.market_position }}</strong> (Confidence: {{ (pricingSuggestion.price_confidence * 100) | number:'1.0-0' }}%)
+          </small>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="modal-cancel-btn" (click)="closePricingModal()">Close</button>
+      </div>
+    </div>
   </div>
 
 </div>

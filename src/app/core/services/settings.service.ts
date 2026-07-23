@@ -27,4 +27,8 @@ export class SettingsService {
   updateNotifications(notifications: NotificationSettings): Observable<NotificationSettings> {
     return this.http.put<NotificationSettings>(`${this.apiUrl}/notifications`, notifications);
   }
+
+  getAboutInfo(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/about`);
+  }
 }

@@ -43,7 +43,11 @@ export class ForgotPasswordComponent implements OnInit {
     this.authService.forgotPassword(email).subscribe({
       next: (res) => {
         this.isSubmitting = false;
-        this.successMessage = res?.message || 'Password reset link sent to your email.';
+        this.successMessage = 'Password reset link has been sent successfully.\nPlease check your registered email inbox (and Spam/Junk folder if necessary).';
+        
+        setTimeout(() => {
+          this.successMessage = null;
+        }, 7000);
       },
       error: (err) => {
         this.isSubmitting = false;

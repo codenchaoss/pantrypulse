@@ -27,4 +27,39 @@ export class AiAssistantService {
       payload
     );
   }
+
+  /**
+   * Fetches AI Price recommendations from Spring Boot PricingAiController (POST /api/ai/pricing)
+   */
+  suggestPricing(dish: string, ingredientCost: number): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/pricing`, {
+      dish,
+      ingredient_cost: ingredientCost
+    });
+  }
+
+  /**
+   * Fetches AI Inventory Optimization from Spring Boot OptimizationAiController (POST /api/ai/optimization)
+   */
+  optimizeInventory(inventoryItems: any[]): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/optimization`, {
+      inventory: inventoryItems
+    });
+  }
+
+  /**
+   * Generates a recipe based on selected ingredients (POST /api/ai/recipe)
+   */
+  generateRecipe(ingredients: string[]): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/recipe`, {
+      ingredients: ingredients
+    });
+  }
+
+  /**
+   * Fetches AI Supplier Recommendations (POST /api/ai/supplier)
+   */
+  suggestSuppliers(payload: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/supplier`, payload);
+  }
 }

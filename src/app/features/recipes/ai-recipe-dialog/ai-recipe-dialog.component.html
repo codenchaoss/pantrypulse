@@ -1,0 +1,255 @@
+<div class="supplier-dialog-container recipe-dialog-large">
+  
+  <h2 mat-dialog-title class="dialog-title">
+    <span class="title-text">{{ title }}</span>
+    <span class="step-badge" *ngIf="step === 'select'">Step 1: Ingredients Selection</span>
+    <span class="step-badge" *ngIf="step === 'preview'">Step 2: Preview & Edit Recipe</span>
+  </h2>
+  
+  <mat-dialog-content class="dialog-content">
+    
+    <!-- Error Alert message -->
+    <div class="alert alert-error" *ngIf="errorMessage">
+      <span class="alert-icon">✖</span> {{ errorMessage }}
+    </div>
+
+    <!-- loading ingredients state -->
+    <div class="dialog-loading" *ngIf="isLoadingIngredients">
+      <mat-spinner diameter="30" class="orange-spinner"></mat-spinner>
+      <p>Loading inventory ingredients...</p>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         STEP 1: SELECT INGREDIENTS
+         ════════════════════════════════════════ -->
+    <div *ngIf="step === 'select' && !isLoadingIngredients" class="select-ingredients-step">
+      <p class="step-instructions">Select one or more ingredients from your inventory to allow the AI to generate a recipe suggestion.</p>
+      
+      <!-- Search Input -->
+      <div class="search-box-wrapper">
+        <span class="material-icons search-icon">search</span>
+        <input 
+          type="text" 
+          placeholder="Filter ingredients by name or category..." 
+          [(ngModel)]="searchText"
+          (input)="applyFilter()"
+          class="form-control">
+      </div>
+
+      <!-- Ingredients List -->
+      <div class="ingredients-selection-list">
+        <div 
+          *ngFor="let item of filteredIngredients" 
+          class="ingredient-item-row"
+          [class.selected]="selectedIngredients.has(item.ingredientName)"
+          (click)="toggleSelection(item.ingredientName)">
+          
+          <label class="checkbox-container" (click)="$event.stopPropagation()">
+            <input 
+              type="checkbox" 
+              [checked]="selectedIngredients.has(item.ingredientName)"
+              (change)="toggleSelection(item.ingredientName)">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="ingredient-info">
+            <span class="ing-name">{{ item.ingredientName }}</span>
+            <span class="ing-category">{{ item.category }}</span>
+          </div>
+
+          <div class="ingredient-stock">
+            {{ item.quantity }} {{ item.unit }}
+          </div>
+
+          <!-- Expiry highlights -->
+          <div class="ingredient-expiry-badge">
+            <span *ngIf="item.isExpired" class="badge-status badge-expired">🔴 Expired</span>
+            <span *ngIf="item.isExpiringSoon" class="badge-status badge-warning">⚠️ Expiring Soon</span>
+            <span *ngIf="!item.isExpired && !item.isExpiringSoon && item.daysToExpiry" class="badge-status badge-safe">
+              🕒 {{ item.daysToExpiry }} days remaining
+            </span>
+          </div>
+
+        </div>
+
+        <div *ngIf="filteredIngredients.length === 0" class="empty-list-placeholder">
+          <span class="material-icons">sentiment_dissatisfied</span>
+          <p>No ingredients match your filter.</p>
+        </div>
+      </div>
+
+      <div class="selection-footer">
+        <span>Selected: <strong>{{ selectedIngredients.size }}</strong> ingredient(s)</span>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         AI GENERATING LOADING STATE
+         ════════════════════════════════════════ -->
+    <div *ngIf="step === 'generate'" class="glowing-ai-loader">
+      <div class="glowing-orb"></div>
+      <p class="loader-title">Asking AI to generate recipe suggestions...</p>
+      <p class="loader-sub">Analyzing selected ingredients and food safety constraints</p>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         STEP 2: PREVIEW & EDIT
+         ════════════════════════════════════════ -->
+    <div *ngIf="step === 'preview' && editableRecipe" class="preview-edit-step">
+      <form class="supplier-form">
+        
+        <!-- Recipe Name & Category -->
+        <div class="form-row">
+          <div class="form-group col">
+            <label class="form-label">Recipe Name *</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              [(ngModel)]="editableRecipe.recipeName" 
+              name="recipeName" 
+              required>
+          </div>
+          
+          <div class="form-group col">
+            <label class="form-label">Category *</label>
+            <select 
+              class="form-control form-select-control" 
+              [(ngModel)]="editableRecipe.category" 
+              name="category">
+              <option *ngFor="let cat of categories" [value]="cat.value">{{ cat.label }}</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label class="form-label">Description / AI Suggestion Reason</label>
+          <textarea 
+            class="form-control text-area-control" 
+            [(ngModel)]="editableRecipe.description" 
+            name="description" 
+            rows="2"></textarea>
+        </div>
+
+        <!-- Prep Time, Servings & Calories -->
+        <div class="form-row">
+          <div class="form-group col">
+            <label class="form-label">Prep Time (mins) *</label>
+            <input 
+              type="number" 
+              class="form-control" 
+              [(ngModel)]="editableRecipe.preparationTime" 
+              name="preparationTime" 
+              min="1" 
+              required>
+          </div>
+          
+          <div class="form-group col">
+            <label class="form-label">Servings *</label>
+            <input 
+              type="number" 
+              class="form-control" 
+              [(ngModel)]="editableRecipe.servings" 
+              name="servings" 
+              min="1" 
+              required>
+          </div>
+
+          <div class="form-group col">
+            <label class="form-label">Calories (kcal)</label>
+            <input 
+              type="number" 
+              class="form-control" 
+              [(ngModel)]="editableRecipe.calories" 
+              name="calories" 
+              min="0">
+          </div>
+        </div>
+
+        <!-- Cost Price & Selling Price -->
+        <div class="form-row">
+          <div class="form-group col">
+            <label class="form-label">Cost Price (₹)</label>
+            <input 
+              type="number" 
+              class="form-control" 
+              [(ngModel)]="editableRecipe.costPrice" 
+              name="costPrice" 
+              min="0" 
+              step="0.01">
+          </div>
+          
+          <div class="form-group col">
+            <label class="form-label">Selling Price (₹)</label>
+            <input 
+              type="number" 
+              class="form-control" 
+              [(ngModel)]="editableRecipe.sellingPrice" 
+              name="sellingPrice" 
+              min="0" 
+              step="0.01">
+          </div>
+        </div>
+
+        <!-- Ingredients List Textarea -->
+        <div class="form-group">
+          <label class="form-label">Recipe Ingredients (One per line)</label>
+          <textarea 
+            class="form-control text-area-control edit-list-control" 
+            [(ngModel)]="editableRecipe.ingredientsStr" 
+            name="ingredientsStr" 
+            rows="4" 
+            placeholder="e.g. 2 Tomatoes&#10;1 Onion&#10;1 Cup Rice"></textarea>
+        </div>
+
+        <!-- Instructions Textarea -->
+        <div class="form-group">
+          <label class="form-label">Preparation Steps (One step per line)</label>
+          <textarea 
+            class="form-control text-area-control edit-list-control" 
+            [(ngModel)]="editableRecipe.instructionsStr" 
+            name="instructionsStr" 
+            rows="5" 
+            placeholder="1. Wash and rinse the rice.&#10;2. Sauté onions in a pan.&#10;3. Add tomatoes and spices.&#10;4. Mix in rice and simmer."></textarea>
+        </div>
+
+      </form>
+    </div>
+
+  </mat-dialog-content>
+  
+  <mat-dialog-actions class="dialog-actions">
+    <button 
+      class="action-btn cancel-btn" 
+      (click)="cancel()" 
+      [disabled]="isSavingRecipe">
+      Close
+    </button>
+    
+    <button 
+      class="action-btn cancel-btn" 
+      (click)="backToSelect()" 
+      *ngIf="step === 'preview'"
+      [disabled]="isSavingRecipe">
+      ← Back
+    </button>
+
+    <button 
+      class="action-btn save-btn ai-btn-gradient" 
+      (click)="generateRecipe()" 
+      *ngIf="step === 'select'" 
+      [disabled]="selectedIngredients.size === 0">
+      Generate Recipe
+    </button>
+
+    <button 
+      class="action-btn save-btn" 
+      (click)="saveRecipe()" 
+      *ngIf="step === 'preview'" 
+      [disabled]="isSavingRecipe">
+      <span *ngIf="isSavingRecipe" class="btn-spinner"></span>
+      {{ isSavingRecipe ? 'Saving...' : 'Add to Recipes' }}
+    </button>
+  </mat-dialog-actions>
+  
+</div>

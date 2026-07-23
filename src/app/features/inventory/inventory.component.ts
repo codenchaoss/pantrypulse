@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { InventoryService } from '../../services/inventory.service';
+import { AiAssistantService } from '../../core/services/ai-assistant.service';
 
 @Component({
   selector: 'app-inventory',
@@ -17,6 +18,12 @@ export class InventoryComponent implements OnInit {
   ingredients: any[] = [];
   isLoading = true;
 
+  // ── AI Optimization modal ──────────────────────────────────────────────────
+  showOptimizationModal = false;
+  isOptLoading = false;
+  optError = '';
+  optimizationData: any = null;
+
   // Stats Counters
   totalIngredients = 0;
   lowStockCount = 0;
@@ -25,6 +32,7 @@ export class InventoryComponent implements OnInit {
 
   constructor(
     private inventoryService: InventoryService,
+    private aiAssistantService: AiAssistantService,
     public cdr: ChangeDetectorRef
   ) {}
 
@@ -194,9 +202,6 @@ export class InventoryComponent implements OnInit {
     });
   }
 
-  exportUIOnly(): void {
-    alert('Exporting inventory data (PDF/CSV)... [UI Action Only]');
-  }
 
   getStockPercent(item: any): number {
     if (!item.minimumStock) return 100;
@@ -206,5 +211,54 @@ export class InventoryComponent implements OnInit {
 
   trackById(index: number, item: any): number {
     return item.id;
+  }
+
+  // ── AI Optimization modal ──────────────────────────────────────────────────
+  getAiOptimization(): void {
+    this.showOptimizationModal = true;
+    this.isOptLoading = true;
+    this.optError = '';
+    this.optimizationData = null;
+    this.cdr.markForCheck();
+
+    const formattedItems = this.ingredients.map(item => {
+      let days = 999;
+      if (item.expiryDate) {
+        const diffTime = new Date(item.expiryDate).getTime() - new Date().getTime();
+        days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        if (isNaN(days)) days = 999;
+      }
+      return {
+        ingredient: item.ingredientName,
+        quantity: item.quantity ? Math.round(item.quantity) : 0,
+        unit: item.unit || '',
+        expiry_days: days
+      };
+    });
+
+    this.aiAssistantService.optimizeInventory(formattedItems).subscribe({
+      next: (res) => {
+        this.isOptLoading = false;
+        if (res && res.success && res.data) {
+          this.optimizationData = res.data;
+        } else {
+          this.optError = res.message || 'Failed to generate inventory optimization recommendations.';
+        }
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        this.isOptLoading = false;
+        this.optError = 'AI Optimization service is currently unavailable. Ensure the AI profile is enabled on the backend.';
+        console.error('AI Optimization error:', err);
+        this.cdr.markForCheck();
+      }
+    });
+  }
+
+  closeOptimizationModal(): void {
+    this.showOptimizationModal = false;
+    this.optimizationData = null;
+    this.optError = '';
+    this.cdr.markForCheck();
   }
 }

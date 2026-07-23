@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { SupplierService } from '../../services/supplier.service';
 import { Supplier } from '../../core/models/supplier.model';
 import { SupplierDialogComponent } from './supplier-dialog.component';
+import { AiSupplierDialogComponent } from './ai-supplier-dialog/ai-supplier-dialog.component';
 
 @Component({
   selector: 'app-supplier-list',
@@ -16,6 +17,7 @@ export class SupplierListComponent implements OnInit {
   filteredSuppliers: Supplier[] = [];
   displayedColumns: string[] = ['supplierName', 'contactPerson', 'phone', 'email', 'status', 'actions'];
   searchText = '';
+  selectedActiveFilter = 'ALL';
   isLoading = false;
   isConnectionError = false;
 
@@ -54,22 +56,71 @@ export class SupplierListComponent implements OnInit {
   }
 
   applyFilter(): void {
-    if (!this.searchText.trim()) {
+    if (this.selectedActiveFilter === 'ALL' && !this.searchText.trim()) {
       this.filteredSuppliers = [...this.suppliers];
-    } else {
-      const keyword = this.searchText.toLowerCase().trim();
-      this.filteredSuppliers = this.suppliers.filter(s =>
-        s.supplierName.toLowerCase().includes(keyword) ||
-        s.contactPerson.toLowerCase().includes(keyword) ||
-        (s.email && s.email.toLowerCase().includes(keyword)) ||
-        s.phone.includes(keyword)
-      );
     }
     this.cdr.markForCheck();
   }
-
+ 
   onSearchChange(): void {
-    this.applyFilter();
+    const keyword = this.searchText.trim();
+    this.selectedActiveFilter = 'ALL';
+ 
+    if (!keyword) {
+      this.filteredSuppliers = [...this.suppliers];
+      this.cdr.markForCheck();
+    } else {
+      this.isLoading = true;
+      this.isConnectionError = false;
+      this.cdr.markForCheck();
+ 
+      this.supplierService.searchSuppliers(keyword).subscribe({
+        next: (data) => {
+          this.filteredSuppliers = data || [];
+          this.isLoading = false;
+          this.cdr.markForCheck();
+        },
+        error: (err) => {
+          console.error('Error searching suppliers:', err);
+          this.isLoading = false;
+          if (err.status === 0) {
+            this.isConnectionError = true;
+          }
+          this.cdr.markForCheck();
+        }
+      });
+    }
+  }
+ 
+  onActiveFilterChange(): void {
+    this.searchText = '';
+ 
+    if (this.selectedActiveFilter === 'ALL') {
+      this.loadSuppliers();
+      return;
+    }
+ 
+    const isActive = this.selectedActiveFilter === 'ACTIVE';
+ 
+    this.isLoading = true;
+    this.isConnectionError = false;
+    this.cdr.markForCheck();
+ 
+    this.supplierService.getActiveSuppliers(isActive).subscribe({
+      next: (data) => {
+        this.filteredSuppliers = data || [];
+        this.isLoading = false;
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        console.error('Error filtering active suppliers:', err);
+        this.isLoading = false;
+        if (err.status === 0) {
+          this.isConnectionError = true;
+        }
+        this.cdr.markForCheck();
+      }
+    });
   }
 
   openAddDialog(): void {
@@ -127,5 +178,12 @@ export class SupplierListComponent implements OnInit {
         }
       });
     }
+  }
+
+  openAiSupplierDialog(): void {
+    this.dialog.open(AiSupplierDialogComponent, {
+      width: '750px',
+      disableClose: true
+    });
   }
 }

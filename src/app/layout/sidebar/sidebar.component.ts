@@ -25,9 +25,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
     { label: 'Dashboard', icon: 'dashboard', route: '/dashboard' },
     { label: 'Inventory', icon: 'inventory_2', route: '/inventory' },
     { label: 'Recipes', icon: 'restaurant_menu', route: '/recipes' },
-    { label: 'Suppliers', icon: 'local_shipping', route: '/suppliers' },
     { label: 'AI Menu Planner', icon: 'smart_toy', route: '/menu-planner' },
     { label: 'AI Assistant', icon: 'psychology', route: '/ai-assistant' },
+    { label: 'Suppliers', icon: 'local_shipping', route: '/suppliers' },
+    { label: 'Orders History', icon: 'history', route: '/historical-orders' },
     { label: 'Settings', icon: 'settings', route: '/settings' }
   ];
 

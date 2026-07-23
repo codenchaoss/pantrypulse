@@ -1,0 +1,99 @@
+<div class="supplier-dialog-container">
+  
+  <h2 mat-dialog-title class="dialog-title">{{ title }}</h2>
+  
+  <mat-dialog-content class="dialog-content">
+    
+    <!-- Error Alert message -->
+    <div class="alert alert-error" *ngIf="errorMessage">
+      <span class="alert-icon">✖</span> {{ errorMessage }}
+    </div>
+
+    <!-- Spinner loading details for view mode -->
+    <div class="dialog-loading" *ngIf="isLoadingDetails">
+      <mat-spinner diameter="30" class="orange-spinner"></mat-spinner>
+      <p>Fetching record details...</p>
+    </div>
+
+    <form [formGroup]="orderForm" class="supplier-form" *ngIf="!isLoadingDetails">
+      
+      <!-- Recipe Selection (Add Mode) / Recipe Name Display (View Mode) -->
+      <div class="form-group" *ngIf="mode === 'add'">
+        <label class="form-label">Recipe <span class="required-asterisk">*</span></label>
+        <div class="input-wrapper">
+          <span class="material-icons input-icon">restaurant_menu</span>
+          <select
+            class="form-control form-select-control"
+            formControlName="recipeId"
+            [class.is-invalid]="orderForm.get('recipeId')?.touched && orderForm.get('recipeId')?.invalid">
+            <option value="" disabled>Select Recipe</option>
+            <option *ngFor="let r of recipes" [value]="r.id">{{ r.recipeName }}</option>
+          </select>
+        </div>
+        <div class="invalid-feedback" *ngIf="orderForm.get('recipeId')?.touched && orderForm.get('recipeId')?.hasError('required')">
+          Recipe is required.
+        </div>
+      </div>
+
+      <div class="form-group" *ngIf="mode === 'view'">
+        <label class="form-label">Recipe Name</label>
+        <div class="input-wrapper">
+          <span class="material-icons input-icon">restaurant_menu</span>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="recipeName"
+            readonly>
+        </div>
+      </div>
+
+      <!-- Quantity Field -->
+      <div class="form-group">
+        <label class="form-label">Quantity <span class="required-asterisk" *ngIf="mode !== 'view'">*</span></label>
+        <div class="input-wrapper">
+          <span class="material-icons input-icon">onetwothree</span>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="quantity"
+            placeholder="e.g. 25"
+            [class.is-invalid]="orderForm.get('quantity')?.touched && orderForm.get('quantity')?.invalid">
+        </div>
+        <div class="invalid-feedback" *ngIf="orderForm.get('quantity')?.touched && orderForm.get('quantity')?.hasError('required')">
+          Quantity is required.
+        </div>
+        <div class="invalid-feedback" *ngIf="orderForm.get('quantity')?.touched && orderForm.get('quantity')?.hasError('min')">
+          Quantity must be greater than or equal to 1.
+        </div>
+      </div>
+
+      <!-- Order Date Field -->
+      <div class="form-group">
+        <label class="form-label">Order Date <span class="required-asterisk" *ngIf="mode !== 'view'">*</span></label>
+        <div class="input-wrapper">
+          <span class="material-icons input-icon">calendar_month</span>
+          <input
+            type="date"
+            class="form-control"
+            formControlName="orderDate"
+            [class.is-invalid]="orderForm.get('orderDate')?.touched && orderForm.get('orderDate')?.invalid">
+        </div>
+        <div class="invalid-feedback" *ngIf="orderForm.get('orderDate')?.touched && orderForm.get('orderDate')?.hasError('required')">
+          Order date is required.
+        </div>
+      </div>
+
+    </form>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions class="dialog-actions">
+    <button class="action-btn cancel-btn" (click)="onCancel()" [disabled]="isSaving">
+      {{ mode === 'view' ? 'Close' : 'Cancel' }}
+    </button>
+    <button class="action-btn save-btn" (click)="onSave()" *ngIf="mode !== 'view'" [disabled]="isSaving">
+      <span *ngIf="isSaving" class="btn-spinner"></span>
+      {{ isSaving ? 'Saving...' : 'Save Record' }}
+    </button>
+  </mat-dialog-actions>
+  
+</div>

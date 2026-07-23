@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from '../../../core/models/recipe.model';
 import { RecipeService } from '../../../core/services/recipe.service';
+import { AiAssistantService } from '../../../core/services/ai-assistant.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -21,10 +22,17 @@ export class RecipeDetailsComponent implements OnInit {
   showDeleteModal = false;
   isDeleting = false;
 
+  // ── AI Pricing suggestion modal ────────────────────────────────────────────
+  showPricingModal = false;
+  isPricingLoading = false;
+  pricingError = '';
+  pricingSuggestion: any = null;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private recipeService: RecipeService,
+    private aiAssistantService: AiAssistantService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -109,5 +117,40 @@ export class RecipeDetailsComponent implements OnInit {
         this.cdr.markForCheck();
       }
     });
+  }
+
+  // ── AI Pricing suggestion modal ────────────────────────────────────────────
+  getAiPriceSuggestion(): void {
+    if (!this.recipe) return;
+    this.showPricingModal = true;
+    this.isPricingLoading = true;
+    this.pricingError = '';
+    this.pricingSuggestion = null;
+    this.cdr.markForCheck();
+
+    this.aiAssistantService.suggestPricing(this.recipe.recipeName, this.recipe.costPrice).subscribe({
+      next: (res) => {
+        this.isPricingLoading = false;
+        if (res && res.success && res.data) {
+          this.pricingSuggestion = res.data;
+        } else {
+          this.pricingError = res.message || 'Failed to generate price suggestion.';
+        }
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        this.isPricingLoading = false;
+        this.pricingError = 'AI Pricing service is currently unavailable. Ensure the AI profile is enabled on the backend.';
+        console.error('AI Pricing error:', err);
+        this.cdr.markForCheck();
+      }
+    });
+  }
+
+  closePricingModal(): void {
+    this.showPricingModal = false;
+    this.pricingSuggestion = null;
+    this.pricingError = '';
+    this.cdr.markForCheck();
   }
 }

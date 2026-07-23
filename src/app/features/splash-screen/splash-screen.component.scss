@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+.splash-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 9999;
+  transition: background 0.5s ease;
+}
+
+.logo-svg {
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+  z-index: 10;
+}
+
+/* Floating particles */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+/* Energy Blast */
+.energy-blast {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+/* ==========================================
+   STYLE THEMES (GOLD, NEON, ELASTIC)
+   ========================================== */
+
+/* Theme 1: GOLD (Epic Cinematic) */
+.splash-container.gold {
+  background: radial-gradient(circle at center, #1a1918 0%, #0a0a09 100%);
+  
+  .particle {
+    background: #e0c294;
+    box-shadow: 0 0 10px #e0c294, 0 0 20px #D76B27;
+  }
+  
+  .energy-blast {
+    background: radial-gradient(circle, #ffffff 0%, #e0c294 30%, transparent 80%);
+  }
+}
+
+/* Theme 2: NEON (Snappy Cyberpunk) */
+.splash-container.neon {
+  background: radial-gradient(circle at center, #07040e 0%, #020104 100%);
+  
+  .particle {
+    background: #00ffff;
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+  }
+  
+  .energy-blast {
+    background: radial-gradient(circle, #ffffff 0%, #00ffff 30%, transparent 80%);
+  }
+
+  /* SVG Color Overrides */
+  ::ng-deep svg {
+    #shelf {
+      stroke: #00ffff !important;
+      filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.6));
+    }
+    #cloche {
+      stroke: #ff00ff !important;
+      filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.6));
+    }
+    #cloche-handle {
+      fill: #ff00ff !important;
+    }
+    #steam {
+      stroke: #00ff00 !important;
+      filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.6));
+    }
+    #ecg-line {
+      stroke: #ff00ff !important;
+      filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.6));
+    }
+    #ecg-base {
+      stroke: #00ffff !important;
+    }
+    #ecg-dot {
+      fill: #00ffff !important;
+      filter: drop-shadow(0 0 8px #00ffff);
+    }
+    #text-pantry {
+      fill: #00ffff !important;
+      text-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+    }
+    #text-pulse {
+      fill: #ff00ff !important;
+      text-shadow: 0 0 12px rgba(255, 0, 255, 0.6);
+    }
+    #text-leaf {
+      fill: #00ff00 !important;
+      filter: drop-shadow(0 0 6px #00ff00);
+    }
+    #tagline-lines {
+      stroke: #00ffff !important;
+    }
+    #cut-lines {
+      stroke: #ff00ff !important;
+    }
+    #cut-hat {
+      stroke: #00ff00 !important;
+    }
+  }
+}
+
+/* Theme 3: ELASTIC (Eco-Playful) */
+.splash-container.elastic {
+  background: radial-gradient(circle at center, #0f1c24 0%, #060b0f 100%);
+  
+  .particle {
+    background: #4ade80;
+    box-shadow: 0 0 10px #4ade80, 0 0 20px #22c55e;
+  }
+  
+  .energy-blast {
+    background: radial-gradient(circle, #ffffff 0%, #4ade80 30%, transparent 80%);
+  }
+
+  /* SVG Color Overrides */
+  ::ng-deep svg {
+    #shelf {
+      stroke: #38bdf8 !important;
+    }
+    #cloche {
+      stroke: #4ade80 !important;
+    }
+    #cloche-handle {
+      fill: #4ade80 !important;
+    }
+    #steam {
+      stroke: #f59e0b !important;
+    }
+    #ecg-line {
+      stroke: #f59e0b !important;
+    }
+    #ecg-base {
+      stroke: #38bdf8 !important;
+    }
+    #ecg-dot {
+      fill: #4ade80 !important;
+    }
+    #text-pantry {
+      fill: #38bdf8 !important;
+    }
+    #text-pulse {
+      fill: #4ade80 !important;
+    }
+    #text-leaf {
+      fill: #f59e0b !important;
+    }
+    #tagline-lines {
+      stroke: #38bdf8 !important;
+    }
+    #cut-lines {
+      stroke: #4ade80 !important;
+    }
+    #cut-hat {
+      stroke: #f59e0b !important;
+    }
+  }
+}

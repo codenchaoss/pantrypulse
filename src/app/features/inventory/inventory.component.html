@@ -1,45 +1,45 @@
 <div class="inventory-page">
 
   <!-- Operational Overview cards -->
-  <div class="stats-overview">
+  <div class="stats-row">
     
     <div class="stat-card">
-      <div class="stat-icon-wrapper blue">
+      <div class="icon blue">
         <span class="material-icons">inventory_2</span>
       </div>
       <div class="stat-content">
-        <h3>{{ totalIngredients }}</h3>
-        <p>Total Items</p>
+        <span>Total Items</span>
+        <h2>{{ totalIngredients }}</h2>
       </div>
     </div>
 
     <div class="stat-card">
-      <div class="stat-icon-wrapper red">
+      <div class="icon yellow">
         <span class="material-icons">warning</span>
       </div>
       <div class="stat-content">
-        <h3>{{ lowStockCount }}</h3>
-        <p>Low Stock Items</p>
+        <span>Low Stock Items</span>
+        <h2>{{ lowStockCount }}</h2>
       </div>
     </div>
 
     <div class="stat-card">
-      <div class="stat-icon-wrapper orange">
+      <div class="icon orange">
         <span class="material-icons">alarm</span>
       </div>
       <div class="stat-content">
-        <h3>{{ expiringSoonCount }}</h3>
-        <p>Expiring Soon</p>
+        <span>Expiring Soon</span>
+        <h2>{{ expiringSoonCount }}</h2>
       </div>
     </div>
 
     <div class="stat-card">
-      <div class="stat-icon-wrapper dark-red">
+      <div class="icon dark-red">
         <span class="material-icons">dangerous</span>
       </div>
       <div class="stat-content">
-        <h3>{{ expiredCount }}</h3>
-        <p>Expired Items</p>
+        <span>Expired Items</span>
+        <h2>{{ expiredCount }}</h2>
       </div>
     </div>
 
@@ -99,8 +99,8 @@
     </div>
 
     <div class="action-buttons">
-      <button class="btn btn-export" (click)="exportUIOnly()">
-        <span class="material-icons">download</span> Export
+      <button class="btn btn-optimize" (click)="getAiOptimization()">
+        <span class="material-icons">insights</span> Optimize Inventory
       </button>
       <button class="btn btn-add" routerLink="/inventory/add">
         <span class="material-icons">add</span> Add Ingredient
@@ -192,6 +192,78 @@
       </tbody>
     </table>
 
+  </div>
+
+  <!-- AI Optimization Modal -->
+  <div class="modal-overlay" *ngIf="showOptimizationModal" (click)="closeOptimizationModal()">
+    <div class="modal-box wide-modal" (click)="$event.stopPropagation()">
+      <div class="modal-icon">⚙️</div>
+      <h3 class="modal-title">AI Inventory Optimization</h3>
+
+      <div *ngIf="isOptLoading" class="modal-loading">
+        <div class="btn-spinner"></div>
+        <p>Running optimization model on inventory stock & expiry data...</p>
+      </div>
+
+      <div *ngIf="optError" class="modal-error">
+        <span class="error-icon">⚠</span>
+        <p>{{ optError }}</p>
+      </div>
+
+      <div *ngIf="!isOptLoading && !optError && optimizationData" class="opt-content">
+        <!-- AI Explanation/Summary -->
+        <div class="opt-summary" *ngIf="optimizationData.reason">
+          <h4>AI Summary & Explanation</h4>
+          <p>{{ optimizationData.reason }}</p>
+          <div class="waste-metric" *ngIf="optimizationData.waste_saved">
+            🌱 Waste Saved: <strong>{{ optimizationData.waste_saved.value }} {{ optimizationData.waste_saved.unit }}</strong>
+          </div>
+        </div>
+
+        <div class="opt-grid">
+          <!-- Waste Reduction Suggestions (Recommended Dishes to Cook) -->
+          <div class="opt-section">
+            <h5>🥣 Waste Reduction Recipes</h5>
+            <p class="section-desc">Dishes recommended to consume ingredients before expiry:</p>
+            <ul class="opt-list" *ngIf="optimizationData.recommended_dishes?.length > 0; else noDishes">
+              <li *ngFor="let dish of optimizationData.recommended_dishes">
+                <strong>{{ dish.dish }}</strong> - Servings: {{ dish.servings }}, Priority: 
+                <span class="badge" [ngClass]="dish.priority === 'High' ? 'danger' : 'warning'">{{ dish.priority }}</span>
+              </li>
+            </ul>
+            <ng-template #noDishes><p class="empty-list-lbl">No recipe suggestions needed.</p></ng-template>
+          </div>
+
+          <!-- Low-stock / Restocking recommendations -->
+          <div class="opt-section">
+            <h5>🛒 Restocking & Purchase Items</h5>
+            <p class="section-desc">Items to purchase to fulfill required minimums:</p>
+            <ul class="opt-list" *ngIf="optimizationData.purchase_items?.length > 0; else noPurchases">
+              <li *ngFor="let item of optimizationData.purchase_items">
+                <strong>{{ item.ingredient }}</strong> - Qty needed: {{ item.required_quantity }}
+              </li>
+            </ul>
+            <ng-template #noPurchases><p class="empty-list-lbl">Stock levels sufficient, no purchases required!</p></ng-template>
+          </div>
+
+          <!-- Overstock / Remaining Inventory Recommendations -->
+          <div class="opt-section full-width">
+            <h5>📦 Predicted Remaining Stock</h5>
+            <p class="section-desc">Remaining ingredients predicted after menu usage:</p>
+            <div class="remaining-stock-container" *ngIf="optimizationData.remaining_inventory?.length > 0; else noRemaining">
+              <span class="stock-pill" *ngFor="let item of optimizationData.remaining_inventory">
+                {{ item.ingredient }}: <strong>{{ item.remaining_quantity }} {{ item.unit }}</strong>
+              </span>
+            </div>
+            <ng-template #noRemaining><p class="empty-list-lbl">Zero remaining stock predicted.</p></ng-template>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="modal-cancel-btn" (click)="closeOptimizationModal()">Close Analysis</button>
+      </div>
+    </div>
   </div>
 
 </div>
