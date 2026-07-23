@@ -69,4 +69,4 @@ class TestProviderManager(unittest.TestCase):
         with patch.object(self.manager.registry, "get_active_providers_in_order", return_value=[]):
             res = self.manager.generate("how to make paneer", context_chunks=[])
             self.assertEqual(res["status"], "success")
-            self.assertEqual(res["text"], "I'm unable to find relevant information in the restaurant knowledge base.")
+            self.assertEqual(res["text"], "I couldn't find the specific details you're looking for. Please contact the Restaurant Manager or the Reception desk for immediate assistance.")

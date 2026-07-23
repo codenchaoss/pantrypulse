@@ -76,7 +76,13 @@ class ProviderManager:
         Constructs a structured, human-readable summary response from retrieved knowledge chunks
         without using any LLM call.
         """
-        p_low = prompt.lower().strip()
+        import re
+        
+        # Extract actual user question from the compiled prompt (which includes system instructions)
+        match = re.search(r'(?:User Question Query|Question):\s*(.*?)(?:\n|$)', prompt, re.IGNORECASE)
+        actual_query = match.group(1).strip() if match else prompt.strip()
+        
+        p_low = actual_query.lower()
         greetings = {
             "hi", "hello", "hey", "hii", "helloo", "who are you", "what is your name", "who are you?", "what are you?",
             "namaste", "namaskaram", "hai", "hlo"
@@ -88,7 +94,7 @@ class ProviderManager:
             return "Hello! I am KitchenSync AI, your smart kitchen and restaurant management assistant. How can I help you today?"
 
         if not chunks:
-            return "I'm unable to find relevant information in the restaurant knowledge base."
+            return "I couldn't find the specific details you're looking for. Please contact the Restaurant Manager or the Reception desk for immediate assistance."
 
         # Filter out general/empty contexts
         recipes = []
