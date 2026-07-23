@@ -13,7 +13,14 @@ class DeepSeekProvider(BaseProvider):
     """
     def __init__(self):
         self.api_key = config.DEEPSEEK_API_KEY
-        self.model = "deepseek-chat"
+        
+        # Determine if it's a native DeepSeek key or an NVIDIA NIM DeepSeek key
+        if self.api_key and self.api_key.startswith("nvapi-"):
+            self.base_url = "https://integrate.api.nvidia.com/v1/chat/completions"
+            self.model = "deepseek-ai/deepseek-r1" # NVIDIA NIM model string
+        else:
+            self.base_url = "https://api.deepseek.com/chat/completions"
+            self.model = "deepseek-chat"
 
     def initialize(self) -> None:
         pass
@@ -22,7 +29,7 @@ class DeepSeekProvider(BaseProvider):
         if not self.api_key:
             return {"status": "unhealthy", "latency_ms": 0, "message": "DeepSeek API key is missing."}
 
-        url = "https://api.deepseek.com/chat/completions"
+        url = self.base_url
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}"
@@ -48,7 +55,7 @@ class DeepSeekProvider(BaseProvider):
         if not self.api_key:
             return {"status": "error", "text": "", "error": "DeepSeek API key is not configured."}
 
-        url = "https://api.deepseek.com/chat/completions"
+        url = self.base_url
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}"

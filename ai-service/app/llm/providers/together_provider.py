@@ -13,7 +13,13 @@ class TogetherProvider(BaseProvider):
     """
     def __init__(self):
         self.api_key = config.TOGETHER_API_KEY
-        self.model = "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
+        
+        if self.api_key and self.api_key.startswith("sk-") and len(self.api_key) > 50:
+            self.base_url = "https://api.hpc-ai.com/inference/v1/chat/completions"
+            self.model = "meta-llama/Meta-Llama-3.1-8B-Instruct" # Fallback HPC model
+        else:
+            self.base_url = "https://api.together.xyz/v1/chat/completions"
+            self.model = "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
 
     def initialize(self) -> None:
         pass
@@ -22,7 +28,7 @@ class TogetherProvider(BaseProvider):
         if not self.api_key:
             return {"status": "unhealthy", "latency_ms": 0, "message": "Together AI API key is missing."}
 
-        url = "https://api.together.xyz/v1/chat/completions"
+        url = self.base_url
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}"
@@ -48,7 +54,7 @@ class TogetherProvider(BaseProvider):
         if not self.api_key:
             return {"status": "error", "text": "", "error": "Together AI API key is not configured."}
 
-        url = "https://api.together.xyz/v1/chat/completions"
+        url = self.base_url
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}"
