@@ -190,17 +190,27 @@ class MenuService:
         # Fallback to retrieved recipe chunks if parse/generation failed completely
         if not final_specials:
             logger.warning("MenuService: Specials processing yielded empty list. Implementing heuristic fallback.")
-            try:
-                search_query = "Recipes using available ingredients: " + ", ".join([item.get("ingredient", "") for item in inventory])
-                chunks = self.retriever.retrieve(search_query, top_k=5)
-                recipe_chunks = [c for c in chunks if "recipes" in c.get("source", "").lower()]
-            except Exception as e:
-                logger.error(f"MenuService: Fallback retrieval failed: {str(e)}")
-                recipe_chunks = []
-                
-            if not recipe_chunks:
-                recipe_chunks = [{"title": "Chef's Special Special", "content": "Tandoori chicken, paneer tikka, and mixed vegetable curry."}]
-                
+            recipe_chunks = []
+            
+            if recipes:
+                # Use user-provided recipes for the fallback instead of querying DB
+                for r_name in recipes[:5]:
+                    recipe_chunks.append({"title": r_name, "content": f"A delicious preparation of {r_name}."})
+            else:
+                try:
+                    search_query = "Recipes using available ingredients: " + ", ".join([item.get("ingredient", "") for item in inventory])
+                    chunks = self.retriever.retrieve(search_query, top_k=5)
+                    recipe_chunks = [c for c in chunks if "recipes" in c.get("source", "").lower()]
+                except Exception as e:
+                    logger.error(f"MenuService: Fallback retrieval failed: {str(e)}")
+                    
+                if not recipe_chunks:
+                    # Construct a dynamic name based on inventory instead of hardcoded 'Chef's Special Special'
+                    top_ings = [item.get("ingredient", "Ingredient") for item in sorted(inventory, key=lambda x: int(x.get("expiry_days", 999)))[:2]]
+                    dyn_name = " & ".join(top_ings) + " Special" if top_ings else "House Special"
+                    dyn_content = f"A special preparation using {' and '.join(top_ings)}." if top_ings else "A generic daily special."
+                    recipe_chunks = [{"title": dyn_name, "content": dyn_content}]
+                    
             final_specials = self._get_fallback_menu(inventory, recipe_chunks)
             
         total_latency = int((time.time() - start_time) * 1000)

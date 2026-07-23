@@ -88,7 +88,7 @@ async def general_exception_handler(request: Request, exc: Exception):
 
 @app.on_event("startup")
 async def startup_event():
-    logger.info("FastAPI Application Startup: Loading PantryPulse AI REST controller module, cache, fallback, typing, recipe, menu, description, optimization, orchestrator, validation, temperature, orchestrate_cache, schemas, type_resilience and greets instances...")
+    logger.info("FastAPI Application Startup: Loading PantryPulse AI REST controller module, cache, fallback, typing, recipe, menu, description, optimization, orchestrator, validation, temperature, orchestrate_cache, schemas, type_resilience, greets and timeouts instances...")
     from app.core import config
     logger.info(f"Loaded config. Active Vector Store Type: {getattr(config, 'VECTOR_STORE', 'faiss')}")
     

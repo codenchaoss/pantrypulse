@@ -62,7 +62,7 @@ class GeminiProvider(BaseProvider):
         }
 
         try:
-            response = httpx.post(url, json=payload, headers=headers, timeout=2.5)
+            response = httpx.post(url, json=payload, headers=headers, timeout=6.0)
             if response.status_code == 200:
                 data = response.json()
                 candidates = data.get("candidates", [])

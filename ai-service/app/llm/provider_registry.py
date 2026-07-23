@@ -68,4 +68,5 @@ class ProviderRegistry:
                 if not k or k.startswith("your-") or k.endswith("-here") or "placeholder" in k or k == "none" or k == "null":
                     continue
                 active_list.append(name)
-        return active_list
+        # Return only the top 2 active providers to prevent massive fallback cascades
+        return active_list[:2]
