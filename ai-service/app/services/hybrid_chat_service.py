@@ -59,6 +59,7 @@ class HybridChatService:
         Handles errors gracefully at each step.
         """
         start_time = time.time()
+        logger.info("START REQUEST")
         
         # Check in-memory response cache (10.0-second TTL)
         cache_key = (question.strip().lower(), history or "")
@@ -85,7 +86,10 @@ class HybridChatService:
 
         # 3. Gather Context Object (Phase 3 + Phase 5 HYBRID improvement)
         try:
+            logger.info("START CONTEXT")
+            start_ctx = time.time()
             context = await self.context_builder.build_context(question, route_res)
+            logger.info(f"END CONTEXT: {time.time() - start_ctx:.2f} sec")
         except Exception as e:
             logger.error(f"[HYBRID_ORCHESTRATOR] ContextBuilder failed: {str(e)}")
             from app.models.context_models import UnifiedContext
@@ -112,7 +116,10 @@ class HybridChatService:
 
         # 5. Invoke LLM Manager (Phase 4)
         try:
+            logger.info("START GEMINI")
+            start_gem = time.time()
             gemini_res = self.gemini_service.generate_response(prompt_obj, context_chunks=context.knowledge)
+            logger.info(f"END GEMINI: {time.time() - start_gem:.2f} sec")
         except Exception as e:
             logger.error(f"[HYBRID_ORCHESTRATOR] GeminiService failed: {str(e)}")
             from app.models.prompt_models import GeminiResponse
@@ -164,6 +171,7 @@ class HybridChatService:
         # Save to cache with current timestamp
         _chat_response_cache[cache_key] = (time.time(), result_dict)
         
+        logger.info("RETURN RESPONSE")
         return result_dict
 
     def get_response_sync(self, question: str, history: Optional[str] = None) -> Dict[str, Any]:
