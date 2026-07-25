@@ -102,6 +102,10 @@ async def startup_event():
         faiss_exists = os.path.exists(config.FAISS_INDEX_PATH)
         logger.info(f"FastAPI Startup: Local FAISS database file check. Present: {faiss_exists}")
 
+    from app.api.chat import get_chatbot_service
+    get_chatbot_service()
+    logger.info("FastAPI Startup: Pre-warmed ChatbotService & IntentRouter singletons successfully.")
+
 @app.on_event("shutdown")
 async def shutdown_event():
     logger.info("FastAPI Application Shutdown: Cleaning connections...")

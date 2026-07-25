@@ -7,8 +7,14 @@ from app.services.chatbot_service import ChatbotService
 router = APIRouter()
 logger = logging.getLogger("app.api")
 
+_chatbot_service_instance = None
+
 def get_chatbot_service() -> ChatbotService:
-    return ChatbotService()
+    global _chatbot_service_instance
+    if _chatbot_service_instance is None:
+        logger.info("Initializing ChatbotService singleton instance...")
+        _chatbot_service_instance = ChatbotService()
+    return _chatbot_service_instance
 
 @router.post("/chat", response_model=ApiResponse[ChatResponseData])
 def chat(request: ChatRequest, service: ChatbotService = Depends(get_chatbot_service)):

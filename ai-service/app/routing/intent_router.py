@@ -228,15 +228,23 @@ class IntentRouter:
             Intent.GENERAL_CHAT: ["hello how are you", "good morning", "thank you so much", "how is it going"]
         }
         
-        # Load local embedder
-        try:
-            self.embedder = EmbeddingEngine()
-            self.anchor_embeddings = {}
-            for intent_cat, queries in self.anchor_queries.items():
-                self.anchor_embeddings[intent_cat] = [self.embedder.get_query_embedding(q) for q in queries]
-        except Exception as e:
-            logger.error(f"IntentRouter: Failed to pre-embed anchor queries: {str(e)}")
-            self.anchor_embeddings = {}
+    _cached_anchor_embeddings = None
+
+    def __init__(self):
+        # ... (keyword map initialization)
+        if IntentRouter._cached_anchor_embeddings is None:
+            logger.info("IntentRouter: Computing anchor embeddings for semantic fallback (ONCE at startup)...")
+            IntentRouter._cached_anchor_embeddings = {}
+            try:
+                self.embedder = EmbeddingEngine()
+                for intent_cat, queries in self.anchor_queries.items():
+                    IntentRouter._cached_anchor_embeddings[intent_cat] = [self.embedder.get_query_embedding(q) for q in queries]
+                logger.info("IntentRouter: Anchor embeddings pre-computed successfully.")
+            except Exception as e:
+                logger.error(f"IntentRouter: Failed to pre-embed anchor queries: {str(e)}")
+        
+        self.embedder = EmbeddingEngine()
+        self.anchor_embeddings = IntentRouter._cached_anchor_embeddings or {}
 
     def detect_intent(self, question: str) -> IntentResult:
         """
