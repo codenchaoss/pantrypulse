@@ -47,9 +47,12 @@ class GeminiProvider(BaseProvider):
         if not self.api_key:
             return {"status": "error", "text": "", "error": "Gemini API key is not configured."}
 
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent?key={self.api_key}"
+        models_to_try = [self.model, "gemini-1.5-flash-latest", "gemini-1.5-flash", "gemini-1.5-pro", "gemini-2.0-flash-exp"]
+        # Remove duplicates while maintaining order
+        seen = set()
+        models_to_try = [m for m in models_to_try if not (m in seen or seen.add(m))]
+
         headers = {"Content-Type": "application/json"}
-        
         temperature = kwargs.get("temperature", 0.2)
         max_tokens = kwargs.get("max_tokens", 600)
         
@@ -61,18 +64,28 @@ class GeminiProvider(BaseProvider):
             }
         }
 
-        try:
-            response = httpx.post(url, json=payload, headers=headers, timeout=6.0)
-            if response.status_code == 200:
-                data = response.json()
-                candidates = data.get("candidates", [])
-                if candidates:
-                    text = candidates[0].get("content", {}).get("parts", [])[0].get("text", "")
-                    return {"status": "success", "text": text, "error": None}
-                return {"status": "error", "text": "", "error": "Gemini returned empty candidates."}
-            return {"status": "error", "text": "", "error": f"HTTP {response.status_code}: {response.text}"}
-        except Exception as e:
-            return {"status": "error", "text": "", "error": str(e)}
+        last_error = ""
+        for model in models_to_try:
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={self.api_key}"
+            try:
+                response = httpx.post(url, json=payload, headers=headers, timeout=6.0)
+                if response.status_code == 200:
+                    data = response.json()
+                    candidates = data.get("candidates", [])
+                    if candidates:
+                        text = candidates[0].get("content", {}).get("parts", [])[0].get("text", "")
+                        return {"status": "success", "text": text, "error": None}
+                    return {"status": "error", "text": "", "error": "Gemini returned empty candidates."}
+                elif response.status_code == 404:
+                    last_error = f"HTTP 404 for model {model}: {response.text}"
+                    logger.warning(f"GeminiProvider: Model '{model}' returned 404. Retrying with next fallback model...")
+                    continue
+                else:
+                    return {"status": "error", "text": "", "error": f"HTTP {response.status_code}: {response.text}"}
+            except Exception as e:
+                last_error = str(e)
+
+        return {"status": "error", "text": "", "error": last_error}
 
     def stream(self, prompt: str) -> Generator[str, None, None]:
         res = self.generate(prompt)

@@ -18,6 +18,8 @@ def run_async_synchronously(coro):
     Helper to run an async coroutine synchronously in a background thread.
     Prevents loop conflict in FastAPI/Uvicorn or CLI execution.
     """
+    logger.info("[TIMING 4: run_async_synchronously START - Spawning Thread]")
+    start = time.time()
     result = []
     exception = []
 
@@ -36,6 +38,7 @@ def run_async_synchronously(coro):
     thread.start()
     thread.join()
 
+    logger.info(f"[TIMING 4: run_async_synchronously END] Elapsed: {time.time() - start:.3f}s")
     if exception:
         raise exception[0]
     return result[0]
@@ -178,4 +181,8 @@ class HybridChatService:
         """
         Synchronous entry point that runs the async orchestration pipeline in a safe background event loop.
         """
-        return run_async_synchronously(self.get_response(question, history))
+        logger.info("[TIMING 3: HybridChatService.get_response_sync START]")
+        start = time.time()
+        res = run_async_synchronously(self.get_response(question, history))
+        logger.info(f"[TIMING 3: HybridChatService.get_response_sync END] Elapsed: {time.time() - start:.3f}s")
+        return res

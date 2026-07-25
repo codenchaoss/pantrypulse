@@ -153,7 +153,11 @@ class ChatbotService:
         """
         Delegates response generation to the Hybrid RAG Chatbot v2 pipeline.
         """
-        return self.hybrid_service.get_response_sync(question, history)
+        logger.info("[TIMING 2: ChatbotService.generate_response START]")
+        start = time.time()
+        res = self.hybrid_service.get_response_sync(question, history)
+        logger.info(f"[TIMING 2: ChatbotService.generate_response END] Elapsed: {time.time() - start:.3f}s")
+        return res
         
         # 1. Detect language
         detected_lang = detect_language(question)

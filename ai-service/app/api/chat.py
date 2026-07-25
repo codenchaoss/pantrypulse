@@ -15,16 +15,14 @@ def chat(request: ChatRequest, service: ChatbotService = Depends(get_chatbot_ser
     """
     Exposes conversational BOH operations. Receives question, invokes RAG, and returns solution.
     """
-    logger.info(f"ChatController: Received chat request for question: '{request.question}' | History present: {bool(request.history)}")
-    
+    logger.info(f"[TIMING 1: AiController.chat START] Question: '{request.question}' | History present: {bool(request.history)}")
     import time
     start = time.time()
     
     result = service.generate_response(request.question, request.history)
     
     elapsed = time.time() - start
-    print("Generate Response:", elapsed)
-    logger.info(f"Generate Response Timing: {elapsed} seconds")
+    logger.info(f"[TIMING 1: AiController.chat END] Total elapsed: {elapsed:.3f}s")
     
     response_data = ChatResponseData(
         question=result.get("question", ""),
