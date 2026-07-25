@@ -85,7 +85,7 @@ class HybridChatService:
         except Exception as e:
             logger.error(f"[HYBRID_ORCHESTRATOR] Router failed: {str(e)}")
             from app.models.intent_models import IntentResult, Intent, Route
-            route_res = IntentResult(intent=Intent.GENERAL_CHAT, route=Route.GEMINI_ONLY, confidence=0.5, matched_keywords=[])
+            route_res = IntentResult(intent=Intent.GENERAL_CHAT, route=Route.GEMINI_ONLY, confidence=0.5, matched_keywords=[], reason=f"Fallback intent decision due to router error: {str(e)}")
 
         # 3. Gather Context Object (Phase 3 + Phase 5 HYBRID improvement)
         try:

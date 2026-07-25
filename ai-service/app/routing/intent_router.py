@@ -16,6 +16,8 @@ class IntentRouter:
     Runs offline with zero external network or model latency.
     """
 
+    _cached_anchor_embeddings = None
+
     def __init__(self):
         # Define keyword lists for each intent category
         self.keywords_map = {
@@ -228,10 +230,6 @@ class IntentRouter:
             Intent.GENERAL_CHAT: ["hello how are you", "good morning", "thank you so much", "how is it going"]
         }
         
-    _cached_anchor_embeddings = None
-
-    def __init__(self):
-        # ... (keyword map initialization)
         if IntentRouter._cached_anchor_embeddings is None:
             logger.info("IntentRouter: Computing anchor embeddings for semantic fallback (ONCE at startup)...")
             IntentRouter._cached_anchor_embeddings = {}
