@@ -230,19 +230,20 @@ class IntentRouter:
             Intent.GENERAL_CHAT: ["hello how are you", "good morning", "thank you so much", "how is it going"]
         }
         
+    def _get_anchor_embeddings(self):
         if IntentRouter._cached_anchor_embeddings is None:
-            logger.info("IntentRouter: Computing anchor embeddings for semantic fallback (ONCE at startup)...")
+            logger.info("IntentRouter: Lazily computing anchor embeddings for semantic fallback...")
+            import time
+            start_t = time.time()
             IntentRouter._cached_anchor_embeddings = {}
             try:
-                self.embedder = EmbeddingEngine()
+                embedder = EmbeddingEngine()
                 for intent_cat, queries in self.anchor_queries.items():
-                    IntentRouter._cached_anchor_embeddings[intent_cat] = [self.embedder.get_query_embedding(q) for q in queries]
-                logger.info("IntentRouter: Anchor embeddings pre-computed successfully.")
+                    IntentRouter._cached_anchor_embeddings[intent_cat] = [embedder.get_query_embedding(q) for q in queries]
+                logger.info(f"IntentRouter: Anchor embeddings pre-computed successfully in {time.time() - start_t:.2f}s.")
             except Exception as e:
                 logger.error(f"IntentRouter: Failed to pre-embed anchor queries: {str(e)}")
-        
-        self.embedder = EmbeddingEngine()
-        self.anchor_embeddings = IntentRouter._cached_anchor_embeddings or {}
+        return IntentRouter._cached_anchor_embeddings or {}
 
     def detect_intent(self, question: str) -> IntentResult:
         """
@@ -305,26 +306,29 @@ class IntentRouter:
         # 3. Semantic fallback search if no keywords matched
         is_semantic_fallback = False
         best_semantic_score = 0.0
-        if best_intent == Intent.UNKNOWN and hasattr(self, "anchor_embeddings") and self.anchor_embeddings:
-            try:
-                query_vector = self.embedder.get_query_embedding(question)
-                best_semantic_score = -1.0
-                best_semantic_intent = Intent.UNKNOWN
-                
-                for intent_cat, vecs in self.anchor_embeddings.items():
-                    for vec in vecs:
-                        sim = float(np.dot(query_vector, vec))
-                        if sim > best_semantic_score:
-                            best_semantic_score = sim
-                            best_semantic_intent = intent_cat
-                            
-                # Semantic match threshold
-                if best_semantic_score >= 0.70:
-                    best_intent = best_semantic_intent
-                    is_semantic_fallback = True
-                    matched_kws = [f"semantic-match ({best_semantic_score:.2f})"]
-            except Exception as e:
-                logger.error(f"[INTENT_ROUTER] Semantic routing fallback failed: {str(e)}")
+        if best_intent == Intent.UNKNOWN:
+            anchor_embeddings = self._get_anchor_embeddings()
+            if anchor_embeddings:
+                try:
+                    embedder = EmbeddingEngine()
+                    query_vector = embedder.get_query_embedding(question)
+                    best_semantic_score = -1.0
+                    best_semantic_intent = Intent.UNKNOWN
+                    
+                    for intent_cat, vecs in anchor_embeddings.items():
+                        for vec in vecs:
+                            sim = float(np.dot(query_vector, vec))
+                            if sim > best_semantic_score:
+                                best_semantic_score = sim
+                                best_semantic_intent = intent_cat
+                                
+                    # Semantic match threshold
+                    if best_semantic_score >= 0.70:
+                        best_intent = best_semantic_intent
+                        is_semantic_fallback = True
+                        matched_kws = [f"semantic-match ({best_semantic_score:.2f})"]
+                except Exception as e:
+                    logger.error(f"[INTENT_ROUTER] Semantic routing fallback failed: {str(e)}")
 
         # 4. Determine Route based on Intent
         if best_intent == Intent.INVENTORY:
