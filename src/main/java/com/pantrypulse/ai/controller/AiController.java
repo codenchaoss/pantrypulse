@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import lombok.extern.slf4j.*;
 import com.pantrypulse.ai.dto.ChatRequestDto;
 import com.pantrypulse.ai.dto.ChatResponseDto;
 import com.pantrypulse.ai.dto.MenuResponseDto;
 import com.pantrypulse.ai.service.AiService;
 import com.pantrypulse.recommendation.service.RecommendationService;
-
+@Slf4j
 @RestController
 @RequestMapping("/api/ai")
 @ConditionalOnProperty(
@@ -39,6 +39,14 @@ public class AiController {
 
     @PostMapping("/chat")
     public ChatResponseDto chat(@RequestBody ChatRequestDto request) {
-        return aiService.chat(request);
+
+        long start = System.currentTimeMillis();
+
+        ChatResponseDto dto = aiService.chat(request);
+
+        log.info("Chat controller completed in {} ms",
+                System.currentTimeMillis() - start);
+
+        return dto;
     }
 }

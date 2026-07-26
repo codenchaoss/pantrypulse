@@ -8,6 +8,8 @@ import com.pantrypulse.recipe.mapper.RecipeMapper;
 import com.pantrypulse.recipe.repository.RecipeRepository;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
+import com.pantrypulse.authentication.entity.User;
+import com.pantrypulse.authentication.service.AuthenticatedUserService;
 import org.slf4j.LoggerFactory;
 import java.util.List;
 import org.springframework.data.domain.Page;
@@ -20,16 +22,25 @@ public class RecipeService {
 	        LoggerFactory.getLogger(RecipeService.class);
 
     private final RecipeRepository recipeRepository;
+    private final AuthenticatedUserService authenticatedUserService;
 
-    public RecipeService(RecipeRepository recipeRepository) {
+    public RecipeService(
+            RecipeRepository recipeRepository,
+            AuthenticatedUserService authenticatedUserService) {
+
         this.recipeRepository = recipeRepository;
+        this.authenticatedUserService = authenticatedUserService;
     }
 
     public RecipeDto addRecipe(RecipeDto dto) {
 
         logger.info("Creating recipe: {}", dto.getRecipeName());
 
+        User currentUser = authenticatedUserService.getCurrentUser();
+
         Recipe recipe = RecipeMapper.toEntity(dto);
+
+        recipe.setOwner(currentUser);
 
         Recipe saved = recipeRepository.save(recipe);
 
@@ -42,7 +53,9 @@ public class RecipeService {
 
         logger.info("Fetching all recipes");
 
-        List<RecipeDto> recipes = recipeRepository.findAll()
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        List<RecipeDto> recipes = recipeRepository.findByOwner(currentUser)
                 .stream()
                 .map(RecipeMapper::toDto)
                 .collect(Collectors.toList());
@@ -56,7 +69,9 @@ public class RecipeService {
 
         logger.info("Fetching recipe with ID: {}", id);
 
-        Recipe recipe = recipeRepository.findById(id)
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        Recipe recipe = recipeRepository.findByIdAndOwner(id, currentUser)
                 .orElseThrow(() -> {
                     logger.error("Recipe not found with ID: {}", id);
                     return new ResourceNotFoundException("Recipe not found with id " + id);
@@ -66,12 +81,14 @@ public class RecipeService {
 
         return RecipeMapper.toDto(recipe);
     }
-
+    
     public RecipeDto updateRecipe(Long id, RecipeDto dto) {
 
         logger.info("Updating recipe with ID: {}", id);
 
-        Recipe recipe = recipeRepository.findById(id)
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        Recipe recipe = recipeRepository.findByIdAndOwner(id, currentUser)
                 .orElseThrow(() -> {
                     logger.error("Recipe not found with ID: {}", id);
                     return new ResourceNotFoundException("Recipe not found with id " + id);
@@ -97,7 +114,9 @@ public class RecipeService {
 
         logger.info("Deleting recipe with ID: {}", id);
 
-        Recipe recipe = recipeRepository.findById(id)
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        Recipe recipe = recipeRepository.findByIdAndOwner(id, currentUser)
                 .orElseThrow(() -> {
                     logger.error("Recipe not found with ID: {}", id);
                     return new ResourceNotFoundException("Recipe not found");
@@ -109,7 +128,10 @@ public class RecipeService {
     }
     public List<RecipeDto> searchRecipe(String recipeName) {
 
-        return recipeRepository.findByRecipeNameContainingIgnoreCase(recipeName)
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        return recipeRepository
+                .findByOwnerAndRecipeNameContainingIgnoreCase(currentUser, recipeName)
                 .stream()
                 .map(RecipeMapper::toDto)
                 .collect(Collectors.toList());
@@ -117,7 +139,10 @@ public class RecipeService {
 
     public List<RecipeDto> getByCategory(RecipeCategory category) {
 
-        return recipeRepository.findByCategory(category)
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        return recipeRepository
+                .findByOwnerAndCategory(currentUser, category)
                 .stream()
                 .map(RecipeMapper::toDto)
                 .collect(Collectors.toList());
@@ -125,7 +150,10 @@ public class RecipeService {
 
     public List<RecipeDto> getAvailableRecipes(Boolean available) {
 
-        return recipeRepository.findByAvailable(available)
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        return recipeRepository
+                .findByOwnerAndAvailable(currentUser, available)
                 .stream()
                 .map(RecipeMapper::toDto)
                 .collect(Collectors.toList());
@@ -136,8 +164,10 @@ public class RecipeService {
                 pageable.getPageNumber(),
                 pageable.getPageSize());
 
+        User currentUser = authenticatedUserService.getCurrentUser();
+
         Page<RecipeDto> recipes = recipeRepository
-                .findAll(pageable)
+                .findByOwner(currentUser, pageable)
                 .map(RecipeMapper::toDto);
 
         logger.info("Fetched {} recipes",

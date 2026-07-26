@@ -4,6 +4,8 @@ package com.pantrypulse.supplier.service;
 
 import com.pantrypulse.exception.ResourceNotFoundException;
 import com.pantrypulse.supplier.dto.SupplierDto;
+import com.pantrypulse.authentication.entity.User;
+import com.pantrypulse.authentication.service.AuthenticatedUserService;
 import com.pantrypulse.supplier.entity.Supplier;
 import com.pantrypulse.supplier.mapper.SupplierMapper;
 import com.pantrypulse.supplier.repository.SupplierRepository;
@@ -22,16 +24,23 @@ public class SupplierService {
             LoggerFactory.getLogger(SupplierService.class);
 
     private final SupplierRepository supplierRepository;
+    private final AuthenticatedUserService authenticatedUserService;
+    public SupplierService(
+            SupplierRepository supplierRepository,
+            AuthenticatedUserService authenticatedUserService) {
 
-    public SupplierService(SupplierRepository supplierRepository) {
         this.supplierRepository = supplierRepository;
+        this.authenticatedUserService = authenticatedUserService;
     }
-
     public SupplierDto addSupplier(SupplierDto dto) {
 
         logger.info("Creating supplier: {}", dto.getSupplierName());
 
+        User currentUser = authenticatedUserService.getCurrentUser();
+
         Supplier supplier = SupplierMapper.toEntity(dto);
+
+        supplier.setOwner(currentUser);
 
         Supplier saved = supplierRepository.save(supplier);
 
@@ -44,7 +53,10 @@ public class SupplierService {
 
         logger.info("Fetching all suppliers");
 
-        List<SupplierDto> suppliers = supplierRepository.findAll()
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        List<SupplierDto> suppliers = supplierRepository
+                .findByOwner(currentUser)
                 .stream()
                 .map(SupplierMapper::toDto)
                 .collect(Collectors.toList());
@@ -58,7 +70,9 @@ public class SupplierService {
 
         logger.info("Fetching supplier with ID: {}", id);
 
-        Supplier supplier = supplierRepository.findById(id)
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        Supplier supplier = supplierRepository.findByIdAndOwner(id, currentUser)
                 .orElseThrow(() -> {
                     logger.error("Supplier not found with ID: {}", id);
                     return new ResourceNotFoundException("Supplier not found with id " + id);
@@ -71,7 +85,9 @@ public class SupplierService {
 
         logger.info("Updating supplier with ID: {}", id);
 
-        Supplier supplier = supplierRepository.findById(id)
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        Supplier supplier = supplierRepository.findByIdAndOwner(id, currentUser)
                 .orElseThrow(() -> {
                     logger.error("Supplier not found with ID: {}", id);
                     return new ResourceNotFoundException("Supplier not found with id " + id);
@@ -96,7 +112,9 @@ public class SupplierService {
 
         logger.info("Deleting supplier with ID: {}", id);
 
-        Supplier supplier = supplierRepository.findById(id)
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        Supplier supplier = supplierRepository.findByIdAndOwner(id, currentUser)
                 .orElseThrow(() -> {
                     logger.error("Supplier not found with ID: {}", id);
                     return new ResourceNotFoundException("Supplier not found with id " + id);
@@ -109,16 +127,20 @@ public class SupplierService {
 
     public List<SupplierDto> searchSupplier(String supplierName) {
 
+        User currentUser = authenticatedUserService.getCurrentUser();
+
         return supplierRepository
-                .findBySupplierNameContainingIgnoreCase(supplierName)
+                .findByOwnerAndSupplierNameContainingIgnoreCase(currentUser, supplierName)
                 .stream()
                 .map(SupplierMapper::toDto)
                 .collect(Collectors.toList());
     }
-
     public List<SupplierDto> getActiveSuppliers(Boolean active) {
 
-        return supplierRepository.findByActive(active)
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        return supplierRepository
+                .findByOwnerAndActive(currentUser, active)
                 .stream()
                 .map(SupplierMapper::toDto)
                 .collect(Collectors.toList());

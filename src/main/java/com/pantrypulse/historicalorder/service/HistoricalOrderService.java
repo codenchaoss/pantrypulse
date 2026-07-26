@@ -8,6 +8,8 @@ import com.pantrypulse.historicalorder.repository.HistoricalOrderRepository;
 import com.pantrypulse.recipe.entity.Recipe;
 import com.pantrypulse.recipe.repository.RecipeRepository;
 import org.slf4j.Logger;
+import com.pantrypulse.authentication.entity.User;
+import com.pantrypulse.authentication.service.AuthenticatedUserService;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
@@ -22,26 +24,34 @@ public class HistoricalOrderService {
 
     private final HistoricalOrderRepository historicalOrderRepository;
     private final RecipeRepository recipeRepository;
+    private final AuthenticatedUserService authenticatedUserService;
+    public HistoricalOrderService(
+            HistoricalOrderRepository historicalOrderRepository,
+            RecipeRepository recipeRepository,
+            AuthenticatedUserService authenticatedUserService) {
 
-    public HistoricalOrderService(HistoricalOrderRepository historicalOrderRepository,
-                                  RecipeRepository recipeRepository) {
         this.historicalOrderRepository = historicalOrderRepository;
         this.recipeRepository = recipeRepository;
+        this.authenticatedUserService = authenticatedUserService;
     }
 
     public HistoricalOrderDto addHistoricalOrder(HistoricalOrderDto dto) {
 
         logger.info("Creating historical order");
 
-        Recipe recipe = recipeRepository.findById(dto.getRecipeId())
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        Recipe recipe = recipeRepository
+                .findByIdAndOwner(dto.getRecipeId(), currentUser)
                 .orElseThrow(() ->
                         new ResourceNotFoundException(
-                                "Recipe not found with id " + dto.getRecipeId()));
+                                "Recipe not found"));
 
         HistoricalOrder order = HistoricalOrder.builder()
                 .recipe(recipe)
                 .quantity(dto.getQuantity())
                 .orderDate(dto.getOrderDate())
+                .owner(currentUser)
                 .build();
 
         HistoricalOrder saved = historicalOrderRepository.save(order);
@@ -53,28 +63,36 @@ public class HistoricalOrderService {
 
     public List<HistoricalOrderDto> getAllHistoricalOrders() {
 
-        return historicalOrderRepository.findAll()
-                .stream()
-                .map(HistoricalOrderMapper::toDto)
-                .collect(Collectors.toList());
+    	User currentUser = authenticatedUserService.getCurrentUser();
+
+    	return historicalOrderRepository.findByOwner(currentUser)
+    	        .stream()
+    	        .map(HistoricalOrderMapper::toDto)
+    	        .collect(Collectors.toList());
     }
 
     public HistoricalOrderDto getHistoricalOrderById(Long id) {
 
-        HistoricalOrder order = historicalOrderRepository.findById(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException(
-                                "Historical order not found with id " + id));
+    	User currentUser = authenticatedUserService.getCurrentUser();
+
+    	HistoricalOrder order =
+    	        historicalOrderRepository.findByIdAndOwner(id, currentUser)
+    	                .orElseThrow(() ->
+    	                        new ResourceNotFoundException(
+    	                                "Historical order not found"));
 
         return HistoricalOrderMapper.toDto(order);
     }
 
     public void deleteHistoricalOrder(Long id) {
 
-        HistoricalOrder order = historicalOrderRepository.findById(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException(
-                                "Historical order not found with id " + id));
+    	User currentUser = authenticatedUserService.getCurrentUser();
+
+    	HistoricalOrder order =
+    	        historicalOrderRepository.findByIdAndOwner(id, currentUser)
+    	                .orElseThrow(() ->
+    	                        new ResourceNotFoundException(
+    	                                "Historical order not found"));
 
         historicalOrderRepository.delete(order);
     }

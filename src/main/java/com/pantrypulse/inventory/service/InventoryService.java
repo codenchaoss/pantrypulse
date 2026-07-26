@@ -6,7 +6,8 @@ import com.pantrypulse.inventory.mapper.InventoryMapper;
 import com.pantrypulse.inventory.repository.InventoryRepository;
 import com.pantrypulse.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
-
+import com.pantrypulse.authentication.entity.User;
+import com.pantrypulse.authentication.service.AuthenticatedUserService;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,13 +16,24 @@ public class InventoryService {
 
     private final InventoryRepository inventoryRepository;
 
-    public InventoryService(InventoryRepository inventoryRepository) {
+    
+    private final AuthenticatedUserService authenticatedUserService;
+
+    public InventoryService(
+            InventoryRepository inventoryRepository,
+            AuthenticatedUserService authenticatedUserService) {
+
         this.inventoryRepository = inventoryRepository;
+        this.authenticatedUserService = authenticatedUserService;
     }
 
     public InventoryDto addIngredient(InventoryDto dto) {
 
+        User currentUser = authenticatedUserService.getCurrentUser();
+
         Inventory inventory = InventoryMapper.toEntity(dto);
+
+        inventory.setOwner(currentUser);
 
         Inventory saved = inventoryRepository.save(inventory);
 
@@ -30,7 +42,9 @@ public class InventoryService {
 
     public List<InventoryDto> getAllIngredients() {
 
-        return inventoryRepository.findAll()
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        return inventoryRepository.findByOwner(currentUser)
                 .stream()
                 .map(InventoryMapper::toDto)
                 .collect(Collectors.toList());
@@ -38,13 +52,15 @@ public class InventoryService {
 
     public InventoryDto getIngredientById(Long id) {
 
-        Inventory inventory = inventoryRepository.findById(id)
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        Inventory inventory = inventoryRepository
+                .findByIdAndOwner(id, currentUser)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Ingredient not found with id " + id));
+                        new ResourceNotFoundException("Ingredient not found"));
 
         return InventoryMapper.toDto(inventory);
     }
-
     public void deleteIngredient(Long id) {
 
         Inventory inventory = inventoryRepository.findById(id)

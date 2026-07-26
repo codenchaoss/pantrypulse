@@ -1,5 +1,5 @@
 package com.pantrypulse.supplier.entity;
-
+import com.pantrypulse.authentication.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -35,4 +35,8 @@ public class Supplier {
 
     @Column(nullable = false)
     private Boolean active;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
+    private User owner;
 }

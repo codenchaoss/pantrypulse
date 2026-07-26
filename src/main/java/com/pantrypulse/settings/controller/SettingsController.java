@@ -1,5 +1,7 @@
 package com.pantrypulse.settings.controller;
 
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +9,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.pantrypulse.settings.dto.ChangePasswordRequest;
 import com.pantrypulse.settings.dto.AboutDto;
 import com.pantrypulse.settings.dto.NotificationSettingsDto;
 import com.pantrypulse.settings.dto.ProfileDto;
@@ -57,7 +59,18 @@ public class SettingsController {
                 settingsService.updateNotifications(dto)
         );
     }
-  
+    @PutMapping("/change-password")
+    public ResponseEntity<Map<String, Object>> changePassword(
+            @RequestBody ChangePasswordRequest request) {
+
+        settingsService.changePassword(request);
+
+        return ResponseEntity.ok(
+            Map.of(
+                "success", true,
+                "message", "Password updated successfully"
+            )
+        );}
     @GetMapping("/about")
     public ResponseEntity<AboutDto> getAbout() {
 

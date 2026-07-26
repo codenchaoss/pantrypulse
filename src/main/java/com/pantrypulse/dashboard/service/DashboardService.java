@@ -2,9 +2,11 @@ package com.pantrypulse.dashboard.service;
 
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
+
 import java.util.List;
 import com.pantrypulse.dashboard.dto.RecentRecipeDto;
-
+import com.pantrypulse.authentication.entity.User;
+import com.pantrypulse.authentication.service.AuthenticatedUserService;
 import com.pantrypulse.dashboard.dto.RecentIngredientDto;
 import com.pantrypulse.dashboard.dto.ExpiryAlertDto;
 import com.pantrypulse.dashboard.dto.DashboardSummaryDto;
@@ -15,29 +17,49 @@ import com.pantrypulse.recipe.repository.RecipeRepository;
 public class DashboardService {
 
 	private final InventoryRepository inventoryRepository;
+	private final AuthenticatedUserService authenticatedUserService;
 
 	private final RecipeRepository recipeRepository;
 
-	public DashboardService(InventoryRepository inventoryRepository, RecipeRepository recipeRepository) {
+	public DashboardService(
+	        InventoryRepository inventoryRepository,
+	        RecipeRepository recipeRepository,
+	        AuthenticatedUserService authenticatedUserService) {
 
-		this.inventoryRepository = inventoryRepository;
-		this.recipeRepository = recipeRepository;
+	    this.inventoryRepository = inventoryRepository;
+	    this.recipeRepository = recipeRepository;
+	    this.authenticatedUserService = authenticatedUserService;
 	}
 
 	public DashboardSummaryDto getSummary() {
+		
 
-		DashboardSummaryDto dto = new DashboardSummaryDto();
+		    User currentUser = authenticatedUserService.getCurrentUser();
 
-		dto.setTotalIngredients(inventoryRepository.count());
+		    DashboardSummaryDto dto = new DashboardSummaryDto();
 
-		dto.setTotalRecipes(recipeRepository.count());
 
-		dto.setLowStockItems(inventoryRepository.countLowStockItems());
+		dto.setTotalIngredients(
+		        inventoryRepository.countByOwner(currentUser)
+		);
 
-		dto.setExpiringSoon(inventoryRepository.countExpiringSoon(LocalDate.now().plusDays(7)));
+		dto.setTotalRecipes(recipeRepository.countByOwner(currentUser));
 
-		dto.setExpiredItems(inventoryRepository.countExpiredItems());
-		List<RecentIngredientDto> recentIngredients = inventoryRepository.findTop5ByOrderByIdDesc().stream()
+		dto.setLowStockItems(
+		        inventoryRepository.countLowStockItems(currentUser)
+		);
+
+		dto.setExpiringSoon(
+		        inventoryRepository.countExpiringSoon(
+		                currentUser,
+		                LocalDate.now().plusDays(7)
+		        )
+		);
+
+		dto.setExpiredItems(
+		        inventoryRepository.countExpiredItems(currentUser)
+		);
+		List<RecentIngredientDto> recentIngredients = inventoryRepository.findTop5ByOwnerOrderByIdDesc(currentUser).stream()
 				.map(item -> {
 
 					RecentIngredientDto r = new RecentIngredientDto();
@@ -59,7 +81,7 @@ public class DashboardService {
 				}).toList();
 
 		dto.setRecentIngredients(recentIngredients);
-		List<RecentRecipeDto> recentRecipes = recipeRepository.findTop5ByOrderByIdDesc().stream().map(recipe -> {
+		List<RecentRecipeDto> recentRecipes = recipeRepository.findTop5ByOwnerOrderByIdDesc(currentUser).stream().map(recipe -> {
 
 			RecentRecipeDto r = new RecentRecipeDto();
 
@@ -80,7 +102,7 @@ public class DashboardService {
 		}).toList();
 
 		dto.setRecentRecipes(recentRecipes);
-		List<ExpiryAlertDto> expiryAlerts = inventoryRepository.findTop5ByOrderByExpiryDateAsc().stream().map(item -> {
+		List<ExpiryAlertDto> expiryAlerts = inventoryRepository.findTop5ByOwnerOrderByExpiryDateAsc(currentUser).stream().map(item -> {
 
 			ExpiryAlertDto e = new ExpiryAlertDto();
 

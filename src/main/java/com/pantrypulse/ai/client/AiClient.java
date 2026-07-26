@@ -37,18 +37,22 @@ public class AiClient {
         this.restTemplate = restTemplate;
     }
     
-
     public MenuResponseDto generateMenu(MenuRequestDto request) {
 
         log.info("Sending AI request to {}", aiUrl);
 
         try {
 
+            long start = System.currentTimeMillis();
+
             MenuResponseDto response = restTemplate.postForObject(
                     aiUrl + "/menu",
                     request,
                     MenuResponseDto.class
             );
+
+            long end = System.currentTimeMillis();
+            log.info("AI menu generated in {} ms", (end - start));
 
             if (response == null) {
                 return MenuResponseDto.builder()
@@ -70,36 +74,48 @@ public class AiClient {
                     .message("AI service is currently unavailable. Please try again later.")
                     .build();
         }
-    
-    
-    
-
     }
     public ChatResponseDto chat(ChatRequestDto request) {
 
         log.info("Sending Chat AI request to {}", aiUrl);
 
+        long start = System.currentTimeMillis();
+
         try {
 
-            return restTemplate.postForObject(
+            ChatResponseDto response = restTemplate.postForObject(
                     aiUrl + "/chat",
                     request,
                     ChatResponseDto.class
             );
 
+            long end = System.currentTimeMillis();
+
+            log.info("AI chat completed in {} ms", (end - start));
+
+            if (response == null) {
+                return ChatResponseDto.builder()
+                        .success(false)
+                        .timestamp(java.time.Instant.now().toString())
+                        .message("AI service returned an empty response.")
+                        .build();
+            }
+
+            return response;
+
         } catch (RestClientException ex) {
 
-            log.error("Chat AI unavailable", ex);
+            long end = System.currentTimeMillis();
 
-            ChatResponseDto fallback = new ChatResponseDto();
-            fallback.setSuccess(false);
-            fallback.setTimestamp(Instant.now().toString());
-            fallback.setMessage("Chat AI service unavailable.");
+            log.error("AI chat failed after {} ms", (end - start), ex);
 
-            return fallback;
+            return ChatResponseDto.builder()
+                    .success(false)
+                    .timestamp(java.time.Instant.now().toString())
+                    .message("AI service is currently unavailable. Please try again later.")
+                    .build();
         }
-    }
-    public RecipeResponseDto recommendRecipe(RecipeRequestDto request) {
+    }    public RecipeResponseDto recommendRecipe(RecipeRequestDto request) {
 
         log.info("Sending Recipe AI request to {}", aiUrl);
 

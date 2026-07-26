@@ -4,6 +4,7 @@ import com.pantrypulse.recipe.enums.RecipeCategory;
 import jakarta.persistence.*;
 import com.pantrypulse.recipeingredient.entity.RecipeIngredient;
 import java.util.List;
+import com.pantrypulse.authentication.entity.User;
 import lombok.*;
 
 @Entity
@@ -40,8 +41,15 @@ public class Recipe {
     private Integer calories;
 
     private Boolean available;
-    @OneToMany(mappedBy = "recipe",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    private List<RecipeIngredient> ingredients;
+    @OneToMany(
+    	    mappedBy = "recipe",
+    	    cascade = CascadeType.ALL,
+    	    orphanRemoval = true)
+    	private List<RecipeIngredient> ingredients;
+
+    	@ManyToOne(fetch = FetchType.LAZY)
+    	@JoinColumn(name = "owner_id")
+    	private User owner;
+
+    	
 }

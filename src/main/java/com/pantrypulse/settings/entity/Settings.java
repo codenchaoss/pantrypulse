@@ -1,5 +1,5 @@
 package com.pantrypulse.settings.entity;
-
+import com.pantrypulse.authentication.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 @Entity
@@ -40,4 +40,9 @@ public class Settings {
 
     @Builder.Default
     private Boolean emailNotifications = false;
+    
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
+    private User owner;
+    
 }

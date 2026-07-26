@@ -17,9 +17,10 @@ public class SettingsMapper {
 
 	public static void updateProfile(Settings settings, ProfileDto dto) {
 
-		settings.setFullName(dto.getFullName());
-		settings.setPhoneNumber(dto.getPhoneNumber());
-		settings.setRestaurantName(dto.getRestaurantName());
+	    settings.setFullName(dto.getFullName());
+	    settings.setPhoneNumber(dto.getPhoneNumber());
+	    settings.setRestaurantName(dto.getRestaurantName());
+	    settings.setRole(dto.getRole());
 
 	}
 

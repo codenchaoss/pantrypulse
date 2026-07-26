@@ -2,7 +2,7 @@ package com.pantrypulse.inventory.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
+import com.pantrypulse.authentication.entity.User;
 import java.time.LocalDate;
 import com.pantrypulse.recipeingredient.entity.RecipeIngredient;
 import java.util.List;
@@ -36,4 +36,9 @@ public class Inventory {
 	    @OneToMany(mappedBy = "inventory")
 	    private List<RecipeIngredient> recipeIngredients;
 
-}
+	    @ManyToOne(fetch = FetchType.LAZY)
+	    @JoinColumn(name = "owner_id")
+	    private User owner;
+
+	    }
+

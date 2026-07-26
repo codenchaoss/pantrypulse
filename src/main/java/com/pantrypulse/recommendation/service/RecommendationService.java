@@ -50,6 +50,15 @@ public class RecommendationService {
 
         AiRecommendationInputDto input = getRecommendationInput();
 
+        if (input.getExpiringIngredients().isEmpty()) {
+
+            return MenuResponseDto.builder()
+                    .success(false)
+                    .timestamp(LocalDateTime.now().toString())
+                    .message("No expiring ingredients found. Add inventory with upcoming expiry dates.")
+                    .build();
+        }
+
         MenuRequestDto request = aiRequestMapper.toMenuRequest(input);
 
         return aiService.generateMenu(request);

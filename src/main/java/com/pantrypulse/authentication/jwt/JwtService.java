@@ -1,7 +1,7 @@
 package com.pantrypulse.authentication.jwt;
 
 import java.nio.charset.StandardCharsets;
-import java.security.Key;
+
 import java.util.Date;
 
 import javax.crypto.SecretKey;
@@ -40,9 +40,13 @@ public class JwtService {
     }
 
     public String extractUsername(String token) {
-        return extractAllClaims(token).getSubject();
-    }
 
+        Claims claims = extractAllClaims(token);
+
+       
+
+        return claims.getSubject();
+    }
     public boolean isTokenValid(String token, String email) {
         return extractUsername(token).equals(email) && !isTokenExpired(token);
     }

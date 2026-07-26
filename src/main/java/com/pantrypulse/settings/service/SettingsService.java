@@ -1,8 +1,13 @@
 package com.pantrypulse.settings.service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.pantrypulse.authentication.entity.User;
+import com.pantrypulse.authentication.repository.UserRepository;
+import com.pantrypulse.authentication.service.AuthenticatedUserService;
 import com.pantrypulse.settings.dto.AboutDto;
+import com.pantrypulse.settings.dto.ChangePasswordRequest;
 import com.pantrypulse.settings.dto.NotificationSettingsDto;
 import com.pantrypulse.settings.dto.ProfileDto;
 import com.pantrypulse.settings.entity.Settings;
@@ -14,17 +19,64 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SettingsService {
 
+    
+    private final AuthenticatedUserService authenticatedUserService;
     private final SettingsRepository settingsRepository;
-
+    private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
     private Settings getSettings() {
 
-        return settingsRepository.findById(1L)
-                .orElseThrow(() ->
-                        new RuntimeException("Settings not found."));
+        User currentUser = authenticatedUserService.getCurrentUser();
+
+        return settingsRepository.findByOwner(currentUser)
+                .orElseGet(() -> {
+
+                    Settings settings = new Settings();
+
+                    settings.setOwner(currentUser);
+
+                    // Required fields
+                    settings.setFullName(currentUser.getName());
+                    settings.setEmail(currentUser.getEmail());
+                    settings.setRole(currentUser.getRole().name());
+
+                    // Optional fields
+                    settings.setPhoneNumber("");
+                    settings.setRestaurantName("");
+                    settings.setProfileImageUrl("");
+
+                    // Default notification settings
+                    settings.setLowStockAlerts(true);
+                    settings.setExpiryAlerts(true);
+                    settings.setAiMenuNotifications(true);
+                    settings.setEmailNotifications(false);
+
+                    return settingsRepository.save(settings);
+                });
     }
+    public void changePassword(ChangePasswordRequest request) {
 
-    // PROFILE
+        User currentUser = authenticatedUserService.getCurrentUser();
 
+        if (!passwordEncoder.matches(
+                request.getCurrentPassword(),
+                currentUser.getPassword())) {
+
+            throw new RuntimeException("Current password is incorrect");
+        }
+
+      
+
+        if (!request.getNewPassword().equals(request.getConfirmPassword())) {
+
+            throw new RuntimeException("Passwords do not match");
+        }
+
+        currentUser.setPassword(
+                passwordEncoder.encode(request.getNewPassword()));
+
+        userRepository.save(currentUser);
+    }
     public ProfileDto getProfile() {
         return SettingsMapper.toProfileDto(getSettings());
     }
@@ -39,8 +91,7 @@ public class SettingsService {
                 settingsRepository.save(settings));
     }
 
-    // NOTIFICATIONS
-
+   
     public NotificationSettingsDto getNotifications() {
 
         return SettingsMapper.toNotificationDto(getSettings());
