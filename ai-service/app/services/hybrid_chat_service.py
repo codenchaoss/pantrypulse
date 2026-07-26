@@ -43,6 +43,23 @@ def run_async_synchronously(coro):
         raise exception[0]
     return result[0]
 
+import re
+
+def clean_chat_formatting(text: str) -> str:
+    """
+    Post-processes LLM responses to strip raw Markdown asterisk clutter (e.g. * **Item:** -> • Item:).
+    Ensures clean, elegant text presentation on the frontend without raw markup.
+    """
+    if not text:
+        return ""
+    # Convert '* **Title:**' or '• **Title:**' to '• Title:'
+    cleaned = re.sub(r'[\*\•\-]\s*\*\*([^\*]+)\*\*', r'• \1', text)
+    # Remove remaining double asterisks ** for bold
+    cleaned = cleaned.replace("**", "")
+    # Convert leading bullet asterisks '* Title' to '• Title'
+    cleaned = re.sub(r'^\s*\*\s+', '• ', cleaned, flags=re.MULTILINE)
+    return cleaned
+
 _chat_response_cache = {}
 
 class HybridChatService:
@@ -161,7 +178,7 @@ class HybridChatService:
             "question": question,
             "language": detected_lang,
             "confidence": confidence_score,
-            "answer": gemini_res.response,
+            "answer": clean_chat_formatting(gemini_res.response),
             "sources": sources,
             "retrieved_chunks": retrieved_chunks,
             "provider": gemini_res.metadata.get("provider", "Gemini"),
