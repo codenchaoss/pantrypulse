@@ -22,6 +22,8 @@ public class SettingsMapper {
 	    settings.setRestaurantName(dto.getRestaurantName());
 	    settings.setRole(dto.getRole());
 
+	    settings.setProfileImageUrl(dto.getProfileImageUrl());
+
 	}
 
 	public static NotificationSettingsDto toNotificationDto(Settings settings) {

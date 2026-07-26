@@ -26,7 +26,8 @@ public class Settings {
     private String role;
 
     private String restaurantName;
-
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String profileImageUrl;
 
     @Builder.Default
