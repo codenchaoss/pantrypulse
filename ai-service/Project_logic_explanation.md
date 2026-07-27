@@ -1,75 +1,85 @@
-# KitchenSync & OpenClaw Project Logic Explanation
+# PantryPulse & OpenClaw Project Logic Explanation
 
-This document explains the full directory structure, module files, and the logic implemented inside each component of the KitchenSync AI microservice and the OpenClaw Orchestration engine.
+This document explains the full directory structure, module files, and the logic implemented inside each component of the PantryPulse AI microservice, Hybrid Routing System, and OpenClaw Orchestration engine.
 
 ---
 
 ## Application Core Module (`app/`)
 
-The `app/` folder contains the FastAPI backend codebase that exposes individual AI microservices.
+The `app/` folder contains the FastAPI backend codebase that exposes AI microservices and manages hybrid orchestration.
 
-### API Controllers (`app/api/`)
+### API Controllers & Proxy Routes (`app/api/`)
 
-* **`chat.py`**: Mounts `POST /chat`. Validates incoming queries and triggers the hybrid chatbot service.
+* **`chat.py`**: Mounts `POST /chat`. Validates incoming queries and triggers `HybridChatService` singleton execution.
+* **`spring_proxy.py`**: Exposes `/api/proxy/*` endpoints forwarding live data requests directly to Spring Boot backend (`/api/inventory`, `/api/recipes`, `/api/suppliers`, `/api/historical-orders`, `/api/expiration/expiring`, `/api/dashboard/summary`, `/api/settings`).
+* **`supplier.py`**: Mounts `POST /supplier`. Triggers `SupplierService` to generate formal corporate purchase request emails.
 * **`optimization.py`**: Mounts `POST /optimization`. Captures stock data and initiates the inventory optimizer service.
 * **`recipe.py`**: Mounts `POST /recipe`. Captures ingredient parameters to generate compatible recipes.
 * **`menu.py`**: Mounts `POST /menu`. Planner route accepting inventory details to suggest daily specials.
 * **`pricing.py`**: Mounts `POST /pricing`. Accepts dish parameters and calculates profit margins.
 * **`description.py`**: Mounts `POST /description`. Evaluates recipe names to construct elegant descriptions.
-* **`supplier.py`**: Mounts `POST /supplier`. Mounts supplier replenishment messaging workflows.
 
 ### Prompts & Instructions (`app/prompts/`)
 
-* **`system_prompt.py`**: Core persona boundaries, forcing professional, brief, and emoji-free text responses.
+* **`prompt_builder.py`**: Formats system prompts, injects `Current System Date` (e.g. `2026-07-26`) for accurate expiration calculations, enforces strict confidentiality (forbids technical terms like "knowledge base", "Pinecone", "RAG"), and directs clean bullet-point styling (`• Item:`).
+* **`system_prompt.py`**: Persona boundaries for standard, brief, and emoji-restricted BOH text responses.
 * **`chatbot_prompt.py`**: Directs the chatbot on hybrid search details, multilingual checks, and fallback formatting.
+* **`supplier_prompt.py`**: Enforces the Combined Corporate Email Format for supplier purchase requests (Greetings, Details Table, Procurement Team Signature, AI Assistant Footer).
 * **`inventory_prompt.py`**: Instructs the LLM to write clean restaurant names, flag purchase requests, and note ingredient shelf-lives.
 * **`pricing_prompt.py`**: Establishes instructions for strategy, positioning, and price confidence values.
-* **`supplier_prompt.py`**: Directs the drafting of purchase order messages with urgency levels and subjects.
 
-### Core Business Services (`app/services/`)
+### Query Intent Routing (`app/routing/`)
 
-* **`chatbot_service.py`**: Implements hybrid search, exact database index match fallbacks, regex word-boundary language detection (`re.findall(r'\b[a-z]+\b')`), 45 BOH safety protocols, 12 Telugu lunar months calendar, regional dish pairings, and casual BOH kitchen equipment layout (knives, aprons, towels, trash bins, plates).
-* **`inventory_optimizer_service.py`**: Programmatically merges duplicates, overrides priorities to `HIGH` for short-expiry ingredients (1-2 days), computes low-stock items for purchase recommendations, and uses regex word boundaries for accurate language identification.
-* **`recipe_service.py`**: Standardizes recipe details, calculates confidence metrics, sorts recommendations by match counts and preparation times, and searches across master recipe datasets (including AP district, Telangana, Tamil Nadu, Kerala, and Karnataka specialties).
-* **`menu_service.py`**: Programmatically intersects matched inventory to prevent hallucinated ingredients, intersects missing items list, formats estimated profit to rupee strings, and ranks specials by urgency.
-* **`pricing_service.py`**: Standardizes pricing suggestions, maps strategies based on margins, and uses regex word boundaries for language classification.
-* **`description_service.py`**: Scrubs scraped site fragments, applies restaurant menu fallback layouts, and uses regex word boundaries for language classification.
-* **`supplier_service.py`**: Integrates multi-item replenishment, unescapes newline draft characters, builds order tracking IDs, and uses regex word boundaries for language classification.
+* **`intent_router.py`**: Implements Phase 2 Intent Detection. Classifies queries into 9 Intent categories (`INVENTORY`, `RECIPE`, `SUPPLIER`, `PRICING`, `EXPIRATION`, `DASHBOARD`, `KNOWLEDGE`, `GENERAL_CHAT`, `SETTINGS`) and routes to 4 execution paths (`SPRING_*`, `PINECONE`, `HYBRID`, `GEMINI_ONLY`). Uses **lazy anchor query embeddings** (`_get_anchor_embeddings`) to guarantee **0.1-second container startup** and zero 502 connection refusal errors on Railway deployments.
+
+### Core Business Services & Aggregators (`app/services/`)
+
+* **`hybrid_chat_service.py`**: Hybrid Orchestration Engine. Executes query routing, triggers `ContextBuilder` for live REST + RAG data, logs 4-stage telemetry timing (`[TIMING 1]` to `[TIMING 4]`), and applies post-processing `clean_chat_formatting()` regex filters to strip raw Markdown asterisks (`* **Item:**` -> `• Item:`).
+* **`context_builder.py`**: Aggregates live Spring Boot REST endpoints (`/api/inventory`, `/api/recipes`, `/api/suppliers`, `/api/expiration/expiring`, `/api/dashboard/summary`) and Pinecone Cloud Vector RAG concurrently via `asyncio.gather()`.
+* **`supplier_service.py`**: Generates corporate supplier purchase order request emails. Implements fallback templates for English and Telugu adhering to the Combined Corporate Procurement Format.
+* **`spring_api.py`**: Async HTTP client (`SpringApiClient`) managing communication with Spring Boot REST microservices (`pantrypulse-production.up.railway.app`).
+* **`chatbot_service.py`**: Singleton Chatbot Engine handle (`get_chatbot_service()`).
+* **`inventory_optimizer_service.py`**: Merges duplicate stock items, overrides priorities to `HIGH` for short-expiry ingredients (1-2 days), and computes replenishment lists.
+* **`recipe_service.py`**: Standardizes recipe details, calculates compatibility scores, and searches across master recipe datasets.
+* **`menu_service.py`**: Intersects matched inventory to prevent hallucinated ingredients, formats estimated profit, and ranks specials.
+* **`pricing_service.py`**: Standardizes pricing suggestions and maps strategies based on margins.
+* **`description_service.py`**: Scrubs scraped site fragments and applies clean restaurant menu fallback layouts.
 
 ### Request & Response Schemas (`app/schemas/`)
 
-* **`request.py`**: Enforces strict request constraints (e.g. `min_length=1` for arrays, non-negative bounds).
-* **`response.py`**: Formats standardized FastAPI JSON responses wrapper (`ApiResponse[T]`).
+* **`request.py`**: Enforces strict request constraints (`min_length=1`, non-negative bounds).
+* **`response.py`**: Formats standardized FastAPI JSON response wrappers (`ApiResponse[T]`).
 
 ### Knowledge Base Database (`app/knowledge/`)
 
 * Static JSON databases containing 9,132+ entries:
   * **`recipes.json`**: Andhra Pradesh district specialties (Kakinada, Bhimavaram, Guntur, Rayalaseema, Nellore, Vizag), Telangana, Tamil Nadu, Kerala, Karnataka, Goa, Maharashtra, and Punjab recipes.
   * **`pairing.json`**: Regional and seasonal dish pairings strictly adhering to master `{"ingredient": "...", "pairs": [...]}` schema.
-  * **`safety.json`**: 45 master BOH kitchen safety, injury first-aid ( Pasupu / turmeric on chopping cuts), and emergency protocols.
+  * **`safety.json`**: 45 master BOH kitchen safety, injury first-aid (Pasupu / turmeric on chopping cuts), and emergency protocols.
   * **`seasonal.json`**: Sub-seasons and 12 traditional Telugu lunar months calendar with festival menu recommendations.
   * **`chef_notes.json`**: Back-of-house culinary prep guidelines and best practices.
   * **`suppliers.json`**: Commercial ingredient and LPG cooking gas vendor details.
 
 ### Retrieval & LLM Adapters (`app/rag/` & `app/llm/`)
 
-* **`retriever.py`**: Wraps SentenceTransformers model and local FAISS indices to run similarity retrieval.
-* **`llm_router.py`**: Manages and routes generation requests to the centralized `ProviderManager`.
-* **`base_provider.py`**: Declares abstract class for LLM API integration.
-* **`provider_manager.py`**: Central manager executing the fallback priority chain and triggering local RAG-only text summaries if all endpoints are offline.
-* **`provider_registry.py`**: Stores configured priorities and maps active API clients (Gemini, Grok, OpenRouter, Together, Fireworks, DeepSeek, Mistral).
-* **`health_monitor.py`**: Evaluates statuses and records latencies dynamically.
+* **`retriever.py`**: Wraps SentenceTransformers model (`BAAI/bge-small-en-v1.5`) and vector stores for similarity retrieval.
+* **`openrouter_client.py`**: Gateway integration for OpenRouter API (`meta-llama/llama-3.1-8b-instruct`).
+* **`provider_manager.py`**: Central manager executing the failover priority chain (Gemini primary -> OpenRouter gateway -> DeepSeek/Mistral -> RAG fallback).
+* **`provider_registry.py`**: Stores configured priorities and maps active API clients.
+* **`health_monitor.py`**: Evaluates provider statuses and records latencies dynamically.
 * **`retry_manager.py`**: Retries transient rate-limits and network timeouts using exponential backoffs.
 
 ### Vector DB Retrievers (`app/retrievers/`)
 
+* **`pinecone_retriever.py`**: Implements cloud-hosted Pinecone search over the 384-dimension `pantrypulse-rag` index.
+* **`faiss_retriever.py`**: Implements local FAISS search fallback.
 * **`base_retriever.py`**: Declares abstract interface for semantic query retrieval.
-* **`faiss_retriever.py`**: Implements local FAISS search.
-* **`pinecone_retriever.py`**: Implements cloud-hosted Pinecone search.
 
 ### DB Administration Scripts (`scripts/`)
 
-* **`upload_embeddings.py`**: Batch uploads FAISS database chunks and embeddings to the Pinecone cloud index.
+* **`sync_pinecone.py`**: Syncs all 7 static Knowledge Base JSON files to the Pinecone Cloud Vector Index (`pantrypulse-rag`).
+* **`build_embeddings.py`**: Builds local FAISS semantic database index chunks.
+* **`enrich_knowledge.py`**: Populates master recipe datasets.
 
 ---
 
@@ -95,4 +105,4 @@ The `openclaw/` folder houses the workflow orchestration engine that executes do
 
 ---
 
-For a detailed blueprint of the project architecture and implemented AI features, refer to the Project Structure (project_structure.md).
+For a detailed blueprint of the project architecture and implemented AI features, see [README.md](file:///e:/TCWING_PRJ/ai-service/README.md) and [project_structure.md](file:///e:/TCWING_PRJ/ai-service/project_structure.md).
