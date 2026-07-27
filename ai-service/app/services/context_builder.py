@@ -99,18 +99,28 @@ class ContextBuilder:
                 live_data = {"suppliers": sups}
                 
             elif route_result.route == Route.SPRING_EXPIRATION:
-                spring_calls.append("GET /api/expiration/expiring")
+                spring_calls.extend(["GET /api/inventory", "GET /api/expiration/expiring"])
                 pinecone_used = True
+                async def fetch_inv():
+                    try:
+                        return await spring_client.get_inventory()
+                    except Exception as s_err:
+                        logger.error(f"[CONTEXT_BUILDER] Spring API failed for inventory in Expiration route: {str(s_err)}")
+                        return []
                 async def fetch_exp():
-                    return await spring_client.get_expiring_items()
+                    try:
+                        return await spring_client.get_expiring_items()
+                    except Exception as s_err:
+                        logger.error(f"[CONTEXT_BUILDER] Spring API failed for expiring in Expiration route: {str(s_err)}")
+                        return []
                 async def fetch_rag():
                     try:
                         return await asyncio.to_thread(self.retriever.retrieve, question)
                     except Exception as p_err:
                         logger.error(f"[CONTEXT_BUILDER] Pinecone query failed: {str(p_err)}")
                         return []
-                exp, knowledge = await asyncio.gather(fetch_exp(), fetch_rag())
-                live_data = {"expiring": exp}
+                inv, exp, knowledge = await asyncio.gather(fetch_inv(), fetch_exp(), fetch_rag())
+                live_data = {"inventory": inv, "expiring": exp}
                 
             elif route_result.route == Route.SPRING_DASHBOARD:
                 spring_calls.append("GET /api/dashboard/summary")

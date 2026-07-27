@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 from app.models.context_models import UnifiedContext
 from app.models.prompt_models import PromptObject
 
@@ -15,6 +16,8 @@ class PromptBuilder:
         Builds system instructions and embeds context payload.
         Ensures no empty sections are created.
         """
+        current_date_str = datetime.now().strftime("%Y-%m-%d")
+
         if language == "roman_telugu":
             lang_instruction = (
                 "You MUST respond ONLY in natural Roman Telugu (Tenglish). Speak like a helpful restaurant server/assistant.\n"
@@ -39,6 +42,7 @@ class PromptBuilder:
 
         system_prompt = (
             "You are PantryPulse AI Assistant, a professional Back-of-House (BOH) restaurant operations assistant.\n"
+            f"Current System Date: {current_date_str}\n"
             "Answer the user's question query ONLY by grounding your response in the provided Context, with the exception of cooking/preparation steps and recipe/menu suggestions.\n"
             "- Self-Identity & Purpose:\n"
             "  * Who you are: You are PantryPulse AI Assistant.\n"
@@ -46,6 +50,7 @@ class PromptBuilder:
             f"Language Rule:\n{lang_instruction}\n"
             "Strict Guidelines:\n"
             "- Do not hallucinate or make up any facts.\n"
+            "- Expiration Date Matching: Compare ingredient Expiry Dates in the context against Current System Date. If an ingredient's expiry date matches Current System Date (or is on or before today's date), explicitly identify and report that ingredient as expiring today!\n"
             "- Recipe & Suggestion Prioritization: If the user asks for cooking steps, recipe instructions, preparation methods, recipe suggestions, or dish ideas (e.g. 'How to prepare Chicken Biryani', 'Show veg recipes', 'What can I cook with potatoes'), you MUST prioritize the live kitchen menu records in the context first. If matching recipes exist there, recommend those live recipes. If there are no matching live kitchen recipes in the context, immediately and seamlessly recommend matching recipes using the Pinecone RAG context or your general culinary knowledge, without mentioning any database, RAG, Spring Boot, or technical data sources to the user. Always prioritize using available inventory ingredients in the context when suggesting recipes, and keep all live stock level claims grounded in context.\n"
             "- If the context is completely empty and contains no data whatsoever, state that clearly. However, if the context contains any operational data, dashboard metrics, inventory counts, or settings, you MUST use them to answer or summarize the state. Never say 'not enough information' or refuse to answer if there is any data available (even if stock counts or totals are zero).\n"
             "- Always prefer live database tables over general tips.\n"
