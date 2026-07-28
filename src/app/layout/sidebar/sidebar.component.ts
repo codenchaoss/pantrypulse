@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { SidebarService } from '../../core/services/sidebar.service';
 import { AuthService } from '../../core/services/auth.service';
-
+import { MatDialog } from '@angular/material/dialog';
+import { LogoutDialogComponent } from 'src/app/shared/logout-dialog/logout-dialog.component';
 interface MenuItem {
   label: string;
   icon: string;
@@ -25,6 +26,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     { label: 'Dashboard', icon: 'dashboard', route: '/dashboard' },
     { label: 'Inventory', icon: 'inventory_2', route: '/inventory' },
     { label: 'Recipes', icon: 'restaurant_menu', route: '/recipes' },
+    {label: 'Expiration',icon: 'event_busy',route: '/expiration'},
     { label: 'AI Menu Planner', icon: 'smart_toy', route: '/menu-planner' },
     { label: 'AI Assistant', icon: 'psychology', route: '/ai-assistant' },
     { label: 'Suppliers', icon: 'local_shipping', route: '/suppliers' },
@@ -36,7 +38,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
     private sidebarService: SidebarService,
     private router: Router,
     private authService: AuthService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -53,6 +56,21 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   logout(): void {
-    this.authService.logout();
-  }
+
+  const dialogRef = this.dialog.open(LogoutDialogComponent, {
+  width: '430px',
+  disableClose: true,
+  panelClass: 'logout-dialog-panel'
+});
+
+ dialogRef.afterClosed().subscribe((result: boolean | undefined) => {
+
+    if(result){
+        localStorage.clear();
+        this.router.navigate(['/login']);
+    }
+
+});
+
+}
 }

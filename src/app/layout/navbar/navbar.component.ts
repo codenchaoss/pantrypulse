@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { SidebarService } from '../../core/services/sidebar.service';
+import { SettingsService } from '../../core/services/settings.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,26 +13,37 @@ import { SidebarService } from '../../core/services/sidebar.service';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   title = 'Dashboard';
+  userName = '';
+  userRole = '';
+  profileImageUrl = '';
   private sub = new Subscription();
 
   constructor(
     private sidebarService: SidebarService,
     private router: Router,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private settingsService: SettingsService
   ) {}
 
-  ngOnInit(): void {
-    this.updateTitle(this.router.url);
+ ngOnInit(): void {
+  this.updateTitle(this.router.url);
+  this.loadProfile();
 
-    this.sub.add(
-      this.router.events.pipe(
-        filter(event => event instanceof NavigationEnd)
-      ).subscribe((event: any) => {
-        this.updateTitle(event.urlAfterRedirects || event.url);
-        this.cdr.markForCheck();
-      })
-    );
-  }
+  this.sub.add(
+    this.settingsService.profileUpdated$.subscribe(() => {
+      this.loadProfile();
+    })
+  );
+
+  this.sub.add(
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: any) => {
+      this.updateTitle(event.urlAfterRedirects || event.url);
+      this.cdr.markForCheck();
+    })
+  );
+}
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
@@ -43,6 +55,21 @@ export class NavbarComponent implements OnInit, OnDestroy {
     } else {
       this.sidebarService.toggleCollapsed();
     }
+  }
+
+  private loadProfile(): void {
+    this.sub.add(
+      this.settingsService.getProfile().subscribe({
+        next: (profile) => {
+          this.userName = profile.fullName;
+          this.userRole = profile.role || '';
+            this.profileImageUrl = profile.profileImageUrl || '';
+
+          this.cdr.markForCheck();
+        },
+        error: () => this.cdr.markForCheck()
+      })
+    );
   }
 
   private updateTitle(url: string): void {

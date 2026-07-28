@@ -353,11 +353,23 @@ select.form-control.form-select-control option {
 }
 
 /* Result report layouts */
-.plaintext-result-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  padding: 16px 20px;
+.plaintext-result-card{
+
+    background:linear-gradient(
+        180deg,
+        rgba(44,47,56,.95),
+        rgba(35,37,45,.95)
+    );
+
+    border:1px solid rgba(168,85,247,.22);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+
+    border-radius:18px;
+
+    padding:22px;
+
 }
 
 .section-card-title {
@@ -468,19 +480,7 @@ select.form-control.form-select-control option {
 }
 
 /* Dialog actions and buttons */
-.action-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 38px;
-  padding: 0 16px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  border: none;
-}
+
 
 .cancel-btn {
   background: rgba(255, 255, 255, 0.04);
@@ -513,6 +513,116 @@ select.form-control.form-select-control option {
   background: linear-gradient(135deg, #9333ea, #7e22ce) !important;
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(168, 85, 247, 0.3);
+}
+.purchase-message{
+
+    color:#F5F7FA;
+
+    font-size:15px;
+
+    line-height:1.85;
+
+    white-space:pre-wrap;
+
+    font-family:Inter,sans-serif;
+
+}
+.email-actions{
+
+display:flex;
+
+gap:15px;
+
+margin-top:25px;
+
+}
+
+
+
+
+.success-banner{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+padding:18px;
+
+margin-bottom:20px;
+
+border-radius:16px;
+
+background:linear-gradient(
+135deg,
+rgba(34,197,94,.15),
+rgba(34,197,94,.05)
+);
+
+border:1px solid rgba(34,197,94,.35);
+
+}
+
+.success-icon{
+
+width:48px;
+
+height:48px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+
+border-radius:50%;
+
+background:#22c55e;
+
+color:white;
+
+}
+.email-preview{
+    background:#1c2029;
+    border:1px solid rgba(168,85,247,.25);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.03),
+        0 12px 28px rgba(0,0,0,.25);
+
+    transition:.25s;
+}
+.email-header{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:20px;
+
+}
+
+.email-label{
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#8f96ab;
+
+    font-weight:700;
+
+}
+.email-subject{
+
+margin-bottom:20px;
+
 }
 
 .save-btn[disabled], .cancel-btn[disabled] {
@@ -548,4 +658,139 @@ select.form-control.form-select-control option {
     flex-direction: column;
     gap: 12px;
   }
+}
+.action-btn{
+
+    height:38px;
+
+    min-width:170px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+.copy-btn{
+
+    background:linear-gradient(90deg,#8b5cf6,#9333ea);
+
+    color:white;
+
+}
+.download-btn{
+
+    background:#2c2f38;
+
+    color:white;
+
+}
+
+.action-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+.flex-spacer{
+    flex:1;
+}
+
+.secondary-btn{
+
+    min-width:120px;
+
+    height:40px;
+
+    border-radius:10px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:#2a2d34;
+
+    color:#fff;
+
+    transition:.25s;
+
+}
+
+.secondary-btn:hover{
+
+    background:#383c46;
+
+}
+.order-id{
+
+  font-size:24px;
+
+font-weight:700;
+
+letter-spacing:3px;
+
+color:#ffffff;
+}
+
+.email-meta-item{
+
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+
+}
+
+.email-meta-label{
+
+    color:#8d95a8;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+}
+
+.email-meta-value{
+
+    color:#ffffff;
+
+   font-size:17px;
+
+font-weight:600;
+
+
+}
+
+.subject-title{
+
+    color:#8d95a8;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:6px;
+
+}
+
+.subject-text{
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    font-weight:700;
+
 }

@@ -8,7 +8,7 @@ import { HistoricalOrder } from '../models/historical-order.model';
   providedIn: 'root'
 })
 export class HistoricalOrderService {
-  private apiUrl = `${environment.apiUrl}/historical-orders`;
+  private apiUrl = `${environment.apiUrl}/api/historical-orders`;
 
   constructor(private http: HttpClient) {}
 

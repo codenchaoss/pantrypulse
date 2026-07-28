@@ -1,344 +1,750 @@
 <div class="settings-container">
 
   <!-- ==========================================
-       LEFT SIDEBAR: Settings Vertical Menu
-       ========================================== -->
+       LEFT SIDEBAR
+  =========================================== -->
+
   <div class="settings-sidebar">
+
     <div class="sidebar-header">
       <h2>{{ title }}</h2>
-      <p class="sidebar-subtitle">Manage your account preferences</p>
+      <p class="sidebar-subtitle">
+        Manage your account preferences
+      </p>
     </div>
-    
+
     <div class="sidebar-menu">
-      <div 
-        class="menu-item" 
+
+      <div
+        class="menu-item"
         *ngFor="let cat of categories"
         [class.active]="activeCategory === cat.id"
         [class.logout-item]="cat.isLogout"
         (click)="openCategory(cat)">
+
         <span class="menu-icon">{{ cat.icon }}</span>
         <span class="menu-label">{{ cat.title }}</span>
+
       </div>
+
     </div>
+
   </div>
 
   <!-- ==========================================
-       RIGHT PANEL: Active Section Detail
-       ========================================== -->
+       RIGHT PANEL
+  =========================================== -->
+
   <div class="settings-detail-panel">
 
-    <!-- Loading State -->
-    <div class="loading-overlay" *ngIf="isLoading">
-      <mat-spinner diameter="40" color="accent"></mat-spinner>
+    <div
+      class="loading-overlay"
+      *ngIf="isLoading">
+
+      <mat-spinner
+        diameter="40"
+        color="accent">
+      </mat-spinner>
+
       <p>Loading settings...</p>
+
     </div>
 
-    <div class="detail-card" *ngIf="!isLoading">
+    <div
+      class="detail-card"
+      *ngIf="!isLoading">
 
-      <!-- Status Alerts -->
-      <div class="alert alert-success" *ngIf="successMessage">
-        <span class="alert-icon">✓</span> {{ successMessage }}
-      </div>
-      <div class="alert alert-error" *ngIf="errorMessage && activeCategory !== 'about'">
-        <span class="alert-icon">✖</span> {{ errorMessage }}
+      <!-- Alerts -->
+
+      <div
+        class="alert alert-success"
+        *ngIf="successMessage">
+
+        <span class="alert-icon">✓</span>
+
+        {{ successMessage }}
+
       </div>
 
-      <!-- 1. PROFILE DETAILS -->
-      <div class="detail-section" *ngIf="activeCategory === 'profile'">
+      <div
+        class="alert alert-error"
+        *ngIf="errorMessage && activeCategory !== 'about'">
+
+        <span class="alert-icon">✖</span>
+
+        {{ errorMessage }}
+
+      </div>
+
+      <!-- =====================================
+           PROFILE
+      ====================================== -->
+
+      <div
+        class="detail-section"
+        *ngIf="activeCategory === 'profile'">
+
         <div class="section-header">
+
           <h3>Profile Information</h3>
-          <p>Update your personal information and profile picture.</p>
+
+          <p>
+            Update your personal information and profile picture.
+          </p>
+
         </div>
 
         <div class="profile-avatar-row">
+
           <div class="avatar-circle">
-            <svg viewBox="0 0 100 100" class="avatar-svg" *ngIf="!avatarUrl">
-              <circle cx="50" cy="50" r="50" fill="#d97706" />
-              <circle cx="50" cy="40" r="18" fill="#ffffff" opacity="0.9" />
-              <ellipse cx="50" cy="85" rx="30" ry="20" fill="#ffffff" opacity="0.9" />
+
+            <svg
+              *ngIf="!avatarUrl"
+              viewBox="0 0 100 100"
+              class="avatar-svg">
+
+              <circle
+                cx="50"
+                cy="50"
+                r="50"
+                fill="#d97706">
+              </circle>
+
+              <circle
+                cx="50"
+                cy="40"
+                r="18"
+                fill="#ffffff">
+              </circle>
+
+              <ellipse
+                cx="50"
+                cy="85"
+                rx="30"
+                ry="20"
+                fill="#ffffff">
+              </ellipse>
+
             </svg>
-            <img [src]="avatarUrl" *ngIf="avatarUrl" class="avatar-img">
+
+            <img
+              *ngIf="avatarUrl"
+              [src]="avatarUrl"
+              class="avatar-img">
+
           </div>
 
           <div class="avatar-actions">
-            <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" accept="image/*">
-            <button class="action-btn" (click)="fileInput.click()">Upload Photo</button>
-            <button class="action-btn danger-btn" (click)="removePhoto()" [disabled]="!avatarUrl">Remove Photo</button>
+
+            <input
+              #fileInput
+              hidden
+              type="file"
+              accept="image/*"
+              (change)="onFileSelected($event)">
+
+            <button
+              class="action-btn"
+              (click)="fileInput.click()">
+
+              Upload Photo
+
+            </button>
+
+            <button
+              class="action-btn danger-btn"
+              (click)="removePhoto()"
+              [disabled]="!avatarUrl">
+
+              Remove Photo
+
+            </button>
+
           </div>
+
         </div>
 
         <div class="form-grid">
-          <div class="input-group">
-            <label>Full Name</label>
-            <input type="text" [(ngModel)]="profile.fullName" placeholder="Enter Full Name" class="form-input">
-          </div>
-          
-          <div class="input-group">
-            <label>Email Address</label>
-            <input type="email" [(ngModel)]="profile.email" placeholder="Enter Email Address" class="form-input">
-          </div>
-          
-          <div class="input-group">
-            <label>Phone Number</label>
-            <input type="text" [(ngModel)]="profile.phoneNumber" placeholder="Enter Phone Number" class="form-input">
-          </div>
-          
-          <div class="input-group">
-            <label>Restaurant Name</label>
-            <input type="text" [(ngModel)]="profile.restaurantName" placeholder="Enter Restaurant Name" class="form-input">
-          </div>
-          
-          <div class="input-group">
-            <label>Role</label>
-            <div class="select-wrapper">
-              <select [(ngModel)]="profile.role" class="form-select">
-                <option value="" disabled selected>Select Role</option>
-                <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
-              </select>
-            </div>
-          </div>
-        </div>
+<div class="input-group">
 
-        <div class="detail-card-footer">
-          <button class="save-btn" (click)="saveChanges()" [disabled]="isSaving">
-            {{ isSaving ? 'Saving...' : 'Save Changes' }}
-          </button>
-        </div>
-      </div>
+  <label>Full Name</label>
 
-      <!-- 2. CHANGE PASSWORD -->
-      <div class="detail-section" *ngIf="activeCategory === 'password'">
-        <div class="section-header">
-          <h3>Change Password</h3>
-          <p>Manage your account password to ensure security.</p>
-        </div>
+  <input
+    type="text"
+    class="form-input"
+    [(ngModel)]="profile.fullName"
+    placeholder="Enter Full Name">
 
-        <div class="password-grid">
-          <div class="input-group">
-            <label>Current Password</label>
-            <div class="input-box">
-              <input [type]="showCurrentPassword ? 'text' : 'password'" [(ngModel)]="passwordForm.currentPassword" placeholder="Enter Current Password">
-              <i class="eye-icon fa-regular" [class.fa-eye]="!showCurrentPassword" [class.fa-eye-slash]="showCurrentPassword" (click)="showCurrentPassword = !showCurrentPassword"></i>
-            </div>
-          </div>
+</div>
 
-          <div class="input-group">
-            <label>New Password</label>
-            <div class="input-box">
-              <input [type]="showNewPassword ? 'text' : 'password'" [(ngModel)]="passwordForm.newPassword" placeholder="Enter New Password">
-              <i class="eye-icon fa-regular" [class.fa-eye]="!showNewPassword" [class.fa-eye-slash]="showNewPassword" (click)="showNewPassword = !showNewPassword"></i>
-            </div>
-          </div>
+<div class="input-group">
 
-          <div class="input-group">
-            <label>Confirm Password</label>
-            <div class="input-box">
-              <input [type]="showConfirmPassword ? 'text' : 'password'" [(ngModel)]="passwordForm.confirmPassword" placeholder="Confirm New Password">
-              <i class="eye-icon fa-regular" [class.fa-eye]="!showConfirmPassword" [class.fa-eye-slash]="showConfirmPassword" (click)="showConfirmPassword = !showConfirmPassword"></i>
-            </div>
-          </div>
-        </div>
+  <label>Email Address</label>
 
-        <div class="detail-card-footer">
-          <button class="save-btn" (click)="updatePassword()">Update Password</button>
-        </div>
-      </div>
+  <input
+    type="email"
+    class="form-input"
+    [(ngModel)]="profile.email"
+    placeholder="Enter Email Address">
 
-      <!-- 3. NOTIFICATION PREFERENCES -->
-      <div class="detail-section" *ngIf="activeCategory === 'notifications'">
-        <div class="section-header">
-          <h3>Notification Preferences</h3>
-          <p>Control what updates you receive and how they are delivered.</p>
-        </div>
+</div>
 
-        <div class="toggles-list">
-          <div class="toggle-item">
-            <div class="toggle-info">
-              <span class="toggle-label">Email Notifications</span>
-              <span class="toggle-sub">Receive daily summaries and digest updates</span>
-            </div>
-            <label class="switch-toggle">
-              <input type="checkbox" [(ngModel)]="notifications.emailNotifications">
-              <span class="slider"></span>
-            </label>
-          </div>
+<div class="input-group">
 
-          <div class="toggle-item">
-            <div class="toggle-info">
-              <span class="toggle-label">Push Notifications</span>
-              <span class="toggle-sub">Live visual alert popups inside your browser</span>
-            </div>
-            <label class="switch-toggle">
-              <input type="checkbox" [(ngModel)]="pushNotifications">
-              <span class="slider"></span>
-            </label>
-          </div>
+  <label>Phone Number</label>
 
-          <div class="toggle-item">
-            <div class="toggle-info">
-              <span class="toggle-label">Low Stock Alerts</span>
-              <span class="toggle-sub">Warn me immediately when ingredients fall below threshold</span>
-            </div>
-            <label class="switch-toggle">
-              <input type="checkbox" [(ngModel)]="notifications.lowStockAlerts">
-              <span class="slider"></span>
-            </label>
-          </div>
+  <input
+    type="text"
+    class="form-input"
+    [(ngModel)]="profile.phoneNumber"
+    placeholder="Enter Phone Number">
 
-          <div class="toggle-item">
-            <div class="toggle-info">
-              <span class="toggle-label">AI Recommendation Alerts</span>
-              <span class="toggle-sub">Notifications when recipe recommendations are generated</span>
-            </div>
-            <label class="switch-toggle">
-              <input type="checkbox" [(ngModel)]="notifications.aiMenuNotifications">
-              <span class="slider"></span>
-            </label>
-          </div>
+</div>
 
-          <div class="toggle-item">
-            <div class="toggle-info">
-              <span class="toggle-label">Expiry Notifications</span>
-              <span class="toggle-sub">Receive critical warnings for ingredients close to expiry</span>
-            </div>
-            <label class="switch-toggle">
-              <input type="checkbox" [(ngModel)]="notifications.expiryAlerts">
-              <span class="slider"></span>
-            </label>
-          </div>
-        </div>
+<div class="input-group">
 
-        <div class="detail-card-footer">
-          <button class="save-btn" (click)="saveChanges()">Save Preferences</button>
-        </div>
-      </div>
+  <label>Restaurant Name</label>
 
-      <!-- 4. APPEARANCE -->
-      <div class="detail-section" *ngIf="activeCategory === 'appearance'">
-        <div class="section-header">
-          <h3>Appearance & Theme</h3>
-          <p>Customize the visual style and themes of the dashboard.</p>
-        </div>
+  <input
+    type="text"
+    class="form-input"
+    [(ngModel)]="profile.restaurantName"
+    placeholder="Enter Restaurant Name">
 
-        <h4 class="sub-section-title">Theme Options</h4>
-        <div class="theme-options">
-          <div class="theme-card" [class.active-theme]="selectedTheme === 'dark'" (click)="changeTheme('dark')">
-            <div class="theme-preview dark-preview">
-              <div class="preview-sidebar"></div>
-              <div class="preview-content"></div>
-            </div>
-            <div class="theme-meta">
-              <span class="theme-name">Dark Mode</span>
-              <span class="active-badge" *ngIf="selectedTheme === 'dark'">✓ Active</span>
-            </div>
-          </div>
+</div>
 
-          <div class="theme-card" [class.active-theme]="selectedTheme === 'light'" (click)="changeTheme('light')">
-            <div class="theme-preview light-preview">
-              <div class="preview-sidebar"></div>
-              <div class="preview-content"></div>
-            </div>
-            <div class="theme-meta">
-              <span class="theme-name">Light Mode</span>
-              <span class="active-badge" *ngIf="selectedTheme === 'light'">✓ Active</span>
-            </div>
-          </div>
+<mat-form-field appearance="outline">
 
-          <div class="theme-card" [class.active-theme]="selectedTheme === 'system'" (click)="changeTheme('system')">
-            <div class="theme-preview system-preview">
-              <div class="preview-sidebar"></div>
-              <div class="preview-content"></div>
-            </div>
-            <div class="theme-meta">
-              <span class="theme-name">System Default</span>
-              <span class="active-badge" *ngIf="selectedTheme === 'system'">✓ Active</span>
-            </div>
-          </div>
-        </div>
+  <mat-label>Role</mat-label>
 
-        <h4 class="sub-section-title margin-top-20">Accent Colors</h4>
-        <div class="color-options">
-          <div class="color-dot orange" [style.border-color]="accentColor === '#C76B29' ? '#ffffff' : 'transparent'" (click)="changeAccentColor('#C76B29')"></div>
-          <div class="color-dot green" [style.border-color]="accentColor === '#22c55e' ? '#ffffff' : 'transparent'" (click)="changeAccentColor('#22c55e')"></div>
-          <div class="color-dot blue" [style.border-color]="accentColor === '#3b82f6' ? '#ffffff' : 'transparent'" (click)="changeAccentColor('#3b82f6')"></div>
-          <div class="color-dot purple" [style.border-color]="accentColor === '#a855f7' ? '#ffffff' : 'transparent'" (click)="changeAccentColor('#a855f7')"></div>
-        </div>
-      </div>
+  <input
+    matInput
+    [value]="profile.role"
+    readonly>
 
-      <!-- 5. SECURITY -->
-      <div class="detail-section" *ngIf="activeCategory === 'security'">
-        <div class="section-header">
-          <h3>Security & Devices</h3>
-          <p>Monitor logins, configure multi-factor checks, and manage sessions.</p>
-        </div>
+  <mat-icon matSuffix>lock</mat-icon>
 
-        <div class="security-list">
-          <div class="security-item">
-            <div>
-              <span class="security-title">Two-Factor Authentication (2FA)</span>
-              <span class="security-desc">Protect your profile with double security verification code checks</span>
-            </div>
-            <label class="switch-toggle">
-              <input type="checkbox" [(ngModel)]="twoFactorEnabled">
-              <span class="slider"></span>
-            </label>
-          </div>
+</mat-form-field>
 
-          <h4 class="sub-section-title margin-top-20">Active Login Sessions</h4>
-          <div class="sessions-list">
-            <div class="session-row" *ngFor="let session of sessions">
-              <div class="session-info">
-                <span class="session-device">{{ session.device }}</span>
-                <span class="session-meta">{{ session.location }} • {{ session.ip }}</span>
-              </div>
-              <span class="status-badge" *ngIf="session.active">This Device</span>
-            </div>
-          </div>
-        </div>
+</div>
 
-        <div class="detail-card-footer">
-          <button class="save-btn danger-btn" (click)="logoutAllDevices()">Logout From All Other Devices</button>
-        </div>
-      </div>
+<div class="detail-card-footer">
 
-      <!-- 6. ABOUT -->
-      <div class="detail-section" *ngIf="activeCategory === 'about'">
-        <div class="section-header">
-          <h3>About PantryPulse</h3>
-          <p>Review standard versioning status, diagnostics, and system health info.</p>
-        </div>
+  <button
+    class="save-btn"
+    (click)="saveChanges()"
+    [disabled]="isSaving">
 
-        <!-- Error Alert -->
-        <div class="alert alert-error" *ngIf="errorMessage">
-          <span class="alert-icon">✖</span> {{ errorMessage }}
-        </div>
+    {{ isSaving ? 'Saving...' : 'Save Changes' }}
 
-        <!-- Empty State -->
-        <div class="empty-state-about" *ngIf="!errorMessage && (!aboutData || getAboutItems().length === 0)">
-          <p>No system diagnostics information returned by the server.</p>
-        </div>
+  </button>
 
-        <!-- Dynamic list -->
-        <div class="about-info-list" *ngIf="!errorMessage && aboutData && getAboutItems().length > 0">
-          <div class="about-row" *ngFor="let item of getAboutItems()">
-            <span class="about-label">{{ item.label }}</span>
-            <span 
-              [class.about-val]="!item.isName && !item.isBadge && !item.isOnline"
-              [class.highlight-gold]="item.isName"
-              [class.status-badge]="item.isBadge"
-              [class.text-online]="item.isOnline">
-              {{ item.value }}
-            </span>
-          </div>
-        </div>
+</div>
 
-        <div class="backend-notice margin-top-20" *ngIf="!errorMessage && aboutData">
-          <span class="notice-icon">🔒</span>
-          <span>System running securely. Diagnostics checks passed.</span>
-        </div>
+</div>
+
+<!-- =====================================
+     PASSWORD
+====================================== -->
+
+<div
+  class="detail-section"
+  *ngIf="activeCategory === 'password'">
+
+  <div class="section-header">
+
+    <h3>Change Password</h3>
+
+    <p>
+      Manage your account password to ensure security.
+    </p>
+
+  </div>
+
+  <div class="password-grid">
+
+    <div class="input-group">
+
+      <label>Current Password</label>
+
+      <div class="input-box">
+
+        <input
+          [type]="showCurrentPassword ? 'text' : 'password'"
+          [(ngModel)]="passwordForm.currentPassword"
+          placeholder="Current Password">
+
+        <i
+          class="eye-icon fa-regular"
+          [class.fa-eye]="!showCurrentPassword"
+          [class.fa-eye-slash]="showCurrentPassword"
+          (click)="showCurrentPassword = !showCurrentPassword">
+        </i>
+
       </div>
 
     </div>
+
+    <div class="input-group">
+
+      <label>New Password</label>
+
+      <div class="input-box">
+
+        <input
+          [type]="showNewPassword ? 'text' : 'password'"
+          [(ngModel)]="passwordForm.newPassword"
+          placeholder="New Password">
+
+        <i
+          class="eye-icon fa-regular"
+          [class.fa-eye]="!showNewPassword"
+          [class.fa-eye-slash]="showNewPassword"
+          (click)="showNewPassword = !showNewPassword">
+        </i>
+
+      </div>
+
+    </div>
+
+    <div class="input-group">
+
+      <label>Confirm Password</label>
+
+      <div class="input-box">
+
+        <input
+          [type]="showConfirmPassword ? 'text' : 'password'"
+          [(ngModel)]="passwordForm.confirmPassword"
+          placeholder="Confirm Password">
+
+        <i
+          class="eye-icon fa-regular"
+          [class.fa-eye]="!showConfirmPassword"
+          [class.fa-eye-slash]="showConfirmPassword"
+          (click)="showConfirmPassword = !showConfirmPassword">
+        </i>
+
+      </div>
+
+    </div>
+
   </div>
+
+  <div class="detail-card-footer">
+
+    <button
+      class="save-btn"
+      (click)="updatePassword()">
+
+      Update Password
+
+    </button>
+
+  </div>
+
+</div>
+<!-- =====================================
+     NOTIFICATIONS
+====================================== -->
+
+<div
+  class="detail-section"
+  *ngIf="activeCategory === 'notifications'">
+
+  <div class="section-header">
+    <h3>Notification Preferences</h3>
+    <p>Control what updates you receive and how they are delivered.</p>
+  </div>
+
+  <div class="toggles-list">
+
+    <div class="toggle-item">
+      <div class="toggle-info">
+        <span class="toggle-label">Email Notifications</span>
+        <span class="toggle-sub">
+          Receive daily summaries and digest updates
+        </span>
+      </div>
+
+      <label class="switch-toggle">
+        <input
+          type="checkbox"
+          [(ngModel)]="notifications.emailNotifications">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-item">
+      <div class="toggle-info">
+        <span class="toggle-label">Push Notifications</span>
+        <span class="toggle-sub">
+          Live browser notifications
+        </span>
+      </div>
+
+      <label class="switch-toggle">
+        <input
+          type="checkbox"
+          [(ngModel)]="pushNotifications">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-item">
+      <div class="toggle-info">
+        <span class="toggle-label">Low Stock Alerts</span>
+        <span class="toggle-sub">
+          Notify when inventory is low
+        </span>
+      </div>
+
+      <label class="switch-toggle">
+        <input
+          type="checkbox"
+          [(ngModel)]="notifications.lowStockAlerts">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-item">
+      <div class="toggle-info">
+        <span class="toggle-label">AI Recommendation Alerts</span>
+        <span class="toggle-sub">
+          Notify when AI creates menu suggestions
+        </span>
+      </div>
+
+      <label class="switch-toggle">
+        <input
+          type="checkbox"
+          [(ngModel)]="notifications.aiMenuNotifications">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-item">
+      <div class="toggle-info">
+        <span class="toggle-label">Expiry Notifications</span>
+        <span class="toggle-sub">
+          Notify when ingredients are nearing expiry
+        </span>
+      </div>
+
+      <label class="switch-toggle">
+        <input
+          type="checkbox"
+          [(ngModel)]="notifications.expiryAlerts">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+  </div>
+
+  <div class="detail-card-footer">
+    <button
+      class="save-btn"
+      (click)="saveChanges()">
+      Save Preferences
+    </button>
+  </div>
+
+</div>
+
+<!-- =====================================
+     APPEARANCE
+====================================== -->
+
+<div
+  class="detail-section"
+  *ngIf="activeCategory === 'appearance'">
+
+  <div class="section-header">
+    <h3>Appearance & Theme</h3>
+    <p>Customize the dashboard appearance.</p>
+  </div>
+
+  <h4 class="sub-section-title">
+    Theme Options
+  </h4>
+
+  <div class="theme-options">
+
+    <div
+      class="theme-card"
+      [class.active-theme]="selectedTheme === 'dark'"
+      (click)="changeTheme('dark')">
+
+      <div class="theme-preview dark-preview">
+        <div class="preview-sidebar"></div>
+        <div class="preview-content"></div>
+      </div>
+
+      <div class="theme-meta">
+        <span class="theme-name">Dark Mode</span>
+
+        <span
+          class="active-badge"
+          *ngIf="selectedTheme === 'dark'">
+          ✓ Active
+        </span>
+      </div>
+
+    </div>
+
+    <div
+      class="theme-card"
+      [class.active-theme]="selectedTheme === 'light'"
+      (click)="changeTheme('light')">
+
+      <div class="theme-preview light-preview">
+        <div class="preview-sidebar"></div>
+        <div class="preview-content"></div>
+      </div>
+
+      <div class="theme-meta">
+        <span class="theme-name">Light Mode</span>
+
+        <span
+          class="active-badge"
+          *ngIf="selectedTheme === 'light'">
+          ✓ Active
+        </span>
+      </div>
+
+    </div>
+
+    <div
+      class="theme-card"
+      [class.active-theme]="selectedTheme === 'system'"
+      (click)="changeTheme('system')">
+
+      <div class="theme-preview system-preview">
+        <div class="preview-sidebar"></div>
+        <div class="preview-content"></div>
+      </div>
+
+      <div class="theme-meta">
+        <span class="theme-name">
+          System Default
+        </span>
+
+        <span
+          class="active-badge"
+          *ngIf="selectedTheme === 'system'">
+          ✓ Active
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <h4 class="sub-section-title margin-top-20">
+    Accent Colors
+  </h4>
+
+  <div class="color-options">
+
+    <div
+      class="color-dot orange"
+      [style.border-color]="accentColor === '#C76B29' ? '#ffffff' : 'transparent'"
+      (click)="changeAccentColor('#C76B29')">
+    </div>
+
+    <div
+      class="color-dot green"
+      [style.border-color]="accentColor === '#22c55e' ? '#ffffff' : 'transparent'"
+      (click)="changeAccentColor('#22c55e')">
+    </div>
+
+    <div
+      class="color-dot blue"
+      [style.border-color]="accentColor === '#3b82f6' ? '#ffffff' : 'transparent'"
+      (click)="changeAccentColor('#3b82f6')">
+    </div>
+
+    <div
+      class="color-dot purple"
+      [style.border-color]="accentColor === '#a855f7' ? '#ffffff' : 'transparent'"
+      (click)="changeAccentColor('#a855f7')">
+    </div>
+
+  </div>
+
+</div>
+<!-- =====================================
+     SECURITY
+====================================== -->
+
+<div
+  class="detail-section"
+  *ngIf="activeCategory === 'security'">
+
+  <div class="section-header">
+    <h3>Security & Devices</h3>
+    <p>Monitor logins and manage your account security.</p>
+  </div>
+
+  <div class="security-list">
+
+    <div class="security-item">
+
+      <div>
+
+        <span class="security-title">
+          Two-Factor Authentication (2FA)
+        </span>
+
+        <span class="security-desc">
+          Protect your account with an additional verification step.
+        </span>
+
+      </div>
+
+      <label class="switch-toggle">
+
+        <input
+          type="checkbox"
+          [(ngModel)]="twoFactorEnabled">
+
+        <span class="slider"></span>
+
+      </label>
+
+    </div>
+
+    <h4 class="sub-section-title margin-top-20">
+      Active Login Sessions
+    </h4>
+
+    <div class="sessions-list">
+
+      <div
+        class="session-row"
+        *ngFor="let session of sessions">
+
+        <div class="session-info">
+
+          <span class="session-device">
+            {{ session.device }}
+          </span>
+
+          <span class="session-meta">
+            {{ session.location }} • {{ session.ip }}
+          </span>
+
+        </div>
+
+        <span
+          class="status-badge"
+          *ngIf="session.active">
+
+          This Device
+
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="detail-card-footer">
+
+    <button
+      class="save-btn danger-btn"
+      (click)="logoutAllDevices()">
+
+      Logout From All Other Devices
+
+    </button>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     ABOUT
+====================================== -->
+
+<div
+  class="detail-section"
+  *ngIf="activeCategory === 'about'">
+
+  <div class="section-header">
+
+    <h3>About PantryPulse</h3>
+
+    <p>
+      Review application version and system diagnostics.
+    </p>
+
+  </div>
+
+  <div
+    class="alert alert-error"
+    *ngIf="errorMessage">
+
+    <span class="alert-icon">✖</span>
+
+    {{ errorMessage }}
+
+  </div>
+
+  <div
+    class="empty-state-about"
+    *ngIf="!errorMessage && (!aboutData || getAboutItems().length===0)">
+
+    <p>
+      No system diagnostics available.
+    </p>
+
+  </div>
+
+  <div
+    class="about-info-list"
+    *ngIf="!errorMessage && aboutData && getAboutItems().length>0">
+
+    <div
+      class="about-row"
+      *ngFor="let item of getAboutItems()">
+
+      <span class="about-label">
+        {{ item.label }}
+      </span>
+
+      <span
+        [class.about-val]="!item.isName && !item.isBadge && !item.isOnline"
+        [class.highlight-gold]="item.isName"
+        [class.status-badge]="item.isBadge"
+        [class.text-online]="item.isOnline">
+
+        {{ item.value }}
+
+      </span>
+
+    </div>
+
+  </div>
+
+  <div
+    class="backend-notice margin-top-20"
+    *ngIf="!errorMessage && aboutData">
+
+    <span class="notice-icon">🔒</span>
+
+    <span>
+      System running securely. Diagnostics checks passed.
+    </span>
+
+  </div>
+
+</div>
+
+</div>
+
+</div>
 
 </div>

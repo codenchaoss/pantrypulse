@@ -9,7 +9,7 @@ import { Supplier } from '../core/models/supplier.model';
 })
 export class SupplierService {
 
-  private apiUrl = `${environment.apiUrl}/suppliers`;
+  private apiUrl = `${environment.apiUrl}/api/suppliers`;
 
   constructor(private http: HttpClient) { }
 

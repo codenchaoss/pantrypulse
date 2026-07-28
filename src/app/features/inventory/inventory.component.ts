@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { InventoryService } from '../../services/inventory.service';
 import { AiAssistantService } from '../../core/services/ai-assistant.service';
-
+import { ToastService } from 'src/app/shared/toast.service';
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -33,7 +33,8 @@ export class InventoryComponent implements OnInit {
   constructor(
     private inventoryService: InventoryService,
     private aiAssistantService: AiAssistantService,
-    public cdr: ChangeDetectorRef
+    public cdr: ChangeDetectorRef,
+    private toast: ToastService
   ) {}
 
   ngOnInit(): void {
@@ -102,7 +103,10 @@ export class InventoryComponent implements OnInit {
         },
         error: (err) => {
           console.error(err);
-          alert('Failed to delete ingredient');
+         this.toast.error(
+    'Delete Failed',
+    'Unable to delete ingredient.'
+);
         }
       });
     }
@@ -222,12 +226,19 @@ export class InventoryComponent implements OnInit {
     this.cdr.markForCheck();
 
     const formattedItems = this.ingredients.map(item => {
-      let days = 999;
-      if (item.expiryDate) {
-        const diffTime = new Date(item.expiryDate).getTime() - new Date().getTime();
-        days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        if (isNaN(days)) days = 999;
-      }
+     let days = 999;
+
+if (item.expiryDate) {
+  const diffTime = new Date(item.expiryDate).getTime() - Date.now();
+  days = Math.max(
+    0,
+    Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+  );
+
+  if (isNaN(days)) {
+    days = 999;
+  }
+}
       return {
         ingredient: item.ingredientName,
         quantity: item.quantity ? Math.round(item.quantity) : 0,

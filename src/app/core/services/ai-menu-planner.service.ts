@@ -9,7 +9,7 @@ import { MenuRequestDto } from '../models/menu-request.dto';
   providedIn: 'root'
 })
 export class AiMenuPlannerService {
-  private apiUrl = `${environment.apiUrl}/ai`;
+  private apiUrl = `${environment.apiUrl}/api/ai`;
 
   constructor(private http: HttpClient) {}
 

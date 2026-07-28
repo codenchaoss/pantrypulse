@@ -1,0 +1,207 @@
+<div class="expiration-page">
+
+    <!-- Header -->
+    <div class="page-header">
+        <div>
+            <h1>Expiration Tracking</h1>
+            <p>
+                Monitor ingredients approaching expiration to reduce food waste.
+            </p>
+        </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <div class="icon blue">
+                <span class="material-icons">inventory_2</span>
+            </div>
+
+           <div>
+
+    <div class="stat-value">
+        {{ totalExpiring }}
+    </div>
+
+    <div class="stat-label">
+        Expiring Soon
+    </div>
+
+</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="icon red">
+                <span class="material-icons">warning</span>
+            </div>
+
+           <div>
+
+    <div class="stat-value">
+        {{ expiredCount }}
+    </div>
+
+    <div class="stat-label">
+        Expired
+    </div>
+
+</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="icon green">
+                <span class="material-icons">verified</span>
+            </div>
+
+           <div>
+
+    <div class="stat-value">
+        {{ healthyCount }}
+    </div>
+
+    <div class="stat-label">
+        Healthy
+    </div>
+
+</div>
+        </div>
+
+    </div>
+
+    <!-- Search -->
+   <!-- Search -->
+<div class="toolbar">
+
+    <div class="search-box">
+
+        <span class="material-icons search-icon">
+            search
+        </span>
+
+        <input
+            type="text"
+            placeholder="Search ingredients..."
+            (input)="onSearch($event)">
+
+    </div>
+
+</div>
+<!-- Loading -->
+<div *ngIf="isLoading" class="loading-state">
+
+    <div class="loader"></div>
+
+    <p>Loading expiring ingredients...</p>
+
+</div>
+<div class="filter-group">
+
+  <button
+    class="filter-btn"
+    [class.active]="selectedFilter==='ALL'"
+    (click)="filterByStatus('ALL')">
+    All
+  </button>
+
+  <button
+    class="filter-btn critical"
+    [class.active]="selectedFilter==='CRITICAL'"
+    (click)="filterByStatus('CRITICAL')">
+    Critical
+  </button>
+
+  <button
+    class="filter-btn expired"
+    [class.active]="selectedFilter==='EXPIRED'"
+    (click)="filterByStatus('EXPIRED')">
+    Expired
+  </button>
+
+  <button
+    class="filter-btn good"
+    [class.active]="selectedFilter==='GOOD'"
+    (click)="filterByStatus('GOOD')">
+    Healthy
+  </button>
+
+</div>
+
+<!-- Table -->
+
+<div class="table-container" *ngIf="!isLoading">
+
+    <table class="inventory-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Ingredient</th>
+
+                <th>Quantity</th>
+
+                <th>Unit</th>
+
+                <th>Expiry Date</th>
+
+                <th>Days Left</th>
+
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+<tr
+    *ngFor="let item of filteredIngredients"
+    [class.expired-row]="item.daysRemaining < 0"
+    [class.critical-row]="item.daysRemaining >= 0 && item.daysRemaining <= 3"
+    [class.warning-row]="item.daysRemaining > 3 && item.daysRemaining <= 7">
+
+    <td>
+        <div class="ingredient-name-cell">
+            <span class="status-indicator active"></span>
+            <span class="name">{{ item.ingredientName }}</span>
+        </div>
+    </td>
+
+    <td>{{ item.quantity }}</td>
+    <td>{{ item.unit }}</td>
+    <td>{{ item.expiryDate | date:'dd MMM yyyy' }}</td>
+    <td>{{ item.daysRemaining }}</td>
+
+    <td>
+        <span
+            class="expiry-status"
+            [ngClass]="getStatus(item.daysRemaining)">
+            {{ getStatus(item.daysRemaining) }}
+        </span>
+    </td>
+
+</tr>
+
+            <tr *ngIf="filteredIngredients.length==0">
+
+                <td colspan="6" class="empty-row">
+
+                    <div class="empty-icon">
+
+                        📦
+
+                    </div>
+
+                   <p>{{ getEmptyMessage() }}</p>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</div>

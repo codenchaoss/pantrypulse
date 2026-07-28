@@ -5,7 +5,7 @@ import { RecipeService } from '../../core/services/recipe.service';
 import { HistoricalOrder } from '../../core/models/historical-order.model';
 import { Recipe } from '../../core/models/recipe.model';
 import { HistoricalOrderDialogComponent } from './historical-order-dialog.component';
-
+import { ToastService } from 'src/app/shared/toast.service';
 @Component({
   selector: 'app-historical-orders',
   templateUrl: './historical-orders.component.html',
@@ -33,7 +33,8 @@ export class HistoricalOrdersComponent implements OnInit {
     private orderService: HistoricalOrderService,
     private recipeService: RecipeService,
     private dialog: MatDialog,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private toast:ToastService
   ) {}
 
   ngOnInit(): void {
@@ -186,7 +187,10 @@ export class HistoricalOrdersComponent implements OnInit {
           if (err.status === 0) {
             this.isConnectionError = true;
           } else {
-            alert('Failed to delete historical order record. Please try again.');
+            this.toast.error(
+    'Delete Failed',
+    'Unable to delete historical order.'
+);
           }
           this.cdr.markForCheck();
         }

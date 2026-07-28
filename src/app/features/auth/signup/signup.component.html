@@ -15,7 +15,7 @@
         <div class="signup-card">
 
             <h1 class="welcome-title">
-                Create Admin Account 🚀
+                Create Account
             </h1>
 
             <p class="welcome-subtitle">
@@ -27,10 +27,7 @@
                 <span>{{ errorMessage }}</span>
             </div>
 
-            <div *ngIf="successMessage" class="alert-box success-alert">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>{{ successMessage }}</span>
-            </div>
+           
 
             <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 
@@ -91,9 +88,13 @@
                             [type]="showPassword ? 'text' : 'password'"
                             formControlName="password"
                             placeholder="Create password">
-                        <i
-                            [class]="showPassword ? 'fa-regular fa-eye-slash eye-icon' : 'fa-regular fa-eye eye-icon'"
-                            (click)="toggleShowPassword()"></i>
+                        <button
+                            type="button"
+                            class="eye-icon"
+                            [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+                            (click)="toggleShowPassword()">
+                            <i [class]="showPassword ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'"></i>
+                        </button>
                     </div>
                     <div class="field-error" *ngIf="f['password'].touched && f['password'].invalid">
                         <span *ngIf="f['password'].errors?.['required']">Password is required.</span>
@@ -110,9 +111,13 @@
                             [type]="showConfirmPassword ? 'text' : 'password'"
                             formControlName="confirmPassword"
                             placeholder="Confirm password">
-                        <i
-                            [class]="showConfirmPassword ? 'fa-regular fa-eye-slash eye-icon' : 'fa-regular fa-eye eye-icon'"
-                            (click)="toggleShowConfirmPassword()"></i>
+                        <button
+                            type="button"
+                            class="eye-icon"
+                            [attr.aria-label]="showConfirmPassword ? 'Hide password' : 'Show password'"
+                            (click)="toggleShowConfirmPassword()">
+                            <i [class]="showConfirmPassword ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'"></i>
+                        </button>
                     </div>
                     <div class="field-error" *ngIf="f['confirmPassword'].touched">
                         <span *ngIf="f['confirmPassword'].errors?.['required']">Please confirm your password.</span>

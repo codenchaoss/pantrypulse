@@ -1,0 +1,37 @@
+<div class="overlay">
+
+  <div class="dialog">
+
+    <div class="icon">
+      <span class="material-icons">logout</span>
+    </div>
+
+    <h2>Log out?</h2>
+
+    <p>
+      You'll need to sign in again to access your PantryPulse workspace.
+    </p>
+
+    <span>
+      Your work has already been saved.
+    </span>
+
+    <div class="buttons">
+
+      <button
+        class="cancel-btn"
+        (click)="cancel()">
+        Stay Logged In
+      </button>
+
+      <button
+        class="logout-btn"
+        (click)="confirm()">
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

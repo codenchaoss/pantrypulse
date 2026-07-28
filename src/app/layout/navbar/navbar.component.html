@@ -19,15 +19,21 @@
             <i class="fa-regular fa-bell"></i>
         </div>
 
-        <div class="profile">
-            <div class="profile-text">
-                <h4>Admin</h4>
-                <span>Restaurant Manager</span>
-            </div>
-            <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='45' height='45' viewBox='0 0 45 45'%3E%3Ccircle cx='22.5' cy='22.5' r='22.5' fill='%23d97706'/%3E%3Ccircle cx='22.5' cy='18' r='8' fill='%23fff' opacity='.9'/%3E%3Cellipse cx='22.5' cy='38' rx='13' ry='9' fill='%23fff' opacity='.9'/%3E%3C/svg%3E"
-                alt="Profile">
-        </div>
+      <div
+    class="profile"
+    routerLink="/settings/profile"
+    title="Profile Settings">
+
+    <div class="profile-text">
+        <h4>{{ userName }}</h4>
+        <span *ngIf="userRole">{{ userRole }}</span>
+    </div>
+
+    <img
+        [src]="profileImageUrl || 'data:image/svg+xml,%3Csvg xmlns=...'"
+        alt="Profile">
+
+</div>
 
     </div>
 

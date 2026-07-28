@@ -8,10 +8,18 @@
     <div class="header-title-group">
       <div class="title-with-badge">
         <h2>{{ title }}</h2>
-        <span class="api-status-badge">
-          <span class="pulse-dot"></span>
-          GET /api/ai/menu
-        </span>
+       <span class="api-status-badge">
+    <span class="pulse-dot"></span>
+
+    <ng-container *ngIf="!isLoading">
+        AI Powered
+    </ng-container>
+
+    <ng-container *ngIf="isLoading">
+        AI Analyzing...
+    </ng-container>
+
+</span>
       </div>
       <p class="header-subtitle">{{ subtitle }}</p>
     </div>
@@ -32,7 +40,11 @@
   <!-- ════════════════════════════════════════
        Filter & Toolbar Bar
        ════════════════════════════════════════ -->
-  <div class="toolbar-card" *ngIf="!isLoading && !errorMessage">
+  <div
+class="toolbar-card"
+*ngIf="!isLoading &&
+!errorMessage &&
+specialMenuItems.length > 1">
 
     <div class="search-box">
       <span class="search-icon">🔍</span>
@@ -100,21 +112,21 @@
       <div class="glowing-orb"></div>
       <div class="spinner-ring"></div>
     </div>
-    <h3>Querying Spring Boot AI Backend</h3>
-    <p class="loading-subtitle">Calling <code>GET /api/ai/menu</code> endpoint...</p>
+    <h3>AI is analyzing your kitchen</h3>
+<p>Reviewing inventory, ingredient freshness and recipe popularity...</p>
 
     <div class="loading-steps">
       <div class="step-item active">
         <span class="step-dot"></span>
-        <span>Fetching expiring inventory items</span>
+        <span> Reviewing inventory</span>
       </div>
       <div class="step-item active">
         <span class="step-dot"></span>
-        <span>Evaluating recipe popularity & historical orders</span>
+        <span>Finding the best dishes</span>
       </div>
       <div class="step-item active">
         <span class="step-dot"></span>
-        <span>Formatting special menu recommendations</span>
+        <span> Generating recommendations</span>
       </div>
     </div>
   </div>
@@ -126,8 +138,9 @@
     <div class="error-header">
       <div class="error-icon-badge">⚠</div>
       <div>
-        <h3>Backend Service Error</h3>
-        <p class="error-endpoint-info">Please verify the backend server and CORS settings.</p>
+        <h3>AI Recommendation Unavailable</h3>
+        <p class="error-endpoint-info">AI recommendations are temporarily unavailable.
+Please try again in a few moments..</p>
       </div>
     </div>
 
@@ -135,7 +148,7 @@
       <p class="error-message-text">{{ errorMessage }}</p>
       <div class="strict-notice">
         <span class="notice-icon">ℹ</span>
-        <span>As requested, mock data generation is disabled. Connect the Spring Boot backend to view real AI menu recommendations.</span>
+       
       </div>
     </div>
 
@@ -177,15 +190,20 @@
           <span class="metric-label">Avg Preparation Time</span>
         </div>
       </div>
-
       <div class="metric-card">
-        <div class="metric-icon">⏱</div>
-        <div class="metric-info">
-          <span class="metric-value time-val">{{ lastUpdatedTime || 'Just now' }}</span>
-          <span class="metric-label">Last Refreshed</span>
-        </div>
-      </div>
 
+    <div class="metric-icon">
+        💰
+    </div>
+    <div class="metric-info">
+        <span class="metric-value">
+            ₹{{ totalEstimatedProfit }}
+        </span>
+        <span class="metric-label">
+            Estimated Profit
+        </span>
+    </div>
+</div>
     </div>
 
     <!-- Empty State -->
@@ -196,7 +214,9 @@
         No dishes match your active filter criteria. Try clearing filters.
       </p>
       <p *ngIf="specialMenuItems.length === 0">
-        The Spring Boot AI service returned no special menu items at this time.
+       No menu recommendations are available.
+Add ingredients with upcoming expiry dates
+or refresh recommendations later.
       </p>
       <button class="retry-btn" (click)="clearFilters()" *ngIf="specialMenuItems.length > 0">
         Clear Filters
@@ -285,10 +305,8 @@
 
     <!-- Bottom Action Bar -->
     <div class="bottom-action-bar" *ngIf="filteredMenuItems.length > 0">
-      <p>Powered by PantryPulse Spring Boot GenAI Module</p>
-      <button class="regenerate-btn" (click)="regenerate()" [disabled]="isLoading">
-        ↻ Regenerate AI Menu
-      </button>
+      <p>Powered by PantryPulse AI</p>
+     
     </div>
 
   </ng-container>

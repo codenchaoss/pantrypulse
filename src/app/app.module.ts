@@ -59,6 +59,9 @@ import { NgChartsModule } from 'ng2-charts';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { ExpirationComponent } from './features/expiration/expiration.component';
+import { ToastComponent } from './shared/toast.component';
+import { LogoutDialogComponent } from './shared/logout-dialog/logout-dialog.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +92,10 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
     HistoricalOrdersComponent,
     HistoricalOrderDialogComponent,
     AiRecipeDialogComponent,
-    AiSupplierDialogComponent
+    AiSupplierDialogComponent,
+    ExpirationComponent,
+    ToastComponent,
+    LogoutDialogComponent
   ],
   imports: [
     BrowserModule,

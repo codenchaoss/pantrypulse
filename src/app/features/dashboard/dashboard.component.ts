@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { Subject, timer, forkJoin } from 'rxjs';
 import { catchError, switchMap, takeUntil, map } from 'rxjs/operators';
 import { DashboardData, DashboardService } from '../../services/dashboard.service';
-import { ExpirationService, ExpiringIngredient } from '../../services/expiration.service';
+import { ExpirationService } from '../expiration/services/expiration.service';
+import { ExpiringIngredient } from '../expiration/models/expiration.model';
 import { InventoryService } from '../../services/inventory.service';
 
 @Component({

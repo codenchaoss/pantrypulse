@@ -8,7 +8,7 @@ import { ChatRequestDto, ChatResponseDto } from '../models/chat-message.model';
   providedIn: 'root'
 })
 export class AiAssistantService {
-  private apiUrl = `${environment.apiUrl}/ai`;
+  private apiUrl = `${environment.apiUrl}/api/ai`;
 
   constructor(private http: HttpClient) { }
 

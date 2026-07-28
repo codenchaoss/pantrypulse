@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
+import { ToastService } from 'src/app/shared/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -19,19 +20,43 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private toast:ToastService
   ) {}
 
   ngOnInit(): void {
-    const savedEmail = localStorage.getItem('pantrypulse_remember_email') || '';
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
 
-    this.loginForm = this.fb.group({
-      email: [savedEmail, [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      rememberMe: [!!savedEmail]
-    });
+  const savedEmail = localStorage.getItem('pantrypulse_remember_email') || '';
+this.toast.consumePendingToast();
+  this.returnUrl =
+      this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+
+  this.loginForm = this.fb.group({
+      email: [savedEmail,[Validators.required,Validators.email]],
+      password:['',[Validators.required,Validators.minLength(6)]],
+      rememberMe:[!!savedEmail]
+  });
+
+  // 👇 Add this
+  const navigation = this.router.getCurrentNavigation();
+
+  const signupSuccess =
+      navigation?.extras.state?.['signupSuccess'];
+
+  if (signupSuccess) {
+
+      setTimeout(() => {
+
+          this.toast.success(
+              'Welcome to PantryPulse!',
+              'Your account has been created successfully. Please sign in.'
+          );
+
+      },200);
+
   }
+
+}
 
   toggleShowPassword(): void {
     this.showPassword = !this.showPassword;
@@ -60,22 +85,48 @@ export class LoginComponent implements OnInit {
     this.isSubmitting = true;
 
     this.authService.login({ email, password }).subscribe({
-      next: () => {
-        this.isSubmitting = false;
-        this.router.navigateByUrl(this.returnUrl);
-      },
-      error: (err) => {
-        this.isSubmitting = false;
-        if (err.status === 401 || err.status === 400 || err.status === 403) {
-          this.errorMessage = 'Invalid email or password. Please try again.';
-        } else if (err.error && typeof err.error === 'string') {
-          this.errorMessage = err.error;
-        } else if (err.error && err.error.message) {
-          this.errorMessage = err.error.message;
-        } else {
-          this.errorMessage = 'Authentication failed. Please check your backend connection.';
-        }
-      }
+     next: () => {
+
+  this.isSubmitting = false;
+
+  this.toast.success(
+    'Welcome Back!',
+    'You have successfully signed in to PantryPulse.'
+  );
+
+  setTimeout(() => {
+    this.router.navigateByUrl(this.returnUrl);
+  }, 800);
+
+},
+    error: (err) => {
+
+  this.isSubmitting = false;
+
+  if (err.status === 400 || err.status === 401 || err.status === 403) {
+
+    this.errorMessage = 'Invalid email or password.';
+
+  } else if (err.status === 0) {
+
+    this.errorMessage = 'Unable to connect to the server. Please try again later.';
+
+  } else if (err.status >= 500) {
+
+    this.errorMessage = 'Server error. Please try again later.';
+
+  } else {
+
+    this.errorMessage = 'Something went wrong. Please try again.';
+
+  }
+
+  this.toast.error(
+    'Login Failed',
+    this.errorMessage
+  );
+
+}
     });
   }
 }

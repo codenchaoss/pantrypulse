@@ -2,8 +2,8 @@
   
   <h2 mat-dialog-title class="dialog-title">
     <span class="title-text">{{ title }}</span>
-    <span class="step-badge" *ngIf="step === 'form'">Step 1: Supplier Parameters</span>
-    <span class="step-badge" *ngIf="step === 'result'">Step 2: AI Recommendations</span>
+    <span class="step-badge" *ngIf="step === 'form'">Step 1: Procurement Details</span>
+    <span class="step-badge" *ngIf="step === 'result'">Step 2: Purchase Request</span>
   </h2>
   
   <mat-dialog-content class="dialog-content">
@@ -213,9 +213,27 @@
       <p class="loader-sub">Assessing delivery schedules, urgency warnings, and vendor lists</p>
     </div>
 
-    <!-- ════════════════════════════════════════
-         STEP 2: RENDER AI RECOMMENDATIONS
-         ════════════════════════════════════════ -->
+   <div
+    *ngIf="step==='result'"
+    class="success-banner">
+
+    <div class="success-icon">
+
+        ✔
+
+    </div>
+
+    <div>
+
+        <h3>Purchase Request Generated</h3>
+
+        <p>
+            Your AI procurement request is ready.
+        </p>
+
+    </div>
+
+</div>
     <div *ngIf="step === 'result' && aiResponse" class="ai-recommendations-result">
       
       <!-- Scenario: Plaintext Fallback Card -->
@@ -229,82 +247,205 @@
       <!-- Scenario: Structured Recommendations Layout -->
       <div *ngIf="!aiResponse.isPlaintext" class="structured-result-grid">
         
-        <!-- Primary Recommended Supplier Card -->
-        <div class="result-highlight-card">
-          <div class="card-icon">🏆</div>
-          <div class="card-main-info">
-            <span class="meta-label">Recommended Supplier</span>
-            <h3 class="meta-val">{{ aiResponse.recommendedSupplier }}</h3>
-          </div>
-        </div>
+     
+  <div class="result-highlight-card">
 
-        <div class="result-details-row">
-          
-          <!-- Recommended Quantity -->
-          <div class="result-detail-item col">
-            <span class="detail-icon">📦</span>
-            <div class="detail-body">
-              <span class="meta-label">Recommended Quantity</span>
-              <span class="meta-val font-highlight">{{ aiResponse.recommendedQuantity }}</span>
-            </div>
-          </div>
+    <div class="card-icon">
+      📦
+    </div>
 
-          <!-- Cost/Pricing Notes -->
-          <div class="result-detail-item col">
-            <span class="detail-icon">💰</span>
-            <div class="detail-body">
-              <span class="meta-label">Cost & Pricing Notes</span>
-              <span class="meta-val">{{ aiResponse.costPricingNotes }}</span>
-            </div>
-          </div>
-        </div>
+    <div class="card-main-info">
 
-        <!-- Delivery & Shipping Suggestions -->
-        <div class="plaintext-result-card margin-top-12">
-          <h4 class="section-card-title">🕒 Delivery & Shipping Suggestions</h4>
-          <p class="card-text">{{ aiResponse.deliverySuggestions }}</p>
-        </div>
+      <span class="meta-label">
+        Supplier
+      </span>
 
-        <!-- Alternative Suppliers Checklist -->
-        <div class="plaintext-result-card margin-top-12" *ngIf="aiResponse.alternativeSuppliers.length > 0">
-          <h4 class="section-card-title">🤝 Alternative Suppliers</h4>
-          <ul class="alternatives-list">
-            <li *ngFor="let alt of aiResponse.alternativeSuppliers">{{ alt }}</li>
-          </ul>
-        </div>
+      <h3 class="meta-val">
+        {{ aiResponse.supplierName }}
+      </h3>
 
-        <!-- AI Recommendation Explanation -->
-        <div class="plaintext-result-card margin-top-12 border-purple">
-          <h4 class="section-card-title font-purple">💡 AI Explanation & Strategy</h4>
-          <p class="card-text">{{ aiResponse.aiExplanation }}</p>
-        </div>
+    </div>
+
+  </div>
+
+  <div class="result-details-row">
+
+    <div class="result-detail-item col">
+      <span class="detail-icon">🥔</span>
+
+      <div class="detail-body">
+
+        <span class="meta-label">
+          Ingredient
+        </span>
+
+        <span class="meta-val">
+          {{ aiResponse.ingredient }}
+        </span>
 
       </div>
 
     </div>
 
-  </mat-dialog-content>
-  
-  <mat-dialog-actions class="dialog-actions">
-    <button 
-      class="action-btn cancel-btn" 
-      (click)="cancel()">
-      Close
-    </button>
+    <div class="result-detail-item col">
+
+      <span class="detail-icon">
+        🚨
+      </span>
+
+      <div class="detail-body">
+
+        <span class="meta-label">
+          Urgency
+        </span>
+
+        <span class="meta-val">
+          {{ aiResponse.urgency }}
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="plaintext-result-card margin-top-12">
+
+    <h4 class="section-card-title">
+      📄 Purchase Request Subject
+    </h4>
+
+    <p class="card-text">
+      {{ aiResponse.subject }}
+    </p>
+
+  </div>
+
+  <div class="plaintext-result-card margin-top-12 border-purple">
+
+    <h4 class="section-card-title">
+     📧 Purchase Email Preview
+    </h4>
+
+ <div class="email-header">
+
+    <div class="email-meta-item">
+
+        <span class="email-meta-label">
+            FROM
+        </span>
+
+        <div class="email-meta-value">
+            {{ supplierForm.value.restaurant_name }}
+        </div>
+
+    </div>
+
+    <div class="email-meta-item">
+
+        <span class="email-meta-label">
+            TO
+        </span>
+
+        <div class="email-meta-value">
+            {{ aiResponse.supplierName }}
+        </div>
+
+    </div>
+
+</div>
+
+<div class="email-subject">
+
+    <div class="subject-title">
+        SUBJECT
+    </div>
+
+    <div class="subject-text">
+        {{ aiResponse.subject }}
+    </div>
+
+</div>
+
+<div class="purchase-message">
+    {{ aiResponse.message }}
+</div>
+</div>
+
+  </div>
+
+  <div class="plaintext-result-card margin-top-12">
+
+    <h4 class="section-card-title">
+      🆔 Order Reference
+    </h4>
+
+    <p class="order-id">
+      {{ aiResponse.orderId }}
+    </p>
+
+  </div>
+</div>
+
     
-    <button 
-      class="action-btn cancel-btn" 
-      (click)="backToForm()" 
-      *ngIf="step === 'result'">
-      ← Edit Form
+</mat-dialog-content>
+  <mat-dialog-actions class="dialog-actions">
+
+    <!-- FORM -->
+    <ng-container *ngIf="step === 'form'">
+
+        <button
+            mat-button
+           class="action-btn download-btn"
+            (click)="cancel()">
+
+            Close
+
+        </button>
+
+       <button
+    type="button"
+    class="action-btn copy-btn"
+    (click)="onSubmit()">
+
+     Ask Assistant
+
+</button>
+    </ng-container>
+
+    <!-- RESULT -->
+ 
+<ng-container *ngIf="step === 'result'">
+
+    <button
+        mat-button
+       class="action-btn download-btn"
+        (click)="backToForm()">
+
+        Edit Form
+
     </button>
 
-    <button 
-      class="action-btn save-btn ai-supplier-btn-gradient" 
-      (click)="onSubmit()" 
-      *ngIf="step === 'form'">
-      Ask Assistant
+    <span class="flex-spacer"></span>
+
+    <button
+        class="action-btn copy-btn"
+        (click)="copyRequest()">
+
+        📋 Copy Request
+
     </button>
-  </mat-dialog-actions>
+
+    <button
+        class="action-btn download-btn"
+        (click)="downloadPdf()">
+
+        📄 Download PDF
+
+    </button>
+
+</ng-container>
+</mat-dialog-actions>
   
-</div>
+  
+

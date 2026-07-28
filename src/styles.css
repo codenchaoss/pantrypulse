@@ -84,3 +84,25 @@ textarea{
     border-radius:20px;
 
 }
+.logout-dialog .mat-mdc-dialog-container{
+
+    background:transparent !important;
+
+    box-shadow:none !important;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+}
+.logout-dialog-panel .mat-mdc-dialog-container {
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.logout-dialog-panel .mdc-dialog__surface {
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}

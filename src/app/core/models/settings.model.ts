@@ -4,7 +4,7 @@ export interface ProfileSettings {
   phoneNumber: string;
   restaurantName: string;
   role?: string;
-  avatar?: string;
+   profileImageUrl?: string;
 }
 
 export interface NotificationSettings {

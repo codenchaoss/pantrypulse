@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
+import { ToastService } from 'src/app/shared/toast.service';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +20,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastService: ToastService
   ) {}
 
   ngOnInit(): void {
@@ -71,13 +73,20 @@ export class SignupComponent implements OnInit {
     this.isSubmitting = true;
 
     this.authService.register({ name: fullName, email, password }).subscribe({
-      next: (res: string) => {
-        this.isSubmitting = false;
-        this.successMessage = typeof res === 'string' && res.trim() ? res : 'Registration successful! Redirecting to login...';
-        setTimeout(() => {
-          this.router.navigate(['/login']);
-        }, 1500);
-      },
+   next: () => {
+
+  this.isSubmitting = false;
+
+ this.toastService.showAfterNavigation({
+  type: 'success',
+  title: 'Welcome to PantryPulse!',
+  message: 'Your account has been created successfully. Please sign in.'
+});
+
+this.router.navigate(['/login']);
+},
+
+
       error: (err) => {
         this.isSubmitting = false;
         if (err.error && typeof err.error === 'string') {

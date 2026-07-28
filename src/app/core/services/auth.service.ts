@@ -9,7 +9,7 @@ import { LoginRequest, RegisterRequest, AuthResponse } from '../models/auth.mode
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = `${environment.apiUrl}/auth`;
+ private apiUrl = `${environment.apiUrl}/api/auth`;
   private TOKEN_KEY = 'pantrypulse_token';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
 

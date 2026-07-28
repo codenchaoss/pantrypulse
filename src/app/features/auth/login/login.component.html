@@ -22,10 +22,7 @@
                 Sign in to continue to your account
             </p>
 
-            <div *ngIf="errorMessage" class="alert-box error-alert">
-                <i class="fa-solid fa-circle-exclamation"></i>
-                <span>{{ errorMessage }}</span>
-            </div>
+            
 
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
@@ -66,9 +63,13 @@
                             formControlName="password"
                             placeholder="Enter your password">
 
-                        <i
-                            [class]="showPassword ? 'fa-regular fa-eye-slash eye-icon' : 'fa-regular fa-eye eye-icon'"
-                            (click)="toggleShowPassword()"></i>
+                        <button
+                            type="button"
+                            class="eye-icon"
+                            [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+                            (click)="toggleShowPassword()">
+                            <i [class]="showPassword ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'"></i>
+                        </button>
 
                     </div>
 

@@ -10,7 +10,8 @@ import { MenuResponseDto, SpecialMenuDto } from '../../core/models/menu-response
 })
 export class AiAssistantComponent implements OnInit {
   title = 'AI Menu Planner';
-  subtitle = 'Inventory-Driven Special Menu Recommendations via GenAI';
+  subtitle =
+'Smart AI-powered recommendations based on inventory, ingredient freshness and sales history.';
 
   isLoading = false;
   errorMessage: string | null = null;
@@ -173,4 +174,19 @@ export class AiAssistantComponent implements OnInit {
     this.selectedPriorityTab = 'ALL';
     this.cdr.markForCheck();
   }
+  get totalEstimatedProfit(): number {
+
+    return this.specialMenuItems.reduce((sum, item) => {
+
+        const value =
+            parseFloat(
+                (this.getProfit(item) || "0")
+                    .replace(/[^\d.]/g, "")
+            );
+
+        return sum + (isNaN(value) ? 0 : value);
+
+    }, 0);
+
+}
 }

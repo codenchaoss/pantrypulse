@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { SettingsService } from '../../core/services/settings.service';
 import { ProfileSettings, NotificationSettings } from '../../core/models/settings.model';
-
+import { ToastService } from '../../shared/toast.service';
 export interface SettingCategory {
   id: string;
   title: string;
@@ -17,13 +17,19 @@ export interface SettingCategory {
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  
 })
 export class SettingsComponent implements OnInit, OnDestroy {
   title = 'Settings';
   subtitle = 'Manage your account, preferences, notifications, AI settings, and security.';
 
-  activeCategory: string = 'profile'; // Default to profile instead of LANDING
+activeCategory:String
+  | 'profile'
+  | 'password'
+  | 'notifications'
+  | 'appearance'
+  | 'security'
+  | 'about' = 'profile'; // Default to profile instead of LANDING
   private routeSub = new Subscription();
 
   // Models for forms
@@ -71,16 +77,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
   errorMessage = '';
   successMessage: string | null = null;
 
-  // Dynamic dropdown list of roles
-  roles = [
-    'Admin',
-    'Restaurant Manager',
-    'Kitchen Manager',
-    'Chef',
-    'Staff',
-    'Inventory Manager',
-    'Supplier Manager'
-  ];
 
   categories: SettingCategory[] = [
     {
@@ -124,14 +120,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
       description: 'View system version status and API endpoint health details.',
       icon: 'ℹ',
       route: '/settings/about'
-    },
-    {
-      id: 'logout',
-      title: 'Logout',
-      description: 'Sign out of your active PantryPulse session.',
-      icon: '🚪',
-      route: '/login',
-      isLogout: true
     }
   ];
 
@@ -139,25 +127,47 @@ export class SettingsComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef,
-    private settingsService: SettingsService
+    private settingsService: SettingsService,
+    private toast: ToastService
   ) {}
+ngOnInit(): void {
 
-  ngOnInit(): void {
-    this.routeSub.add(
-      this.route.params.subscribe(params => {
-        const cat = params['category'];
-        if (cat) {
-          this.activeCategory = cat.toLowerCase();
-          this.loadCategoryData(this.activeCategory);
-        } else {
-          // If accessing /settings, default directly to /settings/profile
-          this.activeCategory = 'profile';
-          this.router.navigate(['/settings/profile'], { replaceUrl: true });
+  this.routeSub.add(
+    this.route.params.subscribe(params => {
+
+      const cat = params['category'];
+
+      const allowed = [
+        'profile',
+        'password',
+        'notifications',
+        'appearance',
+        'security',
+        'about'
+      ] as const;
+
+      if (cat && allowed.includes(cat as any)) {
+        this.activeCategory = cat;
+        console.log('ACTIVE CATEGORY:', this.activeCategory);
+        this.loadCategoryData(cat);
+      } else {
+        this.activeCategory = 'profile';
+
+        if (!cat) {
+          this.router.navigate(['/settings/profile'], {
+            replaceUrl: true
+          });
         }
-        this.cdr.markForCheck();
-      })
-    );
-  }
+
+        this.loadCategoryData('profile');
+      }
+
+      this.cdr.markForCheck();
+
+    })
+  );
+
+}
 
   loadCategoryData(category: string): void {
     this.successMessage = null;
@@ -173,10 +183,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
             phoneNumber: data.phoneNumber || '',
             restaurantName: data.restaurantName || '',
             role: data.role || '',
-            avatar: data.avatar || ''
+            profileImageUrl: data.profileImageUrl || ''
           };
-          if (data.avatar) {
-            this.avatarUrl = data.avatar;
+          if (data.profileImageUrl) {
+            this.avatarUrl = data.profileImageUrl;
           }
           this.isLoading = false;
           this.cdr.markForCheck();
@@ -231,15 +241,20 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.isSaving = true;
       // Sync local avatarUrl back to profile if changed
       if (this.avatarUrl) {
-        this.profile.avatar = this.avatarUrl;
+        this.profile.profileImageUrl = this.avatarUrl;
       }
       this.settingsService.updateProfile(this.profile).subscribe({
-        next: (data) => {
-          this.profile = data;
-          this.isSaving = false;
-          this.successMessage = 'Profile information saved successfully!';
-          this.cdr.markForCheck();
-        },
+       next: (data) => {
+  this.profile = data;
+  this.avatarUrl = data.profileImageUrl || this.avatarUrl;
+  this.isSaving = false;
+
+  // Notify Navbar to reload profile
+  this.settingsService.notifyProfileUpdated();
+
+  this.successMessage = 'Profile information saved successfully!';
+  this.cdr.markForCheck();
+},
         error: (err) => {
           console.error('Failed to save profile', err);
           this.isSaving = false;
@@ -265,43 +280,122 @@ export class SettingsComponent implements OnInit, OnDestroy {
       });
     }
   }
+  
+  
+onFileSelected(event: any): void {
+  
+  const file = event.target.files?.[0];
+  if (!file) return;
 
-  onFileSelected(event: any): void {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.avatarUrl = e.target.result;
-        this.cdr.markForCheck();
-      };
-      reader.readAsDataURL(file);
-    }
-  }
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    const img = new Image();
+
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+
+      const SIZE = 200;
+      canvas.width = SIZE;
+      canvas.height = SIZE;
+
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      // Crop image to a centered square
+      const minSide = Math.min(img.width, img.height);
+      const sx = (img.width - minSide) / 2;
+      const sy = (img.height - minSide) / 2;
+
+      ctx.drawImage(
+        img,
+        sx,
+        sy,
+        minSide,
+        minSide,
+        0,
+        0,
+        SIZE,
+        SIZE
+      );
+      if (file.size > 5 * 1024 * 1024) {
+  this.toast.error(
+    'PantryPulse',
+    'Please choose an image smaller than 5 MB.'
+  );
+  return;
+}
+
+      // Compress to JPEG (80% quality)
+      this.avatarUrl = canvas.toDataURL('image/jpeg', 0.8);
+
+      this.cdr.markForCheck();
+    };
+
+    img.src = reader.result as string;
+  };
+
+  reader.readAsDataURL(file);
+}
 
   removePhoto(): void {
     this.avatarUrl = null;
     this.cdr.markForCheck();
   }
 
-  updatePassword(): void {
-    this.successMessage = null;
-    this.errorMessage = '';
+ updatePassword(): void {
 
-    if (!this.passwordForm.currentPassword || !this.passwordForm.newPassword || !this.passwordForm.confirmPassword) {
-      this.errorMessage = 'Please fill in all password fields.';
-      this.cdr.markForCheck();
-      return;
-    }
-    if (this.passwordForm.newPassword !== this.passwordForm.confirmPassword) {
-      this.errorMessage = 'New password and confirmation password do not match.';
-      this.cdr.markForCheck();
-      return;
-    }
-    this.successMessage = 'Password updated successfully! (Mock Action)';
-    this.passwordForm = { currentPassword: '', newPassword: '', confirmPassword: '' };
+  this.successMessage = null;
+  this.errorMessage = '';
+
+  if (
+    !this.passwordForm.currentPassword ||
+    !this.passwordForm.newPassword ||
+    !this.passwordForm.confirmPassword
+  ) {
+    this.errorMessage = 'Please fill in all password fields.';
     this.cdr.markForCheck();
+    return;
   }
 
+  if (
+    this.passwordForm.newPassword !==
+    this.passwordForm.confirmPassword
+  ) {
+    this.errorMessage =
+      'New password and confirmation password do not match.';
+    this.cdr.markForCheck();
+    return;
+  }
+
+  this.settingsService.changePassword(this.passwordForm).subscribe({
+
+    next: () => {
+
+      this.successMessage =
+        'Password updated successfully!';
+
+      this.passwordForm = {
+        currentPassword: '',
+        newPassword: '',
+        confirmPassword: ''
+      };
+
+      this.cdr.markForCheck();
+    },
+
+   error: (err) => {
+  this.errorMessage =
+    err.error?.message ||
+    err.error ||
+    'Password update failed';
+
+  this.cdr.markForCheck();
+}
+
+  });
+
+}
   changeTheme(theme: string): void {
     this.selectedTheme = theme;
     console.log(`Theme selection updated: ${theme}`);

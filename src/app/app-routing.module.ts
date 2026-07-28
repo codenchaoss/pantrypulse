@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { ExpirationComponent } from './features/expiration/expiration.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { SignupComponent } from './features/auth/signup/signup.component';
 import { ForgotPasswordComponent } from './features/auth/forgot-password/forgot-password.component';
@@ -123,10 +123,10 @@ const routes: Routes = [
         component: AiChatComponent
       },
 
-      {
-        path: 'expiry-tracking',
-        component: DashboardComponent
-      },
+     {
+  path: 'expiration',
+  component: ExpirationComponent
+},
 
       {
         path: 'menu-planner',
