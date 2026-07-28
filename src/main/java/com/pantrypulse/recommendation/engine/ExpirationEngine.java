@@ -24,7 +24,7 @@ public class ExpirationEngine {
 
         long days = calculateDaysRemaining(inventory);
 
-        return days >= 0 && days <= expiryThreshold;
+        return days <= expiryThreshold;
     }
 
 }

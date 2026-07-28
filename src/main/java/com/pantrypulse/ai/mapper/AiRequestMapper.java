@@ -19,7 +19,7 @@ public class AiRequestMapper {
                         .map(item -> InventoryItemDto.builder()
                                 .ingredient(item.getIngredientName())
                                 .quantity(item.getQuantity() + " " + item.getUnit())
-                                .expiryDays((int) item.getDaysRemaining())
+                                .expiryDays((int) Math.max(0, item.getDaysRemaining()))
                                 .build())
                         .toList();
 
