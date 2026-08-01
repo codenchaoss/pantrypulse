@@ -69,7 +69,8 @@ public class SecurityConfig {
 
         configuration.setAllowedOrigins(List.of(
         	    "http://localhost:4200"
-        	));
+                "http://13.49.134.110"
+        ));
 
         configuration.setAllowedMethods(List.of(
                 "GET",
