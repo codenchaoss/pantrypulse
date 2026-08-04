@@ -14,8 +14,8 @@ public class AiConfig {
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
 
         return builder
-                .setConnectTimeout(Duration.ofSeconds(10))
-                .setReadTimeout(Duration.ofSeconds(300))
+        		.connectTimeout(Duration.ofSeconds(10))
+        		.readTimeout(Duration.ofSeconds(300))
                 .build();
     }
 }

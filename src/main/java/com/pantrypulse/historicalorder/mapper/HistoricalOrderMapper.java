@@ -5,6 +5,10 @@ import com.pantrypulse.historicalorder.entity.HistoricalOrder;
 
 public class HistoricalOrderMapper {
 
+    private HistoricalOrderMapper() {
+        // Utility class
+    }
+
     public static HistoricalOrderDto toDto(HistoricalOrder order) {
 
         return HistoricalOrderDto.builder()
@@ -15,5 +19,4 @@ public class HistoricalOrderMapper {
                 .orderDate(order.getOrderDate())
                 .build();
     }
-
 }

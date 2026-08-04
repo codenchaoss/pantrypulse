@@ -1,12 +1,15 @@
 package com.pantrypulse.ai.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
 public class RemainingInventoryDto {
 
     private String ingredient;
-    private Double remaining_quantity;
-    private String unit;
 
+    @JsonProperty("remaining_quantity")
+    private Double remainingQuantity;
+
+    private String unit;
 }

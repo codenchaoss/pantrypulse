@@ -1,7 +1,5 @@
 package com.pantrypulse.supplier.service;
 
-
-
 import com.pantrypulse.exception.ResourceNotFoundException;
 import com.pantrypulse.supplier.dto.SupplierDto;
 import com.pantrypulse.authentication.entity.User;
@@ -15,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class SupplierService {
@@ -23,8 +20,12 @@ public class SupplierService {
     private static final Logger logger =
             LoggerFactory.getLogger(SupplierService.class);
 
+    private static final String SUPPLIER_NOT_FOUND_LOG =
+            "Supplier not found with ID: {}";
+
     private final SupplierRepository supplierRepository;
     private final AuthenticatedUserService authenticatedUserService;
+
     public SupplierService(
             SupplierRepository supplierRepository,
             AuthenticatedUserService authenticatedUserService) {
@@ -32,6 +33,7 @@ public class SupplierService {
         this.supplierRepository = supplierRepository;
         this.authenticatedUserService = authenticatedUserService;
     }
+
     public SupplierDto addSupplier(SupplierDto dto) {
 
         logger.info("Creating supplier: {}", dto.getSupplierName());
@@ -59,7 +61,7 @@ public class SupplierService {
                 .findByOwner(currentUser)
                 .stream()
                 .map(SupplierMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
 
         logger.info("Total suppliers fetched: {}", suppliers.size());
 
@@ -72,10 +74,13 @@ public class SupplierService {
 
         User currentUser = authenticatedUserService.getCurrentUser();
 
-        Supplier supplier = supplierRepository.findByIdAndOwner(id, currentUser)
+        Supplier supplier = supplierRepository
+                .findByIdAndOwner(id, currentUser)
                 .orElseThrow(() -> {
-                    logger.error("Supplier not found with ID: {}", id);
-                    return new ResourceNotFoundException("Supplier not found with id " + id);
+                    logger.error(SUPPLIER_NOT_FOUND_LOG, id);
+                    return new ResourceNotFoundException(
+                            "Supplier not found with id " + id
+                    );
                 });
 
         return SupplierMapper.toDto(supplier);
@@ -87,10 +92,13 @@ public class SupplierService {
 
         User currentUser = authenticatedUserService.getCurrentUser();
 
-        Supplier supplier = supplierRepository.findByIdAndOwner(id, currentUser)
+        Supplier supplier = supplierRepository
+                .findByIdAndOwner(id, currentUser)
                 .orElseThrow(() -> {
-                    logger.error("Supplier not found with ID: {}", id);
-                    return new ResourceNotFoundException("Supplier not found with id " + id);
+                    logger.error(SUPPLIER_NOT_FOUND_LOG, id);
+                    return new ResourceNotFoundException(
+                            "Supplier not found with id " + id
+                    );
                 });
 
         supplier.setSupplierName(dto.getSupplierName());
@@ -103,7 +111,10 @@ public class SupplierService {
 
         Supplier updated = supplierRepository.save(supplier);
 
-        logger.info("Supplier updated successfully with ID: {}", updated.getId());
+        logger.info(
+                "Supplier updated successfully with ID: {}",
+                updated.getId()
+        );
 
         return SupplierMapper.toDto(updated);
     }
@@ -114,10 +125,13 @@ public class SupplierService {
 
         User currentUser = authenticatedUserService.getCurrentUser();
 
-        Supplier supplier = supplierRepository.findByIdAndOwner(id, currentUser)
+        Supplier supplier = supplierRepository
+                .findByIdAndOwner(id, currentUser)
                 .orElseThrow(() -> {
-                    logger.error("Supplier not found with ID: {}", id);
-                    return new ResourceNotFoundException("Supplier not found with id " + id);
+                    logger.error(SUPPLIER_NOT_FOUND_LOG, id);
+                    return new ResourceNotFoundException(
+                            "Supplier not found with id " + id
+                    );
                 });
 
         supplierRepository.delete(supplier);
@@ -130,11 +144,15 @@ public class SupplierService {
         User currentUser = authenticatedUserService.getCurrentUser();
 
         return supplierRepository
-                .findByOwnerAndSupplierNameContainingIgnoreCase(currentUser, supplierName)
+                .findByOwnerAndSupplierNameContainingIgnoreCase(
+                        currentUser,
+                        supplierName
+                )
                 .stream()
                 .map(SupplierMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
+
     public List<SupplierDto> getActiveSuppliers(Boolean active) {
 
         User currentUser = authenticatedUserService.getCurrentUser();
@@ -143,7 +161,6 @@ public class SupplierService {
                 .findByOwnerAndActive(currentUser, active)
                 .stream()
                 .map(SupplierMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
-
 }

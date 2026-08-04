@@ -1,27 +1,40 @@
 package com.pantrypulse.ai.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+
 import java.util.List;
 
 @Data
 public class RecipeDto {
 
-    private String recipe_id;
-    private String recipe_name;
+    @JsonProperty("recipe_id")
+    private String recipeId;
+
+    @JsonProperty("recipe_name")
+    private String recipeName;
+
     private String description;
 
-    private List<String> matched_ingredients;
-    private List<String> missing_ingredients;
+    @JsonProperty("matched_ingredients")
+    private List<String> matchedIngredients;
 
-    private Integer match_percentage;
-    private Integer preparation_time_minutes;
+    @JsonProperty("missing_ingredients")
+    private List<String> missingIngredients;
+
+    @JsonProperty("match_percentage")
+    private Integer matchPercentage;
+
+    @JsonProperty("preparation_time_minutes")
+    private Integer preparationTimeMinutes;
 
     private String difficulty;
 
-    private Integer estimated_calories;
+    @JsonProperty("estimated_calories")
+    private Integer estimatedCalories;
 
-    private String reason_for_recommendation;
+    @JsonProperty("reason_for_recommendation")
+    private String reasonForRecommendation;
 
     private Double confidence;
-
 }

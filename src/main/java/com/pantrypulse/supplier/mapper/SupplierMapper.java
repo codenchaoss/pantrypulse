@@ -5,6 +5,10 @@ import com.pantrypulse.supplier.entity.Supplier;
 
 public class SupplierMapper {
 
+    private SupplierMapper() {
+        
+    }
+
     public static SupplierDto toDto(Supplier supplier) {
 
         return SupplierDto.builder()

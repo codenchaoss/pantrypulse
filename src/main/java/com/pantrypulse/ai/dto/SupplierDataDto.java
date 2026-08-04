@@ -1,16 +1,21 @@
 package com.pantrypulse.ai.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
 public class SupplierDataDto {
 
-    private String supplier_name;
+    @JsonProperty("supplier_name")
+    private String supplierName;
+
     private String ingredient;
     private String message;
     private String language;
     private String subject;
-    private String order_id;
-    private String urgency;
 
+    @JsonProperty("order_id")
+    private String orderId;
+
+    private String urgency;
 }

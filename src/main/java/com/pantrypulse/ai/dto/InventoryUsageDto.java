@@ -1,12 +1,15 @@
 package com.pantrypulse.ai.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
 public class InventoryUsageDto {
 
     private String ingredient;
-    private Double used_quantity;
-    private String unit;
 
+    @JsonProperty("used_quantity")
+    private Double usedQuantity;
+
+    private String unit;
 }

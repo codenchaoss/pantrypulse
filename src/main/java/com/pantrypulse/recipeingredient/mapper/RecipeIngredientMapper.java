@@ -5,6 +5,10 @@ import com.pantrypulse.recipeingredient.entity.RecipeIngredient;
 
 public class RecipeIngredientMapper {
 
+    private RecipeIngredientMapper() {
+        // Utility class
+    }
+
     public static RecipeIngredientDto toDto(RecipeIngredient entity) {
 
         return RecipeIngredientDto.builder()

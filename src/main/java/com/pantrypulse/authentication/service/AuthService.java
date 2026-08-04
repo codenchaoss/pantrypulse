@@ -12,6 +12,7 @@ import com.pantrypulse.authentication.entity.Role;
 import com.pantrypulse.authentication.entity.User;
 import com.pantrypulse.authentication.jwt.JwtService;
 import com.pantrypulse.authentication.repository.UserRepository;
+import com.pantrypulse.exception.EmailAlreadyExistsException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,7 +28,9 @@ public class AuthService {
     public String register(RegisterRequest request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("Email already exists");
+            throw new EmailAlreadyExistsException(
+                    "Email already exists"
+            );
         }
 
         User user = User.builder()
@@ -48,9 +51,12 @@ public class AuthService {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
-                        request.getPassword()));
+                        request.getPassword()
+                )
+        );
 
-        String token = jwtService.generateToken(request.getEmail());
+        String token =
+                jwtService.generateToken(request.getEmail());
 
         return new AuthResponse(token);
     }

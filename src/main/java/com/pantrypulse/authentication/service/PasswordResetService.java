@@ -1,6 +1,7 @@
 package com.pantrypulse.authentication.service;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +14,7 @@ import com.pantrypulse.authentication.entity.PasswordResetToken;
 import com.pantrypulse.authentication.entity.User;
 import com.pantrypulse.authentication.repository.PasswordResetTokenRepository;
 import com.pantrypulse.authentication.repository.UserRepository;
+import com.pantrypulse.exception.ResourceNotFoundException;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +23,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PasswordResetService {
 
+    private static final ZoneId APP_ZONE =
+            ZoneId.of("Asia/Kolkata");
+
     private final UserRepository userRepository;
     private final PasswordResetTokenRepository tokenRepository;
     private final PasswordEncoder passwordEncoder;
@@ -28,51 +33,63 @@ public class PasswordResetService {
 
     @Value("${frontend.url}")
     private String frontendUrl;
-@Transactional
-public String forgotPassword(ForgotPasswordRequest request) {
 
-    User user = userRepository.findByEmail(request.getEmail())
-            .orElseThrow(() ->
-                    new RuntimeException("User not found."));
+    @Transactional
+    public String forgotPassword(ForgotPasswordRequest request) {
 
-    PasswordResetToken passwordResetToken =
-            tokenRepository.findByUser(user)
-                    .orElse(new PasswordResetToken());
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User not found."));
 
-    passwordResetToken.setUser(user);
-    passwordResetToken.setToken(UUID.randomUUID().toString());
-    passwordResetToken.setExpiryDate(LocalDateTime.now().plusMinutes(30));
+        PasswordResetToken passwordResetToken =
+                tokenRepository.findByUser(user)
+                        .orElse(new PasswordResetToken());
 
-    tokenRepository.save(passwordResetToken);
+        passwordResetToken.setUser(user);
+        passwordResetToken.setToken(UUID.randomUUID().toString());
 
-    String resetLink =
-            frontendUrl + "/reset-password?token=" + passwordResetToken.getToken();
+        passwordResetToken.setExpiryDate(
+                LocalDateTime.now(APP_ZONE).plusMinutes(30)
+        );
 
-    emailService.sendPasswordResetEmail(
-            user.getEmail(),
-            resetLink);
+        tokenRepository.save(passwordResetToken);
 
-    return "Password reset link sent successfully.";
-}
+        String resetLink =
+                frontendUrl
+                + "/reset-password?token="
+                + passwordResetToken.getToken();
+
+        emailService.sendPasswordResetEmail(
+                user.getEmail(),
+                resetLink
+        );
+
+        return "Password reset link sent successfully.";
+    }
 
     public String resetPassword(ResetPasswordRequest request) {
 
         PasswordResetToken token =
                 tokenRepository.findByToken(request.getToken())
                         .orElseThrow(() ->
-                                new RuntimeException("Invalid reset token."));
+                                new IllegalArgumentException(
+                                        "Invalid reset token."));
 
-        if (token.getExpiryDate().isBefore(LocalDateTime.now())) {
+        if (token.getExpiryDate()
+                .isBefore(LocalDateTime.now(APP_ZONE))) {
 
             tokenRepository.delete(token);
 
-            throw new RuntimeException("Reset token has expired.");
+            throw new IllegalArgumentException(
+                    "Reset token has expired.");
         }
 
         User user = token.getUser();
 
         user.setPassword(
-                passwordEncoder.encode(request.getNewPassword()));
+                passwordEncoder.encode(
+                        request.getNewPassword())
+        );
 
         userRepository.save(user);
 

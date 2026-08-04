@@ -1,5 +1,7 @@
 package com.pantrypulse.recommendation.service;
+
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -18,34 +20,39 @@ import com.pantrypulse.recipe.entity.Recipe;
 import com.pantrypulse.recipeingredient.entity.RecipeIngredient;
 import com.pantrypulse.recipeingredient.repository.RecipeIngredientRepository;
 import com.pantrypulse.recommendation.dto.AiRecommendationInputDto;
-
 import com.pantrypulse.recommendation.dto.CandidateRecipeDto;
 import com.pantrypulse.recommendation.dto.ExpiringIngredientDto;
 
 @Service
 @ConditionalOnProperty(
-	    name = "ai.enabled",
-	    havingValue = "true"
-	)
+        name = "ai.enabled",
+        havingValue = "true"
+)
 public class RecommendationService {
+
+    private static final ZoneId APP_ZONE =
+            ZoneId.of("Asia/Kolkata");
 
     private final ExpirationService expirationService;
     private final RecipeIngredientRepository recipeIngredientRepository;
     private final HistoricalOrderRepository historicalOrderRepository;
     private final AiRequestMapper aiRequestMapper;
     private final AiService aiService;
+
     public RecommendationService(
             ExpirationService expirationService,
             RecipeIngredientRepository recipeIngredientRepository,
             HistoricalOrderRepository historicalOrderRepository,
             AiRequestMapper aiRequestMapper,
             AiService aiService) {
+
         this.expirationService = expirationService;
         this.recipeIngredientRepository = recipeIngredientRepository;
         this.historicalOrderRepository = historicalOrderRepository;
         this.aiRequestMapper = aiRequestMapper;
         this.aiService = aiService;
     }
+
     public MenuResponseDto generateMenu() {
 
         AiRecommendationInputDto input = getRecommendationInput();
@@ -54,12 +61,15 @@ public class RecommendationService {
 
             return MenuResponseDto.builder()
                     .success(false)
-                    .timestamp(LocalDateTime.now().toString())
-                    .message("No expiring ingredients found. Add inventory with upcoming expiry dates.")
+                    .timestamp(LocalDateTime.now(APP_ZONE).toString())
+                    .message(
+                            "No expiring ingredients found. Add inventory with upcoming expiry dates."
+                    )
                     .build();
         }
 
-        MenuRequestDto request = aiRequestMapper.toMenuRequest(input);
+        MenuRequestDto request =
+                aiRequestMapper.toMenuRequest(input);
 
         return aiService.generateMenu(request);
     }
@@ -69,24 +79,29 @@ public class RecommendationService {
         List<ExpiringIngredientDto> expiringIngredients =
                 expirationService.getExpiringIngredients();
 
-        List<CandidateRecipeDto> candidateRecipes = new ArrayList<>();
+        List<CandidateRecipeDto> candidateRecipes =
+                new ArrayList<>();
 
-        Set<Long> processedRecipes = new HashSet<>();
+        Set<Long> processedRecipes =
+                new HashSet<>();
 
         for (ExpiringIngredientDto ingredient : expiringIngredients) {
 
             List<RecipeIngredient> recipeIngredients =
                     recipeIngredientRepository.findByInventoryId(
-                            ingredient.getInventoryId());
+                            ingredient.getInventoryId()
+                    );
 
             for (RecipeIngredient recipeIngredient : recipeIngredients) {
 
-                Recipe recipe = recipeIngredient.getRecipe();
+                Recipe recipe =
+                        recipeIngredient.getRecipe();
 
                 if (processedRecipes.add(recipe.getId())) {
 
                     long popularity =
-                            historicalOrderRepository.countByRecipeId(recipe.getId());
+                            historicalOrderRepository
+                                    .countByRecipeId(recipe.getId());
 
                     candidateRecipes.add(
                             CandidateRecipeDto.builder()
@@ -100,12 +115,15 @@ public class RecommendationService {
         }
 
         candidateRecipes.sort(
-                Comparator.comparing(CandidateRecipeDto::getEstimatedPopularity)
+                Comparator
+                        .comparing(
+                                CandidateRecipeDto::getEstimatedPopularity
+                        )
                         .reversed()
         );
 
         return AiRecommendationInputDto.builder()
-                .generatedAt(LocalDateTime.now())
+                .generatedAt(LocalDateTime.now(APP_ZONE))
                 .expiringIngredients(expiringIngredients)
                 .candidateRecipes(candidateRecipes)
                 .build();

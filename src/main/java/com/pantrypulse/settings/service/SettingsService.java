@@ -13,6 +13,7 @@ import com.pantrypulse.settings.dto.ProfileDto;
 import com.pantrypulse.settings.entity.Settings;
 import com.pantrypulse.settings.mapper.SettingsMapper;
 import com.pantrypulse.settings.repository.SettingsRepository;
+import com.pantrypulse.exception.InvalidPasswordException;
 
 import lombok.RequiredArgsConstructor;
 @Service
@@ -62,14 +63,15 @@ public class SettingsService {
                 request.getCurrentPassword(),
                 currentUser.getPassword())) {
 
-            throw new RuntimeException("Current password is incorrect");
+            throw new InvalidPasswordException(
+                    "Current password is incorrect");
         }
 
-      
+        if (!request.getNewPassword()
+                .equals(request.getConfirmPassword())) {
 
-        if (!request.getNewPassword().equals(request.getConfirmPassword())) {
-
-            throw new RuntimeException("Passwords do not match");
+            throw new InvalidPasswordException(
+                    "Passwords do not match");
         }
 
         currentUser.setPassword(

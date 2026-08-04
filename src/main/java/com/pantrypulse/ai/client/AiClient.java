@@ -5,29 +5,38 @@ import java.time.Instant;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-import lombok.extern.slf4j.Slf4j;
 
 import com.pantrypulse.ai.dto.ChatRequestDto;
 import com.pantrypulse.ai.dto.ChatResponseDto;
 import com.pantrypulse.ai.dto.MenuRequestDto;
-import com.pantrypulse.ai.dto.RecipeRequestDto;
-import com.pantrypulse.ai.dto.RecipeResponseDto;
 import com.pantrypulse.ai.dto.MenuResponseDto;
-import com.pantrypulse.ai.dto.PricingRequestDto;
-import com.pantrypulse.ai.dto.PricingResponseDto;
 import com.pantrypulse.ai.dto.OptimizationRequestDto;
 import com.pantrypulse.ai.dto.OptimizationResponseDto;
+import com.pantrypulse.ai.dto.PricingRequestDto;
+import com.pantrypulse.ai.dto.PricingResponseDto;
+import com.pantrypulse.ai.dto.RecipeRequestDto;
+import com.pantrypulse.ai.dto.RecipeResponseDto;
 import com.pantrypulse.ai.dto.SupplierRequestDto;
 import com.pantrypulse.ai.dto.SupplierResponseDto;
-import org.springframework.web.client.RestClientException;
+
+import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @Component
 @ConditionalOnProperty(
-    name = "ai.enabled",
-    havingValue = "true"
+        name = "ai.enabled",
+        havingValue = "true"
 )
 public class AiClient {
+
+    private static final String AI_EMPTY_RESPONSE =
+            "AI returned empty response.";
+
+    private static final String AI_UNAVAILABLE =
+            "AI service is currently unavailable. Please try again later.";
+
     private final RestTemplate restTemplate;
 
     @Value("${ai.service.url}")
@@ -36,14 +45,14 @@ public class AiClient {
     public AiClient(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
-    
+
     public MenuResponseDto generateMenu(MenuRequestDto request) {
 
         log.info("Sending AI request to {}", aiUrl);
 
-        try {
+        long start = System.currentTimeMillis();
 
-            long start = System.currentTimeMillis();
+        try {
 
             MenuResponseDto response = restTemplate.postForObject(
                     aiUrl + "/menu",
@@ -52,13 +61,14 @@ public class AiClient {
             );
 
             long end = System.currentTimeMillis();
+
             log.info("AI menu generated in {} ms", (end - start));
 
             if (response == null) {
                 return MenuResponseDto.builder()
                         .success(false)
-                        .timestamp(java.time.Instant.now().toString())
-                        .message("AI service returned an empty response.")
+                        .timestamp(Instant.now().toString())
+                        .message(AI_EMPTY_RESPONSE)
                         .build();
             }
 
@@ -70,11 +80,12 @@ public class AiClient {
 
             return MenuResponseDto.builder()
                     .success(false)
-                    .timestamp(java.time.Instant.now().toString())
-                    .message("AI service is currently unavailable. Please try again later.")
+                    .timestamp(Instant.now().toString())
+                    .message(AI_UNAVAILABLE)
                     .build();
         }
     }
+
     public ChatResponseDto chat(ChatRequestDto request) {
 
         log.info("Sending Chat AI request to {}", aiUrl);
@@ -96,8 +107,8 @@ public class AiClient {
             if (response == null) {
                 return ChatResponseDto.builder()
                         .success(false)
-                        .timestamp(java.time.Instant.now().toString())
-                        .message("AI service returned an empty response.")
+                        .timestamp(Instant.now().toString())
+                        .message(AI_EMPTY_RESPONSE)
                         .build();
             }
 
@@ -111,11 +122,13 @@ public class AiClient {
 
             return ChatResponseDto.builder()
                     .success(false)
-                    .timestamp(java.time.Instant.now().toString())
-                    .message("AI service is currently unavailable. Please try again later.")
+                    .timestamp(Instant.now().toString())
+                    .message(AI_UNAVAILABLE)
                     .build();
         }
-    }    public RecipeResponseDto recommendRecipe(RecipeRequestDto request) {
+    }
+
+    public RecipeResponseDto recommendRecipe(RecipeRequestDto request) {
 
         log.info("Sending Recipe AI request to {}", aiUrl);
 
@@ -130,8 +143,9 @@ public class AiClient {
             if (response == null) {
 
                 RecipeResponseDto fallback = new RecipeResponseDto();
+
                 fallback.setSuccess(false);
-                fallback.setTimestamp(java.time.Instant.now().toString());
+                fallback.setTimestamp(Instant.now().toString());
 
                 return fallback;
             }
@@ -143,13 +157,16 @@ public class AiClient {
             log.error("Recipe AI service unavailable", ex);
 
             RecipeResponseDto fallback = new RecipeResponseDto();
+
             fallback.setSuccess(false);
-            fallback.setTimestamp(java.time.Instant.now().toString());
+            fallback.setTimestamp(Instant.now().toString());
 
             return fallback;
         }
     }
-    public SupplierResponseDto generateSupplierMessage(SupplierRequestDto request) {
+
+    public SupplierResponseDto generateSupplierMessage(
+            SupplierRequestDto request) {
 
         log.info("Sending Supplier AI request to {}", aiUrl);
 
@@ -163,10 +180,12 @@ public class AiClient {
 
             if (response == null) {
 
-                SupplierResponseDto fallback = new SupplierResponseDto();
+                SupplierResponseDto fallback =
+                        new SupplierResponseDto();
+
                 fallback.setSuccess(false);
-                fallback.setTimestamp(java.time.Instant.now().toString());
-                fallback.setMessage("AI returned empty response.");
+                fallback.setTimestamp(Instant.now().toString());
+                fallback.setMessage(AI_EMPTY_RESPONSE);
 
                 return fallback;
             }
@@ -177,15 +196,19 @@ public class AiClient {
 
             log.error("Supplier AI service unavailable", ex);
 
-            SupplierResponseDto fallback = new SupplierResponseDto();
+            SupplierResponseDto fallback =
+                    new SupplierResponseDto();
+
             fallback.setSuccess(false);
-            fallback.setTimestamp(java.time.Instant.now().toString());
-            fallback.setMessage("Supplier AI service unavailable.");
+            fallback.setTimestamp(Instant.now().toString());
+            fallback.setMessage(AI_EMPTY_RESPONSE);
 
             return fallback;
         }
     }
-    public PricingResponseDto suggestPricing(PricingRequestDto request) {
+
+    public PricingResponseDto suggestPricing(
+            PricingRequestDto request) {
 
         log.info("Sending Pricing AI request to {}", aiUrl);
 
@@ -199,10 +222,12 @@ public class AiClient {
 
             if (response == null) {
 
-                PricingResponseDto fallback = new PricingResponseDto();
+                PricingResponseDto fallback =
+                        new PricingResponseDto();
+
                 fallback.setSuccess(false);
-                fallback.setTimestamp(java.time.Instant.now().toString());
-                fallback.setMessage("AI returned empty response.");
+                fallback.setTimestamp(Instant.now().toString());
+                fallback.setMessage(AI_EMPTY_RESPONSE);
 
                 return fallback;
             }
@@ -213,14 +238,17 @@ public class AiClient {
 
             log.error("Pricing AI service unavailable", ex);
 
-            PricingResponseDto fallback = new PricingResponseDto();
+            PricingResponseDto fallback =
+                    new PricingResponseDto();
+
             fallback.setSuccess(false);
-            fallback.setTimestamp(java.time.Instant.now().toString());
-            fallback.setMessage("Pricing AI service unavailable.");
+            fallback.setTimestamp(Instant.now().toString());
+            fallback.setMessage(AI_EMPTY_RESPONSE);
 
             return fallback;
         }
     }
+
     public OptimizationResponseDto optimizeInventory(
             OptimizationRequestDto request) {
 
@@ -232,7 +260,8 @@ public class AiClient {
                     restTemplate.postForObject(
                             aiUrl + "/optimization",
                             request,
-                            OptimizationResponseDto.class);
+                            OptimizationResponseDto.class
+                    );
 
             if (response == null) {
 
@@ -240,23 +269,26 @@ public class AiClient {
                         new OptimizationResponseDto();
 
                 fallback.setSuccess(false);
-                fallback.setTimestamp(java.time.Instant.now().toString());
-                fallback.setMessage("AI returned empty response.");
+                fallback.setTimestamp(Instant.now().toString());
+                fallback.setMessage(AI_EMPTY_RESPONSE);
 
                 return fallback;
             }
 
             return response;
 
-        } catch (Exception ex) {
-
-            ex.printStackTrace();
+        } catch (RestClientException ex) {
 
             log.error("Optimization AI failed", ex);
 
-            throw ex;
+            OptimizationResponseDto fallback =
+                    new OptimizationResponseDto();
 
+            fallback.setSuccess(false);
+            fallback.setTimestamp(Instant.now().toString());
+            fallback.setMessage(AI_UNAVAILABLE);
+
+            return fallback;
         }
     }
-
 }

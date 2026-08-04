@@ -1,5 +1,6 @@
 package com.pantrypulse.ai.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
@@ -7,18 +8,24 @@ public class PricingDataDto {
 
     private String dish;
 
-    private Double ingredient_cost;
+    @JsonProperty("ingredient_cost")
+    private Double ingredientCost;
 
-    private Double recommended_price;
+    @JsonProperty("recommended_price")
+    private Double recommendedPrice;
 
-    private Double estimated_profit;
+    @JsonProperty("estimated_profit")
+    private Double estimatedProfit;
 
-    private Double profit_margin;
+    @JsonProperty("profit_margin")
+    private Double profitMargin;
 
-    private String pricing_strategy;
+    @JsonProperty("pricing_strategy")
+    private String pricingStrategy;
 
-    private String market_position;
+    @JsonProperty("market_position")
+    private String marketPosition;
 
-    private Double price_confidence;
-
+    @JsonProperty("price_confidence")
+    private Double priceConfidence;
 }

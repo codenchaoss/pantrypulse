@@ -3,6 +3,8 @@ package com.pantrypulse.config;
 import com.pantrypulse.authentication.jwt.JwtAuthenticationFilter;
 import com.pantrypulse.authentication.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,12 +30,13 @@ public class SecurityConfig {
 
     private final CustomUserDetailsService userDetailsService;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
-
+    @Value("${frontend.url}")
+    private String frontendUrl;
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-                .cors(Customizer.withDefaults())   // <-- ADD THIS
+                .cors(Customizer.withDefaults())   
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -69,8 +72,8 @@ public class SecurityConfig {
 
         configuration.setAllowedOrigins(List.of(
         	    "http://localhost:4200",
-                "http://13.49.134.110"
-        ));
+        		frontendUrl
+        	));
 
         configuration.setAllowedMethods(List.of(
                 "GET",

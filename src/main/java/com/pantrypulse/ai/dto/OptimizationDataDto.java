@@ -1,5 +1,6 @@
 package com.pantrypulse.ai.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.List;
@@ -7,23 +8,30 @@ import java.util.List;
 @Data
 public class OptimizationDataDto {
 
-    private List<RecommendedDishDto> recommended_dishes;
+    @JsonProperty("recommended_dishes")
+    private List<RecommendedDishDto> recommendedDishes;
 
-    private List<InventoryUsageDto> inventory_usage;
+    @JsonProperty("inventory_usage")
+    private List<InventoryUsageDto> inventoryUsage;
 
-    private Double estimated_revenue;
+    @JsonProperty("estimated_revenue")
+    private Double estimatedRevenue;
 
     private String currency;
 
-    private WasteSavedDto waste_saved;
+    @JsonProperty("waste_saved")
+    private WasteSavedDto wasteSaved;
 
-    private List<RemainingInventoryDto> remaining_inventory;
+    @JsonProperty("remaining_inventory")
+    private List<RemainingInventoryDto> remainingInventory;
 
-    private Boolean purchase_required;
-    private List<PurchaseItemDto> purchase_items;
+    @JsonProperty("purchase_required")
+    private Boolean purchaseRequired;
+
+    @JsonProperty("purchase_items")
+    private List<PurchaseItemDto> purchaseItems;
 
     private String reason;
 
     private String language;
-
 }

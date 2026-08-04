@@ -5,6 +5,10 @@ import com.pantrypulse.inventory.entity.Inventory;
 
 public class InventoryMapper {
 
+    private InventoryMapper() {
+        // Utility class
+    }
+
     public static InventoryDto toDto(Inventory inventory) {
 
         return InventoryDto.builder()
