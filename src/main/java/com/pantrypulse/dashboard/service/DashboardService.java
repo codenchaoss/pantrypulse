@@ -1,0 +1,136 @@
+package com.pantrypulse.dashboard.service;
+
+import org.springframework.stereotype.Service;
+import java.time.LocalDate;
+
+import java.util.List;
+import com.pantrypulse.dashboard.dto.RecentRecipeDto;
+import com.pantrypulse.authentication.entity.User;
+import com.pantrypulse.authentication.service.AuthenticatedUserService;
+import com.pantrypulse.dashboard.dto.RecentIngredientDto;
+import com.pantrypulse.dashboard.dto.ExpiryAlertDto;
+import com.pantrypulse.dashboard.dto.DashboardSummaryDto;
+import com.pantrypulse.inventory.repository.InventoryRepository;
+import com.pantrypulse.recipe.repository.RecipeRepository;
+
+@Service
+public class DashboardService {
+
+	private final InventoryRepository inventoryRepository;
+	private final AuthenticatedUserService authenticatedUserService;
+
+	private final RecipeRepository recipeRepository;
+
+	public DashboardService(
+	        InventoryRepository inventoryRepository,
+	        RecipeRepository recipeRepository,
+	        AuthenticatedUserService authenticatedUserService) {
+
+	    this.inventoryRepository = inventoryRepository;
+	    this.recipeRepository = recipeRepository;
+	    this.authenticatedUserService = authenticatedUserService;
+	}
+
+	public DashboardSummaryDto getSummary() {
+		
+
+		    User currentUser = authenticatedUserService.getCurrentUser();
+
+		    DashboardSummaryDto dto = new DashboardSummaryDto();
+
+
+		dto.setTotalIngredients(
+		        inventoryRepository.countByOwner(currentUser)
+		);
+
+		dto.setTotalRecipes(recipeRepository.countByOwner(currentUser));
+
+		dto.setLowStockItems(
+		        inventoryRepository.countLowStockItems(currentUser)
+		);
+
+		dto.setExpiringSoon(
+		        inventoryRepository.countExpiringSoon(
+		                currentUser,
+		                LocalDate.now().plusDays(7)
+		        )
+		);
+
+		dto.setExpiredItems(
+		        inventoryRepository.countExpiredItems(currentUser)
+		);
+		List<RecentIngredientDto> recentIngredients = inventoryRepository.findTop5ByOwnerOrderByIdDesc(currentUser).stream()
+				.map(item -> {
+
+					RecentIngredientDto r = new RecentIngredientDto();
+
+					r.setIngredient(item.getIngredientName());
+
+					r.setQuantity(item.getQuantity());
+
+					r.setExpiry(item.getExpiryDate().toString());
+
+					if (item.getQuantity() <= item.getMinimumStock()) {
+						r.setStatus("Low Stock");
+					} else {
+						r.setStatus("Available");
+					}
+
+					return r;
+
+				}).toList();
+
+		dto.setRecentIngredients(recentIngredients);
+		List<RecentRecipeDto> recentRecipes = recipeRepository.findTop5ByOwnerOrderByIdDesc(currentUser).stream().map(recipe -> {
+
+			RecentRecipeDto r = new RecentRecipeDto();
+
+			r.setRecipeName(recipe.getRecipeName());
+
+			r.setCategory(recipe.getCategory().name());
+
+			r.setPrepTime(recipe.getPreparationTime() + " mins");
+
+			if (Boolean.TRUE.equals(recipe.getAvailable())) {
+				r.setStatus("Available");
+			} else {
+				r.setStatus("Unavailable");
+			}
+
+			return r;
+
+		}).toList();
+
+		dto.setRecentRecipes(recentRecipes);
+		List<ExpiryAlertDto> expiryAlerts = inventoryRepository.findTop5ByOwnerOrderByExpiryDateAsc(currentUser).stream().map(item -> {
+
+			ExpiryAlertDto e = new ExpiryAlertDto();
+
+			e.setIngredient(item.getIngredientName());
+
+			e.setQuantity(item.getQuantity());
+
+			if (item.getExpiryDate().isBefore(LocalDate.now())) {
+
+				e.setAlertStatus("Expired");
+
+			} else if (item.getExpiryDate().isEqual(LocalDate.now())) {
+
+				e.setAlertStatus("Expiring Today");
+
+			} else {
+
+				long days = LocalDate.now().until(item.getExpiryDate()).getDays();
+
+				e.setAlertStatus("Expires in " + days + " days");
+
+			}
+
+			return e;
+
+		}).toList();
+
+		dto.setExpiryAlerts(expiryAlerts);
+		return dto;
+	}
+}
